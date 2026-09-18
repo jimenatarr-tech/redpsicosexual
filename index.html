@@ -257,14 +257,29 @@
             object-fit: cover;
         }
 
-        /* Sección de Reels (Carrusel de Portadas) */
-        .reels-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        /* --- CARRUSEL AUTOMÁTICO DE REELS ("Datita copada") --- */
+        .carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .reels-carousel {
+            display: flex;
             gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Oculta scroll en Firefox */
+            padding: 10px 5px;
+            width: 100%;
+        }
+
+        .reels-carousel::-webkit-scrollbar {
+            display: none; /* Oculta scroll en Chrome/Safari */
         }
 
         .reel-card {
+            flex: 0 0 220px;
             background-color: var(--card-color);
             border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 16px;
@@ -295,7 +310,7 @@
 
         .reel-info h4 {
             margin: 0 0 8px 0;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             color: #2a1f1e;
         }
@@ -304,6 +319,40 @@
             font-size: 12px;
             font-weight: 600;
             color: var(--accent-main);
+        }
+
+        /* Botones de Flechas del Carrusel */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(42, 31, 30, 0.85);
+            color: #fff;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--accent-main);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .carousel-btn.prev {
+            left: -20px;
+        }
+
+        .carousel-btn.next {
+            right: -20px;
         }
 
         /* Enlaces / Recursos */
@@ -354,7 +403,7 @@
             margin-top: 60px;
         }
 
-        /* Responsive para celulares: Carruseles deslizantes horizontales */
+        /* Responsive para celulares */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -375,8 +424,7 @@
                 display: flex;
             }
 
-            /* Hacemos que las grillas se deslizen horizontalmente en celu */
-            .team-grid, .reels-grid {
+            .team-grid {
                 display: flex;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
@@ -385,9 +433,14 @@
                 -webkit-overflow-scrolling: touch;
             }
 
-            .team-grid > *, .reels-grid > * {
-                flex: 0 0 75%;
+            .team-grid > * {
+                flex: 0 0 85%;
                 scroll-snap-align: center;
+            }
+
+            /* En celu ocultamos las flechas flotantes para que deslicen con el dedo cómodamente */
+            .carousel-btn {
+                display: none;
             }
         }
     </style>
@@ -407,7 +460,7 @@
         </button>
         <nav class="nav-links" id="navLinks">
             <a href="#nosotras" onclick="toggleMenu()">Quiénes Somos</a>
-            <a href="#reels" onclick="toggleMenu()">Reels</a>
+            <a href="#reels" onclick="toggleMenu()">Datita copada</a>
             <a href="#recursos" onclick="toggleMenu()">Recursos</a>
             <a href="https://instagram.com/red.psicosexual" target="_blank" class="insta-btn">Instagram ↗</a>
         </nav>
@@ -456,112 +509,116 @@
             </div>
         </section>
 
-        <!-- Sección: Carrusel de Reels con sus Portadas -->
+        <!-- Sección: Datita copada (Carrusel Automático con Flechas y Pause al pasar el cursor) -->
         <section id="reels">
-            <div class="section-heading">Nuestros Reels en Instagram</div>
-            <div class="reels-grid">
-                <!-- queesVIH -->
-                <a href="https://www.instagram.com/p/DZCwVwCxCPj/" target="_blank" class="reel-card">
-                    <img src="queesVIH.jpg" alt="¿Qué es el VIH?" class="reel-img">
-                    <div class="reel-info">
-                        <h4>¿Qué es el VIH?</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- vacuna -->
-                <a href="https://www.instagram.com/p/DdK0CGXs_vR/" target="_blank" class="reel-card">
-                    <img src="vacuna.jpg" alt="Y la vacuna?" class="reel-img">
-                    <div class="reel-info">
-                        <h4>¿Y la vacuna?</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- saludsexual -->
-                <a href="https://www.instagram.com/p/DbtLZ7sxYUc/" target="_blank" class="reel-card">
-                    <img src="saludsexual.jpg" alt="Salud Sexual" class="reel-img">
-                    <div class="reel-info">
-                        <h4>Salud Sexual</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- grupos -->
-                <a href="https://www.instagram.com/p/DbmQWDSMcSn/" target="_blank" class="reel-card">
-                    <img src="grupos.jpg" alt="Grupos de pares" class="reel-img">
-                    <div class="reel-info">
-                        <h4>Grupos de pares</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- mipareja -->
-                <a href="https://www.instagram.com/p/DbT_nQWhLKj/" target="_blank" class="reel-card">
-                    <img src="mipareja.jpg" alt="Mi pareja tiene VIH" class="reel-img">
-                    <div class="reel-info">
-                        <h4>Mi pareja tiene VIH</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- I=I -->
-                <a href="https://www.instagram.com/p/Da5uYpqxWgn/" target="_blank" class="reel-card">
-                    <img src="I=I.jpg" alt="I=I" class="reel-img">
-                    <div class="reel-info">
-                        <h4>I = I</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- subjetividad -->
-                <a href="https://www.instagram.com/p/Dax2uP1RBtt/" target="_blank" class="reel-card">
-                    <img src="subjetividad.jpg" alt="Subjetividad" class="reel-img">
-                    <div class="reel-info">
-                        <h4>Subjetividad</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- chimpance -->
-                <a href="https://www.instagram.com/p/DadMGZZRYbF/" target="_blank" class="reel-card">
-                    <img src="chimpance.jpg" alt="El VIH nació del chimpancé?" class="reel-img">
-                    <div class="reel-info">
-                        <h4>¿El VIH nació del chimpancé?</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- estigma -->
-                <a href="https://www.instagram.com/p/DaQTxQLxoLi/" target="_blank" class="reel-card">
-                    <img src="estigma.jpg" alt="Estigma internalizado" class="reel-img">
-                    <div class="reel-info">
-                        <h4>Estigma internalizado</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- dianacional -->
-                <a href="https://www.instagram.com/p/DaGZizqJeZY/" target="_blank" class="reel-card">
-                    <img src="dianacional.jpg" alt="Día de la prueba del VIH" class="reel-img">
-                    <div class="reel-info">
-                        <h4>Día de la prueba del VIH</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- steal -->
-                <a href="https://www.instagram.com/p/DZ7tu9cR3Av/" target="_blank" class="reel-card">
-                    <img src="steal.jpg" alt="Stealthing" class="reel-img">
-                    <div class="reel-info">
-                        <h4>Stealthing: ¿Qué es?</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
-                <!-- dejarde -->
-                <a href="https://www.instagram.com/p/DZpp_bvOleI/" target="_blank" class="reel-card">
-                    <img src="dejarde.jpg" alt="El VIH puede dejar de transmitirse" class="reel-img">
-                    <div class="reel-info">
-                        <h4>El VIH puede dejar de transmitirse</h4>
-                        <span>Ver en Instagram ↗</span>
-                    </div>
-                </a>
+            <div class="section-heading">Datita copada</div>
+            <div class="carousel-wrapper" id="carouselWrapper">
+                <button class="carousel-btn prev" onclick="scrollCarousel(-1)">&#10094;</button>
+                <div class="reels-carousel" id="reelsCarousel">
+                    <!-- queesVIH -->
+                    <a href="https://www.instagram.com/p/DZCwVwCxCPj/" target="_blank" class="reel-card">
+                        <img src="queesVIH.png" alt="¿Qué es el VIH?" class="reel-img">
+                        <div class="reel-info">
+                            <h4>¿Qué es el VIH?</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- vacuna -->
+                    <a href="https://www.instagram.com/p/DdK0CGXs_vR/" target="_blank" class="reel-card">
+                        <img src="vacuna.png" alt="Y la vacuna?" class="reel-img">
+                        <div class="reel-info">
+                            <h4>¿Y la vacuna?</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- saludsexual -->
+                    <a href="https://www.instagram.com/p/DbtLZ7sxYUc/" target="_blank" class="reel-card">
+                        <img src="saludsexual.png" alt="Salud Sexual" class="reel-img">
+                        <div class="reel-info">
+                            <h4>Salud Sexual</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- grupos -->
+                    <a href="https://www.instagram.com/p/DbmQWDSMcSn/" target="_blank" class="reel-card">
+                        <img src="grupos.png" alt="Grupos de pares" class="reel-img">
+                        <div class="reel-info">
+                            <h4>Grupos de pares</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- mipareja -->
+                    <a href="https://www.instagram.com/p/DbT_nQWhLKj/" target="_blank" class="reel-card">
+                        <img src="mipareja.png" alt="Mi pareja tiene VIH" class="reel-img">
+                        <div class="reel-info">
+                            <h4>Mi pareja tiene VIH</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- I=I -->
+                    <a href="https://www.instagram.com/p/Da5uYpqxWgn/" target="_blank" class="reel-card">
+                        <img src="I=I.png" alt="I=I" class="reel-img">
+                        <div class="reel-info">
+                            <h4>I = I</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- subjetividad -->
+                    <a href="https://www.instagram.com/p/Dax2uP1RBtt/" target="_blank" class="reel-card">
+                        <img src="subjetividad.png" alt="Subjetividad" class="reel-img">
+                        <div class="reel-info">
+                            <h4>Subjetividad</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- chimpance -->
+                    <a href="https://www.instagram.com/p/DadMGZZRYbF/" target="_blank" class="reel-card">
+                        <img src="chimpance.png" alt="El VIH nació del chimpancé?" class="reel-img">
+                        <div class="reel-info">
+                            <h4>¿El VIH nació del chimpancé?</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- estigma -->
+                    <a href="https://www.instagram.com/p/DaQTxQLxoLi/" target="_blank" class="reel-card">
+                        <img src="estigma.png" alt="Estigma internalizado" class="reel-img">
+                        <div class="reel-info">
+                            <h4>Estigma internalizado</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- dianacional -->
+                    <a href="https://www.instagram.com/p/DaGZizqJeZY/" target="_blank" class="reel-card">
+                        <img src="dianacional.png" alt="Día de la prueba del VIH" class="reel-img">
+                        <div class="reel-info">
+                            <h4>Día de la prueba del VIH</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- steal -->
+                    <a href="https://www.instagram.com/p/DZ7tu9cR3Av/" target="_blank" class="reel-card">
+                        <img src="steal.png" alt="Stealthing" class="reel-img">
+                        <div class="reel-info">
+                            <h4>Stealthing: ¿Qué es?</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                    <!-- dejarde -->
+                    <a href="https://www.instagram.com/p/DZpp_bvOleI/" target="_blank" class="reel-card">
+                        <img src="dejarde.png" alt="El VIH puede dejar de transmitirse" class="reel-img">
+                        <div class="reel-info">
+                            <h4>El VIH puede dejar de transmitirse</h4>
+                            <span>Ver en Instagram ↗</span>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel(1)">&#10095;</button>
             </div>
         </section>
 
         <!-- Datita Copada / Recursos -->
         <section id="recursos">
-            <div class="section-heading">Datita Copada & Recursos Clave</div>
+            <div class="section-heading">Recursos Clave</div>
             <div class="resources-grid">
                 <a href="https://www.argentina.gob.ar/salud/vih-sida/donde-hacerse-el-test" target="_blank" class="resource-card">
                     <div>
@@ -587,12 +644,45 @@
         Red Psicosexual — Construyendo redes y cuidados colectivos © 2026
     </footer>
 
-    <!-- Script para abrir/cerrar menú en celu -->
+    <!-- Script para el menú y el movimiento automático del carrusel con pausa al pasar el cursor -->
     <script>
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
             nav.classList.toggle('active');
         }
+
+        const carousel = document.getElementById('reelsCarousel');
+        const wrapper = document.getElementById('carouselWrapper');
+
+        function scrollCarousel(direction) {
+            const scrollAmount = 260; // Ancho aproximado de cada tarjeta + gap
+            carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Movimiento automático suave
+        let autoScroll = setInterval(() => {
+            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                carousel.scrollTo({ left: 0, behavior: 'smooth' }); // Vuelve al inicio si llega al final
+            } else {
+                carousel.scrollBy({ left: 260, behavior: 'smooth' });
+            }
+        }, 3000); // Cambia de tarjeta cada 3 segundos
+
+        // Pausar cuando se pone el cursor encima
+        wrapper.addEventListener('mouseenter', () => {
+            clearInterval(autoScroll);
+        });
+
+        // Reanudar cuando se saca el cursor
+        wrapper.addEventListener('mouseleave', () => {
+            autoScroll = setInterval(() => {
+                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    carousel.scrollBy({ left: 260, behavior: 'smooth' });
+                }
+            }, 3000);
+        });
     </script>
 
 </body>
