@@ -175,7 +175,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
-            align-items: center; /* Alinea los elementos al centro verticalmente */
+            align-items: center;
         }
 
         .team-card {
@@ -233,7 +233,7 @@
             color: #fff;
         }
 
-        /* Contenedor limpio para el video que ya trae el celular de Canva */
+        /* Contenedor del video sin fondo blanco */
         .video-container {
             width: 100%;
             max-width: 280px;
@@ -241,6 +241,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: transparent;
+            box-shadow: none;
+            border: none;
         }
 
         .video-container video {
@@ -365,7 +368,7 @@
                     <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                 </div>
 
-                <!-- Video limpio con el marco de Canva -->
+                <!-- Video limpio sin fondo blanco -->
                 <div class="video-container">
                     <video controls autoplay muted loop playsinline>
                         <source src="presentacion.mp4" type="video/mp4">
