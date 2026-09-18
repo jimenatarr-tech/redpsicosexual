@@ -170,10 +170,10 @@
             color: #2a1f1e;
         }
 
-        /* Grilla de 3 columnas (Jimena, Video con marco, Brenda) */
+        /* Grilla adaptable: En compu es grid de 3, en celu se vuelve deslizante (carrusel) */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             align-items: center;
         }
@@ -246,6 +246,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            box-sizing: border-box;
         }
 
         .phone-mockup-container video {
@@ -304,7 +305,7 @@
             margin-top: 60px;
         }
 
-        /* Responsive para celulares */
+        /* Responsive para celulares: Se convierte en carrusel horizontal deslizante */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -323,6 +324,21 @@
             }
             .menu-toggle {
                 display: flex;
+            }
+
+            /* Hacemos que se deslice de manera horizontal en celulares */
+            .team-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 15px;
+                padding-bottom: 15px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .team-grid > * {
+                flex: 0 0 85%;
+                scroll-snap-align: center;
             }
         }
     </style>
@@ -356,7 +372,7 @@
             <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
         </div>
 
-        <!-- Quiénes Somos / Equipo con el Video en el medio -->
+        <!-- Quiénes Somos / Equipo con desplazamiento horizontal en celu -->
         <section id="nosotras">
             <div class="section-heading">Quiénes Somos</div>
             <div class="team-grid">
@@ -370,7 +386,7 @@
                     <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                 </div>
 
-                <!-- Video limpio dentro del Mockup de celular creado por código -->
+                <!-- Video limpio dentro del Mockup de celular -->
                 <div class="phone-mockup-container">
                     <video controls autoplay muted loop playsinline>
                         <source src="presentacion.mp4" type="video/mp4">
