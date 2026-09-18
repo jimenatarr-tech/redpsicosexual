@@ -83,7 +83,7 @@
             color: #ffffff;
         }
 
-        /* Estilos del Menú Desplegable (Dropdown) */
+        /* Estilos del Menú Desplegable (Dropdown) Centrado */
         .dropdown {
             position: relative;
         }
@@ -92,7 +92,8 @@
             display: none;
             position: absolute;
             top: 100%;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             background-color: rgba(42, 31, 30, 0.98);
             min-width: 220px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
@@ -101,7 +102,8 @@
             border: 1px solid rgba(193, 149, 146, 0.3);
             z-index: 1100;
             list-style: none;
-            margin-top: 8px;
+            margin-top: 12px;
+            text-align: center;
         }
 
         .dropdown-menu li a {
@@ -119,7 +121,6 @@
             color: #ffffff;
         }
 
-        /* Mostrar con hover en compu, y con clase active en celular o click */
         .dropdown:hover .dropdown-menu {
             display: block;
         }
@@ -473,6 +474,14 @@
             display: block;
         }
 
+        /* Mensaje inicial cuando está cerrado */
+        .vih-welcome-box {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            font-style: italic;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
@@ -648,10 +657,12 @@
 
             .dropdown-menu {
                 position: static;
+                transform: none;
                 box-shadow: none;
                 background-color: rgba(0, 0, 0, 0.2);
                 border: none;
                 padding-left: 15px;
+                text-align: left;
             }
 
             .team-grid {
@@ -844,7 +855,7 @@
                 
                 <!-- Botonera de selección -->
                 <div class="vih-tabs-grid">
-                    <button class="vih-tab-btn active" onclick="openTab(event, 'tab-positivo')">Test Positivo</button>
+                    <button class="vih-tab-btn" onclick="openTab(event, 'tab-positivo')">Test Positivo</button>
                     <button class="vih-tab-btn" onclick="openTab(event, 'tab-quees')">¿Qué es el VIH?</button>
                     <button class="vih-tab-btn" onclick="openTab(event, 'tab-transmision')">Formas de transmisión</button>
                     <button class="vih-tab-btn" onclick="openTab(event, 'tab-sida')">VIH &ne; sida</button>
@@ -853,8 +864,13 @@
                     <button class="vih-tab-btn" onclick="openTab(event, 'tab-ley')">Ley de VIH</button>
                 </div>
 
+                <!-- Mensaje inicial de bienvenida (Cerrado por defecto) -->
+                <div id="tab-bienvenida" class="vih-content-box active vih-welcome-box">
+                    <p>👇 Seleccioná una de las opciones de arriba para ver la información detallada.</p>
+                </div>
+
                 <!-- Contenidos de cada pestaña -->
-                <div id="tab-positivo" class="vih-content-box active">
+                <div id="tab-positivo" class="vih-content-box">
                     <h4>Test Positivo</h4>
                     <p style="margin-bottom: 20px;">Recibir un resultado positivo puede generar muchas emociones juntas, pero es fundamental saber que <strong>hoy en día el VIH es una condición crónica manejable</strong> y que con la atención médica adecuada vas a tener una excelente calidad de vida.</p>
                     
@@ -923,7 +939,7 @@
 
                 <div id="tab-ii" class="vih-content-box">
                     <h4>I = I (Indetectable = Intransmisible)</h4>
-                    <p>Cuando una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
+                    <p>Когда una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
                 </div>
 
                 <div id="tab-prep" class="vih-content-box">
