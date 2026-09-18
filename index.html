@@ -170,7 +170,7 @@
             color: #2a1f1e;
         }
 
-        /* Grilla de 3 columnas (Jimena, Video, Brenda) */
+        /* Grilla de 3 columnas (Jimena, Video con marco, Brenda) */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -233,25 +233,27 @@
             color: #fff;
         }
 
-        /* Contenedor del video limpio sin fondo blanco */
-        .video-container {
+        /* Mockup de Celular generado por código (Marco elegante marrón/rosado oscuro) */
+        .phone-mockup-container {
             width: 100%;
-            max-width: 280px;
+            max-width: 250px;
             margin: 0 auto;
+            background-color: #2a1f1e;
+            border-radius: 28px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 3px solid #4a3533;
             display: flex;
-            align-items: center;
             justify-content: center;
-            background: transparent;
-            box-shadow: none;
-            border: none;
+            align-items: center;
         }
 
-        .video-container video {
+        .phone-mockup-container video {
             width: 100%;
             height: auto;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-radius: 20px;
             display: block;
+            object-fit: cover;
         }
 
         /* Enlaces / Recursos */
@@ -354,22 +356,22 @@
             <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
         </div>
 
-        <!-- Quiénes Somos / Equipo con el Video en el medio -->
+        <!-- Quiénes Somos / Equipo con el Video en el medio con marco de celular -->
         <section id="nosotras">
             <div class="section-heading">Quiénes Somos & Presentación</div>
             <div class="team-grid">
                 <!-- Tarjeta Jimena -->
                 <div class="team-card">
                     <div>
-                        <img src="Jime.jpg" alt="Jimena" class="team-img">
+                        <img src="Jime.jpg" alt="Jimena" class="team-img">[cite: 8]
                         <h3>Jimena</h3>
                         <p>Estudiante de Psicología Social y Trabajo Social. Voluntaria en el Hospital Tornú (grupo de pares de VIH) y en Fundación Huésped (Redes Educativas, ESI).</p>
                     </div>
                     <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                 </div>
 
-                <!-- Video limpio sin fondo blanco en el medio -->
-                <div class="video-container">
+                <!-- Video limpio dentro del Mockup de celular creado por código -->
+                <div class="phone-mockup-container">
                     <video controls autoplay muted loop playsinline>
                         <source src="presentacion.mp4" type="video/mp4">
                         Tu navegador no soporta la reproducción de videos.
@@ -379,7 +381,7 @@
                 <!-- Tarjeta Brenda -->
                 <div class="team-card">
                     <div>
-                        <img src="brenda.jpg" alt="Brenda" class="team-img">
+                        <img src="brenda.jpg" alt="Brenda" class="team-img">[cite: 9]
                         <h3>Brenda</h3>
                         <p>Estudiante de Psicología. Próximamente más información sobre su recorrido y enfoque dentro de la red.</p>
                     </div>
