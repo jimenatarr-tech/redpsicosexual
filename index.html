@@ -278,7 +278,7 @@
             display: none;
         }
 
-        /* Tarjeta compacta solo con la imagen limpia */
+        /* Tarjeta compacta con efecto hover y aviso de clic */
         .reel-card {
             flex: 0 0 210px;
             background-color: var(--card-color);
@@ -287,6 +287,7 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
             text-decoration: none;
+            position: relative;
             display: flex;
             flex-direction: column;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -294,7 +295,7 @@
 
         .reel-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .reel-img {
@@ -302,6 +303,40 @@
             aspect-ratio: 9/16;
             object-fit: cover;
             display: block;
+            transition: filter 0.2s;
+        }
+
+        /* Capa sutil que aparece al pasar el mouse invitando a ver el video */
+        .reel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(42, 31, 30, 0.65);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 15px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .reel-card:hover .reel-overlay {
+            opacity: 1;
+        }
+
+        .reel-overlay span {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
+            background-color: var(--accent-main);
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         /* Botones de Flechas del Carrusel */
@@ -424,6 +459,14 @@
             .carousel-btn {
                 display: none;
             }
+
+            /* En celu dejamos visible el aviso para que sepan que se puede tocar */
+            .reel-overlay {
+                opacity: 0.85;
+                background: linear-gradient(to top, rgba(42, 31, 30, 0.8), transparent);
+                justify-content: flex-end;
+                padding-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -500,50 +543,86 @@
                     <!-- queesVIH -->
                     <a href="https://www.instagram.com/p/DZCwVwCxCPj/" target="_blank" class="reel-card">
                         <img src="queesVIH.png" alt="¿Qué es el VIH?" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- vacuna -->
                     <a href="https://www.instagram.com/p/DdK0CGXs_vR/" target="_blank" class="reel-card">
                         <img src="vacuna.png" alt="Y la vacuna?" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- saludsexual -->
                     <a href="https://www.instagram.com/p/DbtLZ7sxYUc/" target="_blank" class="reel-card">
                         <img src="saludsexual.png" alt="Salud Sexual" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- grupos -->
                     <a href="https://www.instagram.com/p/DbmQWDSMcSn/" target="_blank" class="reel-card">
                         <img src="grupos.png" alt="Grupos de pares" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- mipareja -->
                     <a href="https://www.instagram.com/p/DbT_nQWhLKj/" target="_blank" class="reel-card">
                         <img src="mipareja.png" alt="Mi pareja tiene VIH" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- I=I -->
                     <a href="https://www.instagram.com/p/Da5uYpqxWgn/" target="_blank" class="reel-card">
                         <img src="I=I.png" alt="I=I" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- subjetividad -->
                     <a href="https://www.instagram.com/p/Dax2uP1RBtt/" target="_blank" class="reel-card">
                         <img src="subjetividad.png" alt="Subjetividad" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- chimpance -->
                     <a href="https://www.instagram.com/p/DadMGZZRYbF/" target="_blank" class="reel-card">
                         <img src="chimpance.png" alt="El VIH nació del chimpancé?" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- estigma -->
                     <a href="https://www.instagram.com/p/DaQTxQLxoLi/" target="_blank" class="reel-card">
                         <img src="estigma.png" alt="Estigma internalizado" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- dianacional -->
                     <a href="https://www.instagram.com/p/DaGZizqJeZY/" target="_blank" class="reel-card">
                         <img src="dianacional.png" alt="Día de la prueba del VIH" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- steal -->
                     <a href="https://www.instagram.com/p/DZ7tu9cR3Av/" target="_blank" class="reel-card">
                         <img src="steal.png" alt="Stealthing" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                     <!-- dejarde -->
                     <a href="https://www.instagram.com/p/DZpp_bvOleI/" target="_blank" class="reel-card">
                         <img src="dejarde.png" alt="El VIH puede dejar de transmitirse" class="reel-img">
+                        <div class="reel-overlay">
+                            <span>Ver reel ↗</span>
+                        </div>
                     </a>
                 </div>
                 <button class="carousel-btn next" onclick="scrollCarousel(1)">&#10095;</button>
@@ -589,18 +668,18 @@
         const wrapper = document.getElementById('carouselWrapper');
 
         function scrollCarousel(direction) {
-            const scrollAmount = 230; // Ancho aproximado de la tarjeta + gap
+            const scrollAmount = 230;
             carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
         // Movimiento automático suave
         let autoScroll = setInterval(() => {
             if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                carousel.scrollTo({ left: 0, behavior: 'smooth' }); // Vuelve al inicio si llega al final
+                carousel.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
                 carousel.scrollBy({ left: 230, behavior: 'smooth' });
             }
-        }, 3000); // Cambia de tarjeta cada 3 segundos
+        }, 3000);
 
         // Pausar cuando se pone el cursor encima
         wrapper.addEventListener('mouseenter', () => {
