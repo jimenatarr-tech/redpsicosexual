@@ -257,57 +257,7 @@
             object-fit: cover;
         }
 
-        /* --- NUEVA SECCIÓN: Test de VIH positivo --- */
-        .info-card {
-            background-color: var(--card-color);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-            line-height: 1.6;
-        }
-
-        .info-card h3 {
-            color: #2a1f1e;
-            font-size: 20px;
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-
-        .info-card p {
-            color: #444;
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-
-        .info-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-            margin-bottom: 25px;
-        }
-
-        .step-box {
-            background-color: #fcf4f3;
-            border-left: 4px solid var(--accent-main);
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .step-box h4 {
-            margin: 0 0 8px 0;
-            font-size: 16px;
-            color: #2a1f1e;
-        }
-
-        .step-box p {
-            margin: 0;
-            font-size: 13px;
-            color: #555;
-        }
-
-        /* --- CARRUSEL AUTOMÁTICO DE REELS ("Datita copada") --- */
+        /* --- CARRUSEL AUTOMÁTICO DE REELS (Reels Informativos) --- */
         .carousel-wrapper {
             position: relative;
             display: flex;
@@ -352,7 +302,6 @@
             aspect-ratio: 9/16;
             object-fit: cover;
             display: block;
-            transition: filter 0.2s;
         }
 
         .reel-overlay {
@@ -387,7 +336,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* Botones de Flechas del Carrusel */
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -419,6 +367,60 @@
 
         .carousel-btn.next {
             right: -20px;
+        }
+
+        /* --- SECCIÓN TODO SOBRE VIH (Acordeón desplegable) --- */
+        .vih-section-container {
+            background-color: var(--card-color);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid rgba(193, 149, 146, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .accordion-header {
+            width: 100%;
+            background-color: #fcf4f3;
+            border: none;
+            padding: 16px 20px;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2a1f1e;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+            margin-bottom: 8px;
+        }
+
+        .accordion-header:hover {
+            background-color: #f5e4e1;
+        }
+
+        .accordion-header span.icon {
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px 20px 25px 20px;
+            color: #444;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .accordion-content.active {
+            display: block;
         }
 
         /* Enlaces / Recursos */
@@ -532,8 +534,8 @@
         </button>
         <nav class="nav-links" id="navLinks">
             <a href="#nosotras" onclick="toggleMenu()">Quiénes Somos</a>
-            <a href="#positivo" onclick="toggleMenu()">Test Positivo</a>
-            <a href="#reels" onclick="toggleMenu()">Datita copada</a>
+            <a href="#reels" onclick="toggleMenu()">Reels Informativos</a>
+            <a href="#todo-sobre-vih" onclick="toggleMenu()">Todo sobre VIH</a>
             <a href="#recursos" onclick="toggleMenu()">Recursos</a>
             <a href="https://instagram.com/red.psicosexual" target="_blank" class="insta-btn">Instagram ↗</a>
         </nav>
@@ -582,126 +584,155 @@
             </div>
         </section>
 
-        <!-- Nueva Sección: ¿Test de VIH positivo? -->
-        <section id="positivo">
-            <div class="section-heading">¿Test de VIH positivo?</div>
-            <div class="info-card">
-                <h3>El diagnóstico no es el final, es el inicio de un cuidado integral 💙</h3>
-                <p>Recibir un resultado positivo puede generar muchas emociones juntas (miedo, dudas, incertidumbre), pero es fundamental saber que <strong>hoy en día el VIH es una condición crónica manejable</strong> y que con la atención médica adecuada se puede tener una calidad de vida excelente.</p>
-                
-                <div class="info-steps">
-                    <div class="step-box">
-                        <h4>1. Confirmación y Derivación</h4>
-                        <p>El test rápido es una orientación; se realiza una prueba confirmatoria y el equipo de salud te acompaña en el proceso de derivación con infectología.</p>
-                    </div>
-                    <div class="step-box">
-                        <h4>2. Tratamiento antirretroviral (TAR)</h4>
-                        <p>Tomar la medicación de forma indicada permite bajar la carga viral hasta hacerla <strong>indetectable</strong> (lo que equivale a intransmisible: I=I).</p>
-                    </div>
-                    <div class="step-box">
-                        <h4>3. Redes de Pares y Acompañamiento</h4>
-                        <p>No estás sola ni solo. Existen espacios de escucha, grupos de pares y acompañamiento comunitario esenciales para transitar el diagnóstico sin estigma.</p>
-                    </div>
-                </div>
-
-                <p style="margin-bottom: 25px;">En Argentina, el tratamiento y los estudios son <strong>gratuitos y garantizados por ley</strong> en el sistema público de salud, obras sociales y prepagas, protegiendo además la confidencialidad de tus datos.</p>
-
-                <a href="https://www.argentina.gob.ar/salud/vih-sida/tratamiento" target="_blank" class="insta-btn" style="display: inline-block;">Conocé tus derechos y cómo acceder al tratamiento ↗</a>
-            </div>
-        </section>
-
-        <!-- Sección: Datita copada (Carrusel de Reels) -->
+        <!-- Sección: Reels Informativos -->
         <section id="reels">
-            <div class="section-heading">Datita copada</div>
+            <div class="section-heading">Reels Informativos</div>
             <div class="carousel-wrapper" id="carouselWrapper">
                 <button class="carousel-btn prev" onclick="scrollCarousel(-1)">&#10094;</button>
                 <div class="reels-carousel" id="reelsCarousel">
-                    <!-- queesVIH -->
                     <a href="https://www.instagram.com/p/DZCwVwCxCPj/" target="_blank" class="reel-card">
                         <img src="queesVIH.png" alt="¿Qué es el VIH?" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- vacuna -->
                     <a href="https://www.instagram.com/p/DdK0CGXs_vR/" target="_blank" class="reel-card">
                         <img src="vacuna.png" alt="Y la vacuna?" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- saludsexual -->
                     <a href="https://www.instagram.com/p/DbtLZ7sxYUc/" target="_blank" class="reel-card">
                         <img src="saludsexual.png" alt="Salud Sexual" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- grupos -->
                     <a href="https://www.instagram.com/p/DbmQWDSMcSn/" target="_blank" class="reel-card">
                         <img src="grupos.png" alt="Grupos de pares" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- mipareja -->
                     <a href="https://www.instagram.com/p/DbT_nQWhLKj/" target="_blank" class="reel-card">
                         <img src="mipareja.png" alt="Mi pareja tiene VIH" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- I=I -->
                     <a href="https://www.instagram.com/p/Da5uYpqxWgn/" target="_blank" class="reel-card">
                         <img src="I=I.png" alt="I=I" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- subjetividad -->
                     <a href="https://www.instagram.com/p/Dax2uP1RBtt/" target="_blank" class="reel-card">
                         <img src="subjetividad.png" alt="Subjetividad" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- chimpance -->
                     <a href="https://www.instagram.com/p/DadMGZZRYbF/" target="_blank" class="reel-card">
                         <img src="chimpance.png" alt="El VIH nació del chimpancé?" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- estigma -->
                     <a href="https://www.instagram.com/p/DaQTxQLxoLi/" target="_blank" class="reel-card">
                         <img src="estigma.png" alt="Estigma internalizado" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- dianacional -->
                     <a href="https://www.instagram.com/p/DaGZizqJeZY/" target="_blank" class="reel-card">
                         <img src="dianacional.png" alt="Día de la prueba del VIH" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- steal -->
                     <a href="https://www.instagram.com/p/DZ7tu9cR3Av/" target="_blank" class="reel-card">
                         <img src="steal.png" alt="Stealthing" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
-                    <!-- dejarde -->
                     <a href="https://www.instagram.com/p/DZpp_bvOleI/" target="_blank" class="reel-card">
                         <img src="dejarde.png" alt="El VIH puede dejar de transmitirse" class="reel-img">
-                        <div class="reel-overlay">
-                            <span>Ver reel ↗</span>
-                        </div>
+                        <div class="reel-overlay"><span>Ver reel ↗</span></div>
                     </a>
                 </div>
                 <button class="carousel-btn next" onclick="scrollCarousel(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- Sección: Todo sobre VIH (Acordeón desplegable) -->
+        <section id="todo-sobre-vih">
+            <div class="section-heading">Todo sobre VIH</div>
+            <div class="vih-section-container">
+                
+                <!-- 1. Test Positivo -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Test Positivo
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Recibir un resultado positivo puede generar muchas emociones juntas, pero es fundamental saber que <strong>hoy en día el VIH es una condición crónica manejable</strong>. Con la atención médica adecuada se puede tener una excelente calidad de vida.</p>
+                        <p>El tratamiento y los estudios son gratuitos y garantizados por ley en Argentina, protegiendo la confidencialidad de tus datos.</p>
+                    </div>
+                </div>
+
+                <!-- 2. ¿Qué es el VIH? -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        ¿Qué es el VIH?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>El VIH (Virus de Inmunodeficiencia Humana) es un virus que ataca al sistema inmunológico, específicamente a los glóbulos blancos (células CD4), debilitando las defensas frente a ciertas infecciones.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Formas de transmisión -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Formas de transmisión
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>El VIH se transmite principalmente a través de:</p>
+                        <ul>
+                            <li>Relaciones sexuales anales o vaginales sin preservativo ni campo de látex.</li>
+                            <li>Uso compartido de jeringas o elementos cortopunzantes.</li>
+                            <li>Transmisión perinatal (durante el embarazo, parto o lactancia si no hay tratamiento).</li>
+                        </ul>
+                        <p>No se transmite por besos, abrazos, compartir mate, utensilios, picaduras de insectos ni uso de baños.</p>
+                    </div>
+                </div>
+
+                <!-- 4. VIH sida (con el símbolo del igual tachado) -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        VIH <span style="margin: 0 6px; font-weight: normal; color: var(--accent-main);">&#8800;</span> SIDA
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p><strong>El VIH no es lo mismo que el SIDA.</strong> El VIH es el virus. El SIDA (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
+                    </div>
+                </div>
+
+                <!-- 5. I = I -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        I = I (Indetectable = Intransmisible)
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Cuando una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
+                    </div>
+                </div>
+
+                <!-- 6. PrEP y PEP -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        PrEP y PEP
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p><strong>PrEP (Profilaxis Pre-Exposición):</strong> Medicación que toman las personas VIH negativas antes de tener prácticas sexuales para prevenir la infección.</p>
+                        <p><strong>PEP (Profilaxis Post-Exposición):</strong> Medicación de emergencia que se toma dentro de las primeras 72 horas de haber tenido una situación de posible exposición al virus.</p>
+                    </div>
+                </div>
+
+                <!-- 7. Ley de VIH -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Ley de VIH (Nacional N° 27.675)
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>En Argentina rige la Ley Nacional de Respuesta Integral al VIH, Hepatitis Virales, ITS y Tuberculosis, la cual garantiza el acceso universal y gratuito a la medicación, estudios, curas, prohibición de pruebas de VIH en preocupacionales laborales y protección contra la discriminación.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -733,13 +764,32 @@
         Red Psicosexual — Construyendo redes y cuidados colectivos © 2026
     </footer>
 
-    <!-- Script para el menú y el movimiento automático del carrusel con pausa al pasar el cursor -->
+    <!-- Script para menús, carrusel y acordeón interactivo -->
     <script>
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
             nav.classList.toggle('active');
         }
 
+        // Lógica del acordeón para "Todo sobre VIH"
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.icon');
+            
+            // Cierra los demás
+            document.querySelectorAll('.accordion-content').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.icon').textContent = '+';
+                }
+            });
+
+            // Abre o cierra el actual
+            content.classList.toggle('active');
+            icon.textContent = content.classList.contains('active') ? '-' : '+';
+        }
+
+        // Lógica del carrusel de Reels
         const carousel = document.getElementById('reelsCarousel');
         const wrapper = document.getElementById('carouselWrapper');
 
@@ -748,7 +798,6 @@
             carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
-        // Movimiento automático suave
         let autoScroll = setInterval(() => {
             if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
                 carousel.scrollTo({ left: 0, behavior: 'smooth' });
@@ -757,12 +806,10 @@
             }
         }, 3000);
 
-        // Pausar cuando se pone el cursor encima
         wrapper.addEventListener('mouseenter', () => {
             clearInterval(autoScroll);
         });
 
-        // Reanudar cuando se saca el cursor
         wrapper.addEventListener('mouseleave', () => {
             autoScroll = setInterval(() => {
                 if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
