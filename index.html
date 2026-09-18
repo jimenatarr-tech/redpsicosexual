@@ -19,203 +19,268 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            padding: 30px 20px;
             box-sizing: border-box;
+        }
+
+        /* Barra de navegación superior */
+        header {
+            background-color: var(--card-color);
+            border-bottom: 1px solid var(--accent-soft);
+            padding: 15px 30px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .logo {
-            width: 120px;
-            height: 120px;
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .nav-logo {
+            width: 40px;
+            height: 40px;
             object-fit: contain;
-            margin-bottom: 10px;
         }
 
-        .bio-box {
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--accent-soft);
+            transition: background 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--accent-rose);
+            color: #fff;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero / Banner Principal */
+        .hero-section {
             background-color: var(--card-color);
             border: 1px solid var(--accent-soft);
-            border-radius: 16px;
-            padding: 24px;
-            margin-top: 15px;
-            width: 100%;
-            box-sizing: border-box;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            text-align: left;
+            border-radius: 24px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            margin-bottom: 40px;
         }
 
-        .bio-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            font-size: 15px;
-            line-height: 1.4;
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--accent-soft);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
 
-        .bio-item:last-child {
-            margin-bottom: 0;
+        .hero-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            line-height: 1.2;
         }
 
-        .bio-icon {
-            margin-right: 10px;
+        .hero-subtitle {
             font-size: 18px;
+            color: #555;
+            margin: 0;
+            line-height: 1.5;
         }
 
-        .section-title {
-            font-size: 18px;
+        /* Secciones */
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-heading {
+            font-size: 22px;
             font-weight: 700;
-            margin: 25px 0 12px 0;
-            align-self: flex-start;
-            border-left: 4px solid var(--accent-rose);
-            padding-left: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent-rose);
+            padding-left: 12px;
         }
 
+        /* Grilla del Equipo */
         .team-grid {
-            display: flex;
-            gap: 15px;
-            width: 100%;
-            margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .team-card {
             background-color: var(--card-color);
             border: 1px solid var(--accent-soft);
-            border-radius: 14px;
-            padding: 15px;
-            flex: 1;
+            border-radius: 16px;
+            padding: 25px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            box-sizing: border-box;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .team-img {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 10px;
-            border: 2px solid var(--accent-rose);
+            margin-bottom: 15px;
+            border: 3px solid var(--accent-rose);
         }
 
         .team-card h3 {
-            font-size: 15px;
-            margin: 5px 0;
+            margin: 0 0 10px 0;
+            font-size: 18px;
         }
 
         .team-card p {
-            font-size: 13px;
+            font-size: 14px;
             color: #555;
             margin: 0;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
+        /* Enlaces / Recursos */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
         }
 
-        .link-button {
+        .resource-card {
             background-color: var(--card-color);
             border: 1px solid var(--accent-rose);
-            color: var(--text-main);
-            padding: 14px 20px;
-            border-radius: 12px;
+            border-radius: 16px;
+            padding: 20px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
+            color: var(--text-main);
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: space-between;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-            box-sizing: border-box;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
-        .link-button:hover {
+        .resource-card:hover {
+            transform: translateY(-3px);
             background-color: var(--accent-soft);
-            transform: translateY(-2px);
         }
 
-        footer {
-            margin-top: 40px;
+        .resource-card h4 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+        }
+
+        .resource-card span {
             font-size: 13px;
-            color: #777;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
             text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid var(--accent-soft);
+            background-color: var(--card-color);
+            margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Logo -->
-        <img src="logo.png" alt="Logo Red Psicosexual" class="logo">
+    <!-- Menú Superior -->
+    <header>
+        <a href="#" class="nav-brand">
+            <img src="logo.png" alt="Logo" class="nav-logo">
+            <span>Red Psicosexual</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#nosotras">Nosotras</a>
+            <a href="#recursos">Recursos</a>
+            <a href="https://instagram.com/red.psicosexual" target="_blank">Instagram ↗</a>
+        </nav>
+    </header>
 
-        <!-- Encabezado estilo Instagram -->
-        <div class="bio-box">
-            <div class="bio-item">
-                <span class="bio-icon">🧠</span>
-                <div><strong>Psicología + Psicología Social</strong></div>
-            </div>
-            <div class="bio-item">
-                <span class="bio-icon">💬</span>
-                <div>Hablamos de VIH, salud sexual y vínculos</div>
-            </div>
-            <div class="bio-item">
-                <span class="bio-icon">🌐</span>
-                <div>Un espacio para informar, acompañar y pensar lo que nos atraviesa</div>
-            </div>
+    <div class="main-container">
+
+        <!-- Banner Principal (Hero) -->
+        <div class="hero-section">
+            <div class="hero-badge">🧠 Psicología + Psicología Social</div>
+            <h1 class="hero-title">Hablemos de VIH, Salud Sexual y Vínculos</h1>
+            <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
         </div>
 
         <!-- Quiénes Somos / Equipo -->
-        <div class="section-title">Quiénes Somos</div>
-        <div class="team-grid">
-            <div class="team-card">
-                <img src="nosotras.jpeg" alt="Jimena" class="team-img" style="object-position: left;">
-                <h3>Jimena</h3>
-                <p>Estudiante de Psicología Social y Trabajo Social. Voluntaria en Hospital Tornú y Fundación Huésped (Redes Educativas, ESI).</p>
+        <section id="nosotras">
+            <div class="section-heading">Quiénes Somos</div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="nosotras.jpeg" alt="Jimena" class="team-img" style="object-position: left;">
+                    <h3>Jimena</h3>
+                    <p>Estudiante de Psicología Social y Trabajo Social. Voluntaria en el Hospital Tornú (grupo de pares de VIH) y en Fundación Huésped (Redes Educativas, ESI).</p>
+                </div>
+                <div class="team-card">
+                    <img src="nosotras.jpeg" alt="Brenda" class="team-img" style="object-position: right;">
+                    <h3>Brenda</h3>
+                    <p>Estudiante de Psicología. Próximamente más información sobre su recorrido y enfoque dentro de la red.</p>
+                </div>
             </div>
-            <div class="team-card">
-                <img src="nosotras.jpeg" alt="Brenda" class="team-img" style="object-position: right;">
-                <h3>Brenda</h3>
-                <p>Estudiante de Psicología. (Pronto más info...)</p>
-            </div>
-        </div>
+        </section>
 
         <!-- Datita Copada / Recursos -->
-        <div class="section-title">Datita Copada & Recursos</div>
-        <div class="links-container">
-            <a href="https://www.huesped.org.ar" target="_blank" class="link-button">
-                <span>Fundación Huésped (ESI y Salud)</span>
-                <span>→</span>
-            </a>
-            <a href="https://www.argentina.gob.ar/salud/vih-sida/donde-hacerse-el-test" target="_blank" class="link-button">
-                <span>¿Dónde hacerte el test de VIH?</span>
-                <span>→</span>
-            </a>
-            <a href="https://instagram.com/red.psicosexual" target="_blank" class="link-button">
-                <span>¡Seguinos en Instagram! (@red.psicosexual)</span>
-                <span>↗</span>
-            </a>
-        </div>
+        <section id="recursos">
+            <div class="section-heading">Datita Copada & Recursos Clave</div>
+            <div class="resources-grid">
+                <a href="https://www.argentina.gob.ar/salud/vih-sida/donde-hacerse-el-test" target="_blank" class="resource-card">
+                    <div>
+                        <h4>¿Dónde hacerte el test de VIH?</h4>
+                        <span>Centros de testeo y asesoramiento en todo el país.</span>
+                    </div>
+                    <span style="margin-top: 15px; font-weight: bold;">Acceder →</span>
+                </a>
+                <a href="https://www.huesped.org.ar" target="_blank" class="resource-card">
+                    <div>
+                        <h4>Fundación Huésped - ESI</h4>
+                        <span>Recursos, cursos y materiales sobre Salud Sexual Integral.</span>
+                    </div>
+                    <span style="margin-top: 15px; font-weight: bold;">Acceder →</span>
+                </a>
+            </div>
+        </section>
 
-        <footer>
-            Red Psicosexual © 2026
-        </footer>
     </div>
+
+    <!-- Pie de página -->
+    <footer>
+        Red Psicosexual — Construyendo redes y cuidados colectivos © 2026
+    </footer>
 
 </body>
 </html>
