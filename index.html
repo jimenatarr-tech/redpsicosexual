@@ -66,17 +66,62 @@
             gap: 25px;
         }
 
-        .nav-links a:not(.insta-btn) {
+        .nav-links a:not(.insta-btn), .dropdown > a {
             text-decoration: none;
             color: #f0d8cd;
             font-weight: 500;
             font-size: 15px;
             transition: color 0.2s;
             cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            padding: 0;
         }
 
-        .nav-links a:not(.insta-btn):hover {
+        .nav-links a:not(.insta-btn):hover, .dropdown:hover > a {
             color: #ffffff;
+        }
+
+        /* Estilos del Menú Desplegable (Dropdown) */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(42, 31, 30, 0.98);
+            min-width: 220px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 10px 0;
+            border: 1px solid rgba(193, 149, 146, 0.3);
+            z-index: 1100;
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 8px 18px;
+            color: #f0d8cd;
+            text-decoration: none;
+            font-size: 13px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--accent-main);
+            color: #ffffff;
+        }
+
+        /* Mostrar con hover en compu, y con clase active en celular o click */
+        .dropdown:hover .dropdown-menu {
+            display: block;
         }
 
         .insta-btn {
@@ -160,7 +205,7 @@
         /* Secciones */
         section {
             margin-bottom: 50px;
-            scroll-margin-top: 100px; /* Para que al hacer clic en el menú no tape el título la barra superior */
+            scroll-margin-top: 100px;
         }
 
         .section-heading {
@@ -601,6 +646,14 @@
                 display: flex;
             }
 
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border: none;
+                padding-left: 15px;
+            }
+
             .team-grid {
                 display: flex;
                 overflow-x: auto;
@@ -643,9 +696,41 @@
         </button>
         <nav class="nav-links" id="navLinks">
             <a onclick="scrollToSection('nosotras'); toggleMenu();">Quiénes Somos</a>
-            <a onclick="scrollToSection('reels'); toggleMenu();">Reels Informativos</a>
-            <a onclick="scrollToSection('todo-sobre-vih'); toggleMenu();">Todo sobre VIH</a>
-            <a onclick="scrollToSection('recursos'); toggleMenu();">Recursos</a>
+            
+            <!-- Desplegable Reels -->
+            <div class="dropdown">
+                <a onclick="scrollToSection('reels'); toggleMenu();">Reels Informativos ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a onclick="scrollToSection('reels'); toggleMenu();">Ver todos los reels</a></li>
+                    <li><a href="https://www.instagram.com/p/DZCwVwCxCPj/" target="_blank">¿Qué es el VIH?</a></li>
+                    <li><a href="https://www.instagram.com/p/DdK0CGXs_vR/" target="_blank">Y la vacuna?</a></li>
+                    <li><a href="https://www.instagram.com/p/DbtLZ7sxYUc/" target="_blank">Salud Sexual</a></li>
+                    <li><a href="https://www.instagram.com/p/Da5uYpqxWgn/" target="_blank">I = I</a></li>
+                </ul>
+            </div>
+
+            <!-- Desplegable Todo sobre VIH -->
+            <div class="dropdown">
+                <a onclick="scrollToSection('todo-sobre-vih'); toggleMenu();">Todo sobre VIH ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a onclick="openTab(event, 'tab-positivo'); scrollToSection('todo-sobre-vih'); toggleMenu();">Test Positivo</a></li>
+                    <li><a onclick="openTab(event, 'tab-quees'); scrollToSection('todo-sobre-vih'); toggleMenu();">¿Qué es el VIH?</a></li>
+                    <li><a onclick="openTab(event, 'tab-transmision'); scrollToSection('todo-sobre-vih'); toggleMenu();">Formas de transmisión</a></li>
+                    <li><a onclick="openTab(event, 'tab-sida'); scrollToSection('todo-sobre-vih'); toggleMenu();">VIH &ne; sida</a></li>
+                    <li><a onclick="openTab(event, 'tab-ii'); scrollToSection('todo-sobre-vih'); toggleMenu();">I = I</a></li>
+                    <li><a onclick="openTab(event, 'tab-prep'); scrollToSection('todo-sobre-vih'); toggleMenu();">PrEP y PEP</a></li>
+                    <li><a onclick="openTab(event, 'tab-ley'); scrollToSection('todo-sobre-vih'); toggleMenu();">Ley de VIH</a></li>
+                </ul>
+            </div>
+
+            <!-- Desplegable Recursos -->
+            <div class="dropdown">
+                <a onclick="scrollToSection('recursos'); toggleMenu();">Recursos ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://www.argentina.gob.ar/salud/vih-sida/donde-hacerse-el-test" target="_blank">¿Dónde hacerte el test?</a></li>
+                </ul>
+            </div>
+
             <a href="https://instagram.com/red.psicosexual" target="_blank" class="insta-btn">Instagram ↗</a>
         </nav>
     </header>
