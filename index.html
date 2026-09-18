@@ -76,14 +76,14 @@
             background: none;
             border: none;
             font-family: 'Poppins', sans-serif;
-            padding: 0;
+            padding: 10px 0; /* Área de contacto ensanchada para que no se cierre */
         }
 
         .nav-links a:not(.insta-btn):hover, .dropdown:hover > a {
             color: #ffffff;
         }
 
-        /* Estilos del Menú Desplegable (Dropdown) Centrado */
+        /* Estilos del Menú Desplegable con puente invisible para el cursor */
         .dropdown {
             position: relative;
         }
@@ -102,8 +102,18 @@
             border: 1px solid rgba(193, 149, 146, 0.3);
             z-index: 1100;
             list-style: none;
-            margin-top: 12px;
+            margin-top: 0px; /* Sin separación de aire para evitar que se cierre */
             text-align: center;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: transparent; /* Puente invisible que mantiene activo el hover */
         }
 
         .dropdown-menu li a {
@@ -866,7 +876,7 @@
 
                 <!-- Mensaje inicial de bienvenida (Cerrado por defecto) -->
                 <div id="tab-bienvenida" class="vih-content-box active vih-welcome-box">
-                    <p>👇 Seleccioná una de las opciones de arriba para ver la información detallada.</p>
+                    <p>👇 Seleccioná una de las opciones para ver la información detallada.</p>
                 </div>
 
                 <!-- Contenidos de cada pestaña -->
@@ -939,7 +949,7 @@
 
                 <div id="tab-ii" class="vih-content-box">
                     <h4>I = I (Indetectable = Intransmisible)</h4>
-                    <p>Когда una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
+                    <p>Cuando una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
                 </div>
 
                 <div id="tab-prep" class="vih-content-box">
