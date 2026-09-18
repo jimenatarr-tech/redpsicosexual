@@ -464,6 +464,25 @@
             color: #2a1f1e;
         }
 
+        .internal-link-btn {
+            display: inline-block;
+            background-color: #fcf4f3;
+            color: var(--accent-main);
+            border: 1px solid var(--accent-main);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 6px;
+            transition: all 0.2s;
+        }
+
+        .internal-link-btn:hover {
+            background-color: var(--accent-main);
+            color: #fff;
+        }
+
         /* Enlaces / Recursos */
         .resources-grid {
             display: grid;
@@ -715,25 +734,28 @@
                         <div class="positive-step-item">
                             <span class="positive-step-icon">👩‍⚕️</span>
                             <div class="positive-step-text">
-                                <strong>Consultar a un especialista:</strong> Pide una cita con un médico especialista en infectología lo antes posible, incluso si te sientes completamente bien de salud.
+                                <strong>Consultar a un especialista:</strong> Tenés que conseguir un turno con un médico especialista en infectología; podés hacerlo en hospitales públicos o consultando con tu obra social.
                             </div>
                         </div>
                         <div class="positive-step-item">
                             <span class="positive-step-icon">💊</span>
                             <div class="positive-step-text">
-                                <strong>Iniciar el tratamiento antirretroviral (TAR):</strong> Consiste en tomar medicamentos diarios que controlan el virus. Este tratamiento protege tu sistema inmunológico y evita que la enfermedad avance.
+                                <strong>Iniciar el tratamiento antirretroviral (TAR):</strong> El infectólogo va a pedirte seguramente otros estudios para ver tu estado de salud en general y así poder comenzar cuanto antes el tratamiento. Este consiste en tomar medicamentos diarios que controlan el virus y evitan su replicación.
                             </div>
                         </div>
                         <div class="positive-step-item">
                             <span class="positive-step-icon">🛡️</span>
                             <div class="positive-step-text">
-                                <strong>Lograr la carga viral indetectable:</strong> Tomar los medicamentos todos los días reduce la cantidad del virus en la sangre a niveles tan bajos que no se detectan. Ser indetectable significa que no puedes transmitir el virus por vía sexual.
+                                <strong>Lograr la carga viral indetectable:</strong> Tomar los medicamentos todos los días reduce la cantidad del virus en la sangre a niveles tan bajos que no se detectan. A eso lo llamamos estar indetectables. Ser indetectable significa que no puedes transmitir el virus por vía sexual. Pero ojo, si dejás de tomarlos, el virus vuelve a replicarse y ya no aplica I = I.
+                                <br>
+                                <button class="internal-link-btn" onclick="openTab(event, 'tab-ii'); scrollToSection('todo-sobre-vih');">Saber más sobre I = I ↗</button>
                             </div>
                         </div>
                         <div class="positive-step-item">
                             <span class="positive-step-icon">💙</span>
                             <div class="positive-step-text">
-                                <strong>Buscar apoyo emocional:</strong> Un diagnóstico positivo puede generar impacto emocional. Apoyarte en profesionales de la salud mental, grupos de ayuda o personas de confianza te ayudará a procesar la noticia.
+                                <strong>Buscar apoyo:</strong> Un diagnóstico positivo puede generar impacto emocional. Apoyarte en profesionales de la salud mental, grupos de pares o personas de confianza te puede ayudar a procesar la noticia.
+                                <p style="margin-top: 8px; margin-bottom: 0;">Igual es importante que sepas que <strong>no estás obligada ni obligado a compartir tu diagnóstico</strong> si no lo deseas; existe una ley que protege tu confidencialidad. <a href="https://servicios.infoleg.gob.ar/infolegInternet/anexos/365000-369999/368294/norma.htm" target="_blank" style="color: var(--accent-main); font-weight: 600; text-decoration: none;">Conocé la Ley en profundidad ↗</a></p>
                             </div>
                         </div>
                     </div>
@@ -774,6 +796,7 @@
                 <div id="tab-ley" class="vih-content-box">
                     <h4>Ley de VIH (Nacional N° 27.675)</h4>
                     <p>En Argentina rige la Ley Nacional de Respuesta Integral al VIH, Hepatitis Virales, ITS y Tuberculosis, la cual garantiza el acceso universal y gratuito a la medicación, estudios, curas, prohibición de pruebas de VIH en preocupacionales laborales y protección contra la discriminación.</p>
+                    <p><a href="https://servicios.infoleg.gob.ar/infolegInternet/anexos/365000-369999/368294/norma.htm" target="_blank" class="insta-btn" style="display: inline-block; margin-top: 10px;">Leer Ley completa en InfoLeg ↗</a></p>
                 </div>
 
             </div>
@@ -823,7 +846,25 @@
             buttons.forEach(btn => btn.classList.remove('active'));
 
             document.getElementById(tabName).classList.add('active');
-            evt.currentTarget.classList.add('active');
+            
+            // Si el evento viene de un clic directo en el botón de la solapa
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add('active');
+            } else {
+                // Si viene del botón interno, activamos visualmente el botón correspondiente de la barra
+                buttons.forEach(btn => {
+                    if (btn.getAttribute('onclick').includes(tabName)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }
 
         // Lógica del carrusel de Reels
