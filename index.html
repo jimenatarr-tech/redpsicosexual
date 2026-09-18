@@ -476,6 +476,7 @@
             text-decoration: none;
             margin-top: 6px;
             transition: all 0.2s;
+            cursor: pointer;
         }
 
         .internal-link-btn:hover {
@@ -748,14 +749,16 @@
                             <div class="positive-step-text">
                                 <strong>Lograr la carga viral indetectable:</strong> Tomar los medicamentos todos los días reduce la cantidad del virus en la sangre a niveles tan bajos que no se detectan. A eso lo llamamos estar indetectables. Ser indetectable significa que no puedes transmitir el virus por vía sexual. Pero ojo, si dejás de tomarlos, el virus vuelve a replicarse y ya no aplica I = I.
                                 <br>
-                                <button class="internal-link-btn" onclick="openTab(event, 'tab-ii'); scrollToSection('todo-sobre-vih');">Saber más sobre I = I ↗</button>
+                                <a class="internal-link-btn" onclick="openTab(event, 'tab-ii'); scrollToSection('todo-sobre-vih');">Saber más sobre I = I ↗</a>
                             </div>
                         </div>
                         <div class="positive-step-item">
                             <span class="positive-step-icon">💙</span>
                             <div class="positive-step-text">
                                 <strong>Buscar apoyo:</strong> Un diagnóstico positivo puede generar impacto emocional. Apoyarte en profesionales de la salud mental, grupos de pares o personas de confianza te puede ayudar a procesar la noticia.
-                                <p style="margin-top: 8px; margin-bottom: 0;">Igual es importante que sepas que <strong>no estás obligada ni obligado a compartir tu diagnóstico</strong> si no lo deseas; existe una ley que protege tu confidencialidad. <a href="https://servicios.infoleg.gob.ar/infolegInternet/anexos/365000-369999/368294/norma.htm" target="_blank" style="color: var(--accent-main); font-weight: 600; text-decoration: none;">Conocé la Ley en profundidad ↗</a></p>
+                                <p style="margin-top: 8px; margin-bottom: 0;">Igual es importante que sepas que <strong>no estás obligada ni obligado a compartir tu diagnóstico</strong> si no lo deseas; existe una ley que protege tu confidencialidad. 
+                                <br>
+                                <a href="https://www.boletinoficial.gob.ar/detalleAviso/primera/266657/20220718" target="_blank" class="internal-link-btn">Conocé la Ley en profundidad ↗</a></p>
                             </div>
                         </div>
                     </div>
@@ -796,7 +799,7 @@
                 <div id="tab-ley" class="vih-content-box">
                     <h4>Ley de VIH (Nacional N° 27.675)</h4>
                     <p>En Argentina rige la Ley Nacional de Respuesta Integral al VIH, Hepatitis Virales, ITS y Tuberculosis, la cual garantiza el acceso universal y gratuito a la medicación, estudios, curas, prohibición de pruebas de VIH en preocupacionales laborales y protección contra la discriminación.</p>
-                    <p><a href="https://servicios.infoleg.gob.ar/infolegInternet/anexos/365000-369999/368294/norma.htm" target="_blank" class="insta-btn" style="display: inline-block; margin-top: 10px;">Leer Ley completa en InfoLeg ↗</a></p>
+                    <p><a href="https://www.boletinoficial.gob.ar/detalleAviso/primera/266657/20220718" target="_blank" class="internal-link-btn" style="margin-top: 10px;">Leer Ley completa en el Boletín Oficial ↗</a></p>
                 </div>
 
             </div>
@@ -847,11 +850,9 @@
 
             document.getElementById(tabName).classList.add('active');
             
-            // Si el evento viene de un clic directo en el botón de la solapa
             if (evt && evt.currentTarget) {
                 evt.currentTarget.classList.add('active');
             } else {
-                // Si viene del botón interno, activamos visualmente el botón correspondiente de la barra
                 buttons.forEach(btn => {
                     if (btn.getAttribute('onclick').includes(tabName)) {
                         btn.classList.add('active');
