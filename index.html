@@ -175,7 +175,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
-            align-items: stretch;
+            align-items: center; /* Alinea los elementos al centro verticalmente */
         }
 
         .team-card {
@@ -189,6 +189,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
+            height: 100%;
+            box-sizing: border-box;
         }
 
         .team-img {
@@ -231,34 +233,22 @@
             color: #fff;
         }
 
-        /* Mockup de Celular en el medio */
-        .phone-mockup-card {
-            background-color: #1a1a1a;
-            border-radius: 24px;
-            padding: 10px;
+        /* Contenedor limpio para el video que ya trae el celular de Canva */
+        .video-container {
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid #333;
-        }
-
-        .phone-screen {
-            background-color: #000;
-            border-radius: 18px;
-            overflow: hidden;
-            aspect-ratio: 9/16;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .phone-screen video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: block;
         }
 
         /* Enlaces / Recursos */
@@ -368,27 +358,25 @@
                 <!-- Tarjeta Jimena -->
                 <div class="team-card">
                     <div>
-                        <img src="Jime.jpg" alt="Jimena" class="team-img">
+                        <img src="Jime.jpg" alt="Jimena" class="team-img">[cite: 8]
                         <h3>Jimena</h3>
                         <p>Estudiante de Psicología Social y Trabajo Social. Voluntaria en el Hospital Tornú (grupo de pares de VIH) y en Fundación Huésped (Redes Educativas, ESI).</p>
                     </div>
                     <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                 </div>
 
-                <!-- Celular con el Video en el Medio -->
-                <div class="phone-mockup-card">
-                    <div class="phone-screen">
-                        <video controls autoplay muted loop playsinline>
-                            <source src="presentacion.mp4" type="video/mp4">
-                            Tu navegador no soporta la reproducción de videos.
-                        </video>
-                    </div>
+                <!-- Video limpio con el marco de Canva -->
+                <div class="video-container">
+                    <video controls autoplay muted loop playsinline>
+                        <source src="presentacion.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
                 </div>
 
                 <!-- Tarjeta Brenda -->
                 <div class="team-card">
                     <div>
-                        <img src="brenda.jpg" alt="Brenda" class="team-img">
+                        <img src="brenda.jpg" alt="Brenda" class="team-img">[cite: 9]
                         <h3>Brenda</h3>
                         <p>Estudiante de Psicología. Próximamente más información sobre su recorrido y enfoque dentro de la red.</p>
                     </div>
