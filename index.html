@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Red Psicosexual</title>
-    <!-- Importación de Google Fonts: Poppins y fuentes de apoyo -->
+    <!-- Logo en la pestaña del navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Importación de Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -13,7 +16,7 @@
             --bg-color: #fff9f4;
             --card-color: #ffffff;
             --accent-soft: #e0e2d6;
-            --accent-main: #c19592; /* Color predominante solicitado */
+            --accent-main: #c19592; /* Color predominante */
             --accent-rose: #cdb4ae;
             --text-main: #000000;
         }
@@ -151,11 +154,15 @@
             padding: 25px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(193, 149, 146, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .team-img {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
@@ -171,8 +178,26 @@
         .team-card p {
             font-size: 13px;
             color: #555;
-            margin: 0;
+            margin: 0 0 15px 0;
             line-height: 1.4;
+        }
+
+        .linkedin-btn {
+            display: inline-block;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            border: 1px solid var(--accent-main);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .linkedin-btn:hover {
+            background-color: var(--accent-main);
+            color: #fff;
         }
 
         /* Enlaces / Recursos */
@@ -253,14 +278,20 @@
             <div class="section-heading">Quiénes Somos</div>
             <div class="team-grid">
                 <div class="team-card">
-                    <img src="nosotras.jpeg" alt="Jimena" class="team-img" style="object-position: left;">
-                    <h3>Jimena</h3>
-                    <p>Estudiante de Psicología Social y Trabajo Social. Voluntaria en el Hospital Tornú (grupo de pares de VIH) y en Fundación Huésped (Redes Educativas, ESI).</p>
+                    <div>
+                        <img src="Jime.jpg" alt="Jimena" class="team-img">
+                        <h3>Jimena</h3>
+                        <p>Estudiante de Psicología Social y Trabajo Social. Voluntaria en el Hospital Tornú (grupo de pares de VIH) y en Fundación Huésped (Redes Educativas, ESI).</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                 </div>
                 <div class="team-card">
-                    <img src="nosotras.jpeg" alt="Brenda" class="team-img" style="object-position: right;">
-                    <h3>Brenda</h3>
-                    <p>Estudiante de Psicología. Próximamente más información sobre su recorrido y enfoque dentro de la red.</p>
+                    <div>
+                        <img src="brenda.jpg" alt="Brenda" class="team-img">
+                        <h3>Brenda</h3>
+                        <p>Estudiante de Psicología. Próximamente más información sobre su recorrido y enfoque dentro de la red.</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                 </div>
             </div>
         </section>
