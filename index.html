@@ -435,7 +435,33 @@
             margin-top: 0;
             color: #2a1f1e;
             font-size: 18px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        .positive-steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .positive-step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: #ffffff;
+            padding: 14px 16px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .positive-step-icon {
+            font-size: 20px;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        .positive-step-text strong {
+            color: #2a1f1e;
         }
 
         /* Enlaces / Recursos */
@@ -677,8 +703,40 @@
                 <!-- Contenidos de cada pestaña -->
                 <div id="tab-positivo" class="vih-content-box active">
                     <h4>Test Positivo</h4>
-                    <p>Recibir un resultado positivo puede generar muchas emociones juntas, pero es fundamental saber que <strong>hoy en día el VIH es una condición crónica manejable</strong>. Con la atención médica adecuada se puede tener una excelente calidad de vida.</p>
-                    <p>El tratamiento y los estudios son gratuitos y garantizados por ley en Argentina, protegiendo la confidencialidad de tus datos.</p>
+                    <p style="margin-bottom: 20px;">Recibir un resultado positivo puede generar muchas emociones juntas, pero es fundamental saber que <strong>hoy en día el VIH es una condición crónica manejable</strong> y que con la atención médica adecuada vas a tener una excelente calidad de vida.</p>
+                    
+                    <div class="positive-steps-list">
+                        <div class="positive-step-item">
+                            <span class="positive-step-icon">🔬</span>
+                            <div class="positive-step-text">
+                                <strong>Confirmar el diagnóstico:</strong> Si la prueba inicial fue rápida (con una gota de sangre del dedo), se debe realizar un análisis de laboratorio confirmatorio, como una carga viral o un Western Blot, para asegurar la presencia del virus.
+                            </div>
+                        </div>
+                        <div class="positive-step-item">
+                            <span class="positive-step-icon">👩‍⚕️</span>
+                            <div class="positive-step-text">
+                                <strong>Consultar a un especialista:</strong> Pide una cita con un médico especialista en infectología lo antes posible, incluso si te sientes completamente bien de salud.
+                            </div>
+                        </div>
+                        <div class="positive-step-item">
+                            <span class="positive-step-icon">💊</span>
+                            <div class="positive-step-text">
+                                <strong>Iniciar el tratamiento antirretroviral (TAR):</strong> Consiste en tomar medicamentos diarios que controlan el virus. Este tratamiento protege tu sistema inmunológico y evita que la enfermedad avance.
+                            </div>
+                        </div>
+                        <div class="positive-step-item">
+                            <span class="positive-step-icon">🛡️</span>
+                            <div class="positive-step-text">
+                                <strong>Lograr la carga viral indetectable:</strong> Tomar los medicamentos todos los días reduce la cantidad del virus en la sangre a niveles tan bajos que no se detectan. Ser indetectable significa que no puedes transmitir el virus por vía sexual.
+                            </div>
+                        </div>
+                        <div class="positive-step-item">
+                            <span class="positive-step-icon">💙</span>
+                            <div class="positive-step-text">
+                                <strong>Buscar apoyo emocional:</strong> Un diagnóstico positivo puede generar impacto emocional. Apoyarte en profesionales de la salud mental, grupos de ayuda o personas de confianza te ayudará a procesar la noticia.
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="tab-quees" class="vih-content-box">
