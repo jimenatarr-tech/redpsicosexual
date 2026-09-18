@@ -269,56 +269,39 @@
             gap: 20px;
             overflow-x: auto;
             scroll-behavior: smooth;
-            scrollbar-width: none; /* Oculta scroll en Firefox */
+            scrollbar-width: none;
             padding: 10px 5px;
             width: 100%;
         }
 
         .reels-carousel::-webkit-scrollbar {
-            display: none; /* Oculta scroll en Chrome/Safari */
+            display: none;
         }
 
+        /* Tarjeta compacta solo con la imagen limpia */
         .reel-card {
-            flex: 0 0 220px;
+            flex: 0 0 210px;
             background-color: var(--card-color);
             border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
             text-decoration: none;
-            color: var(--text-main);
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .reel-card:hover {
             transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         .reel-img {
             width: 100%;
             aspect-ratio: 9/16;
             object-fit: cover;
-        }
-
-        .reel-info {
-            padding: 15px;
-            text-align: center;
-            background-color: #fff;
-        }
-
-        .reel-info h4 {
-            margin: 0 0 8px 0;
-            font-size: 14px;
-            font-weight: 600;
-            color: #2a1f1e;
-        }
-
-        .reel-info span {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--accent-main);
+            display: block;
         }
 
         /* Botones de Flechas del Carrusel */
@@ -438,7 +421,6 @@
                 scroll-snap-align: center;
             }
 
-            /* En celu ocultamos las flechas flotantes para que deslicen con el dedo cómodamente */
             .carousel-btn {
                 display: none;
             }
@@ -518,98 +500,50 @@
                     <!-- queesVIH -->
                     <a href="https://www.instagram.com/p/DZCwVwCxCPj/" target="_blank" class="reel-card">
                         <img src="queesVIH.png" alt="¿Qué es el VIH?" class="reel-img">
-                        <div class="reel-info">
-                            <h4>¿Qué es el VIH?</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- vacuna -->
                     <a href="https://www.instagram.com/p/DdK0CGXs_vR/" target="_blank" class="reel-card">
                         <img src="vacuna.png" alt="Y la vacuna?" class="reel-img">
-                        <div class="reel-info">
-                            <h4>¿Y la vacuna?</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- saludsexual -->
                     <a href="https://www.instagram.com/p/DbtLZ7sxYUc/" target="_blank" class="reel-card">
                         <img src="saludsexual.png" alt="Salud Sexual" class="reel-img">
-                        <div class="reel-info">
-                            <h4>Salud Sexual</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- grupos -->
                     <a href="https://www.instagram.com/p/DbmQWDSMcSn/" target="_blank" class="reel-card">
                         <img src="grupos.png" alt="Grupos de pares" class="reel-img">
-                        <div class="reel-info">
-                            <h4>Grupos de pares</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- mipareja -->
                     <a href="https://www.instagram.com/p/DbT_nQWhLKj/" target="_blank" class="reel-card">
                         <img src="mipareja.png" alt="Mi pareja tiene VIH" class="reel-img">
-                        <div class="reel-info">
-                            <h4>Mi pareja tiene VIH</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- I=I -->
                     <a href="https://www.instagram.com/p/Da5uYpqxWgn/" target="_blank" class="reel-card">
                         <img src="I=I.png" alt="I=I" class="reel-img">
-                        <div class="reel-info">
-                            <h4>I = I</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- subjetividad -->
                     <a href="https://www.instagram.com/p/Dax2uP1RBtt/" target="_blank" class="reel-card">
                         <img src="subjetividad.png" alt="Subjetividad" class="reel-img">
-                        <div class="reel-info">
-                            <h4>Subjetividad</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- chimpance -->
                     <a href="https://www.instagram.com/p/DadMGZZRYbF/" target="_blank" class="reel-card">
                         <img src="chimpance.png" alt="El VIH nació del chimpancé?" class="reel-img">
-                        <div class="reel-info">
-                            <h4>¿El VIH nació del chimpancé?</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- estigma -->
                     <a href="https://www.instagram.com/p/DaQTxQLxoLi/" target="_blank" class="reel-card">
                         <img src="estigma.png" alt="Estigma internalizado" class="reel-img">
-                        <div class="reel-info">
-                            <h4>Estigma internalizado</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- dianacional -->
                     <a href="https://www.instagram.com/p/DaGZizqJeZY/" target="_blank" class="reel-card">
                         <img src="dianacional.png" alt="Día de la prueba del VIH" class="reel-img">
-                        <div class="reel-info">
-                            <h4>Día de la prueba del VIH</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- steal -->
                     <a href="https://www.instagram.com/p/DZ7tu9cR3Av/" target="_blank" class="reel-card">
                         <img src="steal.png" alt="Stealthing" class="reel-img">
-                        <div class="reel-info">
-                            <h4>Stealthing: ¿Qué es?</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                     <!-- dejarde -->
                     <a href="https://www.instagram.com/p/DZpp_bvOleI/" target="_blank" class="reel-card">
                         <img src="dejarde.png" alt="El VIH puede dejar de transmitirse" class="reel-img">
-                        <div class="reel-info">
-                            <h4>El VIH puede dejar de transmitirse</h4>
-                            <span>Ver en Instagram ↗</span>
-                        </div>
                     </a>
                 </div>
                 <button class="carousel-btn next" onclick="scrollCarousel(1)">&#10095;</button>
@@ -655,7 +589,7 @@
         const wrapper = document.getElementById('carouselWrapper');
 
         function scrollCarousel(direction) {
-            const scrollAmount = 260; // Ancho aproximado de cada tarjeta + gap
+            const scrollAmount = 230; // Ancho aproximado de la tarjeta + gap
             carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
@@ -664,7 +598,7 @@
             if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
                 carousel.scrollTo({ left: 0, behavior: 'smooth' }); // Vuelve al inicio si llega al final
             } else {
-                carousel.scrollBy({ left: 260, behavior: 'smooth' });
+                carousel.scrollBy({ left: 230, behavior: 'smooth' });
             }
         }, 3000); // Cambia de tarjeta cada 3 segundos
 
@@ -679,7 +613,7 @@
                 if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
                     carousel.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
-                    carousel.scrollBy({ left: 260, behavior: 'smooth' });
+                    carousel.scrollBy({ left: 230, behavior: 'smooth' });
                 }
             }, 3000);
         });
