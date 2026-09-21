@@ -730,7 +730,7 @@
             color: #f0d8cd;
         }
 
-        /* --- NUEVO FOOTER ESTRUCTURADO CON VIDEO DE FONDO --- */
+        /* --- FOOTER ESTRUCTURADO CON VIDEO MÁS VISIBLE --- */
         footer {
             position: relative;
             background-color: rgba(32, 19, 20, 0.95);
@@ -749,7 +749,7 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            opacity: 0.25; /* Sutil y elegante para que apenas se vea de fondo */
+            opacity: 0.55; /* Aumentado para que se note mucho más como el banner de arriba */
         }
 
         .footer-overlay {
@@ -758,7 +758,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(32, 19, 20, 0.95) 0%, rgba(25, 14, 15, 0.98) 100%);
+            background: linear-gradient(180deg, rgba(32, 19, 20, 0.85) 0%, rgba(25, 14, 15, 0.92) 100%);
             z-index: 2;
             pointer-events: none;
         }
@@ -857,8 +857,8 @@
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            background: rgba(45, 28, 30, 0.7);
-            border: 1px solid rgba(193, 149, 146, 0.2);
+            background: rgba(45, 28, 30, 0.75);
+            border: 1px solid rgba(193, 149, 146, 0.25);
             padding: 12px 14px;
             border-radius: 12px;
             margin-bottom: 12px;
@@ -868,7 +868,7 @@
         }
 
         .footer-contact-item:hover {
-            background: rgba(55, 35, 37, 0.9);
+            background: rgba(55, 35, 37, 0.95);
         }
 
         .footer-contact-icon {
@@ -1327,9 +1327,8 @@
 
     </div>
 
-    <!-- Pie de página estructurado con video de fondo -->
+    <!-- Pie de página estructurado con video de fondo más visible -->
     <footer>
-        <!-- Video translúcido de fondo -->
         <video class="footer-bg-video" autoplay muted loop playsinline>
             <source src="presentacion.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de videos.
@@ -1363,7 +1362,7 @@
                     </ul>
                 </div>
 
-                <!-- Columna 3: Contacto -->
+                <!-- Columna 3: Contacto (Sin botón de canal de consulta) -->
                 <div class="footer-col">
                     <h4>Contacto</h4>
                     <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
@@ -1371,13 +1370,6 @@
                         <div class="footer-contact-text">
                             <span>Seguinos en Instagram</span>
                             <strong>@red.psicosexual</strong>
-                        </div>
-                    </a>
-                    <a href="mailto:contacto@redpsicosexual.com" class="footer-contact-item">
-                        <span class="footer-contact-icon">💬</span>
-                        <div class="footer-contact-text">
-                            <span>Canal de consulta</span>
-                            <strong>Consultas por DM</strong>
                         </div>
                     </a>
                 </div>
