@@ -435,62 +435,67 @@
             right: -20px;
         }
 
-        /* --- SECCIÓN TODO SOBRE VIH (Nube flotante centrada + caja limpia) --- */
+        /* --- SECCIÓN TODO SOBRE VIH (2 Columnas: Izquierda Nube Inclinada / Derecha Desplegable) --- */
         .vih-section-container {
             background-color: var(--card-color);
             border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 20px;
             padding: 35px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 30px;
+            align-items: start;
         }
 
-        /* Contenedor compacto estilo nube flotante */
-        .vih-tabs-grid {
+        /* Columna izquierda: Nube de botones compacta e inclinada */
+        .vih-tabs-column {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
-            margin-bottom: 30px;
-            justify-content: center;
-            align-items: center;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: 12px;
+            align-content: flex-start;
+            padding: 10px 0;
         }
 
         .vih-tab-btn {
             background-color: #fcf4f3;
             border: 1px solid var(--accent-main);
             color: #2a1f1e;
-            padding: 10px 20px;
-            border-radius: 22px;
+            padding: 10px 16px;
+            border-radius: 18px;
             font-family: 'Poppins', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 3px 10px rgba(193, 149, 146, 0.15);
             transition: all 0.25s ease;
         }
 
-        /* Inclinaciones y sutiles desplazamientos para efecto burbuja/nube simétrica */
-        .vih-tab-btn:nth-child(1) { transform: rotate(-2deg) translateY(2px); }
-        .vih-tab-btn:nth-child(2) { transform: rotate(2.5deg) translateY(-2px); }
+        /* Estilo Nube con rotaciones sutiles a la izquierda */
+        .vih-tab-btn:nth-child(1) { transform: rotate(-2.5deg) translateY(2px); }
+        .vih-tab-btn:nth-child(2) { transform: rotate(2deg) translateY(-2px); }
         .vih-tab-btn:nth-child(3) { transform: rotate(-1.5deg) translateY(3px); }
-        .vih-tab-btn:nth-child(4) { transform: rotate(2deg) translateY(-3px); }
-        .vih-tab-btn:nth-child(5) { transform: rotate(-2.5deg) translateY(1px); }
-        .vih-tab-btn:nth-child(6) { transform: rotate(1.5deg) translateY(-2px); }
-        .vih-tab-btn:nth-child(7) { transform: rotate(-1deg) translateY(2px); }
+        .vih-tab-btn:nth-child(4) { transform: rotate(2.5deg) translateY(-1px); }
+        .vih-tab-btn:nth-child(5) { transform: rotate(-2deg) translateY(2px); }
+        .vih-tab-btn:nth-child(6) { transform: rotate(1.5deg) translateY(-3px); }
+        .vih-tab-btn:nth-child(7) { transform: rotate(-1deg) translateY(1px); }
 
         .vih-tab-btn:hover {
             background-color: #f5e4e1;
-            transform: scale(1.06) rotate(0deg) translateY(0);
-            box-shadow: 0 6px 16px rgba(193, 149, 146, 0.35);
+            transform: scale(1.05) rotate(0deg) translateY(0);
+            box-shadow: 0 5px 14px rgba(193, 149, 146, 0.3);
         }
 
         .vih-tab-btn.active {
             background-color: var(--accent-main);
             color: #ffffff;
-            box-shadow: 0 6px 16px rgba(193, 149, 146, 0.4);
-            transform: scale(1.05) rotate(0deg) translateY(0);
+            box-shadow: 0 5px 14px rgba(193, 149, 146, 0.4);
+            transform: scale(1.04) rotate(0deg) translateY(0);
+        }
+
+        /* Columna derecha: Contenido desplegable */
+        .vih-content-wrapper {
+            position: relative;
         }
 
         .vih-content-box {
@@ -507,6 +512,17 @@
 
         .vih-content-box.active {
             display: block;
+        }
+
+        /* Mensaje inicial cuando está cerrado */
+        .vih-welcome-box {
+            text-align: center;
+            padding: 50px 20px;
+            color: #777;
+            font-style: italic;
+            background-color: #fcf4f3;
+            border-radius: 12px;
+            border: 2px dashed rgba(193, 149, 146, 0.3);
         }
 
         @keyframes fadeIn {
@@ -692,8 +708,12 @@
                 text-align: left;
             }
 
+            .vih-section-container {
+                grid-template-columns: 1fr; /* En celu se apilan para comodidad */
+            }
+
             .vih-tab-btn {
-                transform: none !important; /* En celu se alinean prolijos para facilitar la lectura */
+                transform: none !important; /* En celu se alinean prolijos para tocar fácil */
             }
 
             .team-grid {
@@ -879,15 +899,15 @@
             </div>
         </section>
 
-        <!-- Sección: Todo sobre VIH (Nube flotante centrada) -->
+        <!-- Sección: Todo sobre VIH (Panel 2 Columnas: Nube Inclinada Izq / Info Der) -->
         <section id="todo-sobre-vih">
             <div class="section-heading">Todo sobre VIH</div>
             <div class="section-subtext">👇 Hacé clic en una de las opciones para ver la información detallada.</div>
             
             <div class="vih-section-container">
                 
-                <!-- Botonera Estilo Nube Flotante -->
-                <div class="vih-tabs-grid">
+                <!-- Columna Izquierda: Nube de botones inclinados -->
+                <div class="vih-tabs-column">
                     <button class="vih-tab-btn" onclick="openTab(event, 'tab-positivo')">Test Positivo</button>
                     <button class="vih-tab-btn" onclick="openTab(event, 'tab-quees')">¿Qué es el VIH?</button>
                     <button class="vih-tab-btn" onclick="openTab(event, 'tab-transmision')">Formas de transmisión</button>
@@ -897,89 +917,97 @@
                     <button class="vih-tab-btn" onclick="openTab(event, 'tab-ley')">Ley de VIH</button>
                 </div>
 
-                <!-- Contenidos de cada pestaña (inician ocultos / cerrados) -->
-                <div id="tab-positivo" class="vih-content-box">
-                    <h4>Test Positivo</h4>
-                    <p style="margin-bottom: 20px;">Recibir un resultado positivo puede generar muchas emociones juntas, pero es fundamental saber que <strong>hoy en día el VIH es una condición crónica manejable</strong> y que con la atención médica adecuada vas a tener una excelente calidad de vida.</p>
-                    
-                    <div class="positive-steps-list">
-                        <div class="positive-step-item">
-                            <span class="positive-step-icon">🔬</span>
-                            <div class="positive-step-text">
-                                <strong>Confirmar el diagnóstico:</strong> Si la prueba inicial fue rápida (con una gota de sangre del dedo), se debe realizar un análisis de laboratorio confirmatorio, como una carga viral o un Western Blot, para asegurar la presencia del virus.
+                <!-- Columna Derecha: Contenido desplegable -->
+                <div class="vih-content-wrapper">
+                    <!-- Mensaje inicial cuando está cerrado -->
+                    <div id="tab-bienvenida" class="vih-content-box active vih-welcome-box">
+                        <p>Seleccioná una opción de la izquierda para desplegar su información aquí.</p>
+                    </div>
+
+                    <!-- Contenidos de cada pestaña -->
+                    <div id="tab-positivo" class="vih-content-box">
+                        <h4>Test Positivo</h4>
+                        <p style="margin-bottom: 20px;">Recibir un resultado positivo puede generar muchas emociones juntas, pero es fundamental saber que <strong>hoy en día el VIH es una condición crónica manejable</strong> y que con la atención médica adecuada vas a tener una excelente calidad de vida.</p>
+                        
+                        <div class="positive-steps-list">
+                            <div class="positive-step-item">
+                                <span class="positive-step-icon">🔬</span>
+                                <div class="positive-step-text">
+                                    <strong>Confirmar el diagnóstico:</strong> Si la prueba inicial fue rápida (con una gota de sangre del dedo), se debe realizar un análisis de laboratorio confirmatorio, como una carga viral o un Western Blot, para asegurar la presencia del virus.
+                                </div>
                             </div>
-                        </div>
-                        <div class="positive-step-item">
-                            <span class="positive-step-icon">👩‍⚕️</span>
-                            <div class="positive-step-text">
-                                <strong>Consultar a un especialista:</strong> Tenés que conseguir un turno con un médico especialista en infectología; podés hacerlo en hospitales públicos o consultando con tu obra social.
+                            <div class="positive-step-item">
+                                <span class="positive-step-icon">👩‍⚕️</span>
+                                <div class="positive-step-text">
+                                    <strong>Consultar a un especialista:</strong> Tenés que conseguir un turno con un médico especialista en infectología; podés hacerlo en hospitales públicos o consultando con tu obra social.
+                                </div>
                             </div>
-                        </div>
-                        <div class="positive-step-item">
-                            <span class="positive-step-icon">💊</span>
-                            <div class="positive-step-text">
-                                <strong>Iniciar el tratamiento antirretroviral (TAR):</strong> El infectólogo va a pedirte seguramente otros estudios para ver tu estado de salud en general y así poder comenzar cuanto antes el tratamiento. Este consiste en tomar medicamentos diarios que controlan el virus y evitan su replicación.
+                            <div class="positive-step-item">
+                                <span class="positive-step-icon">💊</span>
+                                <div class="positive-step-text">
+                                    <strong>Iniciar el tratamiento antirretroviral (TAR):</strong> El infectólogo va a pedirte seguramente otros estudios para ver tu estado de salud en general y así poder comenzar cuanto antes el tratamiento. Este consiste en tomar medicamentos diarios que controlan el virus y evitan su replicación.
+                                </div>
                             </div>
-                        </div>
-                        <div class="positive-step-item">
-                            <span class="positive-step-icon">🛡️</span>
-                            <div class="positive-step-text">
-                                <strong>Lograr la carga viral indetectable:</strong> Tomar los medicamentos todos los días reduce la cantidad del virus en la sangre a niveles tan bajos que no se detectan. A eso lo llamamos estar indetectables. Ser indetectable significa que no puedes transmitir el virus por vía sexual. Pero ojo, si dejás de tomarlos, el virus vuelve a replicarse y ya no aplica I = I.
-                                <br>
-                                <a class="internal-link-btn" onclick="openTab(event, 'tab-ii'); scrollToSection('todo-sobre-vih');">Saber más sobre I = I ↗</a>
+                            <div class="positive-step-item">
+                                <span class="positive-step-icon">🛡️</span>
+                                <div class="positive-step-text">
+                                    <strong>Lograr la carga viral indetectable:</strong> Tomar los medicamentos todos los días reduce la cantidad del virus en la sangre a niveles tan bajos que no se detectan. A eso lo llamamos estar indetectables. Ser indetectable significa que no puedes transmitir el virus por vía sexual. Pero ojo, si dejás de tomarlos, el virus vuelve a replicarse y ya no aplica I = I.
+                                    <br>
+                                    <a class="internal-link-btn" onclick="openTab(event, 'tab-ii'); scrollToSection('todo-sobre-vih');">Saber más sobre I = I ↗</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="positive-step-item">
-                            <span class="positive-step-icon">💙</span>
-                            <div class="positive-step-text">
-                                <strong>Buscar apoyo:</strong> Un diagnóstico positivo puede generar impacto emocional. Apoyarte en profesionales de la salud mental, grupos de pares o personas de confianza te puede ayudar a procesar la noticia.
-                                <p style="margin-top: 8px; margin-bottom: 0;">Igual es importante que sepas que <strong>no estás obligada ni obligado a compartir tu diagnóstico</strong> si no lo deseas; existe una ley que protege tu confidencialidad. 
-                                <br>
-                                <a href="https://www.boletinoficial.gob.ar/detalleAviso/primera/266657/20220718" target="_blank" class="internal-link-btn">Conocé la Ley en profundidad ↗</a></p>
+                            <div class="positive-step-item">
+                                <span class="positive-step-icon">💙</span>
+                                <div class="positive-step-text">
+                                    <strong>Buscar apoyo:</strong> Un diagnóstico positivo puede generar impacto emocional. Apoyarte en profesionales de la salud mental, grupos de pares o personas de confianza te puede ayudar a procesar la noticia.
+                                    <p style="margin-top: 8px; margin-bottom: 0;">Igual es importante que sepas que <strong>no estás obligada ni obligado a compartir tu diagnóstico</strong> si no lo deseas; existe una ley que protege tu confidencialidad. 
+                                    <br>
+                                    <a href="https://www.boletinoficial.gob.ar/detalleAviso/primera/266657/20220718" target="_blank" class="internal-link-btn">Conocé la Ley en profundidad ↗</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div id="tab-quees" class="vih-content-box">
-                    <h4>¿Qué es el VIH?</h4>
-                    <p>El VIH (Virus de Inmunodeficiencia Humana) es un virus que ataca al sistema inmunológico, específicamente a los glóbulos blancos (células CD4), debilitando las defensas frente a ciertas infecciones.</p>
-                    <p style="margin-top: 20px;">
-                        <a class="internal-link-btn" onclick="openTab(event, 'tab-sida'); scrollToSection('todo-sobre-vih');">Tener VIH no es lo mismo que tener sida ↗</a>
-                    </p>
-                </div>
+                    <div id="tab-quees" class="vih-content-box">
+                        <h4>¿Qué es el VIH?</h4>
+                        <p>El VIH (Virus de Inmunodeficiencia Humana) es un virus que ataca al sistema inmunológico, específicamente a los glóbulos blancos (células CD4), debilitando las defensas frente a ciertas infecciones.</p>
+                        <p style="margin-top: 20px;">
+                            <a class="internal-link-btn" onclick="openTab(event, 'tab-sida'); scrollToSection('todo-sobre-vih');">Tener VIH no es lo mismo que tener sida ↗</a>
+                        </p>
+                    </div>
 
-                <div id="tab-transmision" class="vih-content-box">
-                    <h4>Formas de transmisión</h4>
-                    <p>El VIH se transmite principalmente a través de:</p>
-                    <ul>
-                        <li>Relaciones sexuales anales o vaginales sin preservativo ni campo de látex.</li>
-                        <li>Uso compartido de jeringas o elementos cortopunzantes.</li>
-                        <li>Transmisión perinatal (durante el embarazo, parto o lactancia si no hay tratamiento).</li>
-                    </ul>
-                    <p>No se transmite por besos, abrazos, compartir mate, utensilios, picaduras de insectos ni uso de baños.</p>
-                </div>
+                    <div id="tab-transmision" class="vih-content-box">
+                        <h4>Formas de transmisión</h4>
+                        <p>El VIH se transmite principalmente a través de:</p>
+                        <ul>
+                            <li>Relaciones sexuales anales o vaginales sin preservativo ni campo de látex.</li>
+                            <li>Uso compartido de jeringas o elementos cortopunzantes.</li>
+                            <li>Transmisión perinatal (durante el embarazo, parto o lactancia si no hay tratamiento).</li>
+                        </ul>
+                        <p>No se transmite por besos, abrazos, compartir mate, utensilios, picaduras de insectos ni uso de baños.</p>
+                    </div>
 
-                <div id="tab-sida" class="vih-content-box">
-                    <h4>VIH &ne; sida</h4>
-                    <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. El sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
-                </div>
+                    <div id="tab-sida" class="vih-content-box">
+                        <h4>VIH &ne; sida</h4>
+                        <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. El sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
+                    </div>
 
-                <div id="tab-ii" class="vih-content-box">
-                    <h4>I = I (Indetectable = Intransmisible)</h4>
-                    <p>Cuando una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
-                </div>
+                    <div id="tab-ii" class="vih-content-box">
+                        <h4>I = I (Indetectable = Intransmisible)</h4>
+                        <p>Cuando una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
+                    </div>
 
-                <div id="tab-prep" class="vih-content-box">
-                    <h4>PrEP y PEP</h4>
-                    <p><strong>PrEP (Profilaxis Pre-Exposición):</strong> Medicación que toman las personas VIH negativas antes de tener prácticas sexuales para prevenir la infección.</p>
-                    <p><strong>PEP (Profilaxis Post-Exposición):</strong> Medicación de emergencia que se toma dentro de las primeras 72 horas de haber tenido una situación de posible exposición al virus.</p>
-                </div>
+                    <div id="tab-prep" class="vih-content-box">
+                        <h4>PrEP y PEP</h4>
+                        <p><strong>PrEP (Profilaxis Pre-Exposición):</strong> Medicación que toman las personas VIH negativas antes de tener prácticas sexuales para prevenir la infección.</p>
+                        <p><strong>PEP (Profilaxis Post-Exposición):</strong> Medicación de emergencia que se toma dentro de las primeras 72 horas de haber tenido una situación de posible exposición al virus.</p>
+                    </div>
 
-                <div id="tab-ley" class="vih-content-box">
-                    <h4>Ley de VIH (Nacional N° 27.675)</h4>
-                    <p>En Argentina rige la Ley Nacional de Respuesta Integral al VIH, Hepatitis Virales, ITS y Tuberculosis, la cual garantiza el acceso universal y gratuito a la medicación, estudios, curas, prohibición de pruebas de VIH en preocupacionales laborales y protección contra la discriminación.</p>
-                    <p><a href="https://www.boletinoficial.gob.ar/detalleAviso/primera/266657/20220718" target="_blank" class="internal-link-btn" style="margin-top: 10px;">Leer Ley completa en el Boletín Oficial ↗</a></p>
+                    <div id="tab-ley" class="vih-content-box">
+                        <h4>Ley de VIH (Nacional N° 27.675)</h4>
+                        <p>En Argentina rige la Ley Nacional de Respuesta Integral al VIH, Hepatitis Virales, ITS y Tuberculosis, la cual garantiza el acceso universal y gratuito a la medicación, estudios, curas, prohibición de pruebas de VIH en preocupacionales laborales y protección contra la discriminación.</p>
+                        <p><a href="https://www.boletinoficial.gob.ar/detalleAviso/primera/266657/20220718" target="_blank" class="internal-link-btn" style="margin-top: 10px;">Leer Ley completa en el Boletín Oficial ↗</a></p>
+                    </div>
                 </div>
 
             </div>
