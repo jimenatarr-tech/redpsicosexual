@@ -10,14 +10,13 @@
     <!-- Importación de Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta basada en rosa viejo claro y fuerte integrada con fondos oscuros/ahumados */
             --bg-dark: #201314;
             --card-dark: rgba(48, 30, 32, 0.85);
-            --accent-main: #c19592; /* Rosa viejo principal */
-            --accent-strong: #a36b67; /* Rosa viejo fuerte */
+            --accent-main: #c19592; 
+            --accent-strong: #a36b67; 
             --text-main: #f0d8cd;
         }
 
@@ -63,7 +62,7 @@
             gap: 10px;
             text-decoration: none;
             color: #ffffff;
-            font-weight: 700;
+            font-weight: 500;
             font-size: 16px;
             letter-spacing: 0.5px;
         }
@@ -179,7 +178,7 @@
             padding: 20px 20px;
         }
 
-        /* --- HERO ANCHO: TONOS ROSA VIEJO Y FUNDIDO --- */
+        /* --- HERO ANCHO --- */
         .hero-section {
             width: 100%;
             max-width: 1240px;
@@ -197,7 +196,6 @@
             align-items: center;
         }
 
-        /* Video de fondo horizontal */
         .hero-bg-video {
             position: absolute;
             top: 0;
@@ -209,7 +207,6 @@
             opacity: 0.55; 
         }
 
-        /* Degradado lateral en tono rosa viejo para fundir el video */
         .hero-section::after {
             content: '';
             position: absolute;
@@ -222,7 +219,6 @@
             pointer-events: none;
         }
 
-        /* Textos y botones a la izquierda */
         .hero-content {
             position: relative;
             z-index: 3;
@@ -318,7 +314,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Grilla adaptable (Quiénes Somos) unificada */
+        /* Grilla adaptable (Quiénes Somos) */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -734,15 +730,193 @@
             color: #f0d8cd;
         }
 
-        /* Footer */
+        /* --- NUEVO FOOTER ESTRUCTURADO CON VIDEO DE FONDO --- */
         footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 13px;
+            position: relative;
+            background-color: rgba(32, 19, 20, 0.95);
             color: #f0d8cd;
             border-top: 1px solid rgba(193, 149, 146, 0.3);
-            background-color: rgba(32, 19, 20, 0.95);
-            margin-top: 60px;
+            margin-top: 80px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .footer-bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.25; /* Sutil y elegante para que apenas se vea de fondo */
+        }
+
+        .footer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(32, 19, 20, 0.95) 0%, rgba(25, 14, 15, 0.98) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 30px 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 40px;
+            align-items: start;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(193, 149, 146, 0.2);
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand-logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .footer-col p {
+            font-size: 13px;
+            color: #d8b8b3;
+            line-height: 1.5;
+            margin: 0 0 20px 0;
+            max-width: 380px;
+        }
+
+        .footer-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .footer-badge {
+            background-color: rgba(193, 149, 146, 0.2);
+            color: #f0d8cd;
+            border: 1px solid rgba(193, 149, 146, 0.35);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .footer-links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links-list li a {
+            color: #d8b8b3;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .footer-links-list li a:hover {
+            color: #ffffff;
+            padding-left: 4px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: rgba(45, 28, 30, 0.7);
+            border: 1px solid rgba(193, 149, 146, 0.2);
+            padding: 12px 14px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s;
+        }
+
+        .footer-contact-item:hover {
+            background: rgba(55, 35, 37, 0.9);
+        }
+
+        .footer-contact-icon {
+            font-size: 16px;
+            margin-top: 1px;
+        }
+
+        .footer-contact-text span {
+            display: block;
+            font-size: 10px;
+            color: #c19592;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .footer-contact-text strong {
+            font-size: 13px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 25px;
+            font-size: 12px;
+            color: #a88883;
+        }
+
+        .scroll-top-btn {
+            background-color: rgba(50, 31, 33, 0.9);
+            color: #ffffff;
+            border: 1px solid rgba(193, 149, 146, 0.4);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .scroll-top-btn:hover {
+            background-color: var(--accent-strong);
+            transform: translateY(-2px);
         }
 
         /* Responsive para celulares */
@@ -801,6 +975,17 @@
 
             .carousel-btn {
                 display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
             }
 
             .reel-overlay {
@@ -868,15 +1053,13 @@
 
     <div class="main-container">
 
-        <!-- Banner Principal (Hero) Ancho con Rosa Viejo y Fondo Fundido -->
+        <!-- Banner Principal (Hero) Ancho -->
         <div class="hero-section">
-            <!-- Video de fondo horizontal -->
             <video class="hero-bg-video" autoplay muted loop playsinline>
                 <source src="presentacion.mp4" type="video/mp4">
                 Tu navegador no soporta la reproducción de videos.
             </video>
 
-            <!-- Textos y botones alineados a la izquierda -->
             <div class="hero-content">
                 <div class="hero-badge">Psicología + Psicología Social</div>
                 <h1 class="hero-title">Hablemos de VIH, Salud Sexual y Vínculos</h1>
@@ -909,7 +1092,7 @@
                     <div>
                         <img src="brenda.jpg" alt="Brenda" class="team-img">
                         <h3>Brenda</h3>
-                        <p>Estudiante de Psicología. Próximamente más información sobre su recorrido y enfoque dentro de la red.</p>
+                        <p>Estudiante de Psicología. Diplomatura en TDAH Fleni.</p>
                     </div>
                     <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                 </div>
@@ -988,7 +1171,6 @@
             <div class="section-heading">Todo sobre VIH</div>
             
             <div class="vih-section-container">
-                <!-- Columna Izquierda: Botones tipo nube arrastrables -->
                 <div class="vih-tabs-column">
                     <button class="vih-tab-btn" draggable="true" ondragstart="drag(event)" onclick="openTab('tab-positivo')" data-target="tab-positivo">Test Positivo</button>
                     <button class="vih-tab-btn" draggable="true" ondragstart="drag(event)" onclick="openTab('tab-quees')" data-target="tab-quees">¿Qué es el VIH?</button>
@@ -999,16 +1181,13 @@
                     <button class="vih-tab-btn" draggable="true" ondragstart="drag(event)" onclick="openTab('tab-ley')" data-target="tab-ley">Ley de VIH</button>
                 </div>
 
-                <!-- Columna Derecha: Cuadrado receptor (Dropzone) -->
                 <div class="vih-content-wrapper">
                     <div class="dropzone-box" id="dropzone" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="drop(event)">
                         
-                        <!-- Mensaje inicial por defecto -->
                         <p id="tab-bienvenida" class="vih-content-box active vih-welcome-box">
                             👇 Arrancá arrastrando un tema aquí o hacé clic en una de las opciones.
                         </p>
 
-                        <!-- Contenidos de cada pestaña -->
                         <div id="tab-positivo" class="vih-content-box">
                             <h4>Test Positivo</h4>
                             <p style="margin-bottom: 20px;">Recibir un resultado positivo puede generar muchas emociones juntas, pero es fundamental saber que <strong>hoy en día el VIH es una condición crónica manejable</strong> y que con la atención médica adecuada vas a tener una excelente calidad de vida.</p>
@@ -1148,12 +1327,72 @@
 
     </div>
 
-    <!-- Pie de página -->
+    <!-- Pie de página estructurado con video de fondo -->
     <footer>
-        Red Psicosexual — Construyendo redes y cuidados colectivos © 2026
+        <!-- Video translúcido de fondo -->
+        <video class="footer-bg-video" autoplay muted loop playsinline>
+            <source src="presentacion.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+        </video>
+        <div class="footer-overlay"></div>
+
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- Columna 1: Marca y descripción -->
+                <div class="footer-col">
+                    <a href="#" class="footer-brand-logo">
+                        <img src="BLANCO.png" alt="Logo">
+                        <span>Red Psicosexual</span>
+                    </a>
+                    <p>Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad, integrando psicología, salud sexual y vínculos.</p>
+                    <div class="footer-badges">
+                        <span class="footer-badge">Salud Colectiva</span>
+                        <span class="footer-badge">ESI & Vínculos</span>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Navegación -->
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links-list">
+                        <li><a onclick="scrollToSection('nosotras')">Quiénes Somos</a></li>
+                        <li><a onclick="scrollToSection('reels')">Reels Informativos</a></li>
+                        <li><a onclick="showSection('salud-sexual')">Salud Sexual</a></li>
+                        <li><a onclick="showVihMain()">Todo sobre VIH</a></li>
+                        <li><a onclick="showSection('recursos')">Recursos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
+                        <span class="footer-contact-icon">✉️</span>
+                        <div class="footer-contact-text">
+                            <span>Seguinos en Instagram</span>
+                            <strong>@red.psicosexual</strong>
+                        </div>
+                    </a>
+                    <a href="mailto:contacto@redpsicosexual.com" class="footer-contact-item">
+                        <span class="footer-contact-icon">💬</span>
+                        <div class="footer-contact-text">
+                            <span>Canal de consulta</span>
+                            <strong>Consultas por DM</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Fila inferior: Copyright y Botón Scroll Top -->
+            <div class="footer-bottom">
+                <span>© 2026 Red Psicosexual. Todos los derechos reservados.</span>
+                <span>Construyendo redes y cuidados colectivos</span>
+                <button class="scroll-top-btn" onclick="scrollToTop()" title="Volver arriba">&#8593;</button>
+            </div>
+        </div>
     </footer>
 
-    <!-- Script para menús, carrusel y gestión de secciones ocultas -->
+    <!-- Script para menús, carrusel, secciones y scroll -->
     <script>
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
@@ -1165,6 +1404,10 @@
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
             }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function showSection(sectionId) {
