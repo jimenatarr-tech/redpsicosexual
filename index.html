@@ -1139,10 +1139,18 @@
                     </ul>
                 </div>
 
-                <!-- Menú Superior: Salud Sexual -->
-                <a onclick="showSection('salud-sexual'); closeMenuMobile();">Salud Sexual</a>
+                <!-- Menú Desplegable: Salud Sexual -->
+                <div class="dropdown" id="dropdownSalud">
+                    <a onclick="toggleDropdown(event, 'dropdownSalud')">Salud Sexual ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="showSaludTab('salud-metodos'); closeMenuMobile();">Métodos anticonceptivos</a></li>
+                        <li><a onclick="showSaludTab('salud-consentimiento'); closeMenuMobile();">Consentimiento y vínculos</a></li>
+                        <li><a onclick="showSaludTab('salud-its'); closeMenuMobile();">ITS</a></li>
+                        <li><a onclick="showSaludTab('salud-esi'); closeMenuMobile();">Placer y ESI</a></li>
+                    </ul>
+                </div>
 
-                <!-- Menú Superior: Todo sobre VIH por Clic -->
+                <!-- Menú Desplegable: Todo sobre VIH por Clic -->
                 <div class="dropdown" id="dropdownVih">
                     <a onclick="toggleDropdown(event, 'dropdownVih')">Todo sobre VIH ▾</a>
                     <ul class="dropdown-menu">
@@ -1156,7 +1164,7 @@
                     </ul>
                 </div>
 
-                <!-- Menú Superior: Recursos (Abre la sección interna) -->
+                <!-- Menú Desplegable: Recursos -->
                 <div class="dropdown" id="dropdownRecursos">
                     <a onclick="toggleDropdown(event, 'dropdownRecursos')">Recursos ▾</a>
                     <ul class="dropdown-menu">
@@ -1493,7 +1501,7 @@
             </div>
         </section>
 
-        <!-- Sección: Recursos (Oculta por defecto, con el link oficial actualizado) -->
+        <!-- Sección: Recursos (Oculta por defecto) -->
         <section id="recursos" class="collapsible-section">
             <div class="section-heading">Recursos Clave</div>
             <div class="resources-grid">
@@ -1630,7 +1638,25 @@
             }
         }
 
-        // Función para mostrar el contenido correspondiente a las tarjetas de Salud Sexual
+        // Función para mostrar tarjetas específicas de Salud Sexual desde el menú desplegable
+        function showSaludTab(contentId) {
+            const saludSection = document.getElementById('salud-sexual');
+            if (saludSection) {
+                saludSection.classList.add('active');
+                
+                const contents = document.querySelectorAll('.salud-content-display');
+                contents.forEach(box => box.classList.remove('active'));
+
+                const targetBox = document.getElementById(contentId);
+                if (targetBox) {
+                    targetBox.classList.add('active');
+                }
+
+                scrollToSection('salud-sexual');
+            }
+        }
+
+        // Función para mostrar el contenido correspondiente a las tarjetas de Salud Sexual por clic directo
         function showSaludContent(contentId) {
             const contents = document.querySelectorAll('.salud-content-display');
             contents.forEach(box => box.classList.remove('active'));
