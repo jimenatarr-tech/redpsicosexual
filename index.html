@@ -731,7 +731,7 @@
             color: #f0d8cd;
         }
 
-        /* --- FOOTER ESTRUCTURADO CON VIDEO MÁS VISIBLE --- */
+        /* --- FOOTER ESTRUCTURADO --- */
         footer {
             position: relative;
             background-color: rgba(32, 19, 20, 0.95);
@@ -966,6 +966,11 @@
                 text-align: center;
             }
 
+            /* Ocultar el video de fondo en celulares para evitar botón de play y mejorar rendimiento */
+            .footer-bg-video {
+                display: none;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1032,7 +1037,7 @@
                     </ul>
                 </div>
 
-                <!-- Menú Superior: Recursos (Transformado en desplegable) -->
+                <!-- Menú Superior: Recursos -->
                 <div class="dropdown" id="dropdownRecursos">
                     <a onclick="toggleDropdown(event, 'dropdownRecursos')">Recursos ▾</a>
                     <ul class="dropdown-menu">
@@ -1050,7 +1055,7 @@
 
         <!-- Banner Principal (Hero) Ancho -->
         <div class="hero-section">
-            <video class="hero-bg-video" autoplay muted loop playsinline>
+            <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline>
                 <source src="presentacion.mp4" type="video/mp4">
                 Tu navegador no soporta la reproducción de videos.
             </video>
@@ -1322,9 +1327,9 @@
 
     </div>
 
-    <!-- Pie de página estructurado con video de fondo más visible -->
+    <!-- Pie de página estructurado -->
     <footer>
-        <video class="footer-bg-video" autoplay muted loop playsinline>
+        <video class="footer-bg-video" autoplay muted loop playsinline webkit-playsinline>
             <source src="presentacion.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de videos.
         </video>
