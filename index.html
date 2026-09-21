@@ -174,7 +174,7 @@
             padding: 40px 20px;
         }
 
-        /* --- HERO CON VIDEO FUNDIDO Y TINTES ROSA/CÁLIDOS --- */
+        /* --- HERO CON VIDEO INTEGRADO LATERAL, TRANSPARENTE Y FUNDIDO --- */
         .hero-section {
             background-color: var(--card-color);
             border: 2px solid rgba(255, 255, 255, 0.6);
@@ -186,8 +186,8 @@
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             align-items: center;
-            overflow: hidden;
             position: relative;
+            overflow: hidden;
         }
 
         .hero-content {
@@ -252,7 +252,7 @@
             box-shadow: 0 4px 12px rgba(193, 149, 146, 0.3);
         }
 
-        /* Contenedor del video fundido con tonalidad rosa y fundido suave */
+        /* Contenedor lateral del video con transparencia y fundido de color rosa */
         .hero-media {
             display: flex;
             justify-content: center;
@@ -261,36 +261,37 @@
             z-index: 2;
         }
 
-        .fused-video-container {
+        .blended-video-wrapper {
             width: 100%;
             max-width: 320px;
-            aspect-ratio: 1/1;
-            border-radius: 50%; /* Efecto burbuja orgánica fundida */
+            aspect-ratio: 4/5;
+            border-radius: 18px;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 10px 30px rgba(193, 149, 146, 0.3);
-            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 35px rgba(193, 149, 146, 0.25);
+            background-color: #c19592; /* Base con tono de la paleta */
         }
 
-        /* Capa de tinte rosa/cálido semitransparente superpuesta al video para respetar la paleta */
-        .fused-video-container::after {
+        /* Capa de fundido y tinte rosa suave superpuesta */
+        .blended-video-wrapper::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(193, 149, 146, 0.45) 0%, rgba(42, 31, 30, 0.3) 100%);
+            background: linear-gradient(135deg, rgba(193, 149, 146, 0.4) 0%, rgba(42, 31, 30, 0.2) 100%);
             pointer-events: none;
             mix-blend-mode: overlay;
         }
 
-        .fused-video-container video {
+        .blended-video-wrapper video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            filter: saturate(1.2) contrast(1.1); /* Realza los tonos artísticos */
+            opacity: 0.75; /* Transparencia sutil para que quede integrado y suave */
+            filter: saturate(1.1);
         }
 
         /* Secciones */
@@ -866,9 +867,9 @@
 
     <div class="main-container">
 
-        <!-- Banner Principal (Hero) con video fundido y estético -->
+        <!-- Banner Principal (Hero) con video lateral fundido y transparente -->
         <div class="hero-section">
-            <!-- Columna Izquierda: Textos y botones -->
+            <!-- Columna Izquierda: Títulos y botones -->
             <div class="hero-content">
                 <div class="hero-badge">Psicología + Psicología Social</div>
                 <h1 class="hero-title">Hablemos de VIH, Salud Sexual y Vínculos</h1>
@@ -881,9 +882,9 @@
                 </div>
             </div>
 
-            <!-- Columna Derecha: Video 3D de células/virus fundido con la paleta rosa -->
+            <!-- Columna Derecha: Video lateral integrado con fundido rosa y transparencia -->
             <div class="hero-media">
-                <div class="fused-video-container">
+                <div class="blended-video-wrapper">
                     <video autoplay muted loop playsinline>
                         <source src="presentacion.mp4" type="video/mp4">
                         Tu navegador no soporta la reproducción de videos.
