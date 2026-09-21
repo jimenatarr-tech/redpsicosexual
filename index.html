@@ -13,9 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #f0d8cd 0%, #c19592 100%);
+            /* Degradado de fondo mucho más visible e intenso */
+            --bg-gradient: linear-gradient(135deg, #e6b8a8 0%, #a16461 100%);
             --card-color: #ffffff;
-            --accent-main: #c19592;
+            --accent-main: #b37370;
             --text-main: #222222;
         }
 
@@ -32,9 +33,9 @@
 
         /* Barra de navegación */
         header {
-            background-color: rgba(42, 31, 30, 0.95);
+            background-color: rgba(35, 24, 23, 0.98);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(193, 149, 146, 0.3);
+            border-bottom: 2px solid rgba(179, 115, 112, 0.4);
             padding: 15px 40px;
             display: flex;
             justify-content: space-between;
@@ -68,7 +69,7 @@
 
         .nav-links a:not(.insta-btn), .dropdown > a {
             text-decoration: none;
-            color: #f0d8cd;
+            color: #f7e6e1;
             font-weight: 500;
             font-size: 15px;
             transition: color 0.2s;
@@ -83,7 +84,7 @@
             color: #ffffff;
         }
 
-        /* Estilos del Menú Desplegable con puente invisible */
+        /* Menú Desplegable */
         .dropdown {
             position: relative;
         }
@@ -94,15 +95,14 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(42, 31, 30, 0.98);
+            background-color: rgba(35, 24, 23, 0.98);
             min-width: 220px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border-radius: 0px; /* Sin bordes ovalados */
             padding: 10px 0;
-            border: 1px solid rgba(193, 149, 146, 0.3);
+            border: 1px solid rgba(179, 115, 112, 0.4);
             z-index: 1100;
             list-style: none;
-            margin-top: 0px;
             text-align: center;
         }
 
@@ -119,7 +119,7 @@
         .dropdown-menu li a {
             display: block;
             padding: 8px 18px;
-            color: #f0d8cd;
+            color: #f7e6e1;
             text-decoration: none;
             font-size: 13px;
             transition: background 0.2s, color 0.2s;
@@ -139,19 +139,19 @@
             background-color: var(--accent-main);
             color: #ffffff !important;
             padding: 8px 20px;
-            border-radius: 20px;
+            border-radius: 0px; /* Estilo geométrico */
             font-weight: 600;
             font-size: 14px;
             text-decoration: none;
             transition: transform 0.2s, background-color 0.2s;
+            border: 1px solid #ffffff;
         }
 
         .insta-btn:hover {
-            background-color: #a87b78;
-            transform: translateY(-1px);
+            background-color: #8c4c49;
         }
 
-        /* Menú Hamburguesa para Celular */
+        /* Menú Hamburguesa */
         .menu-toggle {
             display: none;
             background: none;
@@ -165,7 +165,7 @@
             width: 25px;
             height: 3px;
             background-color: #ffffff;
-            border-radius: 2px;
+            border-radius: 0px;
         }
 
         /* Contenedor principal */
@@ -175,14 +175,14 @@
             padding: 40px 20px;
         }
 
-        /* Banner Principal (Hero) con los botones integrados dentro */
+        /* Banner Principal (Hero) - Diseño geométrico sin bordes ovalados */
         .hero-section {
             background-color: var(--card-color);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            border-radius: 24px;
+            border: 3px solid #231817; /* Estilo marco fuerte y arquitectónico */
+            border-radius: 0px; 
             padding: 45px 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 8px 8px 0px rgba(35, 24, 23, 0.8); /* Sombra dura estilo editorial moderno */
             margin-bottom: 40px;
         }
 
@@ -191,11 +191,12 @@
             background-color: var(--accent-main);
             color: #fff;
             padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
+            border-radius: 0px;
+            font-size: 13px;
+            font-weight: 700;
             margin-bottom: 15px;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .hero-title {
@@ -203,17 +204,17 @@
             font-weight: 700;
             margin: 0 0 12px 0;
             line-height: 1.2;
-            color: #2c2c2c;
+            color: #231817;
         }
 
         .hero-subtitle {
             font-size: 15px;
-            color: #555;
+            color: #444;
             margin: 0 0 25px 0;
             line-height: 1.5;
         }
 
-        /* --- BOTONES DENTRO DEL BLOQUE BLANCO CON LETRA ROSA --- */
+        /* Botones dentro del bloque blanco con estilo geométrico/editorial y letras rosas */
         .hero-inline-buttons {
             display: flex;
             justify-content: center;
@@ -221,17 +222,17 @@
             gap: 12px;
             margin-top: 15px;
             padding-top: 20px;
-            border-top: 1px solid rgba(193, 149, 146, 0.2);
+            border-top: 2px dashed rgba(179, 115, 112, 0.4);
         }
 
         .hero-inline-btn {
-            background-color: #fcf4f3;
+            background-color: #faede9;
             color: var(--accent-main);
-            border: 1px solid rgba(193, 149, 146, 0.4);
-            padding: 8px 18px;
-            border-radius: 20px;
+            border: 2px solid var(--accent-main);
+            padding: 8px 20px;
+            border-radius: 0px; /* Cero óvalos */
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: 'Poppins', sans-serif;
@@ -241,8 +242,8 @@
         .hero-inline-btn:hover {
             background-color: var(--accent-main);
             color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(193, 149, 146, 0.3);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #231817;
         }
 
         /* Secciones */
@@ -255,12 +256,13 @@
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 20px;
-            border-left: 5px solid #2a1f1e;
+            border-left: 6px solid #231817;
             padding-left: 12px;
-            color: #2a1f1e;
+            color: #231817;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Secciones que arrancan ocultas */
         .collapsible-section {
             display: none;
             animation: fadeIn 0.4s ease-in-out;
@@ -275,7 +277,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Grilla adaptable (Quiénes Somos) */
+        /* Quiénes Somos / Equipo - Tarjetas geométricas con sombra dura */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -285,11 +287,11 @@
 
         .team-card {
             background-color: var(--card-color);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 16px;
+            border: 2px solid #231817;
+            border-radius: 0px;
             padding: 25px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            box-shadow: 6px 6px 0px rgba(35, 24, 23, 0.9);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -301,16 +303,16 @@
         .team-img {
             width: 100px;
             height: 100px;
-            border-radius: 50%;
+            border-radius: 0px; /* Imagen cuadrada geométrica */
             object-fit: cover;
             margin-bottom: 15px;
-            border: 3px solid var(--accent-main);
+            border: 3px solid #231817;
         }
 
         .team-card h3 {
             margin: 0 0 10px 0;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .team-card p {
@@ -322,13 +324,13 @@
 
         .linkedin-btn {
             display: inline-block;
-            background-color: #fcf4f3;
+            background-color: #faede9;
             color: var(--text-main);
-            border: 1px solid var(--accent-main);
+            border: 2px solid #231817;
             padding: 6px 14px;
-            border-radius: 12px;
+            border-radius: 0px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.2s;
         }
@@ -338,16 +340,16 @@
             color: #fff;
         }
 
-        /* Mockup de Celular generado por código */
+        /* Mockup de Celular con formato geométrico industrial */
         .phone-mockup-container {
             width: 100%;
             max-width: 250px;
             margin: 0 auto;
-            background-color: #2a1f1e;
-            border-radius: 28px;
-            padding: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 3px solid #4a3533;
+            background-color: #231817;
+            border-radius: 0px;
+            padding: 12px;
+            box-shadow: 6px 6px 0px rgba(35, 24, 23, 0.9);
+            border: 3px solid #231817;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -357,12 +359,12 @@
         .phone-mockup-container video {
             width: 100%;
             height: auto;
-            border-radius: 20px;
+            border-radius: 0px;
             display: block;
             object-fit: cover;
         }
 
-        /* --- CARRUSEL AUTOMÁTICO DE REELS (Reels Informativos) --- */
+        /* --- CARRUSEL DE REELS --- */
         .carousel-wrapper {
             position: relative;
             display: flex;
@@ -386,10 +388,10 @@
         .reel-card {
             flex: 0 0 210px;
             background-color: var(--card-color);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 16px;
+            border: 2px solid #231817;
+            border-radius: 0px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            box-shadow: 5px 5px 0px rgba(35, 24, 23, 0.8);
             text-decoration: none;
             position: relative;
             display: flex;
@@ -399,7 +401,7 @@
 
         .reel-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 8px 8px 0px rgba(35, 24, 23, 1);
         }
 
         .reel-img {
@@ -415,7 +417,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(42, 31, 30, 0.65);
+            background-color: rgba(35, 24, 23, 0.75);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -433,37 +435,36 @@
 
         .reel-overlay span {
             color: #ffffff;
-            font-weight: 600;
-            font-size: 14px;
+            font-weight: 700;
+            font-size: 13px;
             background-color: var(--accent-main);
             padding: 8px 16px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-radius: 0px;
+            border: 1px solid #fff;
         }
 
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(42, 31, 30, 0.85);
+            background-color: #231817;
             color: #fff;
-            border: none;
+            border: 2px solid #fff;
             width: 45px;
             height: 45px;
-            border-radius: 50%;
+            border-radius: 0px;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10;
-            transition: background-color 0.2s, transform 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.2s;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.5);
         }
 
         .carousel-btn:hover {
             background-color: var(--accent-main);
-            transform: translateY(-50%) scale(1.05);
         }
 
         .carousel-btn.prev {
@@ -474,13 +475,13 @@
             right: -20px;
         }
 
-        /* --- SECCIÓN TODO SOBRE VIH (Drag & Drop + Nube) --- */
+        /* --- SECCIÓN TODO SOBRE VIH --- */
         .vih-section-container {
             background-color: var(--card-color);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
+            border: 3px solid #231817;
+            border-radius: 0px;
             padding: 35px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            box-shadow: 8px 8px 0px rgba(35, 24, 23, 0.9);
             display: grid;
             grid-template-columns: 290px 1fr;
             gap: 30px;
@@ -490,23 +491,23 @@
         .vih-tabs-column {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             align-content: flex-start;
             padding: 10px 0;
         }
 
         .vih-tab-btn {
-            background-color: #fcf4f3;
-            border: 1px solid var(--accent-main);
-            color: #2a1f1e;
-            padding: 10px 16px;
-            border-radius: 18px;
+            background-color: #faede9;
+            border: 2px solid #231817;
+            color: #231817;
+            padding: 10px 14px;
+            border-radius: 0px; /* Cero óvalos en las pestañas */
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
             cursor: grab;
-            box-shadow: 0 3px 10px rgba(193, 149, 146, 0.15);
-            transition: all 0.25s ease;
+            box-shadow: 3px 3px 0px rgba(35, 24, 23, 0.8);
+            transition: all 0.2s ease;
             user-select: none;
         }
 
@@ -514,25 +515,17 @@
             cursor: grabbing;
         }
 
-        .vih-tab-btn:nth-child(1) { transform: rotate(-2.5deg) translateY(2px); }
-        .vih-tab-btn:nth-child(2) { transform: rotate(2deg) translateY(-2px); }
-        .vih-tab-btn:nth-child(3) { transform: rotate(-1.5deg) translateY(3px); }
-        .vih-tab-btn:nth-child(4) { transform: rotate(2.5deg) translateY(-1px); }
-        .vih-tab-btn:nth-child(5) { transform: rotate(-2deg) translateY(2px); }
-        .vih-tab-btn:nth-child(6) { transform: rotate(1.5deg) translateY(-3px); }
-        .vih-tab-btn:nth-child(7) { transform: rotate(-1deg) translateY(1px); }
-
         .vih-tab-btn:hover {
-            background-color: #f5e4e1;
-            transform: scale(1.05) rotate(0deg) translateY(0);
-            box-shadow: 0 5px 14px rgba(193, 149, 146, 0.3);
+            background-color: #f2dbd5;
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #231817;
         }
 
         .vih-tab-btn.active {
             background-color: var(--accent-main);
             color: #ffffff;
-            box-shadow: 0 5px 14px rgba(193, 149, 146, 0.4);
-            transform: scale(1.04) rotate(0deg) translateY(0);
+            border-color: #231817;
+            box-shadow: 3px 3px 0px #231817;
         }
 
         .vih-content-wrapper {
@@ -540,9 +533,9 @@
         }
 
         .dropzone-box {
-            border: 2px dashed rgba(193, 149, 146, 0.5);
-            background-color: #fcf4f3;
-            border-radius: 14px;
+            border: 3px dashed #231817;
+            background-color: #faede9;
+            border-radius: 0px;
             padding: 30px;
             text-align: center;
             transition: all 0.2s ease;
@@ -553,13 +546,12 @@
         }
 
         .dropzone-box.drag-over {
-            background-color: #f2dbd7;
+            background-color: #e8c4bc;
             border-color: var(--accent-main);
-            transform: scale(1.01);
         }
 
         .vih-welcome-box {
-            color: #777;
+            color: #555;
             font-style: italic;
             margin: 0;
             font-size: 14px;
@@ -578,9 +570,10 @@
 
         .vih-content-box h4 {
             margin-top: 0;
-            color: #2a1f1e;
+            color: #231817;
             font-size: 18px;
             margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .positive-steps-list {
@@ -594,9 +587,10 @@
             align-items: flex-start;
             gap: 12px;
             background: #ffffff;
+            border: 2px solid #231817;
             padding: 14px 16px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border-radius: 0px;
+            box-shadow: 4px 4px 0px rgba(35, 24, 23, 0.3);
         }
 
         .positive-step-icon {
@@ -606,18 +600,18 @@
         }
 
         .positive-step-text strong {
-            color: #2a1f1e;
+            color: #231817;
         }
 
         .internal-link-btn {
             display: inline-block;
-            background-color: #fcf4f3;
+            background-color: #faede9;
             color: var(--accent-main);
-            border: 1px solid var(--accent-main);
+            border: 2px solid var(--accent-main);
             padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 13px;
-            font-weight: 600;
+            border-radius: 0px;
+            font-size: 12px;
+            font-weight: 700;
             text-decoration: none;
             margin-top: 6px;
             transition: all 0.2s;
@@ -629,13 +623,13 @@
             color: #fff;
         }
 
-        /* --- SECCIÓN: ESTADÍSTICAS ARGENTINA --- */
+        /* Estadísticas */
         .stats-container {
             background-color: var(--card-color);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
+            border: 3px solid #231817;
+            border-radius: 0px;
             padding: 35px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            box-shadow: 8px 8px 0px rgba(35, 24, 23, 0.9);
         }
 
         .stats-grid {
@@ -646,11 +640,12 @@
         }
 
         .stat-card {
-            background-color: #fcf4f3;
-            border-radius: 16px;
+            background-color: #faede9;
+            border-radius: 0px;
             padding: 24px;
             text-align: left;
-            border: 1px solid rgba(193, 149, 146, 0.2);
+            border: 2px solid #231817;
+            box-shadow: 4px 4px 0px rgba(35, 24, 23, 0.8);
             transition: transform 0.2s;
         }
 
@@ -668,13 +663,13 @@
 
         .stat-text {
             font-size: 14px;
-            color: #444;
+            color: #333;
             margin: 0;
             line-height: 1.4;
-            font-weight: 500;
+            font-weight: 600;
         }
 
-        /* Enlaces / Recursos */
+        /* Recursos */
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -683,8 +678,8 @@
 
         .resource-card {
             background-color: var(--card-color);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 16px;
+            border: 3px solid #231817;
+            border-radius: 0px;
             padding: 20px;
             text-decoration: none;
             color: var(--text-main);
@@ -692,24 +687,24 @@
             flex-direction: column;
             justify-content: space-between;
             transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            box-shadow: 6px 6px 0px rgba(35, 24, 23, 0.9);
             max-width: 400px;
         }
 
         .resource-card:hover {
             transform: translateY(-3px);
-            background-color: #fcf4f3;
+            background-color: #faede9;
         }
 
         .resource-card h4 {
             margin: 0 0 10px 0;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .resource-card span {
             font-size: 13px;
-            color: #666;
+            color: #555;
         }
 
         /* Footer */
@@ -717,13 +712,13 @@
             text-align: center;
             padding: 30px;
             font-size: 13px;
-            color: #f0d8cd;
-            border-top: 1px solid rgba(193, 149, 146, 0.3);
-            background-color: rgba(42, 31, 30, 0.95);
+            color: #f7e6e1;
+            border-top: 2px solid rgba(179, 115, 112, 0.4);
+            background-color: rgba(35, 24, 23, 0.98);
             margin-top: 60px;
         }
 
-        /* Responsive para celulares */
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -732,10 +727,10 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background-color: rgba(42, 31, 30, 0.98);
+                background-color: rgba(35, 24, 23, 0.98);
                 padding: 20px 0;
-                border-bottom: 2px solid var(--accent-main);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+                border-bottom: 3px solid var(--accent-main);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.4);
             }
             .nav-links.active {
                 display: flex;
@@ -748,7 +743,7 @@
                 position: static;
                 transform: none;
                 box-shadow: none;
-                background-color: rgba(0, 0, 0, 0.2);
+                background-color: rgba(0, 0, 0, 0.3);
                 border: none;
                 padding-left: 15px;
                 text-align: left;
@@ -756,10 +751,6 @@
 
             .vih-section-container {
                 grid-template-columns: 1fr;
-            }
-
-            .vih-tab-btn {
-                transform: none !important;
             }
 
             .team-grid {
@@ -782,7 +773,7 @@
 
             .reel-overlay {
                 opacity: 0.85;
-                background: linear-gradient(to top, rgba(42, 31, 30, 0.8), transparent);
+                background: linear-gradient(to top, rgba(35, 24, 23, 0.9), transparent);
                 justify-content: flex-end;
                 padding-bottom: 20px;
             }
@@ -843,13 +834,13 @@
 
     <div class="main-container">
 
-        <!-- Banner Principal (Hero) con los botones integrados adentro -->
+        <!-- Banner Principal (Hero) -->
         <div class="hero-section">
             <div class="hero-badge">Psicología + Psicología Social</div>
             <h1 class="hero-title">Hablemos de VIH, Salud Sexual y Vínculos</h1>
             <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
             
-            <!-- Botones adentro del bloque blanco con letra rosa -->
+            <!-- Botones adentro del bloque con letra rosa y estilo geométrico -->
             <div class="hero-inline-buttons">
                 <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
                 <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
@@ -871,7 +862,7 @@
                     <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                 </div>
 
-                <!-- Video limpio dentro del Mockup de celular -->
+                <!-- Video limpio dentro del Mockup -->
                 <div class="phone-mockup-container">
                     <video controls autoplay muted loop playsinline>
                         <source src="presentacion.mp4" type="video/mp4">
@@ -950,7 +941,7 @@
             </div>
         </section>
 
-        <!-- Nueva Sección: Salud Sexual (Oculta por defecto) -->
+        <!-- Sección: Salud Sexual -->
         <section id="salud-sexual" class="collapsible-section">
             <div class="section-heading">Salud Sexual</div>
             <div class="stats-container" style="text-align: center; color: #555; font-style: italic;">
@@ -958,12 +949,11 @@
             </div>
         </section>
 
-        <!-- Sección: Todo sobre VIH (Oculta por defecto) -->
+        <!-- Sección: Todo sobre VIH -->
         <section id="todo-sobre-vih" class="collapsible-section">
             <div class="section-heading">Todo sobre VIH</div>
             
             <div class="vih-section-container">
-                <!-- Columna Izquierda: Botones tipo nube arrastrables -->
                 <div class="vih-tabs-column">
                     <button class="vih-tab-btn" draggable="true" ondragstart="drag(event)" onclick="openTab('tab-positivo')" data-target="tab-positivo">Test Positivo</button>
                     <button class="vih-tab-btn" draggable="true" ondragstart="drag(event)" onclick="openTab('tab-quees')" data-target="tab-quees">¿Qué es el VIH?</button>
@@ -974,16 +964,13 @@
                     <button class="vih-tab-btn" draggable="true" ondragstart="drag(event)" onclick="openTab('tab-ley')" data-target="tab-ley">Ley de VIH</button>
                 </div>
 
-                <!-- Columna Derecha: Cuadrado receptor (Dropzone) -->
                 <div class="vih-content-wrapper">
                     <div class="dropzone-box" id="dropzone" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="drop(event)">
                         
-                        <!-- Mensaje inicial por defecto -->
                         <p id="tab-bienvenida" class="vih-content-box active vih-welcome-box">
                             👇 Arrancá arrastrando un tema aquí o hacé clic en una de las opciones.
                         </p>
 
-                        <!-- Contenidos de cada pestaña -->
                         <div id="tab-positivo" class="vih-content-box">
                             <h4>Test Positivo</h4>
                             <p style="margin-bottom: 20px;">Recibir un resultado positivo puede generar muchas emociones juntas, pero es fundamental saber que <strong>hoy en día el VIH es una condición crónica manejable</strong> y que con la atención médica adecuada vas a tener una excelente calidad de vida.</p>
@@ -1074,7 +1061,7 @@
             </div>
         </section>
 
-        <!-- Sección: Datos / Estadísticas en Argentina -->
+        <!-- Sección: Estadísticas -->
         <section id="estadisticas">
             <div class="section-heading">¿Sabías que en Argentina?</div>
             <div class="stats-container">
@@ -1107,7 +1094,7 @@
             </div>
         </section>
 
-        <!-- Sección: Recursos (Oculta por defecto) -->
+        <!-- Sección: Recursos -->
         <section id="recursos" class="collapsible-section">
             <div class="section-heading">Recursos Clave</div>
             <div class="resources-grid">
@@ -1128,7 +1115,7 @@
         Red Psicosexual — Construyendo redes y cuidados colectivos © 2026
     </footer>
 
-    <!-- Script para menús, carrusel y gestión de secciones ocultas -->
+    <!-- Script de control -->
     <script>
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
@@ -1142,7 +1129,6 @@
             }
         }
 
-        // Función para mostrar una sección específica y hacer scroll
         function showSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -1151,13 +1137,11 @@
             }
         }
 
-        // Función para abrir la sección principal de VIH mostrando el mensaje inicial de bienvenida
         function showVihMain() {
             const vihSection = document.getElementById('todo-sobre-vih');
             if (vihSection) {
                 vihSection.classList.add('active');
                 
-                // Mostrar solo el mensaje de bienvenida y desactivar pestañas/botones
                 const contents = document.querySelectorAll('.vih-content-box');
                 contents.forEach(box => box.classList.remove('active'));
                 document.getElementById('tab-bienvenida').classList.add('active');
@@ -1169,7 +1153,6 @@
             }
         }
 
-        // Función específica para abrir "Todo sobre VIH" seleccionando directamente una pestaña desde el menú desplegable
         function showVihTab(tabName) {
             const vihSection = document.getElementById('todo-sobre-vih');
             if (vihSection) {
@@ -1179,7 +1162,6 @@
             }
         }
 
-        // Lógica de pestañas y arrastrar para VIH
         function openTab(tabName) {
             const contents = document.querySelectorAll('.vih-content-box');
             contents.forEach(box => box.classList.remove('active'));
@@ -1199,7 +1181,6 @@
             });
         }
 
-        // Funciones de Drag and Drop
         function drag(ev) {
             ev.dataTransfer.setData("text", ev.target.getAttribute('data-target'));
         }
@@ -1222,7 +1203,6 @@
             }
         }
 
-        // Lógica del carrusel de Reels
         const carousel = document.getElementById('reelsCarousel');
         const wrapper = document.getElementById('carouselWrapper');
 
