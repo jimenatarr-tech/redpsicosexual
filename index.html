@@ -174,26 +174,50 @@
             padding: 40px 20px;
         }
 
-        /* --- HERO CON VIDEO INTEGRADO LATERAL, TRANSPARENTE Y FUNDIDO --- */
+        /* --- HERO CON VIDEO HORIZONTAL DE FONDO Y DEGRADADO DIFUMINADO A LA IZQUIERDA --- */
         .hero-section {
-            background-color: var(--card-color);
+            background-color: #ffffff;
             border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 24px;
-            padding: 45px 40px;
+            padding: 55px 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             margin-bottom: 40px;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        /* El video ocupa todo el fondo de manera horizontal */
+        .hero-bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.35; /* Ajustá este valor si querés que se vea más o menos intenso */
+        }
+
+        /* Degradado lateral: más opaco a la izquierda para las letras, revelando el video a la derecha */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #ffffff 40%, rgba(255, 255, 255, 0.6) 70%, rgba(255, 255, 255, 0.2) 100%);
+            z-index: 2;
+            pointer-events: none;
         }
 
         .hero-content {
-            text-align: left;
             position: relative;
-            z-index: 2;
+            z-index: 3;
+            max-width: 600px;
+            text-align: left;
         }
 
         .hero-badge {
@@ -250,48 +274,6 @@
             color: #ffffff;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(193, 149, 146, 0.3);
-        }
-
-        /* Contenedor lateral del video con transparencia y fundido de color rosa */
-        .hero-media {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .blended-video-wrapper {
-            width: 100%;
-            max-width: 320px;
-            aspect-ratio: 4/5;
-            border-radius: 18px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 15px 35px rgba(193, 149, 146, 0.25);
-            background-color: #c19592; /* Base con tono de la paleta */
-        }
-
-        /* Capa de fundido y tinte rosa suave superpuesta */
-        .blended-video-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(193, 149, 146, 0.4) 0%, rgba(42, 31, 30, 0.2) 100%);
-            pointer-events: none;
-            mix-blend-mode: overlay;
-        }
-
-        .blended-video-wrapper video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            opacity: 0.75; /* Transparencia sutil para que quede integrado y suave */
-            filter: saturate(1.1);
         }
 
         /* Secciones */
@@ -750,17 +732,21 @@
         /* Responsive para celulares */
         @media (max-width: 768px) {
             .hero-section {
-                grid-template-columns: 1fr;
                 padding: 30px 20px;
                 text-align: center;
             }
 
             .hero-content {
                 text-align: center;
+                max-width: 100%;
             }
 
             .hero-inline-buttons {
                 justify-content: center;
+            }
+
+            .hero-section::after {
+                background: linear-gradient(180deg, rgba(255,255,255,0.95) 40%, rgba(255,255,255,0.7) 100%);
             }
 
             .nav-links {
@@ -867,9 +853,15 @@
 
     <div class="main-container">
 
-        <!-- Banner Principal (Hero) con video lateral fundido y transparente -->
+        <!-- Banner Principal (Hero) con video horizontal de fondo y fundido lateral -->
         <div class="hero-section">
-            <!-- Columna Izquierda: Títulos y botones -->
+            <!-- Video de fondo horizontal integrado -->
+            <video class="hero-bg-video" autoplay muted loop playsinline>
+                <source src="presentacion.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+
+            <!-- Columna Izquierda: Textos y botones -->
             <div class="hero-content">
                 <div class="hero-badge">Psicología + Psicología Social</div>
                 <h1 class="hero-title">Hablemos de VIH, Salud Sexual y Vínculos</h1>
@@ -879,16 +871,6 @@
                     <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
                     <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
                     <button class="hero-inline-btn" onclick="showSection('recursos')">Recursos</button>
-                </div>
-            </div>
-
-            <!-- Columna Derecha: Video lateral integrado con fundido rosa y transparencia -->
-            <div class="hero-media">
-                <div class="blended-video-wrapper">
-                    <video autoplay muted loop playsinline>
-                        <source src="presentacion.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de videos.
-                    </video>
                 </div>
             </div>
         </div>
