@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Degradado de fondo mucho más visible e intenso */
+            /* Degradado de fondo visible e intenso */
             --bg-gradient: linear-gradient(135deg, #e6b8a8 0%, #a16461 100%);
             --card-color: #ffffff;
             --accent-main: #b37370;
@@ -98,7 +98,7 @@
             background-color: rgba(35, 24, 23, 0.98);
             min-width: 220px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            border-radius: 0px; /* Sin bordes ovalados */
+            border-radius: 0px;
             padding: 10px 0;
             border: 1px solid rgba(179, 115, 112, 0.4);
             z-index: 1100;
@@ -139,7 +139,7 @@
             background-color: var(--accent-main);
             color: #ffffff !important;
             padding: 8px 20px;
-            border-radius: 0px; /* Estilo geométrico */
+            border-radius: 0px;
             font-weight: 600;
             font-size: 14px;
             text-decoration: none;
@@ -175,21 +175,20 @@
             padding: 40px 20px;
         }
 
-        /* Banner Principal (Hero) - Diseño geométrico sin bordes ovalados */
+        /* --- HERO SIN FONDO BLANCO (Directo sobre el degradado) --- */
         .hero-section {
-            background-color: var(--card-color);
-            border: 3px solid #231817; /* Estilo marco fuerte y arquitectónico */
-            border-radius: 0px; 
-            padding: 45px 30px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 8px 8px 0px rgba(35, 24, 23, 0.8); /* Sombra dura estilo editorial moderno */
             margin-bottom: 40px;
         }
 
         .hero-badge {
             display: inline-block;
-            background-color: var(--accent-main);
-            color: #fff;
+            background-color: #231817;
+            color: #ffffff;
             padding: 6px 18px;
             border-radius: 0px;
             font-size: 13px;
@@ -197,53 +196,54 @@
             margin-bottom: 15px;
             letter-spacing: 1px;
             text-transform: uppercase;
+            border: 2px solid #ffffff;
         }
 
         .hero-title {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 700;
             margin: 0 0 12px 0;
             line-height: 1.2;
-            color: #231817;
+            color: #ffffff; /* Letras blancas para destacar sobre el fondo oscuro */
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
         }
 
         .hero-subtitle {
-            font-size: 15px;
-            color: #444;
+            font-size: 16px;
+            color: #fcece8; /* Tono claro para máxima legibilidad */
             margin: 0 0 25px 0;
             line-height: 1.5;
         }
 
-        /* Botones dentro del bloque blanco con estilo geométrico/editorial y letras rosas */
+        /* Botones estilo geométrico adaptados para flotar sobre el fondo */
         .hero-inline-buttons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 15px;
-            padding-top: 20px;
-            border-top: 2px dashed rgba(179, 115, 112, 0.4);
+            margin-top: 20px;
         }
 
         .hero-inline-btn {
-            background-color: #faede9;
-            color: var(--accent-main);
-            border: 2px solid var(--accent-main);
-            padding: 8px 20px;
-            border-radius: 0px; /* Cero óvalos */
+            background-color: #231817;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            padding: 10px 22px;
+            border-radius: 0px;
             font-size: 13px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: 'Poppins', sans-serif;
             text-decoration: none;
+            box-shadow: 4px 4px 0px rgba(35, 24, 23, 0.6);
         }
 
         .hero-inline-btn:hover {
-            background-color: var(--accent-main);
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #231817;
             transform: translate(-2px, -2px);
-            box-shadow: 4px 4px 0px #231817;
+            box-shadow: 6px 6px 0px rgba(35, 24, 23, 0.8);
         }
 
         /* Secciones */
@@ -277,7 +277,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Quiénes Somos / Equipo - Tarjetas geométricas con sombra dura */
+        /* Quiénes Somos / Equipo */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -303,7 +303,7 @@
         .team-img {
             width: 100px;
             height: 100px;
-            border-radius: 0px; /* Imagen cuadrada geométrica */
+            border-radius: 0px;
             object-fit: cover;
             margin-bottom: 15px;
             border: 3px solid #231817;
@@ -340,7 +340,7 @@
             color: #fff;
         }
 
-        /* Mockup de Celular con formato geométrico industrial */
+        /* Mockup de Celular */
         .phone-mockup-container {
             width: 100%;
             max-width: 250px;
@@ -501,7 +501,7 @@
             border: 2px solid #231817;
             color: #231817;
             padding: 10px 14px;
-            border-radius: 0px; /* Cero óvalos en las pestañas */
+            border-radius: 0px;
             font-family: 'Poppins', sans-serif;
             font-size: 12px;
             font-weight: 700;
@@ -834,13 +834,13 @@
 
     <div class="main-container">
 
-        <!-- Banner Principal (Hero) -->
+        <!-- Banner Principal (Hero) flotando directamente sobre el degradado -->
         <div class="hero-section">
             <div class="hero-badge">Psicología + Psicología Social</div>
             <h1 class="hero-title">Hablemos de VIH, Salud Sexual y Vínculos</h1>
             <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
             
-            <!-- Botones adentro del bloque con letra rosa y estilo geométrico -->
+            <!-- Botones integrados debajo del título principal -->
             <div class="hero-inline-buttons">
                 <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
                 <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
