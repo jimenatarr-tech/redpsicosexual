@@ -13,16 +13,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Fondo general de la web oscuro para fundirse con las tarjetas */
-            --bg-dark: #120c0b;
-            --card-dark: rgba(30, 20, 19, 0.85);
-            --accent-main: #c19592;
+            /* Paleta basada en rosa viejo claro y fuerte integrada con fondos oscuros/ahumados */
+            --bg-dark: #201314;
+            --card-dark: rgba(48, 30, 32, 0.85);
+            --accent-main: #c19592; /* Rosa viejo principal */
+            --accent-strong: #a36b67; /* Rosa viejo fuerte */
             --text-main: #f0d8cd;
         }
 
         body {
             background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at 50% 0%, #2a1a18 0%, #120c0b 70%);
+            background-image: radial-gradient(circle at 50% 0%, #42282a 0%, #201314 70%);
             background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Poppins', sans-serif;
@@ -45,9 +46,9 @@
         }
 
         .nav-capsule {
-            background-color: rgba(22, 15, 14, 0.95);
+            background-color: rgba(35, 21, 23, 0.95);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(193, 149, 146, 0.2);
+            border: 1px solid rgba(193, 149, 146, 0.3);
             border-radius: 40px;
             padding: 10px 25px;
             display: flex;
@@ -81,7 +82,7 @@
 
         .nav-links a:not(.insta-btn), .dropdown > a {
             text-decoration: none;
-            color: #d8b8b3;
+            color: #f0d8cd;
             font-weight: 500;
             font-size: 13px;
             transition: color 0.2s;
@@ -94,7 +95,7 @@
         }
 
         .nav-links a:not(.insta-btn):hover, .dropdown:hover > a {
-            color: #ffffff;
+            color: var(--accent-main);
         }
 
         /* Menú Desplegable */
@@ -108,12 +109,12 @@
             top: 120%;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(22, 15, 14, 0.98);
+            background-color: rgba(35, 21, 23, 0.98);
             min-width: 200px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             border-radius: 14px;
             padding: 8px 0;
-            border: 1px solid rgba(193, 149, 146, 0.2);
+            border: 1px solid rgba(193, 149, 146, 0.3);
             z-index: 1100;
             list-style: none;
             text-align: center;
@@ -122,7 +123,7 @@
         .dropdown-menu li a {
             display: block;
             padding: 8px 15px;
-            color: #d8b8b3;
+            color: #f0d8cd;
             text-decoration: none;
             font-size: 12px;
             transition: background 0.2s, color 0.2s;
@@ -130,7 +131,7 @@
         }
 
         .dropdown-menu li a:hover {
-            background-color: var(--accent-main);
+            background-color: var(--accent-strong);
             color: #ffffff;
         }
 
@@ -139,7 +140,7 @@
         }
 
         .insta-btn {
-            background-color: var(--accent-main);
+            background-color: var(--accent-strong);
             color: #ffffff !important;
             padding: 6px 16px;
             border-radius: 20px;
@@ -150,7 +151,7 @@
         }
 
         .insta-btn:hover {
-            background-color: #a87b78;
+            background-color: var(--accent-main);
             transform: translateY(-1px);
         }
 
@@ -178,14 +179,14 @@
             padding: 20px 20px;
         }
 
-        /* --- HERO ANCHO: SE FUNDE CON EL FONDO OSCURO --- */
+        /* --- HERO ANCHO: TONOS ROSA VIEJO Y FUNDIDO --- */
         .hero-section {
             width: 100%;
             max-width: 1240px;
             margin: 0 auto 40px auto;
-            background-color: rgba(20, 13, 12, 0.75);
+            background-color: rgba(50, 31, 33, 0.75);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(193, 149, 146, 0.2);
+            border: 1px solid rgba(193, 149, 146, 0.35);
             border-radius: 24px;
             padding: 60px 50px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
@@ -205,10 +206,10 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            opacity: 0.5; 
+            opacity: 0.55; 
         }
 
-        /* Degradado lateral para fundir el video con el bloque oscuro de la izquierda */
+        /* Degradado lateral en tono rosa viejo para fundir el video */
         .hero-section::after {
             content: '';
             position: absolute;
@@ -216,7 +217,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, rgba(15, 10, 9, 0.95) 40%, rgba(15, 10, 9, 0.5) 75%, transparent 100%);
+            background: linear-gradient(90deg, rgba(35, 21, 23, 0.95) 40%, rgba(50, 31, 33, 0.5) 75%, transparent 100%);
             z-index: 2;
             pointer-events: none;
         }
@@ -231,15 +232,15 @@
 
         .hero-badge {
             display: inline-block;
-            background-color: rgba(193, 149, 146, 0.2);
-            color: #f0d8cd;
+            background-color: rgba(193, 149, 146, 0.3);
+            color: #ffffff;
             padding: 6px 18px;
             border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
-            border: 1px solid rgba(193, 149, 146, 0.3);
+            border: 1px solid rgba(193, 149, 146, 0.5);
         }
 
         .hero-title {
@@ -253,7 +254,7 @@
 
         .hero-subtitle {
             font-size: 15px;
-            color: #d8b8b3; 
+            color: #f0d8cd; 
             margin: 0 0 25px 0;
             line-height: 1.5;
             font-weight: 400;
@@ -264,13 +265,13 @@
             flex-wrap: wrap;
             gap: 12px;
             padding-top: 20px;
-            border-top: 1px solid rgba(193, 149, 146, 0.2);
+            border-top: 1px solid rgba(193, 149, 146, 0.3);
         }
 
         .hero-inline-btn {
-            background-color: rgba(30, 20, 19, 0.9);
+            background-color: rgba(50, 31, 33, 0.9);
             color: #f0d8cd;
-            border: 1px solid rgba(193, 149, 146, 0.4);
+            border: 1px solid rgba(193, 149, 146, 0.5);
             padding: 9px 20px;
             border-radius: 20px;
             font-size: 13px;
@@ -282,10 +283,10 @@
         }
 
         .hero-inline-btn:hover {
-            background-color: var(--accent-main);
+            background-color: var(--accent-strong);
             color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(193, 149, 146, 0.3);
+            box-shadow: 0 4px 12px rgba(163, 107, 103, 0.4);
         }
 
         /* Secciones */
@@ -298,7 +299,7 @@
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 20px;
-            border-left: 5px solid var(--accent-main);
+            border-left: 5px solid var(--accent-strong);
             padding-left: 12px;
             color: #ffffff;
         }
@@ -327,7 +328,7 @@
 
         .team-card {
             background-color: var(--card-dark);
-            border: 1px solid rgba(193, 149, 146, 0.2);
+            border: 1px solid rgba(193, 149, 146, 0.3);
             border-radius: 16px;
             padding: 25px;
             text-align: center;
@@ -346,7 +347,7 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
-            border: 3px solid var(--accent-main);
+            border: 3px solid var(--accent-strong);
         }
 
         .team-card h3 {
@@ -358,14 +359,14 @@
 
         .team-card p {
             font-size: 13px;
-            color: #d8b8b3;
+            color: #f0d8cd;
             margin: 0 0 15px 0;
             line-height: 1.4;
         }
 
         .linkedin-btn {
             display: inline-block;
-            background-color: rgba(193, 149, 146, 0.15);
+            background-color: rgba(193, 149, 146, 0.2);
             color: #f0d8cd;
             border: 1px solid rgba(193, 149, 146, 0.4);
             padding: 6px 14px;
@@ -377,7 +378,7 @@
         }
 
         .linkedin-btn:hover {
-            background-color: var(--accent-main);
+            background-color: var(--accent-strong);
             color: #fff;
         }
 
@@ -405,7 +406,7 @@
         .reel-card {
             flex: 0 0 210px;
             background-color: var(--card-dark);
-            border: 1px solid rgba(193, 149, 146, 0.2);
+            border: 1px solid rgba(193, 149, 146, 0.3);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
@@ -434,7 +435,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(22, 15, 14, 0.8);
+            background-color: rgba(35, 21, 23, 0.85);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -454,7 +455,7 @@
             color: #ffffff;
             font-weight: 600;
             font-size: 14px;
-            background-color: var(--accent-main);
+            background-color: var(--accent-strong);
             padding: 8px 16px;
             border-radius: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -464,9 +465,9 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(30, 20, 19, 0.9);
+            background-color: rgba(50, 31, 33, 0.9);
             color: #fff;
-            border: 1px solid rgba(193, 149, 146, 0.3);
+            border: 1px solid rgba(193, 149, 146, 0.4);
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -481,7 +482,7 @@
         }
 
         .carousel-btn:hover {
-            background-color: var(--accent-main);
+            background-color: var(--accent-strong);
             transform: translateY(-50%) scale(1.05);
         }
 
@@ -496,7 +497,7 @@
         /* --- SECCIÓN TODO SOBRE VIH --- */
         .vih-section-container {
             background-color: var(--card-dark);
-            border: 1px solid rgba(193, 149, 146, 0.25);
+            border: 1px solid rgba(193, 149, 146, 0.3);
             border-radius: 20px;
             padding: 35px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -515,8 +516,8 @@
         }
 
         .vih-tab-btn {
-            background-color: rgba(45, 30, 28, 0.9);
-            border: 1px solid rgba(193, 149, 146, 0.3);
+            background-color: rgba(50, 31, 33, 0.9);
+            border: 1px solid rgba(193, 149, 146, 0.4);
             color: #f0d8cd;
             padding: 10px 16px;
             border-radius: 18px;
@@ -542,14 +543,14 @@
         .vih-tab-btn:nth-child(7) { transform: rotate(-1deg) translateY(1px); }
 
         .vih-tab-btn:hover {
-            background-color: rgba(193, 149, 146, 0.3);
+            background-color: rgba(163, 107, 103, 0.4);
             transform: scale(1.05) rotate(0deg) translateY(0);
         }
 
         .vih-tab-btn.active {
-            background-color: var(--accent-main);
+            background-color: var(--accent-strong);
             color: #ffffff;
-            box-shadow: 0 5px 14px rgba(193, 149, 146, 0.4);
+            box-shadow: 0 5px 14px rgba(163, 107, 103, 0.5);
             transform: scale(1.04) rotate(0deg) translateY(0);
         }
 
@@ -558,8 +559,8 @@
         }
 
         .dropzone-box {
-            border: 2px dashed rgba(193, 149, 146, 0.35);
-            background-color: rgba(22, 15, 14, 0.6);
+            border: 2px dashed rgba(193, 149, 146, 0.4);
+            background-color: rgba(35, 21, 23, 0.6);
             border-radius: 14px;
             padding: 30px;
             text-align: center;
@@ -571,13 +572,13 @@
         }
 
         .dropzone-box.drag-over {
-            background-color: rgba(193, 149, 146, 0.2);
-            border-color: var(--accent-main);
+            background-color: rgba(163, 107, 103, 0.3);
+            border-color: var(--accent-strong);
             transform: scale(1.01);
         }
 
         .vih-welcome-box {
-            color: #d8b8b3;
+            color: #f0d8cd;
             font-style: italic;
             margin: 0;
             font-size: 14px;
@@ -612,8 +613,8 @@
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            background: rgba(22, 15, 14, 0.8);
-            border: 1px solid rgba(193, 149, 146, 0.2);
+            background: rgba(35, 21, 23, 0.85);
+            border: 1px solid rgba(193, 149, 146, 0.3);
             padding: 14px 16px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -631,9 +632,9 @@
 
         .internal-link-btn {
             display: inline-block;
-            background-color: rgba(193, 149, 146, 0.2);
+            background-color: rgba(193, 149, 146, 0.25);
             color: #f0d8cd;
-            border: 1px solid rgba(193, 149, 146, 0.4);
+            border: 1px solid rgba(193, 149, 146, 0.5);
             padding: 4px 12px;
             border-radius: 15px;
             font-size: 13px;
@@ -645,14 +646,14 @@
         }
 
         .internal-link-btn:hover {
-            background-color: var(--accent-main);
+            background-color: var(--accent-strong);
             color: #fff;
         }
 
         /* Estadísticas */
         .stats-container {
             background-color: var(--card-dark);
-            border: 1px solid rgba(193, 149, 146, 0.25);
+            border: 1px solid rgba(193, 149, 146, 0.3);
             border-radius: 20px;
             padding: 35px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -666,11 +667,11 @@
         }
 
         .stat-card {
-            background-color: rgba(22, 15, 14, 0.7);
+            background-color: rgba(35, 21, 23, 0.75);
             border-radius: 16px;
             padding: 24px;
             text-align: left;
-            border: 1px solid rgba(193, 149, 146, 0.2);
+            border: 1px solid rgba(193, 149, 146, 0.3);
             transition: transform 0.2s;
         }
 
@@ -688,7 +689,7 @@
 
         .stat-text {
             font-size: 14px;
-            color: #d8b8b3;
+            color: #f0d8cd;
             margin: 0;
             line-height: 1.4;
             font-weight: 500;
@@ -703,7 +704,7 @@
 
         .resource-card {
             background-color: var(--card-dark);
-            border: 1px solid rgba(193, 149, 146, 0.25);
+            border: 1px solid rgba(193, 149, 146, 0.3);
             border-radius: 16px;
             padding: 20px;
             text-decoration: none;
@@ -718,7 +719,7 @@
 
         .resource-card:hover {
             transform: translateY(-3px);
-            background-color: rgba(45, 30, 28, 0.9);
+            background-color: rgba(50, 31, 33, 0.9);
         }
 
         .resource-card h4 {
@@ -730,7 +731,7 @@
 
         .resource-card span {
             font-size: 13px;
-            color: #d8b8b3;
+            color: #f0d8cd;
         }
 
         /* Footer */
@@ -738,9 +739,9 @@
             text-align: center;
             padding: 30px;
             font-size: 13px;
-            color: #d8b8b3;
-            border-top: 1px solid rgba(193, 149, 146, 0.2);
-            background-color: rgba(18, 12, 11, 0.95);
+            color: #f0d8cd;
+            border-top: 1px solid rgba(193, 149, 146, 0.3);
+            background-color: rgba(32, 19, 20, 0.95);
             margin-top: 60px;
         }
 
@@ -804,7 +805,7 @@
 
             .reel-overlay {
                 opacity: 0.85;
-                background: linear-gradient(to top, rgba(22, 15, 14, 0.9), transparent);
+                background: linear-gradient(to top, rgba(35, 21, 23, 0.9), transparent);
                 justify-content: flex-end;
                 padding-bottom: 20px;
             }
@@ -867,7 +868,7 @@
 
     <div class="main-container">
 
-        <!-- Banner Principal (Hero) Ancho, Oscuro y Fundido -->
+        <!-- Banner Principal (Hero) Ancho con Rosa Viejo y Fondo Fundido -->
         <div class="hero-section">
             <!-- Video de fondo horizontal -->
             <video class="hero-bg-video" autoplay muted loop playsinline>
@@ -977,7 +978,7 @@
         <!-- Nueva Sección: Salud Sexual (Oculta por defecto) -->
         <section id="salud-sexual" class="collapsible-section">
             <div class="section-heading">Salud Sexual</div>
-            <div class="stats-container" style="text-align: center; color: #d8b8b3; font-style: italic;">
+            <div class="stats-container" style="text-align: center; color: #f0d8cd; font-style: italic;">
                 <p>Próximamente más contenido e información detallada sobre Salud Sexual.</p>
             </div>
         </section>
