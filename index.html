@@ -1156,12 +1156,12 @@
                     </ul>
                 </div>
 
-                <!-- Menú Superior: Recursos -->
+                <!-- Menú Superior: Recursos (Abre la sección interna) -->
                 <div class="dropdown" id="dropdownRecursos">
                     <a onclick="toggleDropdown(event, 'dropdownRecursos')">Recursos ▾</a>
                     <ul class="dropdown-menu">
                         <li><a onclick="showSection('recursos'); closeMenuMobile();">Ver sección Recursos</a></li>
-                        <li><a href="https://www.argentina.gob.ar/salud/vih-sida/donde-hacerse-el-test" target="_blank" onclick="closeMenuMobile()">¿Dónde hacerte el test?</a></li>
+                        <li><a onclick="showSection('recursos'); closeMenuMobile();">¿Dónde hacerte el test?</a></li>
                     </ul>
                 </div>
 
@@ -1493,16 +1493,16 @@
             </div>
         </section>
 
-        <!-- Sección: Recursos (Oculta por defecto) -->
+        <!-- Sección: Recursos (Oculta por defecto, con el link oficial actualizado) -->
         <section id="recursos" class="collapsible-section">
             <div class="section-heading">Recursos Clave</div>
             <div class="resources-grid">
-                <a href="https://www.argentina.gob.ar/salud/vih-sida/donde-hacerse-el-test" target="_blank" class="resource-card">
+                <a href="https://buenosaires.gob.ar/gcaba_historico/test-de-vih-y-sifilis-y-centros-de-testeo-0" target="_blank" class="resource-card">
                     <div>
                         <h4>¿Dónde hacerte el test de VIH?</h4>
-                        <span>Centros de testeo y asesoramiento en todo el país.</span>
+                        <span>Centros de testeo y asesoramiento en CABA.</span>
                     </div>
-                    <span style="margin-top: 15px; font-weight: 700; color: var(--accent-main);">Acceder →</span>
+                    <span style="margin-top: 15px; font-weight: 700; color: var(--accent-main);">Acceder ↗</span>
                 </a>
             </div>
         </section>
