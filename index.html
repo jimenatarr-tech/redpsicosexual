@@ -213,7 +213,7 @@
             line-height: 1.5;
         }
 
-        /* --- NUEVOS BOTONES / TARJETAS DE ACCESO RÁPIDO --- */
+        /* --- BOTONES DE ACCESO RÁPIDO CON ROSA FUERTE Y LETRAS BLANCAS --- */
         .hero-quick-buttons {
             display: flex;
             justify-content: center;
@@ -223,16 +223,16 @@
         }
 
         .hero-quick-btn {
-            background-color: var(--card-color);
-            color: #2a1f1e;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            padding: 14px 24px;
-            border-radius: 18px;
+            background-color: var(--accent-main);
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 12px 24px;
+            border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 6px 20px rgba(193, 149, 146, 0.4);
             font-family: 'Poppins', sans-serif;
             text-decoration: none;
             display: flex;
@@ -245,11 +245,10 @@
         }
 
         .hero-quick-btn:hover {
-            background-color: #fcf4f3;
-            border-color: var(--accent-main);
+            background-color: #a87b78;
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(193, 149, 146, 0.25);
-            color: var(--accent-main);
+            box-shadow: 0 10px 25px rgba(163, 120, 117, 0.6);
+            border-color: #ffffff;
         }
 
         /* Secciones */
@@ -857,7 +856,7 @@
             <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
         </div>
 
-        <!-- Botones de Acceso Rápido con Iconos y Diseño Mejorado -->
+        <!-- Botones de Acceso Rápido con Fondo Rosa Fuerte y Letras Blancas -->
         <div class="hero-quick-buttons">
             <button class="hero-quick-btn" onclick="showSection('salud-sexual')">
                 <span>💬</span> Salud Sexual
