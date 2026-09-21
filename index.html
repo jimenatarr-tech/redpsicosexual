@@ -821,7 +821,7 @@
 
             <!-- Menú Superior: Todo sobre VIH -->
             <div class="dropdown">
-                <a onclick="showVihTab('tab-positivo'); toggleMenu();">Todo sobre VIH ▾</a>
+                <a onclick="showVihMain(); toggleMenu();">Todo sobre VIH ▾</a>
                 <ul class="dropdown-menu">
                     <li><a onclick="showVihTab('tab-positivo'); toggleMenu();">Test Positivo</a></li>
                     <li><a onclick="showVihTab('tab-quees'); toggleMenu();">¿Qué es el VIH?</a></li>
@@ -852,7 +852,7 @@
         <!-- Botones de Acceso Rápido debajo del Título -->
         <div class="hero-quick-buttons">
             <button class="hero-quick-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
-            <button class="hero-quick-btn" onclick="showVihTab('tab-positivo')">Todo sobre VIH</button>
+            <button class="hero-quick-btn" onclick="showVihMain()">Todo sobre VIH</button>
             <button class="hero-quick-btn" onclick="showSection('recursos')">Recursos</button>
         </div>
 
@@ -977,7 +977,7 @@
                 <div class="vih-content-wrapper">
                     <div class="dropzone-box" id="dropzone" ondragover="allowDrop(event)" ondragleave="removeDropStyle(event)" ondrop="drop(event)">
                         
-                        <!-- Mensaje inicial -->
+                        <!-- Mensaje inicial por defecto -->
                         <p id="tab-bienvenida" class="vih-content-box active vih-welcome-box">
                             👇 Arrancá arrastrando un tema aquí o hacé clic en una de las opciones.
                         </p>
@@ -1150,7 +1150,25 @@
             }
         }
 
-        // Función específica para abrir "Todo sobre VIH" seleccionando una pestaña
+        // Función para abrir la sección principal de VIH mostrando el mensaje inicial de bienvenida
+        function showVihMain() {
+            const vihSection = document.getElementById('todo-sobre-vih');
+            if (vihSection) {
+                vihSection.classList.add('active');
+                
+                // Mostrar solo el mensaje de bienvenida y desactivar pestañas/botones
+                const contents = document.querySelectorAll('.vih-content-box');
+                contents.forEach(box => box.classList.remove('active'));
+                document.getElementById('tab-bienvenida').classList.add('active');
+
+                const buttons = document.querySelectorAll('.vih-tab-btn');
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                scrollToSection('todo-sobre-vih');
+            }
+        }
+
+        // Función específica para abrir "Todo sobre VIH" seleccionando directamente una pestaña desde el menú desplegable
         function showVihTab(tabName) {
             const vihSection = document.getElementById('todo-sobre-vih');
             if (vihSection) {
