@@ -93,11 +93,11 @@
             letter-spacing: 0.3px;
         }
 
-        .nav-links a:not(.insta-btn):hover, .dropdown:hover > a {
+        .nav-links a:not(.insta-btn):hover, .dropdown > a:hover {
             color: var(--accent-main);
         }
 
-        /* Menú Desplegable */
+        /* Menú Desplegable interactivo por Clic */
         .dropdown {
             position: relative;
         }
@@ -105,7 +105,7 @@
         .dropdown-menu {
             display: none;
             position: absolute;
-            top: 120%;
+            top: 130%;
             left: 50%;
             transform: translateX(-50%);
             background-color: rgba(35, 21, 23, 0.98);
@@ -117,6 +117,10 @@
             z-index: 1100;
             list-style: none;
             text-align: center;
+        }
+
+        .dropdown-menu.show {
+            display: block;
         }
 
         .dropdown-menu li a {
@@ -133,10 +137,6 @@
         .dropdown-menu li a:hover {
             background-color: var(--accent-strong);
             color: #ffffff;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
         }
 
         .insta-btn {
@@ -966,18 +966,6 @@
                 text-align: center;
             }
 
-            .vih-section-container {
-                grid-template-columns: 1fr;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .carousel-btn {
-                display: none;
-            }
-
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1015,9 +1003,9 @@
             <nav class="nav-links" id="navLinks">
                 <a onclick="scrollToSection('nosotras'); closeMenuMobile();">Quiénes Somos</a>
                 
-                <!-- Desplegable Reels -->
-                <div class="dropdown">
-                    <a onclick="scrollToSection('reels'); closeMenuMobile();">Reels Informativos ▾</a>
+                <!-- Desplegable Reels por Clic -->
+                <div class="dropdown" id="dropdownReels">
+                    <a onclick="toggleDropdown(event, 'dropdownReels')">Reels Informativos ▾</a>
                     <ul class="dropdown-menu">
                         <li><a onclick="scrollToSection('reels'); closeMenuMobile();">Ver todos los reels</a></li>
                         <li><a href="https://www.instagram.com/p/DZCwVwCxCPj/" target="_blank" onclick="closeMenuMobile()">¿Qué es el VIH?</a></li>
@@ -1030,9 +1018,9 @@
                 <!-- Menú Superior: Salud Sexual -->
                 <a onclick="showSection('salud-sexual'); closeMenuMobile();">Salud Sexual</a>
 
-                <!-- Menú Superior: Todo sobre VIH -->
-                <div class="dropdown">
-                    <a onclick="showVihMain(); closeMenuMobile();">Todo sobre VIH ▾</a>
+                <!-- Menú Superior: Todo sobre VIH por Clic -->
+                <div class="dropdown" id="dropdownVih">
+                    <a onclick="toggleDropdown(event, 'dropdownVih')">Todo sobre VIH ▾</a>
                     <ul class="dropdown-menu">
                         <li><a onclick="showVihTab('tab-positivo'); closeMenuMobile();">Test Positivo</a></li>
                         <li><a onclick="showVihTab('tab-quees'); closeMenuMobile();">¿Qué es el VIH?</a></li>
@@ -1044,8 +1032,14 @@
                     </ul>
                 </div>
 
-                <!-- Menú Superior: Recursos -->
-                <a onclick="showSection('recursos'); closeMenuMobile();">Recursos</a>
+                <!-- Menú Superior: Recursos (Transformado en desplegable) -->
+                <div class="dropdown" id="dropdownRecursos">
+                    <a onclick="toggleDropdown(event, 'dropdownRecursos')">Recursos ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="showSection('recursos'); closeMenuMobile();">Ver sección Recursos</a></li>
+                        <li><a href="https://www.argentina.gob.ar/salud/vih-sida/donde-hacerse-el-test" target="_blank" onclick="closeMenuMobile()">¿Dónde hacerte el test?</a></li>
+                    </ul>
+                </div>
 
                 <a href="https://instagram.com/red.psicosexual" target="_blank" class="insta-btn" onclick="closeMenuMobile()">Instagram ↗</a>
             </nav>
@@ -1395,7 +1389,32 @@
         function closeMenuMobile() {
             const nav = document.getElementById('navLinks');
             nav.classList.remove('active');
+            closeAllDropdowns();
         }
+
+        function toggleDropdown(event, dropdownId) {
+            event.stopPropagation();
+            const dropdown = document.getElementById(dropdownId);
+            const menu = dropdown.querySelector('.dropdown-menu');
+            
+            // Cerrar otros desplegables abiertos
+            document.querySelectorAll('.dropdown-menu').forEach(item => {
+                if (item !== menu) item.classList.remove('show');
+            });
+
+            menu.classList.toggle('show');
+        }
+
+        function closeAllDropdowns() {
+            document.querySelectorAll('.dropdown-menu').forEach(item => {
+                item.classList.remove('show');
+            });
+        }
+
+        // Cerrar menús al hacer clic fuera
+        window.addEventListener('click', () => {
+            closeAllDropdowns();
+        });
 
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
