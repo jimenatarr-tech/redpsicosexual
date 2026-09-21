@@ -127,6 +127,7 @@
             font-size: 12px;
             transition: background 0.2s, color 0.2s;
             white-space: nowrap;
+            cursor: pointer;
         }
 
         .dropdown-menu li a:hover {
@@ -749,7 +750,7 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            opacity: 0.55; /* Aumentado para que se note mucho más como el banner de arriba */
+            opacity: 0.55; 
         }
 
         .footer-overlay {
@@ -1012,41 +1013,41 @@
                 <span></span>
             </button>
             <nav class="nav-links" id="navLinks">
-                <a onclick="scrollToSection('nosotras'); toggleMenu();">Quiénes Somos</a>
+                <a onclick="scrollToSection('nosotras'); closeMenuMobile();">Quiénes Somos</a>
                 
                 <!-- Desplegable Reels -->
                 <div class="dropdown">
-                    <a onclick="scrollToSection('reels'); toggleMenu();">Reels Informativos ▾</a>
+                    <a onclick="scrollToSection('reels'); closeMenuMobile();">Reels Informativos ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a onclick="scrollToSection('reels'); toggleMenu();">Ver todos los reels</a></li>
-                        <li><a href="https://www.instagram.com/p/DZCwVwCxCPj/" target="_blank">¿Qué es el VIH?</a></li>
-                        <li><a href="https://www.instagram.com/p/DdK0CGXs_vR/" target="_blank">Y la vacuna?</a></li>
-                        <li><a href="https://www.instagram.com/p/DbtLZ7sxYUc/" target="_blank">Salud Sexual</a></li>
-                        <li><a href="https://www.instagram.com/p/Da5uYpqxWgn/" target="_blank">I = I</a></li>
+                        <li><a onclick="scrollToSection('reels'); closeMenuMobile();">Ver todos los reels</a></li>
+                        <li><a href="https://www.instagram.com/p/DZCwVwCxCPj/" target="_blank" onclick="closeMenuMobile()">¿Qué es el VIH?</a></li>
+                        <li><a href="https://www.instagram.com/p/DdK0CGXs_vR/" target="_blank" onclick="closeMenuMobile()">Y la vacuna?</a></li>
+                        <li><a href="https://www.instagram.com/p/DbtLZ7sxYUc/" target="_blank" onclick="closeMenuMobile()">Salud Sexual</a></li>
+                        <li><a href="https://www.instagram.com/p/Da5uYpqxWgn/" target="_blank" onclick="closeMenuMobile()">I = I</a></li>
                     </ul>
                 </div>
 
                 <!-- Menú Superior: Salud Sexual -->
-                <a onclick="showSection('salud-sexual'); toggleMenu();">Salud Sexual</a>
+                <a onclick="showSection('salud-sexual'); closeMenuMobile();">Salud Sexual</a>
 
                 <!-- Menú Superior: Todo sobre VIH -->
                 <div class="dropdown">
-                    <a onclick="showVihMain(); toggleMenu();">Todo sobre VIH ▾</a>
+                    <a onclick="showVihMain(); closeMenuMobile();">Todo sobre VIH ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a onclick="showVihTab('tab-positivo'); toggleMenu();">Test Positivo</a></li>
-                        <li><a onclick="showVihTab('tab-quees'); toggleMenu();">¿Qué es el VIH?</a></li>
-                        <li><a onclick="showVihTab('tab-transmision'); toggleMenu();">Formas de transmisión</a></li>
-                        <li><a onclick="showVihTab('tab-sida'); toggleMenu();">VIH &ne; sida</a></li>
-                        <li><a onclick="showVihTab('tab-ii'); toggleMenu();">I = I</a></li>
-                        <li><a onclick="showVihTab('tab-prep'); toggleMenu();">PrEP y PEP</a></li>
-                        <li><a onclick="showVihTab('tab-ley'); toggleMenu();">Ley de VIH</a></li>
+                        <li><a onclick="showVihTab('tab-positivo'); closeMenuMobile();">Test Positivo</a></li>
+                        <li><a onclick="showVihTab('tab-quees'); closeMenuMobile();">¿Qué es el VIH?</a></li>
+                        <li><a onclick="showVihTab('tab-transmision'); closeMenuMobile();">Formas de transmisión</a></li>
+                        <li><a onclick="showVihTab('tab-sida'); closeMenuMobile();">VIH &ne; sida</a></li>
+                        <li><a onclick="showVihTab('tab-ii'); closeMenuMobile();">I = I</a></li>
+                        <li><a onclick="showVihTab('tab-prep'); closeMenuMobile();">PrEP y PEP</a></li>
+                        <li><a onclick="showVihTab('tab-ley'); closeMenuMobile();">Ley de VIH</a></li>
                     </ul>
                 </div>
 
                 <!-- Menú Superior: Recursos -->
-                <a onclick="showSection('recursos'); toggleMenu();">Recursos</a>
+                <a onclick="showSection('recursos'); closeMenuMobile();">Recursos</a>
 
-                <a href="https://instagram.com/red.psicosexual" target="_blank" class="insta-btn">Instagram ↗</a>
+                <a href="https://instagram.com/red.psicosexual" target="_blank" class="insta-btn" onclick="closeMenuMobile()">Instagram ↗</a>
             </nav>
         </div>
     </header>
@@ -1362,7 +1363,7 @@
                     </ul>
                 </div>
 
-                <!-- Columna 3: Contacto (Sin botón de canal de consulta) -->
+                <!-- Columna 3: Contacto -->
                 <div class="footer-col">
                     <h4>Contacto</h4>
                     <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
@@ -1389,6 +1390,11 @@
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
             nav.classList.toggle('active');
+        }
+
+        function closeMenuMobile() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.remove('active');
         }
 
         function scrollToSection(sectionId) {
