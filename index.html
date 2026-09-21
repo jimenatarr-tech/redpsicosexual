@@ -113,7 +113,7 @@
             left: 50%;
             transform: translateX(-50%);
             background-color: rgba(35, 21, 23, 0.98);
-            min-width: 250px;
+            width: 260px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             border-radius: 14px;
             padding: 8px 0;
@@ -121,6 +121,7 @@
             z-index: 1100;
             list-style: none;
             text-align: center;
+            box-sizing: border-box;
         }
 
         .dropdown-menu.show {
@@ -129,12 +130,13 @@
 
         .dropdown-menu li a {
             display: block;
-            padding: 8px 15px;
+            padding: 10px 15px;
             color: #f0d8cd;
             text-decoration: none;
             font-size: 12px;
             transition: background 0.2s, color 0.2s;
-            white-space: nowrap;
+            white-space: normal;
+            line-height: 1.4;
             cursor: pointer;
         }
 
@@ -1063,6 +1065,7 @@
                 background-color: rgba(0, 0, 0, 0.3);
                 border: none;
                 text-align: center;
+                width: 100%;
             }
 
             .footer-grid {
