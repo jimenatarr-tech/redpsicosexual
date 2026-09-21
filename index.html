@@ -174,7 +174,7 @@
             padding: 40px 20px;
         }
 
-        /* --- NUEVO HERO EN DOS COLUMNAS (Estilo Referencia) --- */
+        /* --- HERO EN DOS COLUMNAS CON VIDEO INTEGRADO LIMPIO --- */
         .hero-section {
             background-color: var(--card-color);
             border: 2px solid rgba(255, 255, 255, 0.6);
@@ -219,7 +219,6 @@
             line-height: 1.5;
         }
 
-        /* Botones dentro de la columna izquierda del Hero */
         .hero-inline-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -249,29 +248,30 @@
             box-shadow: 0 4px 12px rgba(193, 149, 146, 0.3);
         }
 
-        /* Columna derecha del Hero: Video vertical destacado estilo "Doble Ojo" */
+        /* Contenedor del video integrado estilo cinemático limpio */
         .hero-media {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .hero-phone-mockup {
+        .integrated-video-wrapper {
             width: 100%;
-            max-width: 240px;
+            max-width: 300px;
+            aspect-ratio: 9/16;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(42, 31, 30, 0.2);
+            border: 2px solid rgba(193, 149, 146, 0.4);
+            position: relative;
             background-color: #2a1f1e;
-            border-radius: 28px;
-            padding: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            border: 3px solid #4a3533;
         }
 
-        .hero-phone-mockup video {
+        .integrated-video-wrapper video {
             width: 100%;
-            height: auto;
-            border-radius: 20px;
-            display: block;
+            height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         /* Secciones */
@@ -847,9 +847,9 @@
 
     <div class="main-container">
 
-        <!-- Banner Principal (Hero) en Dos Columnas tipo Referencia -->
+        <!-- Banner Principal (Hero) en Dos Columnas con Video Integrado Limpio -->
         <div class="hero-section">
-            <!-- Columna Izquierda: Textos y botones -->
+            <!-- Columna Izquierda: Títulos y botones -->
             <div class="hero-content">
                 <div class="hero-badge">Psicología + Psicología Social</div>
                 <h1 class="hero-title">Hablemos de VIH, Salud Sexual y Vínculos</h1>
@@ -862,9 +862,9 @@
                 </div>
             </div>
 
-            <!-- Columna Derecha: Video en formato vertical integrado (estilo celular) -->
+            <!-- Columna Derecha: Video institucional/salud sexual integrado de forma limpia y moderna -->
             <div class="hero-media">
-                <div class="hero-phone-mockup">
+                <div class="integrated-video-wrapper">
                     <video controls autoplay muted loop playsinline>
                         <source src="presentacion.mp4" type="video/mp4">
                         Tu navegador no soporta la reproducción de videos.
@@ -1178,7 +1178,7 @@
             const vihSection = document.getElementById('todo-sobre-vih');
             if (vihSection) {
                 vihSection.classList.add('active');
-                openTab(tabName);	
+                openTab(tabName);
                 scrollToSection('todo-sobre-vih');
             }
         }
