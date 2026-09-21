@@ -13,15 +13,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #f0d8cd 0%, #c19592 100%);
-            --card-color: #ffffff;
+            /* Fondo general de la web oscuro para fundirse con las tarjetas */
+            --bg-dark: #120c0b;
+            --card-dark: rgba(30, 20, 19, 0.85);
             --accent-main: #c19592;
-            --accent-dark: #8c5855; /* Rosa más oscuro para textos de botones */
-            --text-main: #222222;
+            --text-main: #f0d8cd;
         }
 
         body {
-            background: var(--bg-gradient);
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #2a1a18 0%, #120c0b 70%);
             background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Poppins', sans-serif;
@@ -31,7 +32,7 @@
             min-height: 100vh;
         }
 
-        /* Barra de navegación en formato Cápsula Flotante (Estilo Referencia) */
+        /* Barra de navegación en formato Cápsula Flotante */
         header {
             background-color: transparent;
             padding: 20px 20px;
@@ -44,15 +45,15 @@
         }
 
         .nav-capsule {
-            background-color: rgba(30, 20, 19, 0.9);
+            background-color: rgba(22, 15, 14, 0.95);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(193, 149, 146, 0.25);
+            border: 1px solid rgba(193, 149, 146, 0.2);
             border-radius: 40px;
             padding: 10px 25px;
             display: flex;
             align-items: center;
             gap: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .nav-brand {
@@ -107,12 +108,12 @@
             top: 120%;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(30, 20, 19, 0.98);
+            background-color: rgba(22, 15, 14, 0.98);
             min-width: 200px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             border-radius: 14px;
             padding: 8px 0;
-            border: 1px solid rgba(193, 149, 146, 0.3);
+            border: 1px solid rgba(193, 149, 146, 0.2);
             z-index: 1100;
             list-style: none;
             text-align: center;
@@ -177,16 +178,17 @@
             padding: 20px 20px;
         }
 
-        /* --- HERO ANCHO CON BORDE SUTIL Y VIDEO DE FONDO --- */
+        /* --- HERO ANCHO: SE FUNDE CON EL FONDO OSCURO --- */
         .hero-section {
             width: 100%;
             max-width: 1240px;
             margin: 0 auto 40px auto;
-            background-color: #1a1211; /* Fondo oscuro base por si el video tarda en cargar */
-            border: 1px solid rgba(255, 255, 255, 0.25); /* Borde mucho más sutil */
+            background-color: rgba(20, 13, 12, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(193, 149, 146, 0.2);
             border-radius: 24px;
             padding: 60px 50px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
             box-sizing: border-box;
@@ -203,26 +205,41 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
+            opacity: 0.5; 
+        }
+
+        /* Degradado lateral para fundir el video con el bloque oscuro de la izquierda */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(15, 10, 9, 0.95) 40%, rgba(15, 10, 9, 0.5) 75%, transparent 100%);
+            z-index: 2;
+            pointer-events: none;
         }
 
         /* Textos y botones a la izquierda */
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             max-width: 650px;
             text-align: left;
         }
 
         .hero-badge {
             display: inline-block;
-            background-color: var(--accent-main);
-            color: #fff;
+            background-color: rgba(193, 149, 146, 0.2);
+            color: #f0d8cd;
             padding: 6px 18px;
             border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
+            border: 1px solid rgba(193, 149, 146, 0.3);
         }
 
         .hero-title {
@@ -230,17 +247,16 @@
             font-weight: 700;
             margin: 0 0 15px 0;
             line-height: 1.2;
-            color: #ffffff; /* Título en blanco como pediste */
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4); /* Sombra para legibilidad */
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
         .hero-subtitle {
             font-size: 15px;
-            color: #f0d8cd; /* Tono claro para acompañar al título blanco */
+            color: #d8b8b3; 
             margin: 0 0 25px 0;
             line-height: 1.5;
             font-weight: 400;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
         }
 
         .hero-inline-buttons {
@@ -248,29 +264,28 @@
             flex-wrap: wrap;
             gap: 12px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(193, 149, 146, 0.2);
         }
 
         .hero-inline-btn {
-            background-color: rgba(255, 255, 255, 0.95);
-            color: var(--accent-dark); /* Letras de botones en rosa más oscuro */
+            background-color: rgba(30, 20, 19, 0.9);
+            color: #f0d8cd;
             border: 1px solid rgba(193, 149, 146, 0.4);
             padding: 9px 20px;
             border-radius: 20px;
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: 'Poppins', sans-serif;
             text-decoration: none;
-            backdrop-filter: blur(4px);
         }
 
         .hero-inline-btn:hover {
             background-color: var(--accent-main);
             color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(193, 149, 146, 0.3);
         }
 
         /* Secciones */
@@ -283,9 +298,9 @@
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 20px;
-            border-left: 5px solid #2a1f1e;
+            border-left: 5px solid var(--accent-main);
             padding-left: 12px;
-            color: #2a1f1e;
+            color: #ffffff;
         }
 
         .collapsible-section {
@@ -302,7 +317,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Grilla adaptable (Quiénes Somos) */
+        /* Grilla adaptable (Quiénes Somos) unificada */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -311,12 +326,12 @@
         }
 
         .team-card {
-            background-color: var(--card-color);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: var(--card-dark);
+            border: 1px solid rgba(193, 149, 146, 0.2);
             border-radius: 16px;
             padding: 25px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -338,20 +353,21 @@
             margin: 0 0 10px 0;
             font-size: 18px;
             font-weight: 600;
+            color: #ffffff;
         }
 
         .team-card p {
             font-size: 13px;
-            color: #555;
+            color: #d8b8b3;
             margin: 0 0 15px 0;
             line-height: 1.4;
         }
 
         .linkedin-btn {
             display: inline-block;
-            background-color: #fcf4f3;
-            color: var(--text-main);
-            border: 1px solid var(--accent-main);
+            background-color: rgba(193, 149, 146, 0.15);
+            color: #f0d8cd;
+            border: 1px solid rgba(193, 149, 146, 0.4);
             padding: 6px 14px;
             border-radius: 12px;
             font-size: 12px;
@@ -388,11 +404,11 @@
 
         .reel-card {
             flex: 0 0 210px;
-            background-color: var(--card-color);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: var(--card-dark);
+            border: 1px solid rgba(193, 149, 146, 0.2);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             text-decoration: none;
             position: relative;
             display: flex;
@@ -402,7 +418,7 @@
 
         .reel-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
         }
 
         .reel-img {
@@ -418,7 +434,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(42, 31, 30, 0.65);
+            background-color: rgba(22, 15, 14, 0.8);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -441,16 +457,16 @@
             background-color: var(--accent-main);
             padding: 8px 16px;
             border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(42, 31, 30, 0.85);
+            background-color: rgba(30, 20, 19, 0.9);
             color: #fff;
-            border: none;
+            border: 1px solid rgba(193, 149, 146, 0.3);
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -461,7 +477,7 @@
             justify-content: center;
             z-index: 10;
             transition: background-color 0.2s, transform 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
 
         .carousel-btn:hover {
@@ -479,11 +495,11 @@
 
         /* --- SECCIÓN TODO SOBRE VIH --- */
         .vih-section-container {
-            background-color: var(--card-color);
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            background-color: var(--card-dark);
+            border: 1px solid rgba(193, 149, 146, 0.25);
             border-radius: 20px;
             padding: 35px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             display: grid;
             grid-template-columns: 290px 1fr;
             gap: 30px;
@@ -499,16 +515,16 @@
         }
 
         .vih-tab-btn {
-            background-color: #fcf4f3;
-            border: 1px solid var(--accent-main);
-            color: #2a1f1e;
+            background-color: rgba(45, 30, 28, 0.9);
+            border: 1px solid rgba(193, 149, 146, 0.3);
+            color: #f0d8cd;
             padding: 10px 16px;
             border-radius: 18px;
             font-family: 'Poppins', sans-serif;
             font-size: 13px;
             font-weight: 600;
             cursor: grab;
-            box-shadow: 0 3px 10px rgba(193, 149, 146, 0.15);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.25s ease;
             user-select: none;
         }
@@ -526,9 +542,8 @@
         .vih-tab-btn:nth-child(7) { transform: rotate(-1deg) translateY(1px); }
 
         .vih-tab-btn:hover {
-            background-color: #f5e4e1;
+            background-color: rgba(193, 149, 146, 0.3);
             transform: scale(1.05) rotate(0deg) translateY(0);
-            box-shadow: 0 5px 14px rgba(193, 149, 146, 0.3);
         }
 
         .vih-tab-btn.active {
@@ -543,8 +558,8 @@
         }
 
         .dropzone-box {
-            border: 2px dashed rgba(193, 149, 146, 0.5);
-            background-color: #fcf4f3;
+            border: 2px dashed rgba(193, 149, 146, 0.35);
+            background-color: rgba(22, 15, 14, 0.6);
             border-radius: 14px;
             padding: 30px;
             text-align: center;
@@ -556,13 +571,13 @@
         }
 
         .dropzone-box.drag-over {
-            background-color: #f2dbd7;
+            background-color: rgba(193, 149, 146, 0.2);
             border-color: var(--accent-main);
             transform: scale(1.01);
         }
 
         .vih-welcome-box {
-            color: #777;
+            color: #d8b8b3;
             font-style: italic;
             margin: 0;
             font-size: 14px;
@@ -573,6 +588,7 @@
             text-align: left;
             width: 100%;
             animation: fadeIn 0.3s ease-in-out;
+            color: #f0d8cd;
         }
 
         .vih-content-box.active {
@@ -581,7 +597,7 @@
 
         .vih-content-box h4 {
             margin-top: 0;
-            color: #2a1f1e;
+            color: #ffffff;
             font-size: 18px;
             margin-bottom: 15px;
         }
@@ -596,10 +612,11 @@
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            background: #ffffff;
+            background: rgba(22, 15, 14, 0.8);
+            border: 1px solid rgba(193, 149, 146, 0.2);
             padding: 14px 16px;
             border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .positive-step-icon {
@@ -609,14 +626,14 @@
         }
 
         .positive-step-text strong {
-            color: #2a1f1e;
+            color: #ffffff;
         }
 
         .internal-link-btn {
             display: inline-block;
-            background-color: #fcf4f3;
-            color: var(--accent-main);
-            border: 1px solid var(--accent-main);
+            background-color: rgba(193, 149, 146, 0.2);
+            color: #f0d8cd;
+            border: 1px solid rgba(193, 149, 146, 0.4);
             padding: 4px 12px;
             border-radius: 15px;
             font-size: 13px;
@@ -634,11 +651,11 @@
 
         /* Estadísticas */
         .stats-container {
-            background-color: var(--card-color);
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            background-color: var(--card-dark);
+            border: 1px solid rgba(193, 149, 146, 0.25);
             border-radius: 20px;
             padding: 35px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .stats-grid {
@@ -649,7 +666,7 @@
         }
 
         .stat-card {
-            background-color: #fcf4f3;
+            background-color: rgba(22, 15, 14, 0.7);
             border-radius: 16px;
             padding: 24px;
             text-align: left;
@@ -671,7 +688,7 @@
 
         .stat-text {
             font-size: 14px;
-            color: #444;
+            color: #d8b8b3;
             margin: 0;
             line-height: 1.4;
             font-weight: 500;
@@ -685,34 +702,35 @@
         }
 
         .resource-card {
-            background-color: var(--card-color);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            background-color: var(--card-dark);
+            border: 1px solid rgba(193, 149, 146, 0.25);
             border-radius: 16px;
             padding: 20px;
             text-decoration: none;
-            color: var(--text-main);
+            color: #f0d8cd;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             max-width: 400px;
         }
 
         .resource-card:hover {
             transform: translateY(-3px);
-            background-color: #fcf4f3;
+            background-color: rgba(45, 30, 28, 0.9);
         }
 
         .resource-card h4 {
             margin: 0 0 10px 0;
             font-size: 16px;
             font-weight: 600;
+            color: #ffffff;
         }
 
         .resource-card span {
             font-size: 13px;
-            color: #666;
+            color: #d8b8b3;
         }
 
         /* Footer */
@@ -720,9 +738,9 @@
             text-align: center;
             padding: 30px;
             font-size: 13px;
-            color: #f0d8cd;
-            border-top: 1px solid rgba(193, 149, 146, 0.3);
-            background-color: rgba(42, 31, 30, 0.95);
+            color: #d8b8b3;
+            border-top: 1px solid rgba(193, 149, 146, 0.2);
+            background-color: rgba(18, 12, 11, 0.95);
             margin-top: 60px;
         }
 
@@ -767,7 +785,7 @@
                 position: static;
                 transform: none;
                 box-shadow: none;
-                background-color: rgba(0, 0, 0, 0.2);
+                background-color: rgba(0, 0, 0, 0.3);
                 border: none;
                 text-align: center;
             }
@@ -786,7 +804,7 @@
 
             .reel-overlay {
                 opacity: 0.85;
-                background: linear-gradient(to top, rgba(42, 31, 30, 0.8), transparent);
+                background: linear-gradient(to top, rgba(22, 15, 14, 0.9), transparent);
                 justify-content: flex-end;
                 padding-bottom: 20px;
             }
@@ -849,7 +867,7 @@
 
     <div class="main-container">
 
-        <!-- Banner Principal (Hero) Ancho, Borde Sutil y Video Horizontal de Fondo -->
+        <!-- Banner Principal (Hero) Ancho, Oscuro y Fundido -->
         <div class="hero-section">
             <!-- Video de fondo horizontal -->
             <video class="hero-bg-video" autoplay muted loop playsinline>
@@ -959,7 +977,7 @@
         <!-- Nueva Sección: Salud Sexual (Oculta por defecto) -->
         <section id="salud-sexual" class="collapsible-section">
             <div class="section-heading">Salud Sexual</div>
-            <div class="stats-container" style="text-align: center; color: #555; font-style: italic;">
+            <div class="stats-container" style="text-align: center; color: #d8b8b3; font-style: italic;">
                 <p>Próximamente más contenido e información detallada sobre Salud Sexual.</p>
             </div>
         </section>
