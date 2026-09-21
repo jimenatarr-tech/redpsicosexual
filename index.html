@@ -213,42 +213,59 @@
             line-height: 1.5;
         }
 
-        /* --- BOTONES DE ACCESO RÁPIDO CON ROSA FUERTE Y LETRAS BLANCAS --- */
+        /* --- ACCESOS RÁPIDOS: ESTILO TARJETAS CREATIVAS / ASIMÉTRICAS --- */
         .hero-quick-buttons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
+            gap: 16px;
+            margin-bottom: 45px;
         }
 
-        .hero-quick-btn {
-            background-color: var(--accent-main);
+        .hero-quick-card {
+            background-color: #2a1f1e;
             color: #ffffff;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            padding: 12px 24px;
-            border-radius: 20px;
+            border: none;
+            padding: 16px 26px;
+            border-radius: 14px 6px 14px 6px; /* Bordes asimétricos súper originales */
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 6px 20px rgba(193, 149, 146, 0.4);
+            box-shadow: 0 8px 22px rgba(42, 31, 30, 0.25);
             font-family: 'Poppins', sans-serif;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-quick-btn span {
+        /* Sutil detalle estético en el borde izquierdo de las tarjetas */
+        .hero-quick-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background-color: var(--accent-main);
+            transition: width 0.2s ease;
+        }
+
+        .hero-quick-card span {
             font-size: 18px;
         }
 
-        .hero-quick-btn:hover {
-            background-color: #a87b78;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(163, 120, 117, 0.6);
-            border-color: #ffffff;
+        .hero-quick-card:hover {
+            background-color: #3b2a29;
+            transform: translateY(-4px) rotate(-0.5deg);
+            box-shadow: 0 12px 30px rgba(42, 31, 30, 0.35);
+        }
+
+        .hero-quick-card:hover::before {
+            width: 8px;
         }
 
         /* Secciones */
@@ -856,15 +873,15 @@
             <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
         </div>
 
-        <!-- Botones de Acceso Rápido con Fondo Rosa Fuerte y Letras Blancas -->
+        <!-- Accesos Rápidos: Tarjetas Creativas y Asimétricas -->
         <div class="hero-quick-buttons">
-            <button class="hero-quick-btn" onclick="showSection('salud-sexual')">
+            <button class="hero-quick-card" onclick="showSection('salud-sexual')">
                 <span>💬</span> Salud Sexual
             </button>
-            <button class="hero-quick-btn" onclick="showVihMain()">
+            <button class="hero-quick-card" onclick="showVihMain()">
                 <span>🎗️</span> Todo sobre VIH
             </button>
-            <button class="hero-quick-btn" onclick="showSection('recursos')">
+            <button class="hero-quick-card" onclick="showSection('recursos')">
                 <span>📚</span> Recursos
             </button>
         </div>
