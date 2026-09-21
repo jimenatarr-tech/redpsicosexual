@@ -222,10 +222,50 @@
         .section-heading {
             font-size: 22px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 6px;
             border-left: 5px solid #2a1f1e;
             padding-left: 12px;
             color: #2a1f1e;
+        }
+
+        /* Botones de acceso directo abajo del título (estilo Ciclo) */
+        .section-quick-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0 25px 0;
+            padding-left: 17px;
+        }
+
+        .quick-action-btn {
+            background-color: #fcf4f3;
+            color: var(--text-main);
+            border: 1px solid var(--accent-main);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .quick-action-btn:hover {
+            background-color: var(--accent-main);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Animación de revelado progresivo al hacer scroll hacia la sección */
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Grilla adaptable (Quiénes Somos) */
@@ -493,7 +533,6 @@
             position: relative;
         }
 
-        /* Zona de soltar (Dropzone) */
         .dropzone-box {
             border: 2px dashed rgba(193, 149, 146, 0.5);
             background-color: #fcf4f3;
@@ -513,7 +552,6 @@
             transform: scale(1.01);
         }
 
-        /* Mensaje inicial dentro del cuadrado derecho */
         .vih-welcome-box {
             color: #777;
             font-style: italic;
@@ -906,10 +944,19 @@
             </div>
         </section>
 
-        <!-- Sección: Todo sobre VIH (Drag & Drop + Clic) -->
-        <section id="todo-sobre-vih">
+        <!-- Sección: Todo sobre VIH (Oculta hasta scrollear y con botones rápidos estilo Ciclo) -->
+        <section id="todo-sobre-vih" class="reveal-section">
             <div class="section-heading">Todo sobre VIH</div>
             
+            <!-- Botones rápidos abajo del título estilo Ciclo -->
+            <div class="section-quick-btns">
+                <a class="quick-action-btn" onclick="openTab('tab-positivo')">Test Positivo</a>
+                <a class="quick-action-btn" onclick="openTab('tab-quees')">¿Qué es?</a>
+                <a class="quick-action-btn" onclick="openTab('tab-transmision')">Transmisión</a>
+                <a class="quick-action-btn" onclick="openTab('tab-ii')">I = I</a>
+                <a class="quick-action-btn" onclick="openTab('tab-ley')">Ley</a>
+            </div>
+
             <div class="vih-section-container">
                 
                 <!-- Columna Izquierda: Botones tipo nube arrastrables -->
@@ -929,7 +976,7 @@
                         
                         <!-- Mensaje inicial -->
                         <p id="tab-bienvenida" class="vih-content-box active vih-welcome-box">
-                            👇 Arrancá arrastrando un tema aquí o hacé clic en una de las opciones de la izquierda.
+                            👇 Arrancá arrastrando un tema aquí o hacé clic en una de las opciones.
                         </p>
 
                         <!-- Contenidos de cada pestaña -->
@@ -1002,7 +1049,7 @@
 
                         <div id="tab-ii" class="vih-content-box">
                             <h4>I = I (Indetectable = Intransmisible)</h4>
-                            <p>Cuando una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
+                            <p>Когда una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
                         </div>
 
                         <div id="tab-prep" class="vih-content-box">
@@ -1077,7 +1124,7 @@
         Red Psicosexual — Construyendo redes y cuidados colectivos © 2026
     </footer>
 
-    <!-- Script para menús, carrusel, arrastrar y soltar (Drag and Drop) -->
+    <!-- Script para menús, carrusel, arrastrar y soltar, y revelado al scrollear -->
     <script>
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
@@ -1090,6 +1137,19 @@
                 element.scrollIntoView({ behavior: 'smooth' });
             }
         }
+
+        // Detección automática al scrollear para revelar la sección de VIH
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal-section').forEach(section => {
+            observer.observe(section);
+        });
 
         // Lógica de pestañas y arrastrar
         function openTab(tabName) {
