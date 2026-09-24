@@ -532,7 +532,7 @@
             min-height: 140px;
         }
 
-        .salud-card-item:hover {
+        .salud-card-item:hover, .salud-card-item.active-tab {
             transform: translateY(-4px);
             background: linear-gradient(135deg, rgba(80, 45, 48, 0.95), rgba(50, 28, 30, 0.95));
             border-color: var(--accent-main);
@@ -566,6 +566,63 @@
             color: #ffffff;
             font-size: 18px;
             margin-bottom: 15px;
+        }
+
+        /* --- SUB-BOTONES PARA MÉTODOS ANTICONCEPTIVOS --- */
+        .metodos-subtabs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .metodo-sub-btn {
+            background: rgba(50, 31, 33, 0.9);
+            border: 1px solid rgba(193, 149, 146, 0.4);
+            color: #f0d8cd;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .metodo-sub-btn:hover {
+            background-color: rgba(163, 107, 103, 0.4);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .metodo-sub-btn.active {
+            background-color: var(--accent-strong);
+            color: #ffffff;
+            border-color: var(--accent-main);
+            box-shadow: 0 4px 12px rgba(163, 107, 103, 0.4);
+        }
+
+        .metodo-detalle-box {
+            display: none;
+            background: rgba(45, 25, 28, 0.9);
+            border: 1px solid rgba(193, 149, 146, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .metodo-detalle-box.active {
+            display: block;
+        }
+
+        .metodo-detalle-box h5 {
+            color: #ffffff;
+            font-size: 15px;
+            margin-top: 0;
+            margin-bottom: 10px;
         }
 
         /* --- SECCIÓN TODO SOBRE VIH --- */
@@ -1291,7 +1348,7 @@
             </div>
         </section>
 
-        <!-- Sección: Salud Sexual (Oculta por defecto, con las 4 tarjetas interactivas sin emoticones) -->
+        <!-- Sección: Salud Sexual -->
         <section id="salud-sexual" class="collapsible-section">
             <div class="section-heading">Salud Sexual</div>
             <div class="salud-sexual-container">
@@ -1301,16 +1358,16 @@
 
                 <!-- Tarjetas Interactivas (4 en total) -->
                 <div class="salud-cards-grid">
-                    <div class="salud-card-item" onclick="showSaludContent('salud-metodos')">
+                    <div class="salud-card-item" id="card-item-metodos" onclick="showSaludContent('salud-metodos')">
                         <h3 class="salud-card-title">Métodos anticonceptivos y de barrera</h3>
                     </div>
-                    <div class="salud-card-item" onclick="showSaludContent('salud-consentimiento')">
+                    <div class="salud-card-item" id="card-item-consentimiento" onclick="showSaludContent('salud-consentimiento')">
                         <h3 class="salud-card-title">Consentimiento y vínculos</h3>
                     </div>
-                    <div class="salud-card-item" onclick="showSaludContent('salud-its')">
+                    <div class="salud-card-item" id="card-item-its" onclick="showSaludContent('salud-its')">
                         <h3 class="salud-card-title">ITS (Infecciones de Transmisión Sexual)</h3>
                     </div>
-                    <div class="salud-card-item" onclick="showSaludContent('salud-esi')">
+                    <div class="salud-card-item" id="card-item-esi" onclick="showSaludContent('salud-esi')">
                         <h3 class="salud-card-title">Placer y ESI (Educación Sexual Integral)</h3>
                     </div>
                 </div>
@@ -1318,12 +1375,63 @@
                 <!-- Bloques de contenido que se abren al hacer clic -->
                 <div id="salud-metodos" class="salud-content-display">
                     <h4>Métodos anticonceptivos y de barrera</h4>
-                    <p>Más allá del preservativo tradicional (peniano), existen herramientas fundamentales para el cuidado y la prevención combinada:</p>
-                    <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
-                        <li><strong>Preservativos vaginales:</strong> Una alternativa eficaz de barrera interna.</li>
-                        <li><strong>Campos de látex:</strong> Ideales para prácticas orogenitales o contacto piel con piel reduciendo riesgos de ITS.</li>
-                        <li><strong>Anticoncepción hormonal y de emergencia (PAE):</strong> Opciones para decidir sobre el propio cuerpo con asesoramiento profesional.</li>
-                    </ul>
+                    
+                    <p><strong>¿Qué son los métodos anticonceptivos?</strong><br>
+                    Un método anticonceptivo es cualquier acto, dispositivo o medicación usada para impedir la posibilidad de un embarazo. Son utilizados por las personas para planificar si quieren o no tener hijos, cuándo, cuántos y cada cuánto.<br>
+                    Cada método se usa de manera diferente y ofrece distintos grados de protección. Salvo los métodos permanentes, el resto son reversibles. Es decir que una vez que se dejan de usar se puede producir un embarazo. El preservativo es el único método de doble protección, ya que además de evitar el embarazo, previene infecciones de transmisión sexual (ITS).</p>
+
+                    <p><strong>Métodos anticonceptivos de alta efectividad y gratuitos en Argentina</strong><br>
+                    Si se usan correctamente, estos métodos proporcionan una alta eficacia. Es decir que para una persona que usa alguno de estos métodos correctamente, las probabilidades de quedar embarazada son casi nulas. De todos estos métodos sólo el preservativo previene embarazos no planificados e infecciones de transmisión sexual. Para comenzar a usar un método es necesario realizar primero una consulta, asesorarse con un profesional y elegir el adecuado para cada persona. La consulta se puede realizar de manera gratuita en el sistema público (hospitales y centros de salud) o en el sistema privado para aquellas personas que cuenten com cobertura médica.</p>
+
+                    <p style="margin-top: 20px; font-weight: 600; color: #ffffff;">Explorá los métodos por categoría:</p>
+
+                    <!-- Botones de las 4 Secciones -->
+                    <div class="metodos-subtabs-grid">
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-sec1', this)">Sección 1: Preservativo</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-sec2', this)">Sección 2: Hormonales y Emergencia</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-sec3', this)">Sección 3: Quirúrgicos (Permanentes)</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-sec4', this)">Sección 4: DIU, SIU, Implante y Lactancia</button>
+                    </div>
+
+                    <!-- Detalle Sección 1 -->
+                    <div id="det-sec1" class="metodo-detalle-box">
+                        <h5>Sección 1: Preservativo</h5>
+                        <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
+                            <li><strong>Preservativo (peniano y vaginal):</strong> Método de barrera fundamental y el único que ofrece doble protección (prevención de embarazos y de ITS de forma simultánea).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Detalle Sección 2 -->
+                    <div id="det-sec2" class="metodo-detalle-box">
+                        <h5>Sección 2: Hormonales y de Emergencia</h5>
+                        <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
+                            <li><strong>Pastillas anticonceptivas:</strong> Píldoras de toma diaria que regulan el ciclo hormonal e impiden la ovulación.</li>
+                            <li><strong>Anticonceptivo inyectable:</strong> Aplicaciones mensuales o trimestrales con hormonas de depósito.</li>
+                            <li><strong>Anticoncepción hormonal de emergencia (Levonorgestrel):</strong> Connotada popularmente como "pastilla del día después". Es un recurso de emergencia ante una falla o ausencia de método, idealmente dentro de las primeras 72 horas.</li>
+                            <li><strong>Anticoncepción hormonal de emergencia (Acetato de Ulipristil):</strong> Otra opción de pastilla de emergencia con eficacia extendida hasta las 120 horas (5 días) post-relación.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Detalle Sección 3 -->
+                    <div id="det-sec3" class="metodo-detalle-box">
+                        <h5>Sección 3: Quirúrgicos / Permanentes</h5>
+                        <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
+                            <li><strong>Vasectomía:</strong> Cirugía sencilla y ambulatoria en los conductos deferentes. Es un método anticonceptivo permanente y seguro para quienes deciden no tener más hijos.</li>
+                            <li><strong>Ligadura tubaria:</strong> Intervención quirúrgica sobre las trompas de Falopio, de carácter definitivo y permanente.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Detalle Sección 4 -->
+                    <div id="det-sec4" class="metodo-detalle-box">
+                        <h5>Sección 4: DIU, SIU, Implante y Lactancia</h5>
+                        <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
+                            <li><strong>Anticonceptivos para la lactancia (Minipíldoras):</strong> Opciones formuladas exclusivamente con gestágenos aptas para el período de lactancia materna.</li>
+                            <li><strong>Dispositivo Intrauterino (DIU):</strong> Pequeño dispositivo de cobre colocado por profesional médico en el útero que altera el entorno impidiendo la fecundación.</li>
+                            <li><strong>Sistema de Liberación Intrauterino (SIU):</strong> Dispositivo intrauterino que libera bajas dosis de hormona localmente, reduciendo también el sangrado menstrual.</li>
+                            <li><strong>Implante subdérmico anticonceptivo:</strong> Pequeña varilla flexible que se coloca debajo de la piel del brazo y libera hormonas por varios años con altísima efectividad.</li>
+                        </ul>
+                    </div>
+
                 </div>
 
                 <div id="salud-consentimiento" class="salud-content-display">
@@ -1503,7 +1611,7 @@
             </div>
         </section>
 
-        <!-- Sección: Recursos (Oculta por defecto, con ambas tarjetas actualizadas) -->
+        <!-- Sección: Recursos -->
         <section id="recursos" class="collapsible-section">
             <div class="section-heading">Recursos Clave</div>
             <div class="resources-grid">
@@ -1583,13 +1691,11 @@
         </div>
     </footer>
 
-    <!-- Script para menús, carrusel, secciones, scroll y reproducción automática de videos -->
+    <!-- Script para menús, carrusel, secciones, scroll y sub-botones de métodos anticonceptivos -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('video').forEach(video => {
-                video.play().catch(() => {
-                    // Silencia cualquier restricción del navegador en caso de requerir interacción previa
-                });
+                video.play().catch(() => {});
             });
         });
 
@@ -1609,7 +1715,6 @@
             const dropdown = document.getElementById(dropdownId);
             const menu = dropdown.querySelector('.dropdown-menu');
             
-            // Cerrar otros desplegables abiertos
             document.querySelectorAll('.dropdown-menu').forEach(item => {
                 if (item !== menu) item.classList.remove('show');
             });
@@ -1623,7 +1728,6 @@
             });
         }
 
-        // Cerrar menús al hacer clic fuera
         window.addEventListener('click', () => {
             closeAllDropdowns();
         });
@@ -1647,7 +1751,6 @@
             }
         }
 
-        // Función para mostrar tarjetas específicas de Salud Sexual desde el menú desplegable
         function showSaludTab(contentId) {
             const saludSection = document.getElementById('salud-sexual');
             if (saludSection) {
@@ -1661,18 +1764,47 @@
                     targetBox.classList.add('active');
                 }
 
+                // Actualizar estado activo de las tarjetas principales superiores
+                document.querySelectorAll('.salud-card-item').forEach(card => card.classList.remove('active-tab'));
+                if(contentId === 'salud-metodos') document.getElementById('card-item-metodos').classList.add('active-tab');
+                if(contentId === 'salud-consentimiento') document.getElementById('card-item-consentimiento').classList.add('active-tab');
+                if(contentId === 'salud-its') document.getElementById('card-item-its').classList.add('active-tab');
+                if(contentId === 'salud-esi') document.getElementById('card-item-esi').classList.add('active-tab');
+
                 scrollToSection('salud-sexual');
             }
         }
 
-        // Función para mostrar el contenido correspondiente a las tarjetas de Salud Sexual por clic directo
         function showSaludContent(contentId) {
             const contents = document.querySelectorAll('.salud-content-display');
             contents.forEach(box => box.classList.remove('active'));
 
+            document.querySelectorAll('.salud-card-item').forEach(card => card.classList.remove('active-tab'));
+
             const targetBox = document.getElementById(contentId);
             if (targetBox) {
                 targetBox.classList.add('active');
+            }
+            if(contentId === 'salud-metodos') document.getElementById('card-item-metodos').classList.add('active-tab');
+            if(contentId === 'salud-consentimiento') document.getElementById('card-item-consentimiento').classList.add('active-tab');
+            if(contentId === 'salud-its') document.getElementById('card-item-its').classList.add('active-tab');
+            if(contentId === 'salud-esi') document.getElementById('card-item-esi').classList.add('active-tab');
+        }
+
+        // Función para mostrar las secciones/sub-botones de Métodos Anticonceptivos
+        function showMetodoDetalle(detId, btnElement) {
+            const detalles = document.querySelectorAll('.metodo-detalle-box');
+            detalles.forEach(box => box.classList.remove('active'));
+
+            const botones = document.querySelectorAll('.metodo-sub-btn');
+            botones.forEach(btn => btn.classList.remove('active'));
+
+            const targetDet = document.getElementById(detId);
+            if(targetDet) {
+                targetDet.classList.add('active');
+            }
+            if(btnElement) {
+                btnElement.classList.add('active');
             }
         }
 
