@@ -571,7 +571,7 @@
         /* --- SUB-BOTONES PARA MÉTODOS ANTICONCEPTIVOS --- */
         .metodos-subtabs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 12px;
             margin-top: 20px;
             margin-bottom: 25px;
@@ -609,9 +609,11 @@
             background: rgba(45, 25, 28, 0.9);
             border: 1px solid rgba(193, 149, 146, 0.3);
             border-radius: 12px;
-            padding: 20px;
+            padding: 22px;
             margin-top: 15px;
             animation: fadeIn 0.3s ease-in-out;
+            line-height: 1.6;
+            font-size: 13.5px;
         }
 
         .metodo-detalle-box.active {
@@ -620,9 +622,24 @@
 
         .metodo-detalle-box h5 {
             color: #ffffff;
-            font-size: 15px;
+            font-size: 16px;
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(193, 149, 146, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .metodo-detalle-box p {
+            margin-bottom: 12px;
+        }
+
+        .metodo-detalle-box ul {
+            margin: 10px 0 15px 0;
+            padding-left: 20px;
+        }
+
+        .metodo-detalle-box li {
+            margin-bottom: 6px;
         }
 
         /* --- SECCIÓN TODO SOBRE VIH --- */
@@ -1377,59 +1394,155 @@
                     <h4>Métodos anticonceptivos</h4>
                     
                     <p><strong>¿Qué son los métodos anticonceptivos?</strong><br>
-                    Un método anticonceptivo es cualquier acto, dispositivo o medicación usada para impedir la posibilidad de un embarazo. Son utilizados por las personas para planificar si quieren o no tener hijos, cuándo, cuántos y cada cuánto.<br>
-                    Cada método se usa de manera diferente y ofrece distintos grados de protección. Salvo los métodos permanentes, el resto son reversibles. Es decir que una vez que se dejan de usar se puede producir un embarazo. El preservativo es el único método de doble protección, ya que además de evitar el embarazo, previene infecciones de transmisión sexual (ITS).</p>
+                    Un método anticonceptivo es cualquier acto, dispositivo o medicación pensada para impedir la posibilidad de un embarazo. Son herramientas fundamentales para planificar libremente si deseamos o no tener hijos, cuándo, cuántos y con qué frecuencia.<br>
+                    Cada opción funciona de manera diferente y ofrece distintos grados de protección. A excepción de los métodos quirúrgicos permanentes, el resto son completamente reversibles, lo que significa que al dejar de utilizarlos se recupera la capacidad gestante. Recordá que el preservativo es el único método que ofrece doble protección: previene embarazos y también infecciones de transmisión sexual (ITS).</p>
 
-                    <p><strong>Métodos anticonceptivos de alta efectividad y gratuitos en Argentina</strong><br>
-                    Si se usan correctamente, estos métodos proporcionan una alta eficacia. Es decir que para una persona que usa alguno de estos métodos correctamente, las probabilidades de quedar embarazada son casi nulas. De todos estos métodos sólo el preservativo previene embarazos no planificados e infecciones de transmisión sexual. Para comenzar a usar un método es necesario realizar primero una consulta, asesorarse con un profesional y elegir el adecuado para cada persona. La consulta se puede realizar de manera gratuita en el sistema público (hospitales y centros de salud) o en el sistema privado para aquellas personas que cuenten con cobertura médica.</p>
+                    <p><strong>Opciones de alta efectividad y acceso garantizado en Argentina</strong><br>
+                    Utilizados de forma correcta, estos métodos brindan una eficacia sumamente alta, reduciendo las probabilidades de embarazo casi a cero. Es clave realizar una consulta de asesoramiento profesional previo para elegir el que mejor se adapte a cada estilo de vida y necesidad. Estos servicios se brindan de manera gratuita en hospitales y centros de salud públicos, así como a través de obras sociales y prepagas.</p>
 
-                    <p style="margin-top: 20px; font-weight: 600; color: #ffffff;">Explorá los métodos por categoría:</p>
+                    <p style="margin-top: 25px; font-weight: 600; color: #ffffff;">Explorá en detalle cada método:</p>
 
-                    <!-- Botones de las 4 Categorías (sin número de sección) -->
+                    <!-- Botones interactivos limpios para cada método -->
                     <div class="metodos-subtabs-grid">
-                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-sec1', this)">Preservativo</button>
-                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-sec2', this)">Hormonales y Emergencia</button>
-                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-sec3', this)">Quirúrgicos (Permanentes)</button>
-                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-sec4', this)">DIU, SIU, Implante y Lactancia</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-preservativo', this)">Preservativo para pene</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-pastillas', this)">Pastillas anticonceptivas</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-inyectable', this)">Anticonceptivo inyectable</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-emergencia1', this)">Anticoncepción de emergencia (Levonorgestrel)</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-emergencia2', this)">Anticoncepción de emergencia (Ulipristil)</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-diu', this)">Dispositivo Intrauterino (DIU)</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-siu', this)">Sistema de Liberación Intrauterino (SIU)</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-implante', this)">Implante subdérmico</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-lactancia', this)">Anticonceptivos para la lactancia</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-vasectomia', this)">Vasectomía</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('det-ligadura', this)">Ligadura tubaria</button>
                     </div>
 
-                    <!-- Detalle Preservativo -->
-                    <div id="det-sec1" class="metodo-detalle-box">
-                        <h5>Preservativo</h5>
-                        <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
-                            <li><strong>Preservativo (peniano y vaginal):</strong> Método de barrera fundamental y el único que ofrece doble protección (prevención de embarazos y de ITS de forma simultánea).</li>
-                        </ul>
+                    <!-- 1. PRESERVATIVO -->
+                    <div id="det-preservativo" class="metodo-detalle-box">
+                        <h5>Preservativo para pene</h5>
+                        <p><strong>También conocido como:</strong> Forro, profiláctico, condón.</p>
+                        <p><strong>¿Qué es?:</strong> Una funda de látex que se coloca en el pene erecto en cada relación sexual para evitar que el semen ingrese a la vagina, el ano o la boca.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Se coloca sobre el pene en erección, presionando la punta para retirar el aire y desenrollándolo hasta la base. Se retira justo después de la eyaculación, sosteniéndolo desde el borde antes de perder la erección.</p>
+                        <p><strong>Beneficios:</strong> Es sumamente accesible, no altera el organismo, no requiere receta y es <strong>el único método que previene infecciones de transmisión sexual</strong>. Puede usarse durante el embarazo y la lactancia.</p>
+                        <p><strong>Consideraciones:</strong> Al colocarse en pleno encuentro, a veces puede interrumpir el juego previo, por lo que se recomienda integrarlo de forma natural. Su uso es una responsabilidad compartida de todas las personas involucradas.</p>
+                        <p><strong>Eficacia y Frecuencia:</strong> Alta, si se utiliza de manera correcta y durante toda la relación (vaginal, anal u oral). Se usa uno nuevo por cada práctica.</p>
+                        <p><strong>Mitos frecuentes:</strong> No es reutilizable si no hubo eyaculación; usar dos juntos rompe el látex por fricción; eyacular afuera no reemplaza su uso; tampoco disminuye la sensibilidad ni es responsabilidad exclusiva del varón.</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> Al no usarlo existe posibilidad de embarazo. Previene ITS y se consigue de forma gratuita en hospitales y centros de salud.</p>
                     </div>
 
-                    <!-- Detalle Hormonales y de Emergencia -->
-                    <div id="det-sec2" class="metodo-detalle-box">
-                        <h5>Hormonales y de Emergencia</h5>
-                        <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
-                            <li><strong>Pastillas anticonceptivas:</strong> Píldoras de toma diaria que regulan el ciclo hormonal e impiden la ovulación.</li>
-                            <li><strong>Anticonceptivo inyectable:</strong> Aplicaciones mensuales o trimestrales con hormonas de depósito.</li>
-                            <li><strong>Anticoncepción hormonal de emergencia (Levonorgestrel):</strong> Conocida popularmente como "pastilla del día después". Es un recurso de emergencia ante una falla o ausencia de método, idealmente dentro de las primeras 72 horas.</li>
-                            <li><strong>Anticoncepción hormonal de emergencia (Acetato de Ulipristil):</strong> Otra opción de pastilla de emergencia con eficacia extendida hasta las 120 horas (5 días) post-relación.</li>
-                        </ul>
+                    <!-- 2. PASTILLAS ANTICONCEPTIVAS -->
+                    <div id="det-pastillas" class="metodo-detalle-box">
+                        <h5>Pastillas anticonceptivas</h5>
+                        <p><strong>También conocido como:</strong> Anticonceptivos orales, pastillas.</p>
+                        <p><strong>¿Qué es?:</strong> Comprimidos de toma diaria formulados con hormonas que inhiben la ovulación. Se presentan en tiras de 21 o 28 comprimidos.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Se toma una pastilla todos los días, preferentemente en el mismo horario. Requiere evaluación médica previa para definir la variante adecuada.</p>
+                        <p><strong>Beneficios:</strong> Además de prevenir embarazos con gran eficacia, regulan el ciclo menstrual, reducen molestias asociadas y disminuyen el riesgo de ciertos tipos de cáncer.</p>
+                        <p><strong>Consideraciones:</strong> Exige constancia diaria. Los olvidos reiterados o interrupciones bajan su efectividad. <em>No protege contra ITS.</em></p>
+                        <p><strong>Mitos frecuentes:</strong> No requieren descansos obligatorios después de un tiempo de uso, no provocan aumentos de peso generalizados, pueden consumirse más allá de los 35 años bajo supervisión y no disminuyen el deseo sexual.</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> La fertilidad se recupera casi de inmediato al suspenderlas. Disponible gratis en el sistema público, obras sociales y prepagas.</p>
                     </div>
 
-                    <!-- Detalle Quirúrgicos -->
-                    <div id="det-sec3" class="metodo-detalle-box">
-                        <h5>Quirúrgicos / Permanentes</h5>
-                        <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
-                            <li><strong>Vasectomía:</strong> Cirugía sencilla y ambulatoria en los conductos deferentes. Es un método anticonceptivo permanente y seguro para quienes deciden no tener más hijos.</li>
-                            <li><strong>Ligadura tubaria:</strong> Intervención quirúrgica sobre las trompas de Falopio, de carácter definitivo y permanente.</li>
-                        </ul>
+                    <!-- 3. INYECTABLE -->
+                    <div id="det-pastillas" class="metodo-detalle-box"></div> <!-- placeholder logic fix below -->
+
+                    <!-- 3. INYECTABLE -->
+                    <div id="det-inyectable" class="metodo-detalle-box">
+                        <h5>Anticonceptivo inyectable</h5>
+                        <p><strong>También conocido como:</strong> Inyección anticonceptiva.</p>
+                        <p><strong>¿Qué es?:</strong> Dosis hormonales de depósito que inhiben la ovulación y se administran mediante ampollas.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Mediante una aplicación intramuscular profunda de carácter mensual o trimestral, respetando estrictamente la fecha indicada.</p>
+                        <p><strong>Beneficios:</strong> Brinda el mismo efecto que los anticonceptivos orales pero sin la exigencia de una toma diaria.</p>
+                        <p><strong>Consideraciones:</strong> Es fundamental no demorarse en la fecha de la siguiente aplicación para evitar pérdidas de eficacia. Al principio puede generar irregularidades menstruales que suelen estabilizarse o derivar en la ausencia temporal del sangrado.</p>
+                        <p><strong>Mitos frecuentes:</strong> La aplicación no es sistemáticamente dolorosa, no causa esterilidad definitiva, no requiere descansos periódicos obligatorios y no provoca cáncer.</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> La capacidad reproductiva se recupera de forma inmediata al discontinuarlas. <em>No previene ITS.</em> Gratis en el sistema público y de cobertura social.</p>
                     </div>
 
-                    <!-- Detalle DIU, SIU, Implante y Lactancia -->
-                    <div id="det-sec4" class="metodo-detalle-box">
-                        <h5>DIU, SIU, Implante y Lactancia</h5>
-                        <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
-                            <li><strong>Anticonceptivos para la lactancia (Minipíldoras):</strong> Opciones formuladas exclusivamente con gestágenos aptas para el período de lactancia materna.</li>
-                            <li><strong>Dispositivo Intrauterino (DIU):</strong> Pequeño dispositivo de cobre colocado por profesional médico en el útero que altera el entorno impidiendo la fecundación.</li>
-                            <li><strong>Sistema de Liberación Intrauterino (SIU):</strong> Dispositivo intrauterino que libera bajas dosis de hormona localmente, reduciendo también el sangrado menstrual.</li>
-                            <li><strong>Implante subdérmico anticonceptivo:</strong> Pequeña varilla flexible que se coloca debajo de la piel del brazo y libera hormonas por varios años con altísima efectividad.</li>
-                        </ul>
+                    <!-- 4. EMERGENCIA 1 -->
+                    <div id="det-emergencia1" class="metodo-detalle-box">
+                        <h5>Anticoncepción de emergencia (Levonorgestrel)</h5>
+                        <p><strong>También conocido como:</strong> Pastilla del día después.</p>
+                        <p><strong>¿Qué es?:</strong> Una o dos tabletas con una alta carga hormonal destinadas a retrasar la ovulación ante situaciones imprevistas o fallas de métodos.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Se toma vía oral lo antes posible tras la relación sexual sin protección. Su eficacia es óptima dentro de las primeras 12 horas, aunque puede administrarse hasta 5 días después. Ante situaciones de violación, debe indicarse siempre.</p>
+                        <p><strong>Beneficios:</strong> Es un recurso seguro de emergencia que no afecta al embrión si el embarazo ya se hubiera producido. Puede ser retirada por cualquier persona (adolescentes o adultos) de forma individual o en pareja, y se encuentra disponible las 24 horas en guardias hospitalarias.</p>
+                        <p><strong>Consideraciones:</strong> No reemplaza a un método anticonceptivo regular y puede provocar náuseas o mareos pasajeros.</p>
+                        <p><strong>Mitos frecuentes:</strong> No es un método abortivo (actúa antes de la gestación) y no es más efectiva que los métodos anticonceptivos de uso diario.</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> Su protección cesa al día siguiente de la toma. <em>No previene ITS.</em> Gratuita en efectores públicos, obras sociales y prepagas.</p>
+                    </div>
+
+                    <!-- 5. EMERGENCIA 2 (ULIPRISTIL) -->
+                    <div id="det-emergencia2" class="metodo-detalle-box">
+                        <h5>Anticoncepción de emergencia (Acetato de Ulipristil)</h5>
+                        <p><strong>¿Qué es?:</strong> Una innovadora opción de anticoncepción de emergencia con efectividad extendida hasta por 5 días (120 horas) tras una relación sin protección. A diferencia del levonorgestrel clásico, mantiene su eficacia incluso si la ovulación está por comenzar en el momento de la ingesta.</p>
+                        <p><strong>Seguridad:</strong> Es un tratamiento seguro que no daña la fertilidad ni interfiere si el embarazo ya se había concretado. Se desaconseja únicamente en cuadros de insuficiencia hepática.</p>
+                        <p><strong>Acceso:</strong> Se adquiere de forma privada en farmacias o mediante cobertura médica (obras sociales y prepagas). <em>No protege contra ITS;</em> ante exposiciones de riesgo, se puede consultar por la Profilaxis Post Exposición (PPE) para VIH.</p>
+                    </div>
+
+                    <!-- 6. DIU -->
+                    <div id="det-diu" class="metodo-detalle-box">
+                        <h5>Dispositivo Intrauterino (DIU de cobre)</h5>
+                        <p><strong>También conocido como:</strong> DIU.</p>
+                        <p><strong>¿Qué es?:</strong> Un pequeño dispositivo flexible de plástico recubierto de cobre que se aloja en el útero para dificultar el desplazamiento de los espermatozoides e impedir la fecundación.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Es colocado y extraído exclusivamente por profesionales de la salud en un consultorio médico.</p>
+                        <p><strong>Beneficios:</strong> Su duración oscila entre 3 y 10 años según el modelo. Al no depender de rutinas diarias, elimina los riesgos de olvido. Requiere controles médicos mínimos (1 o 2 veces al año) y es apto para cualquier persona gestante, con o sin hijos previos.</p>
+                        <p><strong>Consideraciones:</strong> Puede incrementar levemente el volumen o la duración del sangrado menstrual durante los primeros meses.</p>
+                        <p><strong>Mitos frecuentes:</strong> Su eficacia es sumamente alta (comparable a métodos hormonales), no tiene propiedades abortivas y los tabúes sobre perforación uterina o migración orgánica son infundados.</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> La fertilidad se restituye al instante de su extracción, la cual puede solicitarse en cualquier momento. <em>No previene ITS.</em> Gratuito en todo el sistema de salud.</p>
+                    </div>
+
+                    <!-- 7. SIU -->
+                    <div id="det-siu" class="metodo-detalle-box">
+                        <h5>Sistema de Liberación Intrauterino (SIU)</h5>
+                        <p><strong>También conocido como:</strong> SIU hormonal.</p>
+                        <p><strong>¿Qué es?:</strong> Un dispositivo en forma de T colocado dentro del útero que, de manera similar al DIU, incorpora la liberación local y constante de una baja dosis de levonorgestrel.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Inserción y extracción a cargo de un profesional médico en consultorio.</p>
+                        <p><strong>Beneficios:</strong> Ofrece una protección de hasta 5 años sin depender de hábitos cotidianos. Está especialmente indicado para quienes experimentan menstruaciones muy abundantes, ya que reduce notablemente el sangrado menstrual.</p>
+                        <p><strong>Consideraciones:</strong> Puede generar un sutil goteo inter menstrual (spotting) durante los primeros meses. Hacia los dos años de uso, es frecuente que el sangrado disminuya o desaparezca por completo de forma segura.</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> Altamente reversible (alta tasa de gestación al año de retiro). <em>No previene ITS.</em> Disponible de forma gratuita en hospitales, obras sociales y prepagas.</p>
+                    </div>
+
+                    <!-- 8. IMPLANTE -->
+                    <div id="det-implante" class="metodo-detalle-box">
+                        <h5>Implante subdérmico anticonceptivo</h5>
+                        <p><strong>También conocido como:</strong> Chip anticonceptivo, varilla.</p>
+                        <p><strong>¿Qué es?:</strong> Una pequeña varilla flexible y delgada que se coloca debajo de la piel, en la cara interna del brazo, liberando hormonas de forma sostenida.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Mediante una intervención ambulatoria rápida y con anestesia local realizada por personal médico.</p>
+                        <p><strong>Beneficios:</strong> Garantiza una altísima efectividad anticonceptiva durante varios años sin requerir atención diaria por parte de la usuaria.</p>
+                        <p><strong>Consideraciones:</strong> Puede provocar cambios en el patrón habitual del sangrado menstrual (ausencias, manchados o períodos irregulares).</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> Se puede retirar en cualquier momento que se desee y la fertilidad se recupera de inmediato. <em>No previene ITS.</em> Cobertura gratuita garantizada en el sistema público y de salud.</p>
+                    </div>
+
+                    <!-- 9. LACTANCIA -->
+                    <div id="det-lactancia" class="metodo-detalle-box">
+                        <h5>Anticonceptivos para la lactancia (Minipíldoras)</h5>
+                        <p><strong>También conocido como:</strong> Minipíldoras.</p>
+                        <p><strong>¿Qué es?:</strong> Comprimidos de toma diaria formulados exclusivamente con gestágenos, diseñados para actuar espesando el moco cervical durante el período de amamantamiento.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Se toman todos los días sin intervalos de descanso entre cajas, bajo previa orientación médica.</p>
+                        <p><strong>Beneficios:</strong> Son inocuos para el bebé, sin alterar de ningún modo la composición ni el volumen de la leche materna.</p>
+                        <p><strong>Consideraciones:</strong> Su eficacia óptima aplica únicamente si se cumple con lactancia exclusiva (el bebé se alimenta solo de leche materna, tiene menos de 6 meses) y la persona aún no ha retomado su menstruación. Si alguna de estas condiciones cambia, debe evaluarse otro método.</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> Al suspenderlas se recupera la posibilidad de embarazo. <em>No previene ITS.</em> Gratuito en efectores públicos y seguridad social.</p>
+                    </div>
+
+                    <!-- 10. VASECTOMÍA -->
+                    <div id="det-vasectomia" class="metodo-detalle-box">
+                        <h5>Vasectomía</h5>
+                        <p><strong>También conocido como:</strong> Esterilización masculina.</p>
+                        <p><strong>¿Qué es?:</strong> Un método quirúrgico permanente, seguro y sencillo que consiste en la ligadura y sección de los conductos deferentes, impidiendo el paso de espermatozoides desde los testículos hacia el semen.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Intervención ambulatoria que puede realizarse con anestesia local y sin requerir internación.</p>
+                        <p><strong>Beneficios:</strong> No modifica la anatomía externa de los genitales, no afecta la erección ni interfiere de ninguna manera con el deseo o el placer sexual.</p>
+                        <p><strong>Consideraciones:</strong> La efectividad completa se alcanza recién a los tres meses de la cirugía (o tras un espermograma de control); durante ese período transitorio debe utilizarse otro método anticonceptivo.</p>
+                        <p><strong>Mitos frecuentes:</strong> No disminuye la potencia sexual ni altera la masculinidad.</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> Es de carácter permanente (su reversión quirúrgica es compleja, costosa y no se realiza en el ámbito público). <em>No previene ITS.</em> Disponible de manera gratuita por ley en hospitales, obras sociales y prepagas.</p>
+                    </div>
+
+                    <!-- 11. LIGADURA TUBARIA -->
+                    <div id="det-ligadura" class="metodo-detalle-box">
+                        <h5>Ligadura tubaria</h5>
+                        <p><strong>También conocido como:</strong> Ligadura de trompas.</p>
+                        <p><strong>¿Qué es?:</strong> Un método quirúrgico permanente en el que se ligan, cortan u obstruyen las trompas de Falopio para impedir el encuentro entre el óvulo y los espermatozoides.</p>
+                        <p><strong>¿Cómo se usa?:</strong> Cirugía sencilla realizada en quirófano bajo anestesia total o epidural por profesionales médicos.</p>
+                        <p><strong>Beneficios:</strong> No genera alteraciones a largo plazo en el ciclo menstrual, el estado de ánimo ni la corporalidad. Toda persona mayor de edad puede acceder de forma gratuita y autónoma.</p>
+                        <p><strong>Consideraciones:</strong> Aunque la normativa avala el derecho a decidir sin condicionamientos, en algunos servicios médicos aún persisten requerimientos infundados de autorizaciones o paridad previa que van en contra de la ley.</p>
+                        <p><strong>Reversibilidad y Acceso:</strong> Es un método anticonceptivo de carácter definitivo y permanente. Su reversión es compleja y costosa. <em>No previene ITS.</em> Gratuito en todo el sistema de salud.</p>
                     </div>
 
                 </div>
@@ -1552,7 +1665,7 @@
 
                         <div id="tab-sida" class="vih-content-box">
                             <h4>VIH &ne; sida</h4>
-                            <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. el sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
+                            <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. El sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
                         </div>
 
                         <div id="tab-ii" class="vih-content-box">
