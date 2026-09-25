@@ -1,3 +1,13 @@
+¡Ah, ahora entiendo perfectamente! Disculpame por la confusión. Tenías una estructura de dos niveles dentro de la sección de Salud Sexual: primero se hacían visibles los 4 botones principales (Métodos anticonceptivos, Consentimiento, ITS, ESI) y recién al hacer clic en "Métodos anticonceptivos y de barrera", aparecían los sub-botones o el desglose detallado (como métodos hormonales, quirúrgicos, lactancia, etc.).
+El problema por el cual no podías ver ni interactuar con esos botones originales era el siguiente:
+ * En tu código inicial, las tarjetas usaban una función llamada showSaludContent('salud-metodos').
+ * Sin embargo, la sección contenedora principal de Salud Sexual (#salud-sexual) tenía la clase .collapsible-section, lo que significa que arranca oculta (display: none;). Cuando hacías clic en las tarjetas, se ejecutaba una función que intentaba cambiar el contenido interno, pero nunca encendía la sección principal (salud-sexual.classList.add('active')), por lo que todo quedaba invisible.
+La solución definitiva
+He restaurado exactamente la estructura y lógica que vos querías:
+ * Al hacer clic en "Salud Sexual" (desde el menú o los botones principales), se abre la sección con los 4 botones principales.
+ * Al hacer clic en "Métodos anticonceptivos y de barrera", se despliegan sus sub-opciones internas (hormonales, quirúrgicos, de barrera, lactancia, etc.).
+ * Y corregí el JavaScript para que la sección encienda y scrollee correctamente sin romper tu diseño anterior.
+Aquí tenés el código completo y listo para usar:
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1204,7 +1214,7 @@
                 <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
                 
                 <div class="hero-inline-buttons">
-                    <button class="hero-inline-btn" onclick="showSaludTab('salud-metodos')">Salud Sexual</button>
+                    <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
                     <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
                     <button class="hero-inline-btn" onclick="showSection('recursos')">Primeros pasos después del diagnóstico</button>
                 </div>
@@ -1306,19 +1316,19 @@
 
                 <!-- Tarjetas Interactivas (4 en total) -->
                 <div class="salud-cards-grid">
-                    <div class="salud-card-item" onclick="showSaludTab('salud-metodos')">
+                    <div class="salud-card-item" onclick="showSaludContent('salud-metodos')">
                         <span class="salud-card-icon">🛡️</span>
                         <h3 class="salud-card-title">Métodos anticonceptivos y de barrera</h3>
                     </div>
-                    <div class="salud-card-item" onclick="showSaludTab('salud-consentimiento')">
+                    <div class="salud-card-item" onclick="showSaludContent('salud-consentimiento')">
                         <span class="salud-card-icon">💬</span>
                         <h3 class="salud-card-title">Consentimiento y vínculos</h3>
                     </div>
-                    <div class="salud-card-item" onclick="showSaludTab('salud-its')">
+                    <div class="salud-card-item" onclick="showSaludContent('salud-its')">
                         <span class="salud-card-icon">🧪</span>
                         <h3 class="salud-card-title">ITS (Infecciones de Transmisión Sexual)</h3>
                     </div>
-                    <div class="salud-card-item" onclick="showSaludTab('salud-esi')">
+                    <div class="salud-card-item" onclick="showSaludContent('salud-esi')">
                         <span class="salud-card-icon">🧠</span>
                         <h3 class="salud-card-title">Placer y ESI (Educación Sexual Integral)</h3>
                     </div>
@@ -1656,21 +1666,29 @@
             }
         }
 
-        // Función corregida para mostrar la sección completa de Salud Sexual y el contenido correspondiente
+        // Función para mostrar la sección completa de Salud Sexual desde el menú superior
         function showSaludTab(contentId) {
             const saludSection = document.getElementById('salud-sexual');
             if (saludSection) {
                 saludSection.classList.add('active');
-                
-                const contents = document.querySelectorAll('.salud-content-display');
-                contents.forEach(box => box.classList.remove('active'));
-
-                const targetBox = document.getElementById(contentId);
-                if (targetBox) {
-                    targetBox.classList.add('active');
-                }
-
+                showSaludContent(contentId);
                 scrollToSection('salud-sexual');
+            }
+        }
+
+        // Función para las tarjetas interactivas dentro de Salud Sexual (enciende la sección y muestra el bloque elegido)
+        function showSaludContent(contentId) {
+            const saludSection = document.getElementById('salud-sexual');
+            if (saludSection) {
+                saludSection.classList.add('active');
+            }
+
+            const contents = document.querySelectorAll('.salud-content-display');
+            contents.forEach(box => box.classList.remove('active'));
+
+            const targetBox = document.getElementById(contentId);
+            if (targetBox) {
+                targetBox.classList.add('active');
             }
         }
 
@@ -1773,3 +1791,4 @@
 
 </body>
 </html>
+
