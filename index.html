@@ -179,24 +179,20 @@
             border-radius: 2px;
         }
 
-        /* Contenedor principal */
+        /* Contenedor principal para las demás secciones */
         .main-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px 20px;
         }
 
-        /* --- HERO ANCHO --- */
+        /* --- HERO FULL-WIDTH (SIN BORDES DELIMITADOS) --- */
         .hero-section {
             width: 100%;
-            max-width: 1240px;
-            margin: 0 auto 40px auto;
-            background-color: rgba(50, 31, 33, 0.75);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(193, 149, 146, 0.35);
-            border-radius: 24px;
-            padding: 60px 50px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            margin: 0 0 50px 0;
+            background-color: rgba(35, 21, 23, 0.6);
+            border-bottom: 1px solid rgba(193, 149, 146, 0.25);
+            padding: 70px 40px;
             position: relative;
             overflow: hidden;
             box-sizing: border-box;
@@ -212,7 +208,7 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            opacity: 0.55; 
+            opacity: 0.45; 
             pointer-events: none;
         }
 
@@ -223,7 +219,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, rgba(35, 21, 23, 0.95) 40%, rgba(50, 31, 33, 0.5) 75%, transparent 100%);
+            background: linear-gradient(90deg, rgba(32, 19, 20, 0.95) 45%, rgba(32, 19, 20, 0.6) 80%, rgba(32, 19, 20, 0.2) 100%);
             z-index: 2;
             pointer-events: none;
         }
@@ -231,7 +227,8 @@
         .hero-content {
             position: relative;
             z-index: 3;
-            max-width: 650px;
+            max-width: 700px;
+            margin-left: 5%;
             text-align: left;
         }
 
@@ -249,7 +246,7 @@
         }
 
         .hero-title {
-            font-size: 38px;
+            font-size: 42px;
             font-weight: 700;
             margin: 0 0 15px 0;
             line-height: 1.2;
@@ -258,7 +255,7 @@
         }
 
         .hero-subtitle {
-            font-size: 15px;
+            font-size: 16px;
             color: #f0d8cd; 
             margin: 0 0 25px 0;
             line-height: 1.5;
@@ -500,7 +497,7 @@
             right: -20px;
         }
 
-        /* --- ESTILOS: SECCIÓN SALUD SEXUAL CON TARJETAS INTERACTIVAS --- */
+        /* --- ESTILOS: SECCIÓN SALUD SEXUAL --- */
         .salud-sexual-container {
             background-color: var(--card-dark);
             border: 1px solid rgba(193, 149, 146, 0.3);
@@ -568,7 +565,7 @@
             margin-bottom: 15px;
         }
 
-        /* --- 4 BOTONES PRINCIPALES DE MÉTODOS --- */
+        /* --- BOTONES DE MÉTODOS --- */
         .metodos-subtabs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -604,7 +601,6 @@
             box-shadow: 0 4px 12px rgba(163, 107, 103, 0.4);
         }
 
-        /* --- CONTENEDOR DE SUB-BOTONES --- */
         .sub-menu-container {
             display: none;
             background: rgba(45, 25, 28, 0.6);
@@ -682,7 +678,7 @@
             margin-bottom: 12px;
         }
 
-        /* --- ESTILOS DE NUBECITAS PARA CONSENTIMIENTO Y VÍNCULOS --- */
+        /* --- NUBECITAS PARA CONSENTIMIENTO Y VÍNCULOS --- */
         .nubes-consentimiento-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -693,7 +689,7 @@
         .nube-card {
             background: linear-gradient(135deg, rgba(55, 33, 36, 0.95), rgba(38, 22, 24, 0.95));
             border: 1px solid rgba(193, 149, 146, 0.35);
-            border-radius: 35px 35px 25px 35px; /* Forma suave de nubecita */
+            border-radius: 35px 35px 25px 35px;
             padding: 25px 22px;
             text-align: center;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
@@ -705,7 +701,6 @@
             overflow: hidden;
         }
 
-        /* Efecto de cambio de color y elevación al pasar el mouse */
         .nube-card:hover {
             background: linear-gradient(135deg, rgba(140, 90, 88, 0.85), rgba(95, 55, 53, 0.95));
             border-color: #ffffff;
@@ -973,7 +968,7 @@
             font-weight: 700;
         }
 
-        /* --- FOOTER ESTRUCTURADO --- */
+        /* --- FOOTER --- */
         footer {
             position: relative;
             background-color: rgba(32, 19, 20, 0.95);
@@ -1165,11 +1160,12 @@
         /* Responsive para celulares */
         @media (max-width: 768px) {
             .hero-section {
-                padding: 40px 20px;
+                padding: 50px 20px;
                 text-align: center;
             }
 
             .hero-content {
+                margin-left: 0;
                 text-align: center;
                 max-width: 100%;
             }
@@ -1342,27 +1338,28 @@
         </div>
     </header>
 
-    <div class="main-container">
+    <!-- Banner Principal (Hero) Full-Width Ancho Completo -->
+    <section class="hero-section">
+        <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline>
+            <source src="presentacion.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+        </video>
 
-        <!-- Banner Principal (Hero) Ancho -->
-        <div class="hero-section">
-            <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline>
-                <source src="presentacion.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de videos.
-            </video>
-
-            <div class="hero-content">
-                <div class="hero-badge">Psicología + Psicología Social</div>
-                <h1 class="hero-title">Hablemos de VIH, Salud Sexual y Vínculos</h1>
-                <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
-                
-                <div class="hero-inline-buttons">
-                    <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
-                    <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
-                    <button class="hero-inline-btn" onclick="showSection('recursos')">Primeros pasos después del diagnóstico</button>
-                </div>
+        <div class="hero-content">
+            <div class="hero-badge">Psicología + Psicología Social</div>
+            <h1 class="hero-title">Hablemos de VIH, Salud Sexual y Vínculos</h1>
+            <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
+            
+            <div class="hero-inline-buttons">
+                <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
+                <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
+                <button class="hero-inline-btn" onclick="showSection('recursos')">Primeros pasos después del diagnóstico</button>
             </div>
         </div>
+    </section>
+
+    <!-- Contenedor principal para el resto del contenido -->
+    <div class="main-container">
 
         <!-- Quiénes Somos / Equipo -->
         <section id="nosotras">
@@ -1651,7 +1648,7 @@
 
                 </div>
 
-                <!-- SECCIÓN CONSENTIMIENTO Y VÍNCULOS CON NUBECITAS INTERACTIVAS -->
+                <!-- SECCIÓN CONSENTIMIENTO Y VÍNCULOS (NUBECITAS) -->
                 <div id="salud-consentimiento" class="salud-content-display">
                     <h4>Consentimiento y vínculos</h4>
                     <p style="margin-bottom: 20px; color: #f0d8cd;">El consentimiento es el pilar de cualquier vínculo sano y sexoafectivo:</p>
