@@ -349,15 +349,17 @@
             margin-bottom: 12px;
         }
 
-        .team-canva-banner {
-            flex: 0 0 210px; /* Ancho fijo para la imagen de Canva */
+      .team-canva-banner {
+            flex: 0 0 90px !important; /* Achicamos el ancho para que la foto quede compacta a la izquierda */
         }
 
-        .team-canva-img {
+        .team-card-footer {
+            margin-top: 15px;
             width: 100%;
-            height: auto;
-            object-fit: contain;
-            display: block;
+            display: flex !important;
+            justify-content: center !important; /* Centra el botón de LinkedIn al medio */
+            align-items: center !important;
+            gap: 10px;
         }
 
         .team-intro-text {
