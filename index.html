@@ -912,7 +912,7 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 20px;
         }
@@ -1255,6 +1255,25 @@
                 display: inline-block;
             }
 
+            /* Estadísticas en formato grilla de 2 columnas compacto para celular */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .stat-card {
+                padding: 16px;
+                text-align: center;
+            }
+
+            .stat-number {
+                font-size: 26px;
+            }
+
+            .stat-text {
+                font-size: 12px;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 35px;
@@ -1522,7 +1541,7 @@
                     <h4>Métodos anticonceptivos</h4>
                     
                     <p><strong>¿Qué son los métodos anticonceptivos?</strong><br>
-                    Elegir cómo cuidarnos es parte fundamental de nuestra autonomía. Un método anticonceptivo es cualquier herramienta, dispositivo o fármaco que nos acompaña a prevenir embarazos, dándonos la libertad de decidir si queremos maternar o paternar, cuándo y con quién. <span class="extra-content">Cada cuerpo es único y por eso hay múltiples opciones. Lo most importante es saber que, sacando los métodos quirúrgicos definitivos, todos son reversibles. Y un dato clave que siempre remarcamos: el preservativo es nuestro gran aliado porque es el único que nos ofrece doble protección contra embarazos e ITS.</span></p>
+                    Elegir cómo cuidarnos es parte fundamental de nuestra autonomía. Un método anticonceptivo es cualquier herramienta, dispositivo o fármaco que nos acompaña a prevenir embarazos, dándonos la libertad de decidir si queremos maternar o paternar, cuándo y con quién. <span class="extra-content">Cada cuerpo es único y por eso hay múltiples opciones. Lo más importante es saber que, sacando los métodos quirúrgicos definitivos, todos son reversibles. Y un dato clave que siempre remarcamos: el preservativo es nuestro gran aliado porque es el único que nos ofrece doble protección contra embarazos e ITS.</span></p>
 
                     <p class="extra-content"><strong>Derechos y acceso en nuestro sistema de salud</strong><br>
                     En Argentina, el acceso a los métodos anticonceptivos es un derecho garantizado por ley de manera gratuita en hospitales, salitas y centros de salud, así como en obras sociales y prepagas. Elegir informadas y acompañadas hace toda la diferencia para encontrar el método que mejor se adapte a nuestro día a día.</p>
