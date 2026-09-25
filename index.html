@@ -1204,7 +1204,7 @@
                 <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
                 
                 <div class="hero-inline-buttons">
-                    <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
+                    <button class="hero-inline-btn" onclick="showSaludTab('salud-metodos')">Salud Sexual</button>
                     <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
                     <button class="hero-inline-btn" onclick="showSection('recursos')">Primeros pasos después del diagnóstico</button>
                 </div>
@@ -1306,19 +1306,19 @@
 
                 <!-- Tarjetas Interactivas (4 en total) -->
                 <div class="salud-cards-grid">
-                    <div class="salud-card-item" onclick="showSaludContent('salud-metodos')">
+                    <div class="salud-card-item" onclick="showSaludTab('salud-metodos')">
                         <span class="salud-card-icon">🛡️</span>
                         <h3 class="salud-card-title">Métodos anticonceptivos y de barrera</h3>
                     </div>
-                    <div class="salud-card-item" onclick="showSaludContent('salud-consentimiento')">
+                    <div class="salud-card-item" onclick="showSaludTab('salud-consentimiento')">
                         <span class="salud-card-icon">💬</span>
                         <h3 class="salud-card-title">Consentimiento y vínculos</h3>
                     </div>
-                    <div class="salud-card-item" onclick="showSaludContent('salud-its')">
+                    <div class="salud-card-item" onclick="showSaludTab('salud-its')">
                         <span class="salud-card-icon">🧪</span>
                         <h3 class="salud-card-title">ITS (Infecciones de Transmisión Sexual)</h3>
                     </div>
-                    <div class="salud-card-item" onclick="showSaludContent('salud-esi')">
+                    <div class="salud-card-item" onclick="showSaludTab('salud-esi')">
                         <span class="salud-card-icon">🧠</span>
                         <h3 class="salud-card-title">Placer y ESI (Educación Sexual Integral)</h3>
                     </div>
@@ -1564,7 +1564,7 @@
                     <ul class="footer-links-list">
                         <li><a onclick="scrollToSection('nosotras')">Quiénes Somos</a></li>
                         <li><a onclick="scrollToSection('reels')">Reels Informativos</a></li>
-                        <li><a onclick="showSection('salud-sexual')">Salud Sexual</a></li>
+                        <li><a onclick="showSaludTab('salud-metodos')">Salud Sexual</a></li>
                         <li><a onclick="showVihMain()">Todo sobre VIH</a></li>
                         <li><a onclick="showSection('recursos')">Recursos</a></li>
                     </ul>
@@ -1656,7 +1656,7 @@
             }
         }
 
-        // Función para mostrar tarjetas específicas de Salud Sexual desde el menú desplegable
+        // Función corregida para mostrar la sección completa de Salud Sexual y el contenido correspondiente
         function showSaludTab(contentId) {
             const saludSection = document.getElementById('salud-sexual');
             if (saludSection) {
@@ -1671,17 +1671,6 @@
                 }
 
                 scrollToSection('salud-sexual');
-            }
-        }
-
-        // Función para mostrar el contenido correspondiente a las tarjetas de Salud Sexual por clic directo
-        function showSaludContent(contentId) {
-            const contents = document.querySelectorAll('.salud-content-display');
-            contents.forEach(box => box.classList.remove('active'));
-
-            const targetBox = document.getElementById(contentId);
-            if (targetBox) {
-                targetBox.classList.add('active');
             }
         }
 
@@ -1784,4 +1773,3 @@
 
 </body>
 </html>
-
