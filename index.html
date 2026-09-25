@@ -678,6 +678,30 @@
             margin-bottom: 12px;
         }
 
+        /* --- CLASE "VER MÁS" PARA CELULARES --- */
+        .extra-content {
+            display: block; /* En PC se ve siempre completo */
+        }
+
+        .ver-mas-btn {
+            display: none; /* Por defecto oculto en PC */
+            background: rgba(193, 149, 146, 0.2);
+            color: #ffffff;
+            border: 1px solid rgba(193, 149, 146, 0.4);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .ver-mas-btn:hover {
+            background-color: var(--accent-strong);
+        }
+
         /* --- NUBECITAS PARA CONSENTIMIENTO Y VÍNCULOS --- */
         .nubes-consentimiento-grid {
             display: grid;
@@ -1157,7 +1181,7 @@
             transform: translateY(-2px);
         }
 
-        /* Responsive para celulares */
+        /* --- RESPONSIVE PARA CELULARES --- */
         @media (max-width: 768px) {
             .hero-section {
                 padding: 50px 20px;
@@ -1216,6 +1240,19 @@
                 border: none;
                 text-align: center;
                 width: 100%;
+            }
+
+            /* Activar comportamiento de Ver Más / Ver Menos en celulares */
+            .extra-content {
+                display: none;
+            }
+
+            .extra-content.show {
+                display: block;
+            }
+
+            .ver-mas-btn {
+                display: inline-block;
             }
 
             .footer-grid {
@@ -1370,9 +1407,14 @@
                     <div>
                         <img src="Jime.jpg" alt="Jimena" class="team-img">
                         <h3>Jimena</h3>
-                        <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral. Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal.<br><br>Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
+                        <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral. Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal.</p>
+                        <p class="extra-content">Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
                     </div>
-                    <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
+                    <div>
+                        <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
+                        <br><br>
+                        <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
+                    </div>
                 </div>
 
                 <!-- Tarjeta Brenda -->
@@ -1380,9 +1422,14 @@
                     <div>
                         <img src="brenda.jpg" alt="Brenda" class="team-img">
                         <h3>Brenda</h3>
-                        <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales. Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar.<br><br>Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
+                        <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales. Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar.</p>
+                        <p class="extra-content">Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
                     </div>
-                    <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
+                    <div>
+                        <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
+                        <br><br>
+                        <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1475,10 +1522,12 @@
                     <h4>Métodos anticonceptivos</h4>
                     
                     <p><strong>¿Qué son los métodos anticonceptivos?</strong><br>
-                    Elegir cómo cuidarnos es parte fundamental de nuestra autonomía. Un método anticonceptivo es cualquier herramienta, dispositivo o fármaco que nos acompaña a prevenir embarazos, dándonos la libertad de decidir si queremos maternar o paternar, cuándo y con quién. Cada cuerpo es único y por eso hay múltiples opciones. Lo más importante es saber que, sacando los métodos quirúrgicos definitivos, todos son reversibles. Y un dato clave que siempre remarcamos: el preservativo es nuestro gran aliado porque es el único que nos ofrece doble protección contra embarazos e ITS.</p>
+                    Elegir cómo cuidarnos es parte fundamental de nuestra autonomía. Un método anticonceptivo es cualquier herramienta, dispositivo o fármaco que nos acompaña a prevenir embarazos, dándonos la libertad de decidir si queremos maternar o paternar, cuándo y con quién. <span class="extra-content">Cada cuerpo es único y por eso hay múltiples opciones. Lo más importante es saber que, sacando los métodos quirúrgicos definitivos, todos son reversibles. Y un dato clave que siempre remarcamos: el preservativo es nuestro gran aliado porque es el único que nos ofrece doble protección contra embarazos e ITS.</span></p>
 
-                    <p><strong>Derechos y acceso en nuestro sistema de salud</strong><br>
+                    <p class="extra-content"><strong>Derechos y acceso en nuestro sistema de salud</strong><br>
                     En Argentina, el acceso a los métodos anticonceptivos es un derecho garantizado por ley de manera gratuita en hospitales, salitas y centros de salud, así como en obras sociales y prepagas. Elegir informadas y acompañadas hace toda la diferencia para encontrar el método que mejor se adapte a nuestro día a día.</p>
+
+                    <button class="ver-mas-btn" onclick="toggleVerMasBloque(this)">Ver más</button>
 
                     <p style="margin-top: 25px; font-weight: 600; color: #ffffff;">Explorá las opciones y conocé los detalles de cada una:</p>
 
@@ -1534,116 +1583,127 @@
                         <h5>Preservativo para pene</h5>
                         <p><strong>¿Qué es?</strong> Es una funda finita de látex que se coloca sobre el pene erecto en cada encuentro sexual para evitar que el semen entre en contacto con la vagina, el ano o la boca.</p>
                         <p><strong>¿Cómo se usa?</strong> Lo colocamos cuando el pene está en erección, apretando suavemente la punta para quitarle el aire antes de desenrollarlo hasta la base. Después de eyacular, lo retiramos sosteniendo el borde antes de que pase la erección.</p>
-                        <p><strong>Lo que nos encanta:</strong> Es súper accesible, no requiere receta y no altera para nada nuestro organismo. ¡Es el único método que nos cuida de las ITS! Lo podemos usar con total tranquilidad durante embarazos y lactancia.</p>
-                        <p><strong>Para tener en cuenta:</strong> Como se usa en el momento, a veces sentimos que corta el clima, por eso está buenísimo integrarlo al juego previo entre todes. El cuidado es una tarea compartida.</p>
-                        <p><strong>Eficacia y frecuencia:</strong> Altísima efectividad si lo usamos de forma correcta en cada relación (vaginal, anal u oral) de principio a fin.</p>
-                        <p><strong>Derribando mitos:</strong> No, no se puede reutilizar si no hubo eyaculación, ni usar dos juntos "por las dudas" (la fricción hace que se rompan), ni asumir que la responsabilidad es solo de quien tiene pene.</p>
-                        <p><strong>¿Es gratis?:</strong> ¡Sí! Los conseguimos gratis en hospitales, centros barriales o mediante cobertura médica.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> Es súper accesible, no requiere receta y no altera para nada nuestro organismo. ¡Es el único método que nos cuida de las ITS! Lo podemos usar con total tranquilidad durante embarazos y lactancia.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> Como se usa en el momento, a veces sentimos que corta el clima, por eso está buenísimo integrarlo al juego previo entre todes. El cuidado es una tarea compartida.</p>
+                        <p class="extra-content"><strong>Eficacia y frecuencia:</strong> Altísima efectividad si lo usamos de forma correcta en cada relación (vaginal, anal u oral) de principio a fin.</p>
+                        <p class="extra-content"><strong>Derribando mitos:</strong> No, no se puede reutilizar si no hubo eyaculación, ni usar dos juntos "por las dudas" (la fricción hace que se rompan), ni asumir que la responsabilidad es solo de quien tiene pene.</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> ¡Sí! Los conseguimos gratis en hospitales, centros barriales o mediante cobertura médica.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-pastillas" class="metodo-detalle-box">
                         <h5>Pastillas anticonceptivas</h5>
                         <p><strong>¿Qué es?</strong> Comprimidos de toma diaria que combinan hormonas para inhibir la ovulación. Vienen en presentaciones de 21 o 28 pastillas.</p>
-                        <p><strong>¿Cómo se usa?</strong> Requiere un hábito diario: tomamos una pastilla todos los días a la misma hora. Es clave coordinar una consulta previa con profesionales de la salud para que nos guíen en cuál es la mejor opción para nuestro cuerpo.</p>
-                        <p><strong>Lo que nos encanta:</strong> Más allá de prevenir embarazos, muchas veces nos ayudan a regularizar los ciclos menstruales y reducen dolores o síntomas molestos.</p>
-                        <p><strong>Para tener en cuenta:</strong> Olvidarnos las pastillas o interrumpir la toma seguido baja su efectividad. Y recordá: no nos protegen frente a las ITS.</p>
-                        <p><strong>Eficacia y frecuencia:</strong> Muy alta efectividad con una toma responsable y cotidiana.</p>
-                        <p><strong>Derribando mitos:</strong> Es falso que haya que hacer "descansos obligatorios", que engorden por sí solas, que hagan mal después de los 35 o que maten el deseo sexual.</p>
-                        <p><strong>¿Es gratis?:</strong> Sí, están cubiertas en el sistema público de salud y por obras sociales o prepagas.</p>
+                        <p class="extra-content"><strong>¿Cómo se usa?</strong> Requiere un hábito diario: tomamos una pastilla todos los días a la misma hora. Es clave coordinar una consulta previa con profesionales de la salud para que nos guíen en cuál es la mejor opción para nuestro cuerpo.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> Más allá de prevenir embarazos, muchas veces nos ayudan a regularizar los ciclos menstruales y reducen dolores o síntomas molestos.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> Olvidarnos las pastillas o interrumpir la toma seguido baja su efectividad. Y recordá: no nos protegen frente a las ITS.</p>
+                        <p class="extra-content"><strong>Eficacia y frecuencia:</strong> Muy alta efectividad con una toma responsable y cotidiana.</p>
+                        <p class="extra-content"><strong>Derribando mitos:</strong> Es falso que haya que hacer "descansos obligatorios", que engorden por sí solas, que hagan mal después de los 35 o que maten el deseo sexual.</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, están cubiertas en el sistema público de salud y por obras sociales o prepagas.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-inyectable" class="metodo-detalle-box">
                         <h5>Anticonceptivo inyectable</h5>
                         <p><strong>¿Qué es?</strong> Dosis hormonales inyectables que cumplen la misma función que las pastillas pero con aplicaciones espaciadas.</p>
-                        <p><strong>¿Cómo se usa?</strong> Recibimos una inyección intramuscular profunda de forma mensual o trimestral, respetando rigurosamente la fecha indicada.</p>
-                        <p><strong>Lo que nos encanta:</strong> Nos libera de la pastilla diaria. Al principio el ciclo puede alterarse un poco, y con el uso sostenido el sangrado suele disminuir o desaparecer por completo.</p>
-                        <p><strong>Para tener en cuenta:</strong> No podemos colgarnos con la fecha de la próxima aplicación porque pierde eficacia.</p>
-                        <p><strong>Eficacia y frecuencia:</strong> Excelente efectividad si somos estrictas con el calendario mensual o trimestral.</p>
-                        <p><strong>Derribando mitos:</strong> No provocan esterilidad permanente, ni causan cáncer, ni requieren descansos forzados de la medicación.</p>
-                        <p><strong>¿Es gratis?:</strong> Sí, se consiguen en hospitales públicos y redes de salud.</p>
+                        <p class="extra-content"><strong>¿Cómo se usa?</strong> Recibimos una inyección intramuscular profunda de forma mensual o trimestral, respetando rigurosamente la fecha indicada.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> Nos libera de la pastilla diaria. Al principio el ciclo puede alterarse un poco, y con el uso sostenido el sangrado suele disminuir o desaparecer por completo.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> No podemos colgarnos con la fecha de la próxima aplicación porque pierde eficacia.</p>
+                        <p class="extra-content"><strong>Eficacia y frecuencia:</strong> Excelente efectividad si somos estrictas con el calendario mensual o trimestral.</p>
+                        <p class="extra-content"><strong>Derribando mitos:</strong> No provocan esterilidad permanente, ni causan cáncer, ni requieren descansos forzados de la medicación.</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, se consiguen en hospitales públicos y redes de salud.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-emergencia1" class="metodo-detalle-box">
                         <h5>Anticoncepción hormonal de emergencia (Levonorgestrel)</h5>
                         <p><strong>¿Qué es?</strong> La popularmente conocida como "pastilla del día después". Contiene una carga hormonal fuerte pensada exclusivamente para retrasar la ovulación ante una urgencia.</p>
-                        <p><strong>¿Cómo se usa?</strong> La tomamos luego de un percance con el método o cuando no hubo protección. Funciona muchísimo mejor dentro de las primeras 12 horas, aunque la podemos tomar hasta 5 días después. Si hubo situaciones de violencia, está indicada siempre.</p>
-                        <p><strong>Lo que nos encanta:</strong> Es una red de contención segura. Si ya se produjo la implantación de un embarazo, la pastilla no le hace ningún daño al embrión. Se puede retirar sin vueltas en guardias hospitalarias las 24 horas.</p>
-                        <p><strong>Para tener en cuenta:</strong> No es un método de uso habitual ni regular; puede darnos náuseas o mareos pasajeros.</p>
-                        <p><strong>Eficacia:</strong> Muy alta si se toma rápido tras el hecho.</p>
-                        <p><strong>Derribando mitos:</strong> ¡No es abortiva! (actúa antes de que ocurra la fecundación).</p>
-                        <p><strong>¿Es gratis?:</strong> Sí, acceso libre en el sistema público y obras sociales.</p>
+                        <p class="extra-content"><strong>¿Cómo se usa?</strong> La tomamos luego de un percance con el método o cuando no hubo protección. Funciona muchísimo mejor dentro de las primeras 12 horas, aunque la podemos tomar hasta 5 días después. Si hubo situaciones de violencia, está indicada siempre.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> Es una red de contención segura. Si ya se produjo la implantación de un embarazo, la pastilla no le hace ningún daño al embrión. Se puede retirar sin vueltas en guardias hospitalarias las 24 horas.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> No es un método de uso habitual ni regular; puede darnos náuseas o mareos pasajeros.</p>
+                        <p class="extra-content"><strong>Eficacia:</strong> Muy alta si se toma rápido tras el hecho.</p>
+                        <p class="extra-content"><strong>Derribando mitos:</strong> ¡No es abortiva! (actúa antes de que ocurra la fecundación).</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, acceso libre en el sistema público y obras sociales.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-emergencia2" class="metodo-detalle-box">
                         <h5>Anticoncepción hormonal de emergencia (Acetato de Ulipristil)</h5>
                         <p><strong>¿Qué es?</strong> Una alternativa más reciente de anticoncepción de emergencia disponible, efectiva hasta 5 días (120 horas) después del vínculo sin protección.</p>
-                        <p><strong>La gran diferencia:</strong> A diferencia del levonorgestrel clásico, el ulipristil logra ser efectivo incluso si la ovulación está por comenzar justo en el momento de la toma.</p>
-                        <p><strong>Para tener en cuenta:</strong> Es muy segura, aunque debemos evitarla si tenemos problemas hepáticos graves. Al igual que las otras pastillas de emergencia, no previene ITS (para eso tenemos la PEP).</p>
-                        <p><strong>¿Dónde se consigue?:</strong> Se adquiere de forma privada en farmacias o por cobertura médica (aún no disponible en la red pública).</p>
+                        <p class="extra-content"><strong>La gran diferencia:</strong> A diferencia del levonorgestrel clásico, el ulipristil logra ser efectivo incluso si la ovulación está por comenzar justo en el momento de la toma.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> Es muy segura, aunque debemos evitarla si tenemos problemas hepáticos graves. Al igual que las otras pastillas de emergencia, no previene ITS (para eso tenemos la PEP).</p>
+                        <p class="extra-content"><strong>¿Dónde se consigue?:</strong> Se adquiere de forma privada en farmacias o por cobertura médica (aún no disponible en la red pública).</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-vasectomia" class="metodo-detalle-box">
                         <h5>Vasectomía</h5>
                         <p><strong>¿Qué es?</strong> Un método quirúrgico permanente, ambulatorio y súper sencillo pensado para varones y personas con testículos que eligen no procrear.</p>
-                        <p><strong>¿Cómo se usa?</strong> Mediante una pequeña intervención con anestesia local, se ligan los conductos deferentes para impedir que los espermatozoides se mezclen con el semen.</p>
-                        <p><strong>Lo que nos encanta:</strong> No requiere internación ni anestesia general, no cambia para nada el aspecto físico de los genitales y —lo más importante— no afecta en absoluto el deseo, la erección ni el disfrute sexual.</p>
-                        <p><strong>Para tener en cuenta:</strong> No es efectiva de inmediato: necesitamos usar otro método durante los primeros tres meses hasta confirmar con un estudio que ya no hay espermatozoides.</p>
-                        <p><strong>Eficacia:</strong> Definitiva y altísima pasada la ventana de los tres meses.</p>
-                        <p><strong>Derribando mitos:</strong> No debilita la masculinidad ni disminuye el placer.</p>
-                        <p><strong>¿Es gratis?:</strong> Sí, la ley garantiza su gratuidad en hospitales públicos y prepagas.</p>
+                        <p class="extra-content"><strong>¿Cómo se usa?</strong> Mediante una pequeña intervención con anestesia local, se ligan los conductos deferentes para impedir que los espermatozoides se mezclen con el semen.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> No requiere internación ni anestesia general, no cambia para nada el aspecto físico de los genitales y —lo más importante— no afecta en absoluto el deseo, la erección ni el disfrute sexual.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> No es efectiva de inmediato: necesitamos usar otro método durante los primeros tres meses hasta confirmar con un estudio que ya no hay espermatozoides.</p>
+                        <p class="extra-content"><strong>Eficacia:</strong> Definitiva y altísima pasada la ventana de los tres meses.</p>
+                        <p class="extra-content"><strong>Derribando mitos:</strong> No debilita la masculinidad ni disminuye el placer.</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, la ley garantiza su gratuidad en hospitales públicos y prepagas.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-ligadura" class="metodo-detalle-box">
                         <h5>Ligadura tubaria</h5>
                         <p><strong>¿Qué es?</strong> Cirugía anticonceptiva permanente destinada a mujeres y personas gestantes.</p>
-                        <p><strong>¿Cómo se usa?</strong> En un quirófano, con anestesia general o epidural, el equipo médico corta u obstaculiza las trompas de Falopio para que el óvulo y los espermatozoides no se encuentren.</p>
-                        <p><strong>Lo que nos encanta:</strong> Es una decisión autónoma y definitiva. Toda persona mayor de edad tiene derecho a solicitarla libremente sin que le pongan trabas burocráticas.</p>
-                        <p><strong>Para tener en cuenta:</strong> Aunque por ley no es requisito tener hijes ni autorizaciones de parejas o jueces, a veces todavía nos topamos con resistencias en algunas instituciones que debemos combatir.</p>
-                        <p><strong>Eficacia:</strong> Permanente y sumamente efectiva.</p>
-                        <p><strong>Derribando mitos:</strong> No altera el ciclo menstrual, ni cambia nuestro estado de ánimo, ni transforma el cuerpo.</p>
-                        <p><strong>¿Es gratis?:</strong> Sí, cobertura garantizada por ley en el sistema público y privado.</p>
+                        <p class="extra-content"><strong>¿Cómo se usa?</strong> En un quirófano, con anestesia general o epidural, el equipo médico corta u obstaculiza las trompas de Falopio para que el óvulo y los espermatozoides no se encuentren.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> Es una decisión autónoma y definitiva. Toda persona mayor de edad tiene derecho a solicitarla libremente sin que le pongan trabas burocráticas.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> Aunque por ley no es requisito tener hijes ni autorizaciones de parejas o jueces, a veces todavía nos topamos con resistencias en algunas instituciones que debemos combatir.</p>
+                        <p class="extra-content"><strong>Eficacia:</strong> Permanente y sumamente efectiva.</p>
+                        <p class="extra-content"><strong>Derribando mitos:</strong> No altera el ciclo menstrual, ni cambia nuestro estado de ánimo, ni transforma el cuerpo.</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, cobertura garantizada por ley en el sistema público y privado.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-lactancia" class="metodo-detalle-box">
                         <h5>Anticonceptivos para la lactancia (Minipíldora)</h5>
                         <p><strong>¿Qué es?</strong> Comprimidos especiales de toma diaria diseñados exclusivamente para la etapa de amamantamiento.</p>
-                        <p><strong>¿Cómo se usa?</strong> Se toman todos los días sin descanso entre cajitas, bajo supervisión médica.</p>
-                        <p><strong>Lo que nos encanta:</strong> Cuidan nuestra salud sin interferir para nada con la producción de leche ni con el desarrollo de nuestro bebé.</p>
-                        <p><strong>Para tener en cuenta:</strong> Solo funciona si estamos amamantando de forma exclusiva, nuestro bebé tiene menos de 6 meses y todavía no retomamos la menstruación. Apenas el panorama cambia, debemos rotar de método.</p>
-                        <p><strong>Eficacia:</strong> Muy alta mientras cumplamos estrictamente con las condiciones de la lactancia exclusiva.</p>
-                        <p><strong>¿Es gratis?:</strong> Sí, disponible en centros de salud y obras sociales.</p>
+                        <p class="extra-content"><strong>¿Cómo se usa?</strong> Se toman todos los días sin descanso entre cajitas, bajo supervisión médica.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> Cuidan nuestra salud sin interferir para nada con la producción de leche ni con el desarrollo de nuestro bebé.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> Solo funciona si estamos amamantando de forma exclusiva, nuestro bebé tiene menos de 6 meses y todavía no retomamos la menstruación. Apenas el panorama cambia, debemos rotar de método.</p>
+                        <p class="extra-content"><strong>Eficacia:</strong> Muy alta mientras cumplamos estrictamente con las condiciones de la lactancia exclusiva.</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, disponible en centros de salud y obras sociales.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-diu" class="metodo-detalle-box">
                         <h5>Dispositivo Intrauterino (DIU)</h5>
                         <p><strong>¿Qué es?</strong> Una pequeña pieza de plástico flexible con un filamento de cobre que se coloca dentro del útero para frenar el paso de los espermatozoides.</p>
-                        <p><strong>¿Cómo se usa?</strong> Un profesional lo coloca directamente en el consultorio.</p>
-                        <p><strong>Lo que nos encanta:</strong> ¡Te olvidas por años! Dura entre 3 y 10 años según el modelo. No depende de que nos acordemos de tomar una pastilla todos los días. Sirve para todxs, hayamos tenido hijes o no.</p>
-                        <p><strong>Para tener en cuenta:</strong> Puede hacer que nuestras menstruaciones sean un poco más abundantes o sientas algún cólico los primeros tiempos.</p>
-                        <p><strong>Eficacia:</strong> Altísima efectividad a largo plazo.</p>
-                        <p><strong>Derribando mitos:</strong> No es abortivo, no migra por el cuerpo ni afecta la fertilidad a futuro (al retirarlo, recuperamos la capacidad de gestar al instante).</p>
-                        <p><strong>¿Es gratis?:</strong> Sí, acceso gratuito asegurado.</p>
+                        <p class="extra-content"><strong>¿Cómo se usa?</strong> Un profesional lo coloca directamente en el consultorio.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> ¡Te olvidas por años! Dura entre 3 y 10 años según el modelo. No depende de que nos acordemos de tomar una pastilla todos los días. Sirve para todxs, hayamos tenido hijes o no.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> Puede hacer que nuestras menstruaciones sean un poco más abundantes o sientas algún cólico los primeros tiempos.</p>
+                        <p class="extra-content"><strong>Eficacia:</strong> Altísima efectividad a largo plazo.</p>
+                        <p class="extra-content"><strong>Derribando mitos:</strong> No es abortivo, no migra por el cuerpo ni afecta la fertilidad a futuro (al retirarlo, recuperamos la capacidad de gestar al instante).</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, acceso gratuito asegurado.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-siu" class="metodo-detalle-box">
                         <h5>Sistema de Liberación Intrauterino (SIU)</h5>
                         <p><strong>¿Qué es?</strong> Un dispositivo en forma de T que se coloca en el útero y libera de manera constante una dosis bajita de hormona (levonorgestrel).</p>
-                        <p><strong>¿Cómo se usa?</strong> Colocación profesional en consultorio.</p>
-                        <p><strong>Lo que nos encanta:</strong> Dura 5 años y es una opción maravillosa para quienes sufrimos menstruaciones muy pesadas o dolorosas, porque reduce notablemente el sangrado (¡a muchas les desaparece por completo a los dos años!).</p>
-                        <p><strong>Para tener en cuenta:</strong> Podemos tener un pequeño goteo los primeros meses mientras el cuerpo se acostumbra.</p>
-                        <p><strong>Eficacia:</strong> Altísima.</p>
-                        <p><strong>Derribando mitos:</strong> No requiere descansos y al retirarlo la fertilidad vuelve enseguida.</p>
-                        <p><strong>¿Es gratis?:</strong> Sí, garantizado en el sistema público y por coberturas médicas.</p>
+                        <p class="extra-content"><strong>¿Cómo se usa?</strong> Colocación profesional en consultorio.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> Dura 5 años y es una opción maravillosa para quienes sufrimos menstruaciones muy pesadas o dolorosas, porque reduce notablemente el sangrado (¡a muchas les desaparece por completo a los dos años!).</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> Podemos tener un pequeño goteo los primeros meses mientras el cuerpo se acostumbra.</p>
+                        <p class="extra-content"><strong>Eficacia:</strong> Altísima.</p>
+                        <p class="extra-content"><strong>Derribando mitos:</strong> No requiere descansos y al retirarlo la fertilidad vuelve enseguida.</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, garantizado en el sistema público y por coberturas médicas.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                     <div id="det-implante" class="metodo-detalle-box">
                         <h5>Implante subdérmico anticonceptivo</h5>
                         <p><strong>¿Qué es?</strong> Una varilla hormonal flexible y pequeñita que se coloca debajo de la piel en la cara interna del brazo.</p>
-                        <p><strong>¿Cómo se usa?</strong> Procedimiento ambulatorio rápido y sencillo con anestesia local realizado por profesionales.</p>
-                        <p><strong>Lo que nos encanta:</strong> Olvido cero durante varios años y con una efectividad maravillosa.</p>
-                        <p><strong>Para tener en cuenta:</strong> Puede modificar cómo veníamos menstruando (capaz manchamos intermitentemente).</p>
-                        <p><strong>Eficacia:</strong> De las más altas del mercado.</p>
-                        <p><strong>¿Es gratis?:</strong> Sí, provisto de forma gratuita en hospitales y centros de salud.</p>
+                        <p class="extra-content"><strong>¿Cómo se usa?</strong> Procedimiento ambulatorio rápido y sencillo con anestesia local realizado por profesionales.</p>
+                        <p class="extra-content"><strong>Lo que nos encanta:</strong> Olvido cero durante varios años y con una efectividad maravillosa.</p>
+                        <p class="extra-content"><strong>Para tener en cuenta:</strong> Puede modificar cómo veníamos menstruando (capaz manchamos intermitentemente).</p>
+                        <p class="extra-content"><strong>Eficacia:</strong> De las más altas del mercado.</p>
+                        <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, provisto de forma gratuita en hospitales y centros de salud.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
 
                 </div>
@@ -1674,9 +1734,10 @@
                     <p>Las ITS son infecciones que se transmiten principalmente a través de las relaciones sexuales sin protección:</p>
                     <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
                         <li><strong>Muchas son asintomáticas:</strong> Se pueden tener sin presentar síntomas visibles, por lo que el testeo periódico es clave.</li>
-                        <li><strong>Diagnóstico y tratamiento:</strong> La gran mayoría tienen tratamiento médico efectivo y cura (en el caso de las bacterianas).</li>
-                        <li><strong>Prevención combinada:</strong> El uso correcto de métodos de barrera reduce drásticamente las chances de transmisión.</li>
+                        <li class="extra-content"><strong>Diagnóstico y tratamiento:</strong> La gran mayoría tienen tratamiento médico efectivo y cura (en el caso de las bacterianas).</li>
+                        <li class="extra-content"><strong>Prevención combinada:</strong> El uso correcto de métodos de barrera reduce drásticamente las chances de transmisión.</li>
                     </ul>
+                    <button class="ver-mas-btn" onclick="toggleVerMasBloque(this)">Ver más</button>
                 </div>
 
                 <div id="salud-esi" class="salud-content-display">
@@ -1684,9 +1745,10 @@
                     <p>La Educación Sexual Integral es un derecho que atraviesa nuestra salud física, mental y social:</p>
                     <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
                         <li><strong>El placer como derecho:</strong> Promover una vivencia de la sexualidad libre de culpas, mandatos rígidos y tabúes.</li>
-                        <li><strong>Autoconocimiento corporal:</strong> Reconocer y validar nuestros propios deseos, límites y corporalidades.</li>
-                        <li><strong>Respeto por la diversidad:</strong> Fomentar vínculos basados en la empatía, la no discriminación y la aceptación mutua.</li>
+                        <li class="extra-content"><strong>Autoconocimiento corporal:</strong> Reconocer y validar nuestros propios deseos, límites y corporalidades.</li>
+                        <li class="extra-content"><strong>Respeto por la diversidad:</strong> Fomentar vínculos basados en la empatía, la no discriminación y la aceptación mutua.</li>
                     </ul>
+                    <button class="ver-mas-btn" onclick="toggleVerMasBloque(this)">Ver más</button>
                 </div>
             </div>
         </section>
@@ -1730,13 +1792,13 @@
                                         <strong>Consultar a un especialista:</strong> Tenés que conseguir un turno con un médico especialista en infectología; podés hacerlo en hospitales públicos o consultando con tu obra social.
                                     </div>
                                 </div>
-                                <div class="positive-step-item">
+                                <div class="positive-step-item extra-content">
                                     <span class="positive-step-icon">💊</span>
                                     <div class="positive-step-text">
                                         <strong>Iniciar el tratamiento antirretroviral (TAR):</strong> El infectólogo va a pedirte seguramente otros estudios para ver tu estado de salud en general y así poder comenzar cuanto antes el tratamiento. Este consiste en tomar medicamentos diarios que controlan el virus y evitan su replicación.
                                     </div>
                                 </div>
-                                <div class="positive-step-item">
+                                <div class="positive-step-item extra-content">
                                     <span class="positive-step-icon">🛡️</span>
                                     <div class="positive-step-text">
                                         <strong>Lograr la carga viral indetectable:</strong> Tomar los medicamentos todos los días reduce la cantidad del virus en la sangre a niveles tan bajos que no se detectan. A eso lo llamamos estar indetectables. Ser indetectable significa que no puedes transmitir el virus por vía sexual. Pero ojo, si dejás de tomarlos, el virus vuelve a replicarse y ya no aplica I = I.
@@ -1744,7 +1806,7 @@
                                         <a class="internal-link-btn" onclick="openTab('tab-ii'); scrollToSection('todo-sobre-vih');">Saber más sobre I = I ↗</a>
                                     </div>
                                 </div>
-                                <div class="positive-step-item">
+                                <div class="positive-step-item extra-content">
                                     <span class="positive-step-icon">💙</span>
                                     <div class="positive-step-text">
                                         <strong>Buscar apoyo:</strong> Un diagnóstico positivo puede generar impacto emocional. Apoyarte en profesionales de la salud mental, grupos de pares o personas de confianza te puede ayudar a procesar la noticia.
@@ -1754,6 +1816,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <button class="ver-mas-btn" onclick="toggleVerMasBloque(this)" style="margin-top: 15px;">Ver más</button>
                         </div>
 
                         <div id="tab-quees" class="vih-content-box">
@@ -1769,10 +1832,11 @@
                             <p>El VIH se transmite principalmente a través de:</p>
                             <ul>
                                 <li>Relaciones sexuales anales o vaginales sin preservativo ni campo de látex.</li>
-                                <li>Uso compartido de jeringas o elementos cortopunzantes.</li>
-                                <li>Transmisión perinatal (durante el embarazo, parto o lactancia si no hay tratamiento).</li>
+                                <li class="extra-content">Uso compartido de jeringas o elementos cortopunzantes.</li>
+                                <li class="extra-content">Transmisión perinatal (durante el embarazo, parto o lactancia si no hay tratamiento).</li>
                             </ul>
-                            <p>No se transmite por besos, abrazos, compartir mate, utensilios, picaduras de insectos ni uso de baños.</p>
+                            <p class="extra-content">No se transmite por besos, abrazos, compartir mate, utensilios, picaduras de insectos ni uso de baños.</p>
+                            <button class="ver-mas-btn" onclick="toggleVerMasBloque(this)">Ver más</button>
                         </div>
 
                         <div id="tab-sida" class="vih-content-box">
@@ -1916,7 +1980,7 @@
         </div>
     </footer>
 
-    <!-- Script para menús, carrusel, secciones, scroll y sub-botones interactivos -->
+    <!-- Script para menús, carrusel, secciones, scroll y botón Ver Más -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('video').forEach(video => {
@@ -2033,12 +2097,10 @@
                 btnElement.classList.add('active');
             }
 
-            // Ocultar textos anteriores al cambiar de categoría principal
             const detalles = document.querySelectorAll('.metodo-detalle-box');
             detalles.forEach(box => box.classList.remove('active'));
         }
 
-        // Función para mostrar el texto detallado de un método específico
         function showMetodoDetalle(detId, btnElement) {
             const detalles = document.querySelectorAll('.metodo-detalle-box');
             detalles.forEach(box => box.classList.remove('active'));
@@ -2052,6 +2114,64 @@
             }
             if(btnElement) {
                 btnElement.classList.add('active');
+            }
+        }
+
+        // Funciones para el botón Ver Más / Ver Menos
+        function toggleVerMas(btn) {
+            const container = btn.previousElementSibling;
+            // Busca elementos hermanos con la clase extra-content dentro del mismo bloque padre
+            const parent = btn.parentElement.previousElementSibling; 
+            // Alternativa genérica buscando en el contenedor contenedor
+            const extras = btn.parentElement.parentElement.querySelectorAll('.extra-content');
+            
+            let isOpen = btn.classList.contains('open');
+            extras.forEach(el => {
+                el.classList.toggle('show', !isOpen);
+            });
+
+            if (!isOpen) {
+                btn.textContent = "Ver menos";
+                btn.classList.add('open');
+            } else {
+                btn.textContent = "Ver más";
+                btn.classList.remove('open');
+            }
+        }
+
+        function toggleVerMasDetalle(btn) {
+            const box = btn.parentElement;
+            const extras = box.querySelectorAll('.extra-content');
+            let isOpen = btn.classList.contains('open');
+
+            extras.forEach(el => {
+                el.classList.toggle('show', !isOpen);
+            });
+
+            if (!isOpen) {
+                btn.textContent = "Ver menos";
+                btn.classList.add('open');
+            } else {
+                btn.textContent = "Ver más";
+                btn.classList.remove('open');
+            }
+        }
+
+        function toggleVerMasBloque(btn) {
+            const parentContainer = btn.parentElement;
+            const extras = parentContainer.querySelectorAll('.extra-content');
+            let isOpen = btn.classList.contains('open');
+
+            extras.forEach(el => {
+                el.classList.toggle('show', !isOpen);
+            });
+
+            if (!isOpen) {
+                btn.textContent = "Ver menos";
+                btn.classList.add('open');
+            } else {
+                btn.textContent = "Ver más";
+                btn.classList.remove('open');
             }
         }
 
