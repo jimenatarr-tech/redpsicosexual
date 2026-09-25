@@ -1181,9 +1181,9 @@
             transform: translateY(-2px);
         }
 
-        /* --- CONTROL DE VISIBILIDAD PARA EL BOTÓN DE INSTAGRAM EN CELULAR --- */
+        /* --- CONTROL DE VISIBILIDAD PARA EL BOTÓN DE INSTAGRAM --- */
         .footer-insta-mobile {
-            display: none; /* Oculto por defecto en PC */
+            display: none; /* Oculto en PC */
         }
 
         .footer-contact-col-pc {
@@ -1193,7 +1193,7 @@
         /* --- RESPONSIVE PARA CELULARES --- */
         @media (max-width: 768px) {
             .hero-section {
-                padding: 50px 20px;
+                padding: 40px 20px;
                 text-align: center;
             }
 
@@ -1269,26 +1269,27 @@
                 display: none;
             }
 
-            /* Mostrar el botón de Instagram justo abajo del párrafo en celular */
+            /* Mostrar el botón de Instagram justo abajo de la descripción en celular */
             .footer-insta-mobile {
-                display: block;
-                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                margin-top: 15px;
             }
 
             .footer-insta-mobile .footer-contact-item {
                 width: 100%;
-                max-width: 280px;
+                max-width: 260px;
                 box-sizing: border-box;
                 justify-content: center;
                 text-align: left;
             }
 
-            /* Ocultar completamente la columna de contacto de abajo en celular para que termine en Navegación/Recursos */
+            /* ELIMINAR por completo la columna de contacto inferior en celular */
             .footer-contact-col-pc {
-                display: none;
+                display: none !important;
             }
 
-            /* Reajustar la grilla del footer en celular para que tenga 2 columnas (Marca y Navegación) */
+            /* Footer ajustado a 2 columnas (Marca con botón y Navegación) para terminar prolijamente */
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 35px;
@@ -1955,7 +1956,7 @@
 
         <div class="footer-content">
             <div class="footer-grid">
-                <!-- Columna 1: Marca y descripción -->
+                <!-- Columna 1: Marca, descripción y botón de Instagram en móvil -->
                 <div class="footer-col">
                     <a href="#" class="footer-brand-logo">
                         <img src="BLANCO.png" alt="Logo">
@@ -1969,7 +1970,7 @@
                         <span class="footer-badge">ESI & Vínculos</span>
                     </div>
 
-                    <!-- Botón de Instagram visible solo en celular (ubicado justo debajo del texto) -->
+                    <!-- Botón de Instagram visible solo en celular (subido aquí arriba) -->
                     <div class="footer-insta-mobile">
                         <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
                             <span class="footer-contact-icon">✉️</span>
@@ -1993,7 +1994,7 @@
                     </ul>
                 </div>
 
-                <!-- Columna 3: Contacto (Visible únicamente en PC) -->
+                <!-- Columna 3: Contacto (Visible solo en PC, oculta en celular) -->
                 <div class="footer-col footer-contact-col-pc">
                     <h4>Contacto</h4>
                     <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
