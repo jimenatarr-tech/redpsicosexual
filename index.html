@@ -319,8 +319,7 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        /* --- TARJETAS QUIÉNES SOMOS --- */
+/* --- TARJETAS QUIÉNES SOMOS --- */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -341,77 +340,52 @@
             box-sizing: border-box;
         }
 
-        /* Fila superior: Imagen circular a la izquierda, texto corto al lado */
+        /* Fila superior: Imagen de Canva a la izquierda, texto corto al lado */
         .team-top-row {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 15px;
             margin-bottom: 15px;
         }
 
-  .team-canva-banner {
-            flex: 0 0 160px; /* Ajustamos el ancho para que luzca bien horizontal */
-            height: auto;
-            border-radius: 0 !important; /* Quitamos el círculo */
-            overflow: visible !important;
-            border: none !important;
-            background: transparent !important;
+        .team-canva-banner {
+            flex: 0 0 160px; /* Tamaño ideal para que se luzca el gráfico circular de Canva */
         }
 
         .team-canva-img {
             width: 100%;
             height: auto;
-            object-fit: contain !important; /* Muestra la imagen completa tal cual es */
-            border-radius: 0 !important;
+            object-fit: contain;
+            display: block;
         }
 
         .team-intro-text {
             flex: 1;
-            font-size: 13px;
+            font-size: 12.5px;
             color: #f0d8cd;
             margin: 0;
             line-height: 1.45;
             text-align: left;
         }
 
-        /* Texto largo ubicado abajo */
+        /* Texto largo abajo */
         .team-card .extra-content {
             font-size: 12.5px;
             color: #f0d8cd;
             margin: 0 0 15px 0;
-            line-height: 1.5;
+            line-height: 1.45;
             text-align: left;
         }
 
-        /* Pie de tarjeta con botón de LinkedIn perfectamente centrado */
+        /* Pie de tarjeta con el botón centrado */
         .team-card-footer {
             margin-top: auto;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             padding-top: 10px;
-        }
-
-        .linkedin-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(193, 149, 146, 0.2);
-            color: #f0d8cd;
-            border: 1px solid rgba(193, 149, 146, 0.4);
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .linkedin-btn:hover {
-            background-color: var(--accent-strong);
-            color: #fff;
         }
 
         /* --- CARRUSEL DE REELS --- */
@@ -1366,7 +1340,7 @@
     <!-- Contenedor principal -->
     <div class="main-container">
 
-        <!-- Quiénes Somos / Equipo (Corregido y optimizado) -->
+       <!-- Quiénes Somos / Equipo -->
         <section id="nosotras">
             <div class="section-heading">Quiénes Somos</div>
             <div class="team-grid">
@@ -1407,7 +1381,7 @@
 
             </div>
         </section>
-
+        
         <!-- Sección: Reels Informativos -->
         <section id="reels">
             <div class="section-heading">Reels Informativos</div>
