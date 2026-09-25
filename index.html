@@ -186,7 +186,7 @@
             padding: 20px 20px;
         }
 
-        /* --- HERO FULL-WIDTH (SIN BORDES DELIMITADOS) --- */
+        /* --- HERO FULL-WIDTH --- */
         .hero-section {
             width: 100%;
             margin: 0 0 50px 0;
@@ -1283,34 +1283,12 @@
                 text-align: left;
             }
 
-            /* Ocultar la tercera columna de "Contacto" de abajo en celular */
+            /* Ocultar completamente la columna de contacto de abajo en celular para que termine en Navegación/Recursos */
             .footer-contact-col-pc {
                 display: none;
             }
 
-            /* Estadísticas más anchas y cercanas a los bordes en celular */
-            .stats-container {
-                padding: 15px 10px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-
-            .stat-card {
-                padding: 14px 10px;
-                text-align: center;
-            }
-
-            .stat-number {
-                font-size: 24px;
-            }
-
-            .stat-text {
-                font-size: 11.5px;
-            }
-
+            /* Reajustar la grilla del footer en celular para que tenga 2 columnas (Marca y Navegación) */
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 35px;
@@ -1873,7 +1851,7 @@
 
                         <div id="tab-transmision" class="vih-content-box">
                             <h4>Formas de transmisión</h4>
-                            <p>El VIH se transmite principalmente a través di:</p>
+                            <p>El VIH se transmite principalmente a través de:</p>
                             <ul>
                                 <li>Relaciones sexuales anales o vaginales sin preservativo ni campo de látex.</li>
                                 <li class="extra-content">Uso compartido de jeringas o elementos cortopunzantes.</li>
@@ -2015,7 +1993,7 @@
                     </ul>
                 </div>
 
-                <!-- Columna 3: Contacto (Visible en PC) -->
+                <!-- Columna 3: Contacto (Visible únicamente en PC) -->
                 <div class="footer-col footer-contact-col-pc">
                     <h4>Contacto</h4>
                     <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
