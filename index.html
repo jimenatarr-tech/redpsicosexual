@@ -1264,6 +1264,24 @@
                 display: inline-block;
             }
 
+            /* Estadísticas a 2 columnas en celular para que no se pisen */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .stat-card {
+                padding: 16px;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .stat-text {
+                font-size: 12px;
+            }
+
             /* Ocultar los botones de Salud Colectiva y ESI & Vínculos en celular */
             .footer-badges {
                 display: none;
@@ -1289,7 +1307,7 @@
                 display: none !important;
             }
 
-            /* Footer ajustado a 2 columnas (Marca con botón y Navegación) para terminar prolijamente */
+            /* Footer ajustado a 1 columna centrada en celular */
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 35px;
