@@ -1257,20 +1257,26 @@
                 width: 100%;
             }
 
-            /* En celulares, volvemos a apilar la tarjeta verticalmente */
+            /* Modificado: En celulares ahora aparecen una al lado de la otra en dos columnas */
             .team-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
 
             .team-card-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 10px;
             }
 
             .team-img-container {
                 justify-content: center;
                 align-items: center;
+            }
+
+            .team-img {
+                width: 100px;
+                height: 100px;
             }
 
             .team-info {
@@ -1279,6 +1285,13 @@
 
             .team-card p {
                 text-align: center;
+                font-size: 11px;
+                line-height: 1.4;
+            }
+
+            .linkedin-btn {
+                padding: 4px 10px;
+                font-size: 11px;
             }
 
             /* Activar comportamiento de Ver Más / Ver Menos en celulares */
@@ -1292,6 +1305,8 @@
 
             .ver-mas-btn {
                 display: inline-block;
+                padding: 4px 10px;
+                font-size: 11px;
             }
 
             /* Estadísticas a 2 columnas en celular para que no se pisen */
