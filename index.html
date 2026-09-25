@@ -319,7 +319,8 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-/* --- TARJETAS QUIÉNES SOMOS --- */
+
+        /* --- TARJETAS QUIÉNES SOMOS (DISEÑO ORIGINAL ANTERIOR) --- */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -340,16 +341,9 @@
             box-sizing: border-box;
         }
 
-        /* Fila superior: Imagen de Canva a la izquierda, texto corto al lado */
-        .team-top-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
         .team-canva-banner {
-            flex: 0 0 160px; /* Tamaño ideal para que se luzca el gráfico circular de Canva */
+            width: 100%;
+            margin-bottom: 15px;
         }
 
         .team-canva-img {
@@ -359,17 +353,7 @@
             display: block;
         }
 
-        .team-intro-text {
-            flex: 1;
-            font-size: 12.5px;
-            color: #f0d8cd;
-            margin: 0;
-            line-height: 1.45;
-            text-align: left;
-        }
-
-        /* Texto largo abajo */
-        .team-card .extra-content {
+        .team-card p {
             font-size: 12.5px;
             color: #f0d8cd;
             margin: 0 0 15px 0;
@@ -377,15 +361,30 @@
             text-align: left;
         }
 
-        /* Pie de tarjeta con el botón centrado */
         .team-card-footer {
-            margin-top: auto;
+            margin-top: 10px;
             width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            padding-top: 10px;
+        }
+
+        .linkedin-btn {
+            display: inline-block;
+            background-color: rgba(193, 149, 146, 0.2);
+            color: #f0d8cd;
+            border: 1px solid rgba(193, 149, 146, 0.4);
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 11.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .linkedin-btn:hover {
+            background-color: var(--accent-strong);
+            color: #fff;
         }
 
         /* --- CARRUSEL DE REELS --- */
@@ -552,10 +551,7 @@
             color: #f0d8cd;
         }
 
-        .salud-content-display.active {
-            display: block;
-        }
-
+        .salud-content-display.active { display: block; }
         .salud-content-display h4 {
             margin-top: 0;
             color: #ffffff;
@@ -610,9 +606,7 @@
             animation: fadeIn 0.3s ease-in-out;
         }
 
-        .sub-menu-container.active {
-            display: block;
-        }
+        .sub-menu-container.active { display: block; }
 
         .sub-menu-grid {
             display: grid;
@@ -659,10 +653,7 @@
             font-size: 13.5px;
         }
 
-        .metodo-detalle-box.active {
-            display: block;
-        }
-
+        .metodo-detalle-box.active { display: block; }
         .metodo-detalle-box h5 {
             color: #ffffff;
             font-size: 16px;
@@ -671,15 +662,10 @@
             border-bottom: 1px solid rgba(193, 149, 146, 0.3);
             padding-bottom: 8px;
         }
+        .metodo-detalle-box p { margin-bottom: 12px; }
 
-        .metodo-detalle-box p {
-            margin-bottom: 12px;
-        }
-
-        /* --- BOTÓN VER MÁS --- */
-        .extra-content {
-            display: block;
-        }
+        /* --- CLASE "VER MÁS" PARA CELULARES --- */
+        .extra-content { display: block; }
 
         .ver-mas-btn {
             display: none;
@@ -696,9 +682,7 @@
             transition: background 0.2s;
         }
 
-        .ver-mas-btn:hover {
-            background-color: var(--accent-strong);
-        }
+        .ver-mas-btn:hover { background-color: var(--accent-strong); }
 
         /* --- NUBECITAS CONSENTIMIENTO --- */
         .nubes-consentimiento-grid {
@@ -739,9 +723,7 @@
             transition: color 0.3s ease;
         }
 
-        .nube-card:hover p {
-            color: #ffffff;
-        }
+        .nube-card:hover p { color: #ffffff; }
 
         /* --- SECCIÓN TODO SOBRE VIH --- */
         .vih-section-container {
@@ -838,7 +820,6 @@
         }
 
         .vih-content-box.active { display: block; }
-
         .vih-content-box h4 {
             margin-top: 0;
             color: #ffffff;
@@ -863,12 +844,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
-        .positive-step-icon {
-            font-size: 20px;
-            line-height: 1;
-            margin-top: 2px;
-        }
-
+        .positive-step-icon { font-size: 20px; line-height: 1; margin-top: 2px; }
         .positive-step-text strong { color: #ffffff; }
 
         .internal-link-btn {
@@ -1113,7 +1089,6 @@
         }
 
         .footer-contact-item:hover { background: rgba(55, 35, 37, 0.95); }
-
         .footer-contact-icon { font-size: 16px; margin-top: 1px; }
 
         .footer-contact-text span {
@@ -1214,11 +1189,6 @@
             .team-card {
                 min-width: 280px;
                 padding: 16px;
-            }
-
-            .team-canva-banner {
-                flex: 0 0 65px;
-                height: 65px;
             }
 
             .extra-content { display: none; }
@@ -1340,7 +1310,7 @@
     <!-- Contenedor principal -->
     <div class="main-container">
 
-       <!-- Quiénes Somos / Equipo -->
+        <!-- Quiénes Somos / Equipo (Diseño original con las imágenes de Canva) -->
         <section id="nosotras">
             <div class="section-heading">Quiénes Somos</div>
             <div class="team-grid">
@@ -1348,12 +1318,10 @@
                 <!-- Tarjeta Jimena -->
                 <div class="team-card">
                     <div>
-                        <div class="team-top-row">
-                            <div class="team-canva-banner">
-                                <img src="jime-canva.png" alt="Jimena" class="team-canva-img">
-                            </div>
-                            <p class="team-intro-text">Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral.</p>
+                        <div class="team-canva-banner">
+                            <img src="jime-canva.png" alt="Jimena" class="team-canva-img">
                         </div>
+                        <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral.</p>
                         <p class="extra-content">Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal. Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
                     </div>
                     <div class="team-card-footer">
@@ -1365,12 +1333,10 @@
                 <!-- Tarjeta Brenda -->
                 <div class="team-card">
                     <div>
-                        <div class="team-top-row">
-                            <div class="team-canva-banner">
-                                <img src="bren-canva.png" alt="Brenda" class="team-canva-img">
-                            </div>
-                            <p class="team-intro-text">Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales.</p>
+                        <div class="team-canva-banner">
+                            <img src="bren-canva.png" alt="Brenda" class="team-canva-img">
                         </div>
+                        <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales.</p>
                         <p class="extra-content">Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar. Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
                     </div>
                     <div class="team-card-footer">
@@ -1381,7 +1347,7 @@
 
             </div>
         </section>
-        
+
         <!-- Sección: Reels Informativos -->
         <section id="reels">
             <div class="section-heading">Reels Informativos</div>
