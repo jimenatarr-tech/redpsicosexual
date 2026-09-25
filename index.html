@@ -339,7 +339,7 @@
             box-sizing: border-box;
         }
 
-        /* Diseño interno en dos columnas: Izquierda (Foto + Botón), Derecha (Texto) */
+        /* Diseño interno en dos columnas: Izquierda (Foto), Derecha (Texto) en PC */
         .team-card-content {
             display: grid;
             grid-template-columns: 140px 1fr;
@@ -373,7 +373,10 @@
         }
 
         .linkedin-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
             background-color: rgba(193, 149, 146, 0.2);
             color: #f0d8cd;
             border: 1px solid rgba(193, 149, 146, 0.4);
@@ -389,6 +392,15 @@
         .linkedin-btn:hover {
             background-color: var(--accent-strong);
             color: #fff;
+        }
+
+        /* Control de visibilidad del botón de LinkedIn según versión */
+        .linkedin-pc {
+            display: inline-flex; /* Visible en PC debajo de la foto */
+        }
+
+        .linkedin-mobile {
+            display: none; /* Oculto en PC */
         }
 
         /* --- CARRUSEL DE REELS --- */
@@ -1257,7 +1269,7 @@
                 width: 100%;
             }
 
-            /* Modificado: En celulares ahora aparecen una al lado de la otra en dos columnas */
+            /* Dos columnas en celular para las tarjetas */
             .team-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
@@ -1289,7 +1301,14 @@
                 line-height: 1.4;
             }
 
-            .linkedin-btn {
+            /* Ocultar botón de LinkedIn en la foto y mostrar el de móvil abajo */
+            .linkedin-pc {
+                display: none !important;
+            }
+
+            .linkedin-mobile {
+                display: inline-flex !important;
+                margin-top: 8px;
                 padding: 4px 10px;
                 font-size: 11px;
             }
@@ -1493,12 +1512,20 @@
                     <div class="team-card-content">
                         <div class="team-img-container">
                             <img src="jime-canva.png" alt="Jimena" class="team-img">
-                            <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
+                            <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn linkedin-pc">
+                                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                LinkedIn ↗
+                            </a>
                         </div>
                         <div class="team-info">
                             <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral.</p>
                             <p class="extra-content">Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal. Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
                             <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
+                            <br>
+                            <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn linkedin-mobile">
+                                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                LinkedIn ↗
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1508,12 +1535,20 @@
                     <div class="team-card-content">
                         <div class="team-img-container">
                             <img src="bren-canva.png" alt="Brenda" class="team-img">
-                            <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
+                            <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn linkedin-pc">
+                                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                LinkedIn ↗
+                            </a>
                         </div>
                         <div class="team-info">
                             <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales.</p>
                             <p class="extra-content">Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar. Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
                             <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
+                            <br>
+                            <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn linkedin-mobile">
+                                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                LinkedIn ↗
+                            </a>
                         </div>
                     </div>
                 </div>
