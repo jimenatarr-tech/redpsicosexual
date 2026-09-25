@@ -1179,47 +1179,48 @@
                 width: 100%;
             }
 
-            /* --- EQUIPO EN CELULAR: UNA ABAJO DE LA OTRA, EXPANDIDAS Y PROLIJAS --- */
+            /* --- EQUIPO EN CELULAR: UNA AL LADO DE LA OTRA (2 COLUMNAS) --- */
             .team-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                overflow-x: visible;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+                overflow-x: visible !important;
             }
 
             .team-card {
-                min-width: 100%;
-                padding: 20px;
+                min-width: 0 !important;
+                padding: 12px !important;
             }
 
             .team-canva-banner {
-                width: 65%;
-                margin: 0 auto 15px auto;
+                width: 90% !important;
+                margin: 0 auto 10px auto !important;
             }
 
             .team-card p {
-                font-size: 13.5px !important;
-                line-height: 1.5 !important;
+                font-size: 10.5px !important;
+                line-height: 1.35 !important;
                 text-align: left;
             }
 
             .team-card-footer {
-                margin-top: 15px;
-                display: flex;
-                gap: 10px;
-                width: 100%;
+                margin-top: 10px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 6px !important;
+                width: 100% !important;
             }
 
             .ver-mas-btn, .linkedin-btn {
                 display: flex !important;
-                flex: 1;
-                justify-content: center;
-                align-items: center;
+                width: 100% !important;
+                justify-content: center !important;
+                align-items: center !important;
                 background: rgba(193, 149, 146, 0.25) !important;
                 color: #ffffff !important;
                 border: 1px solid rgba(193, 149, 146, 0.5) !important;
-                padding: 10px 12px !important;
-                border-radius: 12px !important;
-                font-size: 12.5px !important;
+                padding: 6px 4px !important;
+                border-radius: 10px !important;
+                font-size: 10.5px !important;
                 font-weight: 600 !important;
                 margin-top: 0 !important;
                 text-align: center;
