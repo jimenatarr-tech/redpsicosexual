@@ -349,20 +349,20 @@
             margin-bottom: 15px;
         }
 
-        .team-canva-banner {
-            flex: 0 0 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid rgba(193, 149, 146, 0.4);
-            background-color: #2a1b1b;
+  .team-canva-banner {
+            flex: 0 0 160px; /* Ajustamos el ancho para que luzca bien horizontal */
+            height: auto;
+            border-radius: 0 !important; /* Quitamos el círculo */
+            overflow: visible !important;
+            border: none !important;
+            background: transparent !important;
         }
 
         .team-canva-img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            height: auto;
+            object-fit: contain !important; /* Muestra la imagen completa tal cual es */
+            border-radius: 0 !important;
         }
 
         .team-intro-text {
