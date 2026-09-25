@@ -559,6 +559,111 @@
             margin-bottom: 15px;
         }
 
+        /* --- BOTONES DE MÉTODOS --- */
+        .metodos-subtabs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .metodo-sub-btn {
+            background: rgba(50, 31, 33, 0.9);
+            border: 1px solid rgba(193, 149, 146, 0.4);
+            color: #f0d8cd;
+            padding: 14px 18px;
+            border-radius: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .metodo-sub-btn:hover {
+            background-color: rgba(163, 107, 103, 0.4);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .metodo-sub-btn.active {
+            background-color: var(--accent-strong);
+            color: #ffffff;
+            border-color: var(--accent-main);
+            box-shadow: 0 4px 12px rgba(163, 107, 103, 0.4);
+        }
+
+        .sub-menu-container {
+            display: none;
+            background: rgba(45, 25, 28, 0.6);
+            border: 1px dashed rgba(193, 149, 146, 0.4);
+            border-radius: 14px;
+            padding: 20px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .sub-menu-container.active { display: block; }
+
+        .sub-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .sub-menu-btn {
+            background: rgba(35, 21, 23, 0.95);
+            border: 1px solid rgba(193, 149, 146, 0.35);
+            color: #f0d8cd;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .sub-menu-btn:hover {
+            background-color: var(--accent-strong);
+            color: #ffffff;
+        }
+
+        .sub-menu-btn.active {
+            background-color: var(--accent-strong);
+            color: #ffffff;
+            border-color: var(--accent-main);
+            font-weight: 600;
+        }
+
+        .metodo-detalle-box {
+            display: none;
+            background: rgba(45, 25, 28, 0.9);
+            border: 1px solid rgba(193, 149, 146, 0.3);
+            border-radius: 12px;
+            padding: 22px;
+            margin-top: 15px;
+            animation: fadeIn 0.3s ease-in-out;
+            line-height: 1.6;
+            font-size: 13.5px;
+        }
+
+        .metodo-detalle-box.active { display: block; }
+        .metodo-detalle-box h5 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(193, 149, 146, 0.3);
+            padding-bottom: 8px;
+        }
+        .metodo-detalle-box p { margin-bottom: 12px; }
+
         /* --- CLASE "VER MÁS" PARA CELULARES --- */
         .extra-content { display: block; }
 
@@ -1341,7 +1446,7 @@
             </div>
         </section>
 
-        <!-- Sección: Salud Sexual (Tu versión original exacta) -->
+        <!-- Sección: Salud Sexual (Con sus botones interactivos completos) -->
         <section id="salud-sexual" class="collapsible-section">
             <div class="section-heading">Salud Sexual</div>
             <div class="salud-sexual-container">
@@ -1364,12 +1469,96 @@
                     </div>
                 </div>
 
-                <!-- Bloques de contenido salud sexual originales -->
+                <!-- Bloques de contenido salud sexual con botones de anticonceptivos -->
                 <div id="salud-metodos" class="salud-content-display">
                     <h4>Métodos anticonceptivos</h4>
                     <p><strong>¿Qué son los métodos anticonceptivos?</strong><br>
                     Elegir cómo cuidarnos es parte fundamental de nuestra autonomía. Un método anticonceptivo es cualquier herramienta, dispositivo o fármaco que nos acompaña a prevenir embarazos, dándonos la libertad de decidir si queremos maternar o paternar, cuándo y con quién. <span class="extra-content">Cada cuerpo es único y por eso hay múltiples opciones. Lo más importante es saber que, sacando los métodos quirúrgicos definitivos, todos son reversibles. Y un dato clave que siempre remarcamos: el preservativo es nuestro gran aliado porque es el único que nos ofrece doble protección contra embarazos e ITS.</span></p>
-                    <p class="extra-content"><strong>Derechos y acceso en nuestro sistema de salud</strong><br>
+
+                    <div class="metodos-subtabs-grid">
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('barrera')">Métodos de Barrera</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('hormonales')">Métodos Hormonales</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('dispositivos')">Dispositivos intrauterinos (DIU)</button>
+                        <button class="metodo-sub-btn" onclick="showMetodoDetalle('quirurgicos')">Métodos Quirúrgicos</button>
+                    </div>
+
+                    <!-- Detalle Barrera -->
+                    <div id="detalle-barrera" class="metodo-detalle-box">
+                        <h5>Métodos de Barrera</h5>
+                        <p>Impiden físicamente el encuentro entre el óvulo y el espermatozoide. <strong>Son los únicos que previenen ITS.</strong></p>
+                        <div class="sub-menu-grid">
+                            <button class="sub-menu-btn" onclick="showSubDetalle('barrera', 'b-preservativo')">Preservativo peniano</button>
+                            <button class="sub-menu-btn" onclick="showSubDetalle('barrera', 'b-vaginal')">Preservativo vaginal</button>
+                            <button class="sub-menu-btn" onclick="showSubDetalle('barrera', 'b-campo')">Campo de látex</button>
+                        </div>
+                        <div id="b-preservativo" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>Preservativo peniano:</strong> Funda de látex o poliuretano que se coloca sobre el pene en erección. Altamente efectivo para prevenir embarazos e ITS.
+                        </div>
+                        <div id="b-vaginal" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>Preservativo vaginal:</strong> Funda delgada de nitrilo que se inserta en la vagina antes de la relación, cubriendo también los genitales externos.
+                        </div>
+                        <div id="b-campo" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>Campo de látex:</strong> Lámina delgada de látex o poliuretano que se utiliza como barrera durante el sexo oral (en vulva o ano).
+                        </div>
+                    </div>
+
+                    <!-- Detalle Hormonales -->
+                    <div id="detalle-hormonales" class="metodo-detalle-box">
+                        <h5>Métodos Hormonales</h5>
+                        <p>Utilizan hormonas para evitar la ovulación o alterar el moco cervical. Requieren supervisión médica.</p>
+                        <div class="sub-menu-grid">
+                            <button class="sub-menu-btn" onclick="showSubDetalle('hormonales', 'h-pastillas')">Anticonceptivos orales</button>
+                            <button class="sub-menu-btn" onclick="showSubDetalle('hormonales', 'h-inyectable')">Inyectables</button>
+                            <button class="sub-menu-btn" onclick="showSubDetalle('hormonales', 'h-implante')">Implante subdérmico</button>
+                            <button class="sub-menu-btn" onclick="showSubDetalle('hormonales', 'h-pastilla-emergencia')">Pastilla de emergencia</button>
+                        </div>
+                        <div id="h-pastillas" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>Anticonceptivos orales (pastillas):</strong> Comprimidos diarios que inhiben la ovulación. Deben tomarse a la misma hora para garantizar eficacia.
+                        </div>
+                        <div id="h-inyectable" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>Inyectables:</strong> Aplicaciones mensuales o trimestrales de hormonas que previenen la ovulación.
+                        </div>
+                        <div id="h-implante" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>Implante subdérmico (chip):</strong> Pequeña varilla flexible que se coloca bajo la piel del brazo y libera hormonas por varios años.
+                        </div>
+                        <div id="h-pastilla-emergencia" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>Anticoncepción de emergencia (PAE):</strong> Método de rescate ante fallas del preservativo o relaciones sin protección. Debe tomarse dentro de las primeras 72 a 120 horas.
+                        </div>
+                    </div>
+
+                    <!-- Detalle DIU -->
+                    <div id="detalle-dispositivos" class="metodo-detalle-box">
+                        <h5>Dispositivos intrauterinos (DIU)</h5>
+                        <p>Pequeños aparatos que un profesional coloca dentro del útero.</p>
+                        <div class="sub-menu-grid">
+                            <button class="sub-menu-btn" onclick="showSubDetalle('dispositivos', 'd-cobre')">DIU de cobre</button>
+                            <button class="sub-menu-btn" onclick="showSubDetalle('dispositivos', 'd-hormonal')">DIU hormonal (SIU)</button>
+                        </div>
+                        <div id="d-cobre" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>DIU de cobre:</strong> No contiene hormonas; el cobre inmoviliza a los espermatozoides. Dura varios años.
+                        </div>
+                        <div id="d-hormonal" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>DIU hormonal / SIU:</strong> Libera pequeñas dosis de hormona localmente, reduciendo notablemente el sangrado menstrual.
+                        </div>
+                    </div>
+
+                    <!-- Detalle Quirúrgicos -->
+                    <div id="detalle-quirurgicos" class="metodo-detalle-box">
+                        <h5>Métodos Quirúrgicos (Definitivos)</h5>
+                        <p>Cirugías sencillas para quienes deciden no tener hijos/as.</p>
+                        <div class="sub-menu-grid">
+                            <button class="sub-menu-btn" onclick="showSubDetalle('quirurgicos', 'q-ligadura')">Ligadura tubaria</button>
+                            <button class="sub-menu-btn" onclick="showSubDetalle('quirurgicos', 'q-vasectomia')">Vasectomía</button>
+                        </div>
+                        <div id="q-ligadura" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>Ligadura tubaria:</strong> Oclusión de las trompas de Falopio.
+                        </div>
+                        <div id="q-vasectomia" class="sub-detalle-content" style="display:none; margin-top:12px; font-size:13px;">
+                            <strong>Vasectomía:</strong> Ligadura y sección de los conductos deferentes.
+                        </div>
+                    </div>
+
+                    <p class="extra-content" style="margin-top: 20px;"><strong>Derechos y acceso en nuestro sistema de salud</strong><br>
                     En Argentina, el acceso a los métodos anticonceptivos es un derecho garantizado por ley de manera gratuita en hospitales, salitas y centros de salud, así como en obras sociales y prepagas.</p>
                     <button class="ver-mas-btn" onclick="toggleVerMasBloque(this)">Ver más</button>
                 </div>
@@ -1624,6 +1813,31 @@
             document.querySelectorAll('.salud-card-item').forEach(card => card.classList.remove('active-tab'));
             const targetBox = document.getElementById(contentId);
             if (targetBox) targetBox.classList.add('active');
+        }
+
+        function showMetodoDetalle(detalleId) {
+            document.querySelectorAll('.metodo-detalle-box').forEach(box => box.classList.remove('active'));
+            document.querySelectorAll('.metodo-sub-btn').forEach(btn => btn.classList.remove('active'));
+            
+            const targetBox = document.getElementById('detalle-' + detalleId);
+            if (targetBox) targetBox.classList.add('active');
+            
+            event.currentTarget.classList.add('active');
+        }
+
+        function showSubDetalle(grupoId, subId) {
+            const grupoBox = document.getElementById('detalle-' + grupoId);
+            if (grupoBox) {
+                grupoBox.querySelectorAll('.sub-detalle-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                grupoBox.querySelectorAll('.sub-menu-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }
+            const targetSub = document.getElementById(subId);
+            if (targetSub) targetSub.style.display = 'block';
+            event.currentTarget.classList.add('active');
         }
 
         function toggleVerMas(btn) {
