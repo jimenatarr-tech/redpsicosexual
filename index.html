@@ -495,75 +495,45 @@
         .carousel-btn.prev { left: -20px; }
         .carousel-btn.next { right: -20px; }
 
-        /* --- ESTILOS: SECCIÓN SALUD SEXUAL --- */
-        .salud-sexual-container {
-            background-color: var(--card-dark);
-            border: 1px solid rgba(193, 149, 146, 0.3);
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
+             <!-- Sección: Salud Sexual (Oculta por defecto, con las 4 tarjetas interactivas) -->
+        <section id="salud-sexual" class="collapsible-section">
+            <div class="section-heading">Salud Sexual</div>
+            <div class="salud-sexual-container">
+                <p style="margin-top: 0; margin-bottom: 25px; color: #f0d8cd; font-size: 14px;">
+                    Tocá cada tarjeta para explorar los contenidos detallados:
+                </p>
 
-        .salud-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
+                <!-- Tarjetas Interactivas (4 en total) -->
+                <div class="salud-cards-grid">
+                    <div class="salud-card-item" onclick="showSaludContent('salud-metodos')">
+                        <span class="salud-card-icon">🛡️</span>
+                        <h3 class="salud-card-title">Métodos anticonceptivos y de barrera</h3>
+                    </div>
+                    <div class="salud-card-item" onclick="showSaludContent('salud-consentimiento')">
+                        <span class="salud-card-icon">💬</span>
+                        <h3 class="salud-card-title">Consentimiento y vínculos</h3>
+                    </div>
+                    <div class="salud-card-item" onclick="showSaludContent('salud-its')">
+                        <span class="salud-card-icon">🧪</span>
+                        <h3 class="salud-card-title">ITS (Infecciones de Transmisión Sexual)</h3>
+                    </div>
+                    <div class="salud-card-item" onclick="showSaludContent('salud-esi')">
+                        <span class="salud-card-icon">🧠</span>
+                        <h3 class="salud-card-title">Placer y ESI (Educación Sexual Integral)</h3>
+                    </div>
+                </div>
 
-        .salud-card-item {
-            background: linear-gradient(135deg, rgba(60, 35, 38, 0.95), rgba(40, 22, 24, 0.95));
-            border: 1px solid rgba(193, 149, 146, 0.4);
-            border-radius: 16px;
-            padding: 30px 20px;
-            text-align: center;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            transition: all 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 140px;
-        }
+                <!-- Bloques de contenido que se abren al hacer clic -->
+                <div id="salud-metodos" class="salud-content-display">
+                    <h4>Métodos anticonceptivos y de barrera</h4>
+                    <p>Más allá del preservativo tradicional (peniano), existen herramientas fundamentales para el cuidado y la prevención combinada:</p>
+                    <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
+                        <li><strong>Preservativos vaginales:</strong> Una alternativa eficaz de barrera interna.</li>
+                        <li><strong>Campos de látex:</strong> Ideales para prácticas orogenitales o contacto piel con piel reduciendo riesgos de ITS.</li>
+                        <li><strong>Anticoncepción hormonal y de emergencia (PAE):</strong> Opciones para decidir sobre el propio cuerpo con asesoramiento profesional.</li>
+                    </ul>
+                </div>
 
-        .salud-card-item:hover {
-            transform: translateY(-4px);
-            background: linear-gradient(135deg, rgba(80, 45, 48, 0.95), rgba(50, 28, 30, 0.95));
-            border-color: var(--accent-main);
-            box-shadow: 0 12px 30px rgba(163, 107, 103, 0.3);
-        }
-
-        .salud-card-icon {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .salud-card-title {
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 600;
-            margin: 0;
-            letter-spacing: 0.3px;
-        }
-
-        .salud-content-display {
-            background: rgba(35, 21, 23, 0.95);
-            border: 1px solid rgba(193, 149, 146, 0.4);
-            border-radius: 16px;
-            padding: 25px;
-            display: none;
-            animation: fadeIn 0.3s ease-in-out;
-            color: #f0d8cd;
-        }
-
-        .salud-content-display.active { display: block; }
-        .salud-content-display h4 {
-            margin-top: 0;
-            color: #ffffff;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
 
         /* --- SECCIÓN TODO SOBRE VIH --- */
         .vih-section-container {
