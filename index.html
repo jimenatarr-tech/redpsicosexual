@@ -7,10 +7,10 @@
     <!-- Logo en la pestaña del navegador -->
     <link rel="icon" type="image/png" href="logo.png">
     
-    <!-- Importación de Google Fonts: Poppins -->
+    <!-- Importación de Google Fonts: Poppins y Jenna Sue -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jenna+Sue&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #201314;
@@ -320,103 +320,111 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- NUEVO DISEÑO HORIZONTAL PARA QUIÉNES SOMOS EN WEB --- */
+        /* --- TARJETAS QUIÉNES SOMOS UNA AL LADO DE LA OTRA --- */
         .team-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Una tarjeta por fila para aprovechar el ancho web */
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            align-items: stretch;
         }
 
         .team-card {
             background-color: var(--card-dark);
             border: 1px solid rgba(193, 149, 146, 0.3);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            display: grid;
-            grid-template-columns: 240px 1fr; /* Columna izquierda foto/flecha, columna derecha textos */
-            gap: 30px;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .team-left-col {
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Contenedor superior con espacio para la flecha y el texto flotante */
+        .team-header-area {
             position: relative;
-            text-align: center;
+            margin-top: 45px; /* Deja espacio para que la flecha flote arriba */
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Estilo para la flecha y el texto en tipografía Jenna Sue */
+        .handwritten-callout {
+            position: absolute;
+            top: -48px;
+            left: 50%;
+            transform: translateX(-15%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .handwritten-text {
+            font-family: 'Jenna Sue', cursive;
+            font-size: 32px;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .handwritten-arrow {
+            width: 50px;
+            height: 35px;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transform: rotate(-15deg);
         }
 
         .team-img {
-            width: 140px;
-            height: 140px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
             object-position: center 20%;
             background-color: #382426;
-            border: 4px solid var(--accent-strong);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border: 3px solid var(--accent-strong);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
         }
 
-        /* Contenedor de la flecha curva y mensaje */
-        .arrow-indicator {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 12px;
-            color: var(--accent-main);
+        .team-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
             font-weight: 600;
-            font-size: 14px;
-            font-style: italic;
-        }
-
-        .arrow-indicator svg {
-            width: 28px;
-            height: 20px;
-            fill: none;
-            stroke: var(--accent-main);
-            stroke-width: 2.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .team-right-col {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: left;
-        }
-
-        .team-right-col h3 {
-            margin: 0 0 10px 0;
-            font-size: 22px;
-            font-weight: 700;
             color: #ffffff;
         }
 
-        .team-right-col p {
-            font-size: 13.5px;
+        .team-card p {
+            font-size: 12.5px;
             color: #f0d8cd;
-            margin: 0 0 12px 0;
-            line-height: 1.5;
+            margin: 0 0 10px 0;
+            line-height: 1.45;
+            text-align: left;
         }
 
         .team-card-footer {
             margin-top: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            width: 100%;
         }
 
         .linkedin-btn {
             display: inline-block;
-            background-color: rgba(193, 149, 146, 0.25);
+            background-color: rgba(193, 149, 146, 0.2);
             color: #f0d8cd;
-            border: 1px solid rgba(193, 149, 146, 0.45);
-            padding: 6px 16px;
-            border-radius: 14px;
-            font-size: 12.5px;
+            border: 1px solid rgba(193, 149, 146, 0.4);
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 11.5px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s;
@@ -1293,20 +1301,8 @@
                 width: 100%;
             }
 
-            /* Volver a diseño vertical en celular para Quiénes Somos */
-            .team-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 22px;
-            }
-
-            .team-right-col {
-                text-align: left;
-            }
-
-            .team-img {
-                width: 100px;
-                height: 100px;
+            .team-grid {
+                grid-template-columns: 1fr; /* Una tarjeta debajo de la otra en celular */
             }
 
             /* Activar comportamiento de Ver Más / Ver Menos en celulares */
@@ -1503,43 +1499,41 @@
             <div class="team-grid">
                 <!-- Tarjeta Jimena -->
                 <div class="team-card">
-                    <div class="team-left-col">
-                        <img src="Jime.jpeg" alt="Jimena" class="team-img">
-                        <div class="arrow-indicator">
-                            <span>¡Soy Jime!</span>
-                            <svg viewBox="0 0 24 24"><path d="M4 12c0 4 3.5 7 8 7s8-3 8-7m-8-7v14m-4-4l4 4 4-4"/></svg>
+                    <div>
+                        <div class="team-header-area">
+                            <div class="handwritten-callout">
+                                <svg class="handwritten-arrow" viewBox="0 0 24 24"><path d="M4 12c0 4 3.5 7 8 7s8-3 8-7m-8-7v14m-4-4l4 4 4-4"/></svg>
+                                <span class="handwritten-text">Soy Jime!</span>
+                            </div>
+                            <img src="Jime.jpg" alt="Jimena" class="team-img">
                         </div>
-                    </div>
-                    <div class="team-right-col">
                         <h3>Jimena</h3>
                         <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral.</p>
                         <p class="extra-content">Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal. Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
-                        
-                        <div class="team-card-footer">
-                            <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
-                            <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
-                        </div>
+                    </div>
+                    <div class="team-card-footer">
+                        <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
+                        <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                     </div>
                 </div>
 
                 <!-- Tarjeta Brenda -->
                 <div class="team-card">
-                    <div class="team-left-col">
-                        <img src="brenda.jpg" alt="Brenda" class="team-img">
-                        <div class="arrow-indicator">
-                            <span>¡Soy Brenda!</span>
-                            <svg viewBox="0 0 24 24"><path d="M4 12c0 4 3.5 7 8 7s8-3 8-7m-8-7v14m-4-4l4 4 4-4"/></svg>
+                    <div>
+                        <div class="team-header-area">
+                            <div class="handwritten-callout">
+                                <svg class="handwritten-arrow" viewBox="0 0 24 24"><path d="M4 12c0 4 3.5 7 8 7s8-3 8-7m-8-7v14m-4-4l4 4 4-4"/></svg>
+                                <span class="handwritten-text">Soy Bren!</span>
+                            </div>
+                            <img src="brenda.jpg" alt="Brenda" class="team-img">
                         </div>
-                    </div>
-                    <div class="team-right-col">
                         <h3>Brenda</h3>
                         <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales.</p>
                         <p class="extra-content">Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar. Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
-                        
-                        <div class="team-card-footer">
-                            <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
-                            <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
-                        </div>
+                    </div>
+                    <div class="team-card-footer">
+                        <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
+                        <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                     </div>
                 </div>
             </div>
