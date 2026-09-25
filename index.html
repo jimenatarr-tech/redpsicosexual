@@ -1179,16 +1179,25 @@
                 width: 100%;
             }
 
+            @media (max-width: 768px) {
+            /* ... (deja el resto de tus estilos mobile como están y actualiza estas partes) ... */
+
             .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                overflow-x: auto;
-                padding-bottom: 10px;
+                grid-template-columns: 1fr; /* Una tarjeta debajo de la otra en celular, sin scroll lateral */
+                gap: 20px;
+                overflow-x: visible;
             }
 
             .team-card {
-                min-width: 280px;
-                padding: 16px;
+                min-width: 100%;
+                padding: 18px;
+            }
+
+            .team-canva-banner {
+                width: 45%; /* Las hace más finitas y delicadas en la vista móvil */
+                margin: 0 auto 12px auto;
+            }
+        }
             }
 
             .extra-content { display: none; }
