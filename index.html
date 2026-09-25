@@ -320,28 +320,26 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Grilla adaptable (Quiénes Somos) */
+        /* Grilla adaptable (Quiénes Somos) sin bordes de tarjeta */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            align-items: stretch;
+            gap: 40px;
+            align-items: start;
         }
 
         .team-card {
-            background-color: var(--card-dark);
-            border: 1px solid rgba(193, 149, 146, 0.3);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: none;
+            border: none;
+            padding: 0;
+            box-shadow: none;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
+            justify-content: flex-start;
             box-sizing: border-box;
         }
 
-        /* Diseño interno de la tarjeta en dos columnas: Izquierda (Foto + Botón), Derecha (Texto) */
+        /* Diseño interno en dos columnas: Izquierda (Foto + Botón), Derecha (Texto) */
         .team-card-content {
             display: grid;
             grid-template-columns: 140px 1fr;
@@ -371,11 +369,6 @@
             color: #f0d8cd;
             margin: 0 0 15px 0;
             line-height: 1.5;
-            text-align: left;
-        }
-
-        .team-footer {
-            margin-top: 15px;
             text-align: left;
         }
 
@@ -1264,9 +1257,10 @@
                 width: 100%;
             }
 
-            /* En celulares, volvemos a apilar la tarjeta verticalmente para que respete el ancho */
+            /* En celulares, volvemos a apilar la tarjeta verticalmente */
             .team-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .team-card-content {
@@ -1279,7 +1273,7 @@
                 align-items: center;
             }
 
-            .team-info, .team-footer {
+            .team-info {
                 text-align: center;
             }
 
@@ -1489,10 +1483,8 @@
                         <div class="team-info">
                             <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral.</p>
                             <p class="extra-content">Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal. Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
+                            <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
                         </div>
-                    </div>
-                    <div class="team-footer">
-                        <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
                     </div>
                 </div>
 
@@ -1505,11 +1497,9 @@
                         </div>
                         <div class="team-info">
                             <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales.</p>
-                            <p class="extra-content">Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocional y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar. Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
+                            <p class="extra-content">Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar. Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
+                            <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
                         </div>
-                    </div>
-                    <div class="team-footer">
-                        <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
                     </div>
                 </div>
             </div>
@@ -2213,7 +2203,7 @@
 
         // Funciones para el botón Ver Más / Ver Menos
         function toggleVerMas(btn) {
-            const extras = btn.parentElement.parentElement.querySelectorAll('.extra-content');
+            const extras = btn.parentElement.querySelectorAll('.extra-content');
             let isOpen = btn.classList.contains('open');
 
             extras.forEach(el => {
