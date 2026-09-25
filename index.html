@@ -320,7 +320,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- TARJETAS QUIÉNES SOMOS UNA AL LADO DE LA OTRA (Texto Izquierda, Imagen Derecha) --- */
+        /* --- TARJETAS QUIÉNES SOMOS UNA AL LADO DE LA OTRA --- */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -334,43 +334,53 @@
             border-radius: 16px;
             padding: 24px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            display: grid;
-            grid-template-columns: 1fr 220px; /* Texto a la izquierda, Canva a la derecha */
-            gap: 20px;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .team-text-col {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            text-align: left;
+            box-sizing: border-box;
         }
 
-        .team-text-col p {
-            font-size: 12.5px;
-            color: #f0d8cd;
-            margin: 0 0 10px 0;
-            line-height: 1.45;
-        }
-
-        .team-canva-col {
+        /* Distribución interna tipo diseño de la foto: Imagen a la izquierda, texto al costado/abajo */
+        .team-top-row {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 12px;
+        }
+
+        .team-canva-banner {
+            flex: 0 0 210px; /* Ancho fijo para la imagen de Canva */
         }
 
         .team-canva-img {
             width: 100%;
-            max-width: 200px;
             height: auto;
             object-fit: contain;
+            display: block;
+        }
+
+        .team-intro-text {
+            flex: 1;
+            font-size: 12.5px;
+            color: #f0d8cd;
+            margin: 0;
+            line-height: 1.45;
+            text-align: left;
+            padding-top: 10px; /* Alineado armónico con la imagen */
+        }
+
+        .team-card p {
+            font-size: 12.5px;
+            color: #f0d8cd;
+            margin: 0 0 10px 0;
+            line-height: 1.45;
+            text-align: left;
         }
 
         .team-card-footer {
             margin-top: 10px;
+            width: 100%;
         }
 
         .linkedin-btn {
@@ -1257,7 +1267,7 @@
                 width: 100%;
             }
 
-            /* Mantenemos una al lado de la otra también en celular con scroll o diseño compacto */
+            /* Mantenemos una al lado de la otra también en celular mediante scroll horizontal suave */
             .team-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
@@ -1266,14 +1276,25 @@
             }
 
             .team-card {
-                min-width: 300px;
-                grid-template-columns: 1fr 140px; /* Adaptamos ancho para celular */
+                min-width: 280px;
                 padding: 16px;
-                gap: 12px;
             }
 
-            .team-canva-img {
-                max-width: 130px;
+            .team-top-row {
+                flex-direction: column; /* En celular se acomoda vertical si el ancho es chico, o se mantiene fluido */
+                align-items: center;
+                text-align: center;
+            }
+
+            .team-canva-banner {
+                flex: 0 0 auto;
+                width: 160px;
+                margin-bottom: 5px;
+            }
+
+            .team-intro-text {
+                text-align: left;
+                padding-top: 0;
             }
 
             /* Activar comportamiento de Ver Más / Ver Menos en celulares */
@@ -1470,35 +1491,35 @@
             <div class="team-grid">
                 <!-- Tarjeta Jimena -->
                 <div class="team-card">
-                    <div class="team-text-col">
-                        <div>
-                            <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral.</p>
-                            <p class="extra-content">Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal. Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
+                    <div>
+                        <div class="team-top-row">
+                            <div class="team-canva-banner">
+                                <img src="jime-canva.png" alt="Jimena" class="team-canva-img">
+                            </div>
+                            <p class="team-intro-text">Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral.</p>
                         </div>
-                        <div class="team-card-footer">
-                            <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
-                            <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
-                        </div>
+                        <p class="extra-content">Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal. Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
                     </div>
-                    <div class="team-canva-col">
-                        <img src="jime-canva.png" alt="Jimena" class="team-canva-img">
+                    <div class="team-card-footer">
+                        <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
+                        <a href="https://www.linkedin.com/in/jimenatarruella/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                     </div>
                 </div>
 
                 <!-- Tarjeta Brenda -->
                 <div class="team-card">
-                    <div class="team-text-col">
-                        <div>
-                            <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales.</p>
-                            <p class="extra-content">Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar. Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
+                    <div>
+                        <div class="team-top-row">
+                            <div class="team-canva-banner">
+                                <img src="bren-canva.png" alt="Brenda" class="team-canva-img">
+                            </div>
+                            <p class="team-intro-text">Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales.</p>
                         </div>
-                        <div class="team-card-footer">
-                            <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
-                            <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
-                        </div>
+                        <p class="extra-content">Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar. Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
                     </div>
-                    <div class="team-canva-col">
-                        <img src="bren-canva.png" alt="Brenda" class="team-canva-img">
+                    <div class="team-card-footer">
+                        <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
+                        <a href="https://www.linkedin.com/in/brenda-carla-bianchi/" target="_blank" class="linkedin-btn">LinkedIn ↗</a>
                     </div>
                 </div>
             </div>
