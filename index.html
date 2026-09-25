@@ -320,7 +320,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- TARJETAS QUIÉNES SOMOS (DISEÑO ORIGINAL ANTERIOR) --- */
+        /* --- TARJETAS QUIÉNES SOMOS --- */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -341,9 +341,9 @@
             box-sizing: border-box;
         }
 
-      .team-canva-banner {
-            width: 55%; /* Achica la imagen de Canva a un tamaño coherente y estético */
-            margin: 0 auto 15px auto; /* La centra automáticamente en la tarjeta */
+        .team-canva-banner {
+            width: 55%;
+            margin: 0 auto 15px auto;
         }
 
         .team-canva-img {
@@ -1178,40 +1178,61 @@
                 text-align: center;
                 width: 100%;
             }
-@media (max-width: 768px) {
-            /* Forzamos que se mantengan en 2 columnas al lado en el celular */
+
+            /* --- EQUIPO EN CELULAR: UNA ABAJO DE LA OTRA, EXPANDIDAS Y PROLIJAS --- */
             .team-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 10px !important;
-                overflow-x: visible !important;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                overflow-x: visible;
             }
 
             .team-card {
-                min-width: 0 !important;
-                padding: 12px !important;
+                min-width: 100%;
+                padding: 20px;
             }
 
-            /* Hacemos las imágenes de Canva más finitas y compactas para que entren bien */
             .team-canva-banner {
-                width: 85% !important;
-                margin: 0 auto 8px auto !important;
+                width: 65%;
+                margin: 0 auto 15px auto;
             }
 
             .team-card p {
-                font-size: 10.5px !important; /* Achicamos un toque el texto para que no desborde */
-                line-height: 1.35 !important;
+                font-size: 13.5px !important;
+                line-height: 1.5 !important;
+                text-align: left;
             }
 
-            .linkedin-btn {
-                padding: 4px 8px !important;
-                font-size: 10px !important;
+            .team-card-footer {
+                margin-top: 15px;
+                display: flex;
+                gap: 10px;
+                width: 100%;
             }
-        }
+
+            .ver-mas-btn, .linkedin-btn {
+                display: flex !important;
+                flex: 1;
+                justify-content: center;
+                align-items: center;
+                background: rgba(193, 149, 146, 0.25) !important;
+                color: #ffffff !important;
+                border: 1px solid rgba(193, 149, 146, 0.5) !important;
+                padding: 10px 12px !important;
+                border-radius: 12px !important;
+                font-size: 12.5px !important;
+                font-weight: 600 !important;
+                margin-top: 0 !important;
+                text-align: center;
+                box-sizing: border-box;
+                text-decoration: none;
+            }
+
+            .ver-mas-btn:hover, .linkedin-btn:hover {
+                background-color: var(--accent-strong) !important;
             }
 
             .extra-content { display: none; }
             .extra-content.show { display: block; }
-            .ver-mas-btn { display: inline-block; }
 
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .stat-card { padding: 16px; }
@@ -1328,7 +1349,7 @@
     <!-- Contenedor principal -->
     <div class="main-container">
 
-        <!-- Quiénes Somos / Equipo (Diseño original con las imágenes de Canva) -->
+        <!-- Quiénes Somos / Equipo -->
         <section id="nosotras">
             <div class="section-heading">Quiénes Somos</div>
             <div class="team-grid">
