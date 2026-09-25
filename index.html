@@ -1178,24 +1178,33 @@
                 text-align: center;
                 width: 100%;
             }
-
-            @media (max-width: 768px) {
-            /* ... (deja el resto de tus estilos mobile como están y actualiza estas partes) ... */
-
+@media (max-width: 768px) {
+            /* Forzamos que se mantengan en 2 columnas al lado en el celular */
             .team-grid {
-                grid-template-columns: 1fr; /* Una tarjeta debajo de la otra en celular, sin scroll lateral */
-                gap: 20px;
-                overflow-x: visible;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+                overflow-x: visible !important;
             }
 
             .team-card {
-                min-width: 100%;
-                padding: 18px;
+                min-width: 0 !important;
+                padding: 12px !important;
             }
 
+            /* Hacemos las imágenes de Canva más finitas y compactas para que entren bien */
             .team-canva-banner {
-                width: 45%; /* Las hace más finitas y delicadas en la vista móvil */
-                margin: 0 auto 12px auto;
+                width: 85% !important;
+                margin: 0 auto 8px auto !important;
+            }
+
+            .team-card p {
+                font-size: 10.5px !important; /* Achicamos un toque el texto para que no desborde */
+                line-height: 1.35 !important;
+            }
+
+            .linkedin-btn {
+                padding: 4px 8px !important;
+                font-size: 10px !important;
             }
         }
             }
