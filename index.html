@@ -1181,6 +1181,15 @@
             transform: translateY(-2px);
         }
 
+        /* --- CONTROL DE VISIBILIDAD PARA EL BOTÓN DE INSTAGRAM EN CELULAR --- */
+        .footer-insta-mobile {
+            display: none; /* Oculto por defecto en PC */
+        }
+
+        .footer-contact-col-pc {
+            display: block; /* Visible en PC */
+        }
+
         /* --- RESPONSIVE PARA CELULARES --- */
         @media (max-width: 768px) {
             .hero-section {
@@ -1255,24 +1264,28 @@
                 display: inline-block;
             }
 
-            /* Ocultar los botones de Salud Colectiva y ESI & Vínculos solo en celular */
+            /* Ocultar los botones de Salud Colectiva y ESI & Vínculos en celular */
             .footer-badges {
                 display: none;
             }
 
-            /* Mostrar el botón de Instagram en su lugar y adaptarlo */
+            /* Mostrar el botón de Instagram justo abajo del párrafo en celular */
             .footer-insta-mobile {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-top: 15px;
+                display: block;
+                margin-top: 20px;
             }
 
             .footer-insta-mobile .footer-contact-item {
                 width: 100%;
-                max-width: 260px;
+                max-width: 280px;
+                box-sizing: border-box;
                 justify-content: center;
                 text-align: left;
+            }
+
+            /* Ocultar la tercera columna de "Contacto" de abajo en celular */
+            .footer-contact-col-pc {
+                display: none;
             }
 
             /* Estadísticas más anchas y cercanas a los bordes en celular */
@@ -1335,11 +1348,6 @@
                 justify-content: flex-end;
                 padding-bottom: 20px;
             }
-        }
-
-        /* Ocultar el botón de Instagram adaptado en PC (se mantiene abajo en su columna original) */
-        .footer-insta-mobile {
-            display: none;
         }
     </style>
 </head>
@@ -1865,7 +1873,7 @@
 
                         <div id="tab-transmision" class="vih-content-box">
                             <h4>Formas de transmisión</h4>
-                            <p>El VIH se transmite principalmente a través de:</p>
+                            <p>El VIH se transmite principalmente a través di:</p>
                             <ul>
                                 <li>Relaciones sexuales anales o vaginales sin preservativo ni campo de látex.</li>
                                 <li class="extra-content">Uso compartido de jeringas o elementos cortopunzantes.</li>
@@ -1983,7 +1991,7 @@
                         <span class="footer-badge">ESI & Vínculos</span>
                     </div>
 
-                    <!-- Botón de Instagram visible solo en celular (subido arriba) -->
+                    <!-- Botón de Instagram visible solo en celular (ubicado justo debajo del texto) -->
                     <div class="footer-insta-mobile">
                         <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
                             <span class="footer-contact-icon">✉️</span>
@@ -2008,7 +2016,7 @@
                 </div>
 
                 <!-- Columna 3: Contacto (Visible en PC) -->
-                <div class="footer-col">
+                <div class="footer-col footer-contact-col-pc">
                     <h4>Contacto</h4>
                     <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
                         <span class="footer-contact-icon">✉️</span>
