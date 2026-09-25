@@ -7,10 +7,10 @@
     <!-- Logo en la pestaña del navegador -->
     <link rel="icon" type="image/png" href="logo.png">
     
-    <!-- Importación de Google Fonts: Poppins y Jenna Sue -->
+    <!-- Importación de Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jenna+Sue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #201314;
@@ -343,58 +343,19 @@
             box-sizing: border-box;
         }
 
-        /* Contenedor superior con espacio para la flecha y el texto flotante */
-        .team-header-area {
-            position: relative;
-            margin-top: 45px; /* Deja espacio para que la flecha flote arriba */
+        /* Contenedor para la imagen hecha en Canva */
+        .team-canva-banner {
+            width: 100%;
             margin-bottom: 15px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+        }
+
+        .team-canva-img {
             width: 100%;
-        }
-
-        /* Estilo para la flecha y el texto en tipografía Jenna Sue */
-        .handwritten-callout {
-            position: absolute;
-            top: -48px;
-            left: 50%;
-            transform: translateX(-15%);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        .handwritten-text {
-            font-family: 'Jenna Sue', cursive;
-            font-size: 32px;
-            color: #ffffff;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .handwritten-arrow {
-            width: 50px;
-            height: 35px;
-            fill: none;
-            stroke: #ffffff;
-            stroke-width: 2.2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transform: rotate(-15deg);
-        }
-
-        .team-img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center 20%;
-            background-color: #382426;
-            border: 3px solid var(--accent-strong);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            max-width: 280px; /* Ajustá este tamaño si querés que la imagen de Canva se vea más grande o chica */
+            height: auto;
+            object-fit: contain;
         }
 
         .team-card h3 {
@@ -1500,12 +1461,9 @@
                 <!-- Tarjeta Jimena -->
                 <div class="team-card">
                     <div>
-                        <div class="team-header-area">
-                            <div class="handwritten-callout">
-                                <svg class="handwritten-arrow" viewBox="0 0 24 24"><path d="M4 12c0 4 3.5 7 8 7s8-3 8-7m-8-7v14m-4-4l4 4 4-4"/></svg>
-                                <span class="handwritten-text">Soy Jime!</span>
-                            </div>
-                            <img src="Jime.jpg" alt="Jimena" class="team-img">
+                        <!-- Aquí colocás tu imagen generada en Canva (ej: 'jime-canva.png') -->
+                        <div class="team-canva-banner">
+                            <img src="jime-canva.png" alt="Jimena" class="team-canva-img">
                         </div>
                         <h3>Jimena</h3>
                         <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral.</p>
@@ -1520,12 +1478,9 @@
                 <!-- Tarjeta Brenda -->
                 <div class="team-card">
                     <div>
-                        <div class="team-header-area">
-                            <div class="handwritten-callout">
-                                <svg class="handwritten-arrow" viewBox="0 0 24 24"><path d="M4 12c0 4 3.5 7 8 7s8-3 8-7m-8-7v14m-4-4l4 4 4-4"/></svg>
-                                <span class="handwritten-text">Soy Bren!</span>
-                            </div>
-                            <img src="brenda.jpg" alt="Brenda" class="team-img">
+                        <!-- Aquí colocás la imagen generada en Canva de Brenda (ej: 'bren-canva.png') -->
+                        <div class="team-canva-banner">
+                            <img src="bren-canva.png" alt="Brenda" class="team-canva-img">
                         </div>
                         <h3>Brenda</h3>
                         <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales.</p>
