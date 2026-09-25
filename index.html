@@ -1407,8 +1407,8 @@
                     <div>
                         <img src="Jime.jpg" alt="Jimena" class="team-img">
                         <h3>Jimena</h3>
-                        <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral. Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal.</p>
-                        <p class="extra-content">Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
+                        <p>Soy estudiante de Psicología Social con compromiso en el trabajo comunitario y la promoción de la salud integral.</p>
+                        <p class="extra-content">Mi práctica se orienta especialmente al abordaje del VIH y la salud sexual desde una perspectiva de derechos, prevención y acompañamiento grupal. Actualmente coordino un grupo de pares de personas viviendo con VIH en un ámbito hospitalario, experiencia que fortalece mi interés en los dispositivos grupales como espacios de contención, intercambio y construcción colectiva de salud. Desde la práctica, entiendo la importancia de generar entornos libres de estigma donde la escucha y el vínculo sean ejes centrales de la intervención psicosocial.</p>
                     </div>
                     <div>
                         <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
@@ -1422,8 +1422,8 @@
                     <div>
                         <img src="brenda.jpg" alt="Brenda" class="team-img">
                         <h3>Brenda</h3>
-                        <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales. Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar.</p>
-                        <p class="extra-content">Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
+                        <p>Soy estudiante de Psicología, con especial interés en el ámbito clínico, la salud mental y los vínculos interpersonales.</p>
+                        <p class="extra-content">Mi formación e intereses se orientan a comprender cómo los procesos psicológicos, emocionales y sociales atraviesan nuestra manera de vincularnos, nuestra sexualidad y nuestro bienestar. Me interesa especialmente el abordaje de distintas problemáticas de salud mental, el acompañamiento psicológico y los procesos terapéuticos, así como la salud sexual y su relación con los vínculos y el contexto social. Complemento mi formación académica con una Diplomatura en TDAH en FLENI y la participación en actividades académicas y de investigación vinculadas a la Psicología.</p>
                     </div>
                     <div>
                         <button class="ver-mas-btn" onclick="toggleVerMas(this)">Ver más</button>
@@ -1522,7 +1522,7 @@
                     <h4>Métodos anticonceptivos</h4>
                     
                     <p><strong>¿Qué son los métodos anticonceptivos?</strong><br>
-                    Elegir cómo cuidarnos es parte fundamental de nuestra autonomía. Un método anticonceptivo es cualquier herramienta, dispositivo o fármaco que nos acompaña a prevenir embarazos, dándonos la libertad de decidir si queremos maternar o paternar, cuándo y con quién. <span class="extra-content">Cada cuerpo es único y por eso hay múltiples opciones. Lo más importante es saber que, sacando los métodos quirúrgicos definitivos, todos son reversibles. Y un dato clave que siempre remarcamos: el preservativo es nuestro gran aliado porque es el único que nos ofrece doble protección contra embarazos e ITS.</span></p>
+                    Elegir cómo cuidarnos es parte fundamental de nuestra autonomía. Un método anticonceptivo es cualquier herramienta, dispositivo o fármaco que nos acompaña a prevenir embarazos, dándonos la libertad de decidir si queremos maternar o paternar, cuándo y con quién. <span class="extra-content">Cada cuerpo es único y por eso hay múltiples opciones. Lo most importante es saber que, sacando los métodos quirúrgicos definitivos, todos son reversibles. Y un dato clave que siempre remarcamos: el preservativo es nuestro gran aliado porque es el único que nos ofrece doble protección contra embarazos e ITS.</span></p>
 
                     <p class="extra-content"><strong>Derechos y acceso en nuestro sistema de salud</strong><br>
                     En Argentina, el acceso a los métodos anticonceptivos es un derecho garantizado por ley de manera gratuita en hospitales, salitas y centros de salud, así como en obras sociales y prepagas. Elegir informadas y acompañadas hace toda la diferencia para encontrar el método que mejor se adapte a nuestro día a día.</p>
@@ -1841,7 +1841,7 @@
 
                         <div id="tab-sida" class="vih-content-box">
                             <h4>VIH &ne; sida</h4>
-                            <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. El sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
+                            <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. el sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
                         </div>
 
                         <div id="tab-ii" class="vih-content-box">
@@ -2119,13 +2119,9 @@
 
         // Funciones para el botón Ver Más / Ver Menos
         function toggleVerMas(btn) {
-            const container = btn.previousElementSibling;
-            // Busca elementos hermanos con la clase extra-content dentro del mismo bloque padre
-            const parent = btn.parentElement.previousElementSibling; 
-            // Alternativa genérica buscando en el contenedor contenedor
             const extras = btn.parentElement.parentElement.querySelectorAll('.extra-content');
-            
             let isOpen = btn.classList.contains('open');
+
             extras.forEach(el => {
                 el.classList.toggle('show', !isOpen);
             });
