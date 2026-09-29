@@ -34,7 +34,7 @@
             min-height: 100vh;
         }
 
-        /* Barra de navegación flotante con bordes orgánicos asimétricos */
+        /* Barra de navegación en formato Cápsula Flotante (Efecto Cristal) */
         header {
             background-color: transparent;
             padding: 20px 20px;
@@ -51,8 +51,8 @@
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 25px 12px 30px 15px;
-            padding: 12px 25px;
+            border-radius: 40px;
+            padding: 10px 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -120,7 +120,7 @@
             -webkit-backdrop-filter: blur(16px);
             width: 260px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            border-radius: 14px 6px 16px 8px;
+            border-radius: 16px;
             padding: 8px 0;
             border: 1px solid var(--glass-border);
             z-index: 1100;
@@ -153,8 +153,8 @@
         .insta-btn {
             background-color: var(--accent-strong);
             color: #ffffff !important;
-            padding: 7px 18px;
-            border-radius: 16px 6px 18px 8px; 
+            padding: 6px 16px;
+            border-radius: 20px;
             font-weight: 600;
             font-size: 13px;
             text-decoration: none;
@@ -240,11 +240,11 @@
 
         .hero-badge {
             display: inline-block;
-            background-color: rgba(193, 149, 146, 0.15);
+            background-color: rgba(193, 149, 146, 0.2);
             backdrop-filter: blur(8px);
             color: #ffffff;
-            padding: 7px 20px;
-            border-radius: 14px 6px 16px 8px;
+            padding: 6px 18px;
+            border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 15px;
@@ -282,8 +282,8 @@
             backdrop-filter: blur(10px);
             color: #f0d8cd;
             border: 1px solid var(--glass-border);
-            padding: 10px 20px;
-            border-radius: 14px 6px 16px 8px;
+            padding: 9px 20px;
+            border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
@@ -305,16 +305,6 @@
             scroll-margin-top: 100px;
         }
 
-        /* Secciones colapsables que arrancan ocultas */
-        .collapsible-section {
-            display: none;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .collapsible-section.active {
-            display: block;
-        }
-
         .section-heading {
             font-size: 22px;
             font-weight: 700;
@@ -324,12 +314,21 @@
             color: #ffffff;
         }
 
+        .collapsible-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .collapsible-section.active {
+            display: block;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Grilla adaptable (Quiénes Somos) */
+        /* Grilla adaptable (Quiénes Somos) sin bordes de tarjeta */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -380,14 +379,6 @@
             text-align: left;
         }
 
-        /* Por defecto en PC el texto largo se ve y el botón "Ver más" está oculto */
-        .team-info .extra-content {
-            display: block !important;
-        }
-        .team-info .ver-mas-btn {
-            display: none !important;
-        }
-
         .linkedin-btn {
             display: inline-flex;
             align-items: center;
@@ -397,8 +388,8 @@
             backdrop-filter: blur(8px);
             color: #f0d8cd;
             border: 1px solid var(--glass-border);
-            padding: 7px 14px;
-            border-radius: 12px 4px 14px 6px;
+            padding: 6px 14px;
+            border-radius: 14px;
             font-size: 12px;
             font-weight: 600;
             text-decoration: none;
@@ -440,13 +431,14 @@
             display: none;
         }
 
+        /* Tarjetas de Reels con Efecto Cristal Difuso */
         .reel-card {
             flex: 0 0 210px;
             background-color: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            border-radius: 18px 8px 20px 10px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             text-decoration: none;
@@ -459,7 +451,7 @@
         .reel-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-main);
-            box-shadow: 0 15px 35px rgba(163, 107, 103, 0.35);
+            box-shadow: 0 15px 35px rgba(163, 107, 103, 0.3);
         }
 
         .reel-img {
@@ -497,7 +489,7 @@
             font-size: 14px;
             background-color: var(--accent-strong);
             padding: 8px 16px;
-            border-radius: 14px 6px 14px 6px;
+            border-radius: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
@@ -535,13 +527,13 @@
             right: -20px;
         }
 
-        /* --- ESTILOS: SECCIÓN SALUD SEXUAL --- */
+        /* --- ESTILOS: SECCIÓN SALUD SEXUAL (Efecto Cristal Difuso) --- */
         .salud-sexual-container {
             background-color: var(--glass-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 22px 10px 24px 12px;
+            border-radius: 24px;
             padding: 35px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
         }
@@ -553,12 +545,13 @@
             margin-bottom: 25px;
         }
 
+        /* Cuadrados principales de Salud Sexual con bordes difusos suaves */
         .salud-card-item {
             background: linear-gradient(135deg, rgba(60, 35, 38, 0.5), rgba(40, 22, 24, 0.5));
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            border-radius: 18px 8px 20px 10px;
+            border-radius: 20px;
             padding: 30px 20px;
             text-align: center;
             cursor: pointer;
@@ -591,7 +584,7 @@
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border: 1px solid var(--glass-border);
-            border-radius: 18px 8px 20px 10px;
+            border-radius: 20px;
             padding: 25px;
             display: none;
             animation: fadeIn 0.3s ease-in-out;
@@ -624,7 +617,7 @@
             border: 1px solid var(--glass-border);
             color: #f0d8cd;
             padding: 14px 18px;
-            border-radius: 14px 6px 16px 8px;
+            border-radius: 16px;
             font-family: 'Poppins', sans-serif;
             font-size: 13px;
             font-weight: 600;
@@ -651,7 +644,7 @@
             background: rgba(45, 25, 28, 0.5);
             backdrop-filter: blur(10px);
             border: 1px dashed rgba(193, 149, 146, 0.35);
-            border-radius: 16px 6px 18px 8px;
+            border-radius: 16px;
             padding: 20px;
             margin-top: 15px;
             margin-bottom: 20px;
@@ -675,7 +668,7 @@
             border: 1px solid var(--glass-border);
             color: #f0d8cd;
             padding: 10px 14px;
-            border-radius: 12px 4px 14px 6px;
+            border-radius: 12px;
             font-family: 'Poppins', sans-serif;
             font-size: 12px;
             font-weight: 500;
@@ -701,7 +694,7 @@
             background: rgba(45, 25, 28, 0.85);
             backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            border-radius: 16px 6px 18px 8px;
+            border-radius: 16px;
             padding: 22px;
             margin-top: 15px;
             animation: fadeIn 0.3s ease-in-out;
@@ -728,21 +721,17 @@
 
         /* --- CLASE "VER MÁS" --- */
         .extra-content {
-            display: none;
-        }
-
-        .extra-content.show {
             display: block;
         }
 
         .ver-mas-btn {
-            display: inline-block;
+            display: none;
             background: rgba(193, 149, 146, 0.15);
             backdrop-filter: blur(6px);
             color: #ffffff;
             border: 1px solid var(--glass-border);
             padding: 6px 14px;
-            border-radius: 12px 4px 14px 6px;
+            border-radius: 14px;
             font-size: 12px;
             font-weight: 600;
             cursor: pointer;
@@ -768,7 +757,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            border-radius: 35px 12px 28px 15px;
+            border-radius: 35px 35px 25px 35px;
             padding: 25px 22px;
             text-align: center;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
@@ -806,7 +795,7 @@
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 22px 10px 24px 12px;
+            border-radius: 24px;
             padding: 35px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
             display: grid;
@@ -829,7 +818,7 @@
             border: 1px solid var(--glass-border);
             color: #f0d8cd;
             padding: 10px 16px;
-            border-radius: 14px 6px 16px 8px;
+            border-radius: 16px;
             font-family: 'Poppins', sans-serif;
             font-size: 13px;
             font-weight: 600;
@@ -871,7 +860,7 @@
             border: 2px dashed rgba(193, 149, 146, 0.35);
             background-color: rgba(35, 21, 23, 0.4);
             backdrop-filter: blur(10px);
-            border-radius: 18px 8px 20px 10px;
+            border-radius: 16px;
             padding: 30px;
             text-align: center;
             transition: all 0.2s ease;
@@ -927,7 +916,7 @@
             backdrop-filter: blur(8px);
             border: 1px solid var(--glass-border);
             padding: 14px 16px;
-            border-radius: 14px 6px 16px 8px;
+            border-radius: 14px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
@@ -948,7 +937,7 @@
             color: #f0d8cd;
             border: 1px solid var(--glass-border);
             padding: 4px 12px;
-            border-radius: 12px 4px 12px 4px;
+            border-radius: 14px;
             font-size: 13px;
             font-weight: 600;
             text-decoration: none;
@@ -962,13 +951,13 @@
             color: #fff;
         }
 
-        /* Estadísticas */
+        /* Estadísticas (Tarjetas con efecto cristal) */
         .stats-container {
             background-color: var(--glass-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 22px 10px 24px 12px;
+            border-radius: 24px;
             padding: 35px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
         }
@@ -983,7 +972,7 @@
         .stat-card {
             background-color: rgba(35, 21, 23, 0.5);
             backdrop-filter: blur(10px);
-            border-radius: 18px 8px 20px 10px;
+            border-radius: 18px;
             padding: 24px;
             text-align: left;
             border: 1px solid var(--glass-border);
@@ -1011,7 +1000,7 @@
             font-weight: 500;
         }
 
-        /* Recursos */
+        /* Recursos (Tarjetas con efecto cristal) */
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1023,7 +1012,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            border-radius: 18px 8px 20px 10px;
+            border-radius: 20px;
             padding: 24px;
             text-decoration: none;
             color: #f0d8cd;
@@ -1157,7 +1146,7 @@
             color: #f0d8cd;
             border: 1px solid var(--glass-border);
             padding: 5px 12px;
-            border-radius: 12px 4px 12px 4px;
+            border-radius: 14px;
             font-size: 12px;
             font-weight: 500;
         }
@@ -1192,7 +1181,7 @@
             backdrop-filter: blur(8px);
             border: 1px solid var(--glass-border);
             padding: 12px 14px;
-            border-radius: 14px 6px 14px 8px;
+            border-radius: 14px;
             margin-bottom: 12px;
             text-decoration: none;
             color: inherit;
@@ -1262,17 +1251,6 @@
 
         /* --- RESPONSIVE PARA CELULARES --- */
         @media (max-width: 768px) {
-            /* En celulares activamos el comportamiento de "Ver más" */
-            .team-info .extra-content {
-                display: none !important;
-            }
-            .team-info .extra-content.show {
-                display: block !important;
-            }
-            .team-info .ver-mas-btn {
-                display: inline-block !important;
-            }
-
             .hero-section {
                 padding: 40px 20px;
                 text-align: center;
@@ -1291,7 +1269,7 @@
             .nav-capsule {
                 flex-direction: row; 
                 justify-content: space-between;
-                border-radius: 20px 8px 20px 8px;
+                border-radius: 30px;
                 width: 100%;
                 padding: 10px 20px;
             }
@@ -1305,7 +1283,7 @@
                 background-color: rgba(35, 21, 23, 0.95);
                 backdrop-filter: blur(16px);
                 border: 1px solid var(--glass-border);
-                border-radius: 16px;
+                border-radius: 20px;
                 flex-direction: column;
                 text-align: center;
                 gap: 12px;
@@ -1334,6 +1312,7 @@
                 box-sizing: border-box;
             }
 
+            /* Cuadrados de Salud Sexual más chicos y organizados en 2x2 para celular */
             .salud-cards-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
@@ -1342,7 +1321,6 @@
             .salud-card-item {
                 min-height: 90px;
                 padding: 12px 10px;
-                border-radius: 16px 6px 16px 6px;
             }
 
             .salud-card-title {
@@ -1388,6 +1366,20 @@
             .linkedin-mobile {
                 display: inline-flex !important;
                 margin-top: 8px;
+                padding: 4px 10px;
+                font-size: 11px;
+            }
+
+            .extra-content {
+                display: none;
+            }
+
+            .extra-content.show {
+                display: block;
+            }
+
+            .ver-mas-btn {
+                display: inline-block;
                 padding: 4px 10px;
                 font-size: 11px;
             }
@@ -1462,8 +1454,11 @@
                 text-align: center;
             }
 
-            .vih-section-container {
-                grid-template-columns: 1fr;
+            .reel-overlay {
+                opacity: 0.85;
+                background: linear-gradient(to top, rgba(35, 21, 23, 0.9), transparent);
+                justify-content: flex-end;
+                padding-bottom: 20px;
             }
         }
     </style>
@@ -1526,8 +1521,8 @@
                 <div class="dropdown" id="dropdownRecursos">
                     <a onclick="toggleDropdown(event, 'dropdownRecursos')">Recursos ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a onclick="scrollToSection('resources-section'); closeMenuMobile();">Guía: Primeros pasos después del diagnóstico</a></li>
-                        <li><a onclick="scrollToSection('resources-section'); closeMenuMobile();">¿Dónde hacerte el test?</a></li>
+                        <li><a onclick="showSection('recursos'); closeMenuMobile();">Guía: Primeros pasos después del diagnóstico</a></li>
+                        <li><a onclick="showSection('recursos'); closeMenuMobile();">¿Dónde hacerte el test?</a></li>
                     </ul>
                 </div>
 
@@ -1554,7 +1549,7 @@
             <div class="hero-inline-buttons">
                 <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
                 <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
-                <button class="hero-inline-btn" onclick="scrollToSection('resources-section')">Primeros pasos después del diagnóstico</button>
+                <button class="hero-inline-btn" onclick="showSection('recursos')">Primeros pasos después del diagnóstico</button>
             </div>
         </div>
     </section>
@@ -1673,7 +1668,7 @@
             </div>
         </section>
 
-        <!-- Sección: Salud Sexual (Oculta hasta hacer clic) -->
+        <!-- Sección: Salud Sexual -->
         <section id="salud-sexual" class="collapsible-section">
             <div class="section-heading">Salud Sexual</div>
             <div class="salud-sexual-container">
@@ -1698,7 +1693,7 @@
                 </div>
 
                 <!-- Bloques de contenido -->
-                <div id="salud-metodos" class="salud-content-display active">
+                <div id="salud-metodos" class="salud-content-display">
                     <h4>Métodos anticonceptivos</h4>
                     
                     <p><strong>¿Qué son los métodos anticonceptivos?</strong><br>
@@ -1933,7 +1928,7 @@
             </div>
         </section>
 
-        <!-- Sección: Todo sobre VIH (Oculta hasta hacer clic) -->
+        <!-- Sección: Todo sobre VIH -->
         <section id="todo-sobre-vih" class="collapsible-section">
             <div class="section-heading">Todo sobre VIH</div>
             
@@ -2029,6 +2024,7 @@
                             <p>Cuando una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
                         </div>
 
+                        <!-- SECCIÓN PREVENCIÓN COMBINADA (PRÉP Y PEP) LIMPIA -->
                         <div id="tab-prep" class="vih-content-box">
                             <h4>Prevención combinada</h4>
                             <p>Cuando hablamos de cuidarnos, el preservativo es una herramienta fundamental, pero no es la única. La <strong>prevención combinada</strong> integra un conjunto de programas y opciones diseñadas para satisfacer las necesidades de cada persona y comunidad, basándose en la evidencia científica y los derechos desde una perspectiva de salud pública.</p>
@@ -2049,7 +2045,7 @@
 
                             <p style="margin-top: 15px; font-size: 13px;"><strong>¿Qué hacer si te niegan el acceso a la PEP? (Ley 27.675):</strong><br>
                             - Acudí a cualquier guardia del sistema público.<br>
-                            - Realizá el reclamo en tu cobertura o comunicate con la <strong>Superintendencia de Servicios de Salud</strong> al 011 4344-2800 / 0800-222-7258 / consultasyreclamos@sssalud.gob.ar.<br>
+                            - Realizá el reclamo en tu cobertura o comunicate con la <strong>Superintendencia de Servicios de Salud</strong> al 011 4344-2800 / 0800-222-72583 o consultasyreclamos@sssalud.gob.ar.<br>
                             - Línea gratuita de asesoramiento del Ministerio de Salud / Programa Nacional de Salud Sexual: 0800 333 3444 u 0800 222 3444.</p>
 
                             <p style="margin-top: 15px; font-style: italic;">⚠️ <strong>Recordá:</strong> La PEP es estrictamente de uso en situaciones de emergencia. NO reemplaza al preservativo; cuidarse siempre es la mejor opción.</p>
@@ -2101,7 +2097,7 @@
         </section>
 
         <!-- Sección: Recursos -->
-        <section id="resources-section">
+        <section id="recursos" class="collapsible-section">
             <div class="section-heading">Recursos Clave</div>
             <div class="resources-grid">
                 <a href="https://drive.google.com/file/d/1wpwT5cyRp21HMYiUjf-N0wOl1kDS2zA4/view?usp=sharing" target="_blank" class="resource-card">
@@ -2133,7 +2129,7 @@
 
         <div class="footer-content">
             <div class="footer-grid">
-                <!-- Columna 1 -->
+                <!-- Columna 1: Marca, descripción y botón de Instagram en móvil -->
                 <div class="footer-col">
                     <a href="#" class="footer-brand-logo">
                         <img src="BLANCO.png" alt="Logo">
@@ -2141,11 +2137,13 @@
                     </a>
                     <p>Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad, integrando psicología, salud sexual y vínculos.</p>
                     
+                    <!-- Botones visibles solo en PC -->
                     <div class="footer-badges">
                         <span class="footer-badge">Salud Colectiva</span>
                         <span class="footer-badge">ESI & Vínculos</span>
                     </div>
 
+                    <!-- Botón de Instagram visible solo en celular (subido aquí arriba) -->
                     <div class="footer-insta-mobile">
                         <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
                             <span class="footer-contact-icon">✉️</span>
@@ -2165,11 +2163,11 @@
                         <li><a onclick="scrollToSection('reels')">Reels Informativos</a></li>
                         <li><a onclick="showSection('salud-sexual')">Salud Sexual</a></li>
                         <li><a onclick="showVihMain()">Todo sobre VIH</a></li>
-                        <li><a onclick="scrollToSection('resources-section')">Recursos</a></li>
+                        <li><a onclick="showSection('recursos')">Recursos</a></li>
                     </ul>
                 </div>
 
-                <!-- Columna 3: Contacto -->
+                <!-- Columna 3: Contacto (Visible solo en PC, oculta en celular) -->
                 <div class="footer-col footer-contact-col-pc">
                     <h4>Contacto</h4>
                     <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
@@ -2182,6 +2180,7 @@
                 </div>
             </div>
 
+            <!-- Fila inferior -->
             <div class="footer-bottom">
                 <span>© 2026 Red Psicosexual. Todos los derechos reservados.</span>
                 <span>Construyendo redes y cuidados colectivos</span>
@@ -2190,7 +2189,7 @@
         </div>
     </footer>
 
-    <!-- Script -->
+    <!-- Script para menús, carrusel, secciones, scroll y botón Ver Más -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('video').forEach(video => {
@@ -2246,7 +2245,7 @@
             const section = document.getElementById(sectionId);
             if (section) {
                 section.classList.add('active');
-                section.scrollIntoView({ behavior: 'smooth' });
+                scrollToSection(sectionId);
             }
         }
 
@@ -2478,3 +2477,5 @@
 
 </body>
 </html>
+
+
