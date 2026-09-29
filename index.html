@@ -34,7 +34,7 @@
             min-height: 100vh;
         }
 
-        /* Barra de navegación flotante con bordes orgánicos asimétricos en vez de pastilla perfecta */
+        /* Barra de navegación flotante con bordes orgánicos asimétricos */
         header {
             background-color: transparent;
             padding: 20px 20px;
@@ -51,7 +51,7 @@
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 25px 12px 30px 15px; /* Forma orgánica asimétrica */
+            border-radius: 25px 12px 30px 15px;
             padding: 12px 25px;
             display: flex;
             align-items: center;
@@ -120,7 +120,7 @@
             -webkit-backdrop-filter: blur(16px);
             width: 260px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            border-radius: 14px 6px 16px 8px; /* Bordes orgánicos en menú desplegable */
+            border-radius: 14px 6px 16px 8px;
             padding: 8px 0;
             border: 1px solid var(--glass-border);
             z-index: 1100;
@@ -150,7 +150,6 @@
             color: #ffffff;
         }
 
-        /* Botón de Instagram con forma orgánica asimétrica en vez de pastilla */
         .insta-btn {
             background-color: var(--accent-strong);
             color: #ffffff !important;
@@ -239,7 +238,6 @@
             text-align: left;
         }
 
-        /* Etiqueta del Hero con bordes asimétricos orgánicos */
         .hero-badge {
             display: inline-block;
             background-color: rgba(193, 149, 146, 0.15);
@@ -279,7 +277,6 @@
             border-top: 1px solid var(--glass-border);
         }
 
-        /* Botones interiores del Hero con formas asimétricas */
         .hero-inline-btn {
             background-color: rgba(50, 31, 33, 0.6);
             backdrop-filter: blur(10px);
@@ -382,7 +379,6 @@
             text-align: left;
         }
 
-        /* Botón LinkedIn con bordes asimétricos orgánicos */
         .linkedin-btn {
             display: inline-flex;
             align-items: center;
@@ -441,7 +437,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            border-radius: 18px 8px 20px 10px; /* Bordes asimétricos modernos */
+            border-radius: 18px 8px 20px 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             text-decoration: none;
@@ -548,7 +544,6 @@
             margin-bottom: 25px;
         }
 
-        /* Tarjetas de Salud Sexual con bordes orgánicos asimétricos */
         .salud-card-item {
             background: linear-gradient(135deg, rgba(60, 35, 38, 0.5), rgba(40, 22, 24, 0.5));
             backdrop-filter: blur(10px);
@@ -1003,7 +998,7 @@
             font-weight: 500;
         }
 
-        /* Recursos */
+        /* Recursos (Siempre visibles) */
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1315,7 +1310,6 @@
                 box-sizing: border-box;
             }
 
-            /* Cuadrados de Salud Sexual más chicos y organizados en 2x2 para celular con bordes orgánicos */
             .salud-cards-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
@@ -1525,8 +1519,8 @@
                 <div class="dropdown" id="dropdownRecursos">
                     <a onclick="toggleDropdown(event, 'dropdownRecursos')">Recursos ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a onclick="showSection('recursos'); closeMenuMobile();">Guía: Primeros pasos después del diagnóstico</a></li>
-                        <li><a onclick="showSection('recursos'); closeMenuMobile();">¿Dónde hacerte el test?</a></li>
+                        <li><a onclick="scrollToSection('recursos'); closeMenuMobile();">Guía: Primeros pasos después del diagnóstico</a></li>
+                        <li><a onclick="scrollToSection('recursos'); closeMenuMobile();">¿Dónde hacerte el test?</a></li>
                     </ul>
                 </div>
 
@@ -1553,7 +1547,7 @@
             <div class="hero-inline-buttons">
                 <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
                 <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
-                <button class="hero-inline-btn" onclick="showSection('recursos')">Primeros pasos después del diagnóstico</button>
+                <button class="hero-inline-btn" onclick="scrollToSection('recursos')">Primeros pasos después del diagnóstico</button>
             </div>
         </div>
     </section>
@@ -2100,8 +2094,8 @@
             </div>
         </section>
 
-        <!-- Sección: Recursos -->
-        <section id="recursos" class="collapsible-section">
+        <!-- Sección: Recursos (Siempre visible después de Estadísticas) -->
+        <section id="resources-section">
             <div class="section-heading">Recursos Clave</div>
             <div class="resources-grid">
                 <a href="https://drive.google.com/file/d/1wpwT5cyRp21HMYiUjf-N0wOl1kDS2zA4/view?usp=sharing" target="_blank" class="resource-card">
@@ -2167,7 +2161,7 @@
                         <li><a onclick="scrollToSection('reels')">Reels Informativos</a></li>
                         <li><a onclick="showSection('salud-sexual')">Salud Sexual</a></li>
                         <li><a onclick="showVihMain()">Todo sobre VIH</a></li>
-                        <li><a onclick="showSection('recursos')">Recursos</a></li>
+                        <li><a onclick="scrollToSection('resources-section')">Recursos</a></li>
                     </ul>
                 </div>
 
