@@ -314,15 +314,6 @@
             color: #ffffff;
         }
 
-        .collapsible-section {
-            display: none;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .collapsible-section.active {
-            display: block;
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -719,11 +710,15 @@
 
         /* --- CLASE "VER MÁS" --- */
         .extra-content {
+            display: none;
+        }
+
+        .extra-content.show {
             display: block;
         }
 
         .ver-mas-btn {
-            display: none;
+            display: inline-block;
             background: rgba(193, 149, 146, 0.15);
             backdrop-filter: blur(6px);
             color: #ffffff;
@@ -998,7 +993,7 @@
             font-weight: 500;
         }
 
-        /* Recursos (Siempre visibles) */
+        /* Recursos */
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1368,20 +1363,6 @@
                 font-size: 11px;
             }
 
-            .extra-content {
-                display: none;
-            }
-
-            .extra-content.show {
-                display: block;
-            }
-
-            .ver-mas-btn {
-                display: inline-block;
-                padding: 4px 10px;
-                font-size: 11px;
-            }
-
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
@@ -1452,11 +1433,8 @@
                 text-align: center;
             }
 
-            .reel-overlay {
-                opacity: 0.85;
-                background: linear-gradient(to top, rgba(35, 21, 23, 0.9), transparent);
-                justify-content: flex-end;
-                padding-bottom: 20px;
+            .vih-section-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1519,8 +1497,8 @@
                 <div class="dropdown" id="dropdownRecursos">
                     <a onclick="toggleDropdown(event, 'dropdownRecursos')">Recursos ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a onclick="scrollToSection('recursos'); closeMenuMobile();">Guía: Primeros pasos después del diagnóstico</a></li>
-                        <li><a onclick="scrollToSection('recursos'); closeMenuMobile();">¿Dónde hacerte el test?</a></li>
+                        <li><a onclick="scrollToSection('resources-section'); closeMenuMobile();">Guía: Primeros pasos después del diagnóstico</a></li>
+                        <li><a onclick="scrollToSection('resources-section'); closeMenuMobile();">¿Dónde hacerte el test?</a></li>
                     </ul>
                 </div>
 
@@ -1545,9 +1523,9 @@
             <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
             
             <div class="hero-inline-buttons">
-                <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
-                <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
-                <button class="hero-inline-btn" onclick="scrollToSection('recursos')">Primeros pasos después del diagnóstico</button>
+                <button class="hero-inline-btn" onclick="scrollToSection('salud-sexual')">Salud Sexual</button>
+                <button class="hero-inline-btn" onclick="scrollToSection('todo-sobre-vih')">Todo sobre VIH</button>
+                <button class="hero-inline-btn" onclick="scrollToSection('resources-section')">Primeros pasos después del diagnóstico</button>
             </div>
         </div>
     </section>
@@ -1667,7 +1645,7 @@
         </section>
 
         <!-- Sección: Salud Sexual -->
-        <section id="salud-sexual" class="collapsible-section">
+        <section id="salud-sexual">
             <div class="section-heading">Salud Sexual</div>
             <div class="salud-sexual-container">
                 <p style="margin-top: 0; margin-bottom: 25px; color: #f0d8cd; font-size: 14px;">
@@ -1691,7 +1669,7 @@
                 </div>
 
                 <!-- Bloques de contenido -->
-                <div id="salud-metodos" class="salud-content-display">
+                <div id="salud-metodos" class="salud-content-display active">
                     <h4>Métodos anticonceptivos</h4>
                     
                     <p><strong>¿Qué son los métodos anticonceptivos?</strong><br>
@@ -1927,7 +1905,7 @@
         </section>
 
         <!-- Sección: Todo sobre VIH -->
-        <section id="todo-sobre-vih" class="collapsible-section">
+        <section id="todo-sobre-vih">
             <div class="section-heading">Todo sobre VIH</div>
             
             <div class="vih-section-container">
@@ -2022,7 +2000,6 @@
                             <p>Cuando una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
                         </div>
 
-                        <!-- SECCIÓN PREVENCIÓN COMBINADA (PRÉP Y PEP) LIMPIA -->
                         <div id="tab-prep" class="vih-content-box">
                             <h4>Prevención combinada</h4>
                             <p>Cuando hablamos de cuidarnos, el preservativo es una herramienta fundamental, pero no es la única. La <strong>prevención combinada</strong> integra un conjunto de programas y opciones diseñadas para satisfacer las necesidades de cada persona y comunidad, basándose en la evidencia científica y los derechos desde una perspectiva de salud pública.</p>
@@ -2043,7 +2020,7 @@
 
                             <p style="margin-top: 15px; font-size: 13px;"><strong>¿Qué hacer si te niegan el acceso a la PEP? (Ley 27.675):</strong><br>
                             - Acudí a cualquier guardia del sistema público.<br>
-                            - Realizá el reclamo en tu cobertura o comunicate con la <strong>Superintendencia de Servicios de Salud</strong> al 011 4344-2800 / 0800-222-72583 o consultasyreclamos@sssalud.gob.ar.<br>
+                            - Realizá el reclamo en tu cobertura o comunicate con la <strong>Superintendencia de Servicios de Salud</strong> al 011 4344-2800 / 0800-222-7258 / consultasyreclamos@sssalud.gob.ar.<br>
                             - Línea gratuita de asesoramiento del Ministerio de Salud / Programa Nacional de Salud Sexual: 0800 333 3444 u 0800 222 3444.</p>
 
                             <p style="margin-top: 15px; font-style: italic;">⚠️ <strong>Recordá:</strong> La PEP es estrictamente de uso en situaciones de emergencia. NO reemplaza al preservativo; cuidarse siempre es la mejor opción.</p>
@@ -2094,7 +2071,7 @@
             </div>
         </section>
 
-        <!-- Sección: Recursos (Siempre visible después de Estadísticas) -->
+        <!-- Sección: Recursos -->
         <section id="resources-section">
             <div class="section-heading">Recursos Clave</div>
             <div class="resources-grid">
@@ -2127,7 +2104,7 @@
 
         <div class="footer-content">
             <div class="footer-grid">
-                <!-- Columna 1: Marca, descripción y botón de Instagram en móvil -->
+                <!-- Columna 1 -->
                 <div class="footer-col">
                     <a href="#" class="footer-brand-logo">
                         <img src="BLANCO.png" alt="Logo">
@@ -2135,13 +2112,11 @@
                     </a>
                     <p>Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad, integrando psicología, salud sexual y vínculos.</p>
                     
-                    <!-- Botones visibles solo en PC -->
                     <div class="footer-badges">
                         <span class="footer-badge">Salud Colectiva</span>
                         <span class="footer-badge">ESI & Vínculos</span>
                     </div>
 
-                    <!-- Botón de Instagram visible solo en celular (subido aquí arriba) -->
                     <div class="footer-insta-mobile">
                         <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
                             <span class="footer-contact-icon">✉️</span>
@@ -2159,13 +2134,13 @@
                     <ul class="footer-links-list">
                         <li><a onclick="scrollToSection('nosotras')">Quiénes Somos</a></li>
                         <li><a onclick="scrollToSection('reels')">Reels Informativos</a></li>
-                        <li><a onclick="showSection('salud-sexual')">Salud Sexual</a></li>
-                        <li><a onclick="showVihMain()">Todo sobre VIH</a></li>
+                        <li><a onclick="scrollToSection('salud-sexual')">Salud Sexual</a></li>
+                        <li><a onclick="scrollToSection('todo-sobre-vih')">Todo sobre VIH</a></li>
                         <li><a onclick="scrollToSection('resources-section')">Recursos</a></li>
                     </ul>
                 </div>
 
-                <!-- Columna 3: Contacto (Visible solo en PC, oculta en celular) -->
+                <!-- Columna 3: Contacto -->
                 <div class="footer-col footer-contact-col-pc">
                     <h4>Contacto</h4>
                     <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
@@ -2178,7 +2153,6 @@
                 </div>
             </div>
 
-            <!-- Fila inferior -->
             <div class="footer-bottom">
                 <span>© 2026 Red Psicosexual. Todos los derechos reservados.</span>
                 <span>Construyendo redes y cuidados colectivos</span>
@@ -2187,7 +2161,7 @@
         </div>
     </footer>
 
-    <!-- Script para menús, carrusel, secciones, scroll y botón Ver Más -->
+    <!-- Script corregido -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('video').forEach(video => {
@@ -2239,35 +2213,22 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function showSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.classList.add('active');
-                scrollToSection(sectionId);
-            }
-        }
-
         function showSaludTab(contentId) {
-            const saludSection = document.getElementById('salud-sexual');
-            if (saludSection) {
-                saludSection.classList.add('active');
-                
-                const contents = document.querySelectorAll('.salud-content-display');
-                contents.forEach(box => box.classList.remove('active'));
+            const contents = document.querySelectorAll('.salud-content-display');
+            contents.forEach(box => box.classList.remove('active'));
 
-                const targetBox = document.getElementById(contentId);
-                if (targetBox) {
-                    targetBox.classList.add('active');
-                }
-
-                document.querySelectorAll('.salud-card-item').forEach(card => card.classList.remove('active-tab'));
-                if(contentId === 'salud-metodos') document.getElementById('card-item-metodos').classList.add('active-tab');
-                if(contentId === 'salud-consentimiento') document.getElementById('card-item-consentimiento').classList.add('active-tab');
-                if(contentId === 'salud-its') document.getElementById('card-item-its').classList.add('active-tab');
-                if(contentId === 'salud-esi') document.getElementById('card-item-esi').classList.add('active-tab');
-
-                scrollToSection('salud-sexual');
+            const targetBox = document.getElementById(contentId);
+            if (targetBox) {
+                targetBox.classList.add('active');
             }
+
+            document.querySelectorAll('.salud-card-item').forEach(card => card.classList.remove('active-tab'));
+            if(contentId === 'salud-metodos') document.getElementById('card-item-metodos').classList.add('active-tab');
+            if(contentId === 'salud-consentimiento') document.getElementById('card-item-consentimiento').classList.add('active-tab');
+            if(contentId === 'salud-its') document.getElementById('card-item-its').classList.add('active-tab');
+            if(contentId === 'salud-esi') document.getElementById('card-item-esi').classList.add('active-tab');
+
+            scrollToSection('salud-sexual');
         }
 
         function showSaludContent(contentId) {
@@ -2376,29 +2337,9 @@
             }
         }
 
-        function showVihMain() {
-            const vihSection = document.getElementById('todo-sobre-vih');
-            if (vihSection) {
-                vihSection.classList.add('active');
-                
-                const contents = document.querySelectorAll('.vih-content-box');
-                contents.forEach(box => box.classList.remove('active'));
-                document.getElementById('tab-bienvenida').classList.add('active');
-
-                const buttons = document.querySelectorAll('.vih-tab-btn');
-                buttons.forEach(btn => btn.classList.remove('active'));
-
-                scrollToSection('todo-sobre-vih');
-            }
-        }
-
         function showVihTab(tabName) {
-            const vihSection = document.getElementById('todo-sobre-vih');
-            if (vihSection) {
-                vihSection.classList.add('active');
-                openTab(tabName);
-                scrollToSection('todo-sobre-vih');
-            }
+            openTab(tabName);
+            scrollToSection('todo-sobre-vih');
         }
 
         function openTab(tabName) {
