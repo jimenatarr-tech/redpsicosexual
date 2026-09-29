@@ -380,6 +380,14 @@
             text-align: left;
         }
 
+        /* Por defecto en PC el texto largo se ve y el botón "Ver más" está oculto */
+        .team-info .extra-content {
+            display: block !important;
+        }
+        .team-info .ver-mas-btn {
+            display: none !important;
+        }
+
         .linkedin-btn {
             display: inline-flex;
             align-items: center;
@@ -1254,6 +1262,17 @@
 
         /* --- RESPONSIVE PARA CELULARES --- */
         @media (max-width: 768px) {
+            /* En celulares activamos el comportamiento de "Ver más" */
+            .team-info .extra-content {
+                display: none !important;
+            }
+            .team-info .extra-content.show {
+                display: block !important;
+            }
+            .team-info .ver-mas-btn {
+                display: inline-block !important;
+            }
+
             .hero-section {
                 padding: 40px 20px;
                 text-align: center;
@@ -1948,7 +1967,7 @@
                                     </div>
                                 </div>
                                 <div class="positive-step-item">
-                                    <span class="positive-step-icon">👩‍⚕️️</span>
+                                    <span class="positive-step-icon">👩‍⚕️</span>
                                     <div class="positive-step-text">
                                         <strong>Consultar a un especialista:</strong> Tenés que conseguir un turno con un médico especialista en infectología; podés hacerlo en hospitales públicos o consultando con tu obra social.
                                     </div>
@@ -2002,7 +2021,7 @@
 
                         <div id="tab-sida" class="vih-content-box">
                             <h4>VIH &ne; sida</h4>
-                            <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. el sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
+                            <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. El sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
                         </div>
 
                         <div id="tab-ii" class="vih-content-box">
@@ -2171,7 +2190,7 @@
         </div>
     </footer>
 
-    <!-- Script con las funciones para mostrar y desplegar secciones ocultas -->
+    <!-- Script -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('video').forEach(video => {
@@ -2223,7 +2242,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Función para mostrar secciones ocultas (como Salud Sexual o VIH)
         function showSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -2235,7 +2253,7 @@
         function showSaludTab(contentId) {
             const saludSection = document.getElementById('salud-sexual');
             if (saludSection) {
-                saludSection.classList.add('active'); // Muestra la sección colapsable
+                saludSection.classList.add('active');
                 
                 const contents = document.querySelectorAll('.salud-content-display');
                 contents.forEach(box => box.classList.remove('active'));
@@ -2364,7 +2382,7 @@
         function showVihMain() {
             const vihSection = document.getElementById('todo-sobre-vih');
             if (vihSection) {
-                vihSection.classList.add('active'); // Muestra la sección colapsable
+                vihSection.classList.add('active');
                 
                 const contents = document.querySelectorAll('.vih-content-box');
                 contents.forEach(box => box.classList.remove('active'));
@@ -2380,7 +2398,7 @@
         function showVihTab(tabName) {
             const vihSection = document.getElementById('todo-sobre-vih');
             if (vihSection) {
-                vihSection.classList.add('active'); // Muestra la sección colapsable
+                vihSection.classList.add('active');
                 openTab(tabName);
                 scrollToSection('todo-sobre-vih');
             }
