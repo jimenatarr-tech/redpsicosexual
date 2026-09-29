@@ -305,6 +305,16 @@
             scroll-margin-top: 100px;
         }
 
+        /* Secciones colapsables que arrancan ocultas */
+        .collapsible-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .collapsible-section.active {
+            display: block;
+        }
+
         .section-heading {
             font-size: 22px;
             font-weight: 700;
@@ -1523,8 +1533,8 @@
             <p class="hero-subtitle">Un espacio para informar, acompañar y pensar todo lo que nos atraviesa en comunidad.</p>
             
             <div class="hero-inline-buttons">
-                <button class="hero-inline-btn" onclick="scrollToSection('salud-sexual')">Salud Sexual</button>
-                <button class="hero-inline-btn" onclick="scrollToSection('todo-sobre-vih')">Todo sobre VIH</button>
+                <button class="hero-inline-btn" onclick="showSection('salud-sexual')">Salud Sexual</button>
+                <button class="hero-inline-btn" onclick="showVihMain()">Todo sobre VIH</button>
                 <button class="hero-inline-btn" onclick="scrollToSection('resources-section')">Primeros pasos después del diagnóstico</button>
             </div>
         </div>
@@ -1644,8 +1654,8 @@
             </div>
         </section>
 
-        <!-- Sección: Salud Sexual -->
-        <section id="salud-sexual">
+        <!-- Sección: Salud Sexual (Oculta hasta hacer clic) -->
+        <section id="salud-sexual" class="collapsible-section">
             <div class="section-heading">Salud Sexual</div>
             <div class="salud-sexual-container">
                 <p style="margin-top: 0; margin-bottom: 25px; color: #f0d8cd; font-size: 14px;">
@@ -1904,8 +1914,8 @@
             </div>
         </section>
 
-        <!-- Sección: Todo sobre VIH -->
-        <section id="todo-sobre-vih">
+        <!-- Sección: Todo sobre VIH (Oculta hasta hacer clic) -->
+        <section id="todo-sobre-vih" class="collapsible-section">
             <div class="section-heading">Todo sobre VIH</div>
             
             <div class="vih-section-container">
@@ -1938,7 +1948,7 @@
                                     </div>
                                 </div>
                                 <div class="positive-step-item">
-                                    <span class="positive-step-icon">👩‍⚕️</span>
+                                    <span class="positive-step-icon">👩‍⚕️️</span>
                                     <div class="positive-step-text">
                                         <strong>Consultar a un especialista:</strong> Tenés que conseguir un turno con un médico especialista en infectología; podés hacerlo en hospitales públicos o consultando con tu obra social.
                                     </div>
@@ -1992,7 +2002,7 @@
 
                         <div id="tab-sida" class="vih-content-box">
                             <h4>VIH &ne; sida</h4>
-                            <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. El sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
+                            <p><strong>El VIH no es lo mismo que el sida.</strong> El VIH es el virus. el sida (Síndrome de Inmunodeficiencia Adquirida) es la etapa avanzada de la infección que aparece únicamente cuando el VIH no es tratado a tiempo y las defensas bajan considerablemente.</p>
                         </div>
 
                         <div id="tab-ii" class="vih-content-box">
@@ -2134,8 +2144,8 @@
                     <ul class="footer-links-list">
                         <li><a onclick="scrollToSection('nosotras')">Quiénes Somos</a></li>
                         <li><a onclick="scrollToSection('reels')">Reels Informativos</a></li>
-                        <li><a onclick="scrollToSection('salud-sexual')">Salud Sexual</a></li>
-                        <li><a onclick="scrollToSection('todo-sobre-vih')">Todo sobre VIH</a></li>
+                        <li><a onclick="showSection('salud-sexual')">Salud Sexual</a></li>
+                        <li><a onclick="showVihMain()">Todo sobre VIH</a></li>
                         <li><a onclick="scrollToSection('resources-section')">Recursos</a></li>
                     </ul>
                 </div>
@@ -2161,7 +2171,7 @@
         </div>
     </footer>
 
-    <!-- Script corregido -->
+    <!-- Script con las funciones para mostrar y desplegar secciones ocultas -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('video').forEach(video => {
@@ -2213,22 +2223,36 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function showSaludTab(contentId) {
-            const contents = document.querySelectorAll('.salud-content-display');
-            contents.forEach(box => box.classList.remove('active'));
-
-            const targetBox = document.getElementById(contentId);
-            if (targetBox) {
-                targetBox.classList.add('active');
+        // Función para mostrar secciones ocultas (como Salud Sexual o VIH)
+        function showSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.add('active');
+                section.scrollIntoView({ behavior: 'smooth' });
             }
+        }
 
-            document.querySelectorAll('.salud-card-item').forEach(card => card.classList.remove('active-tab'));
-            if(contentId === 'salud-metodos') document.getElementById('card-item-metodos').classList.add('active-tab');
-            if(contentId === 'salud-consentimiento') document.getElementById('card-item-consentimiento').classList.add('active-tab');
-            if(contentId === 'salud-its') document.getElementById('card-item-its').classList.add('active-tab');
-            if(contentId === 'salud-esi') document.getElementById('card-item-esi').classList.add('active-tab');
+        function showSaludTab(contentId) {
+            const saludSection = document.getElementById('salud-sexual');
+            if (saludSection) {
+                saludSection.classList.add('active'); // Muestra la sección colapsable
+                
+                const contents = document.querySelectorAll('.salud-content-display');
+                contents.forEach(box => box.classList.remove('active'));
 
-            scrollToSection('salud-sexual');
+                const targetBox = document.getElementById(contentId);
+                if (targetBox) {
+                    targetBox.classList.add('active');
+                }
+
+                document.querySelectorAll('.salud-card-item').forEach(card => card.classList.remove('active-tab'));
+                if(contentId === 'salud-metodos') document.getElementById('card-item-metodos').classList.add('active-tab');
+                if(contentId === 'salud-consentimiento') document.getElementById('card-item-consentimiento').classList.add('active-tab');
+                if(contentId === 'salud-its') document.getElementById('card-item-its').classList.add('active-tab');
+                if(contentId === 'salud-esi') document.getElementById('card-item-esi').classList.add('active-tab');
+
+                scrollToSection('salud-sexual');
+            }
         }
 
         function showSaludContent(contentId) {
@@ -2337,9 +2361,29 @@
             }
         }
 
+        function showVihMain() {
+            const vihSection = document.getElementById('todo-sobre-vih');
+            if (vihSection) {
+                vihSection.classList.add('active'); // Muestra la sección colapsable
+                
+                const contents = document.querySelectorAll('.vih-content-box');
+                contents.forEach(box => box.classList.remove('active'));
+                document.getElementById('tab-bienvenida').classList.add('active');
+
+                const buttons = document.querySelectorAll('.vih-tab-btn');
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                scrollToSection('todo-sobre-vih');
+            }
+        }
+
         function showVihTab(tabName) {
-            openTab(tabName);
-            scrollToSection('todo-sobre-vih');
+            const vihSection = document.getElementById('todo-sobre-vih');
+            if (vihSection) {
+                vihSection.classList.add('active'); // Muestra la sección colapsable
+                openTab(tabName);
+                scrollToSection('todo-sobre-vih');
+            }
         }
 
         function openTab(tabName) {
