@@ -1910,15 +1910,70 @@ Complemento mi formación académica con una Diplomatura en TDAH en Fundación F
                     </div>
                 </div>
 
+                <!-- SECCIÓN ITS ACTUALIZADA -->
                 <div id="salud-its" class="salud-content-display">
                     <h4>ITS (Infecciones de Transmisión Sexual)</h4>
-                    <p>Las ITS son infecciones que se transmiten principalmente a través de las relaciones sexuales sin protección:</p>
-                    <ul style="margin-bottom: 0; padding-left: 20px; line-height: 1.6;">
-                        <li><strong>Muchas son asintomáticas:</strong> Se pueden tener sin presentar síntomas visibles, por lo que el testeo periódico es clave.</li>
-                        <li class="extra-content"><strong>Diagnóstico y tratamiento:</strong> La gran mayoría tienen tratamiento médico efectivo y cura (en el caso de las bacterianas).</li>
-                        <li class="extra-content"><strong>Prevención combinada:</strong> El uso correcto de métodos de barrera reduce drásticamente las chances de transmisión.</li>
-                    </ul>
+                    
+                    <p>Las ITS se transmiten de una persona a otra durante una relación sexual. Pueden ser producto de más de treinta tipos de virus, bacterias y parásitos. Las más frecuentes son: la sífilis, la gonorrea, la clamidia, el Virus del Papiloma Humano (VPH), las hepatitis B y C, el VIH y el herpes genital. Afectan a todas las personas: varones, mujeres de cualquier edad y orientación sexual. <span class="extra-content">Muchas de estas infecciones pueden no presentar síntomas visibles al principio, por lo que el testeo periódico y el uso de métodos de barrera son nuestras mejores herramientas de cuidado y prevención.</span></p>
+
                     <button class="ver-mas-btn" onclick="toggleVerMasBloque(this)">Ver más</button>
+
+                    <p style="margin-top: 25px; font-weight: 600; color: #ffffff;">Explorá cada infección para conocer los detalles:</p>
+
+                    <!-- Botones de Submenú para ITS -->
+                    <div class="metodos-subtabs-grid">
+                        <button class="metodo-sub-btn" onclick="toggleSubMenu('menu-its-lista', this)">Ver listado de ITS</button>
+                    </div>
+
+                    <!-- Submenú con las tarjetas solicitadas -->
+                    <div id="menu-its-lista" class="sub-menu-container">
+                        <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 600; color: #ffffff;">Seleccioná una infección:</p>
+                        <div class="sub-menu-grid">
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-vih', this)">VIH</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-vph', this)">VPH</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-sifilis', this)">SÍFILIS</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-gonorrea', this)">GONORREA</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-clamidia', this)">CLAMIDIA</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-hepatitis', this)">HEPATITIS B Y C</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-herpes', this)">HERPES GENITAL</button>
+                        </div>
+                    </div>
+
+                    <!-- Cajas de detalle para cada tarjeta de ITS -->
+                    <div id="det-vih" class="metodo-detalle-box">
+                        <h5>VIH (Virus de Inmunodeficiencia Humana)</h5>
+                        <p>Es un virus que afecta las defensas del organismo. Diagnosticado a tiempo y con tratamiento adecuado, se convierte en una condición crónica manejable y permite lograr una carga viral indetectable (I = I).</p>
+                    </div>
+
+                    <div id="det-vph" class="metodo-detalle-box">
+                        <h5>VPH (Virus del Papiloma Humano)</h5>
+                        <p>Es una infección muy común que en la mayoría de los casos el cuerpo elimina por sí solo. Algunos tipos pueden causar verrugas genitales o alteraciones celulares que se previenen mediante controles ginecológicos periódicos y la vacunación.</p>
+                    </div>
+
+                    <div id="det-sifilis" class="metodo-detalle-box">
+                        <h5>Sífilis</h5>
+                        <p>Infección bacteriana que suele iniciar con una lesión indolora (chancro) en la zona genital, anal u oral. Se diagnostica con un simple análisis de sangre y se cura por completo con tratamiento antibiótico (penicilina).</p>
+                    </div>
+
+                    <div id="det-gonorrea" class="metodo-detalle-box">
+                        <h5>Gonorrea</h5>
+                        <p>Infección bacteriana que puede afectar uretra, cuello uterino, recto o garganta. A veces genera molestias al orinar o secreciones, aunque muchas veces es asintomática. Tiene cura con medicación específica.</p>
+                    </div>
+
+                    <div id="det-clamidia" class="metodo-detalle-box">
+                        <h5>Clamidia</h5>
+                        <p>Es una de las infecciones bacterianas más frecuentes. Al igual que otras, suele transcurrir sin síntomas aparentes, pero es fácilmente detectable y curable con antibióticos recetados por profesionales de la salud.</p>
+                    </div>
+
+                    <div id="det-hepatitis" class="metodo-detalle-box">
+                        <h5>Hepatitis B y C</h5>
+                        <p>Son infecciones virales que afectan directamente al hígado. La hepatitis B cuenta con una vacuna segura y gratuita dentro del calendario nacional, mientras que la hepatitis C se puede tratar y curar con medicación actual.</p>
+                    </div>
+
+                    <div id="det-herpes" class="metodo-detalle-box">
+                        <h5>Herpes Genital</h5>
+                        <p>Infección viral crónica y común que puede causar ampollas o pequeñas úlceras dolorosas en la zona genital o anal. Si bien no tiene cura definitiva, los brotes se pueden controlar eficazmente con tratamientos antivirales indicados por profesionales.</p>
+                    </div>
                 </div>
 
                 <div id="salud-esi" class="salud-content-display">
@@ -2017,9 +2072,9 @@ Si una persona con VIH no recibe el tratamiento adecuado, con el transcurso de l
                             <ul>
                                 <p>Las infecciones contagiosas (por ejemplo la gripe) pueden propagarse de diferentes maneras y no siempre necesitan de un contacto directo de persona a persona.
 Cuando hablamos de transmisión nos referimos a que requiere una vía específica o medio para que un virus pase de una persona a otra (por ejemplo, a través del contacto con la sangre y/o los fluidos genitales). </p>
-                                     <p>Este último es el caso del VIH. </p>
-                                     <p>El VIH se transmite cuando un fluido corporal que contenga el virus (puede ser sangre, semen, líquido preseminal, flujo vaginal o leche de pecho) entra en contacto con una herida abierta en el cuerpo o con una mucosa (como el interior de la vagina, ano, cabeza del pene, ojos, interior de la boca o nariz). </p>
-                                     <p>Puede ocurrir, por prácticas sexuales sin métodos de prevención (preservativos, PrEP o PEP), por compartir elementos que contengan sangre de otra persona; y/o de una persona gestante a su feto durante el embarazo, el parto o la lactancia. </p>
+                                   <p>Este último es el caso del VIH. </p>
+                                   <p>El VIH se transmite cuando un fluido corporal que contenga el virus (puede ser sangre, semen, líquido preseminal, flujo vaginal o leche de pecho) entra en contacto con una herida abierta en el cuerpo o con una mucosa (como el interior de la vagina, ano, cabeza del pene, ojos, interior de la boca o nariz). </p>
+                                   <p>Puede ocurrir, por prácticas sexuales sin métodos de prevención (preservativos, PrEP o PEP), por compartir elementos que contengan sangre de otra persona; y/o de una persona gestante a su feto durante el embarazo, el parto o la lactancia. </p>
                                 <h4>Las formas de transmisión del VIH son tres:</h4>
 <li>Transmisión sexual: a través de prácticas sexuales sin uso de preservativos, campo de látex u otros métodos de prevención.</li>
 <li>Transmisión sanguínea: en contacto con una herida abierta o por compartir elementos que contengan sangre de otra persona como agujas, jeringas, máquinas de afeitar, canutos para aspirar, o en transfusiones de sangre no supervisadas.</li>
@@ -2326,171 +2381,3 @@ Cuando hablamos de transmisión nos referimos a que requiere una vía específic
         }
 
         function showMetodoDetalle(detId, btnElement) {
-            const detalles = document.querySelectorAll('.metodo-detalle-box');
-            detalles.forEach(box => box.classList.remove('active'));
-
-            const subBotones = document.querySelectorAll('.sub-menu-btn');
-            subBotones.forEach(btn => btn.classList.remove('active'));
-
-            const targetDet = document.getElementById(detId);
-            if(targetDet) {
-                targetDet.classList.add('active');
-            }
-            if(btnElement) {
-                btnElement.classList.add('active');
-            }
-        }
-
-        function toggleVerMas(btn) {
-            const extras = btn.parentElement.querySelectorAll('.extra-content');
-            let isOpen = btn.classList.contains('open');
-
-            extras.forEach(el => {
-                el.classList.toggle('show', !isOpen);
-            });
-
-            if (!isOpen) {
-                btn.textContent = "Ver menos";
-                btn.classList.add('open');
-            } else {
-                btn.textContent = "Ver más";
-                btn.classList.remove('open');
-            }
-        }
-
-        function toggleVerMasDetalle(btn) {
-            const box = btn.parentElement;
-            const extras = box.querySelectorAll('.extra-content');
-            let isOpen = btn.classList.contains('open');
-
-            extras.forEach(el => {
-                el.classList.toggle('show', !isOpen);
-            });
-
-            if (!isOpen) {
-                btn.textContent = "Ver menos";
-                btn.classList.add('open');
-            } else {
-                btn.textContent = "Ver más";
-                btn.classList.remove('open');
-            }
-        }
-
-        function toggleVerMasBloque(btn) {
-            const parentContainer = btn.parentElement;
-            const extras = parentContainer.querySelectorAll('.extra-content');
-            let isOpen = btn.classList.contains('open');
-
-            extras.forEach(el => {
-                el.classList.toggle('show', !isOpen);
-            });
-
-            if (!isOpen) {
-                btn.textContent = "Ver menos";
-                btn.classList.add('open');
-            } else {
-                btn.textContent = "Ver más";
-                btn.classList.remove('open');
-            }
-        }
-
-        function showVihMain() {
-            const vihSection = document.getElementById('todo-sobre-vih');
-            if (vihSection) {
-                vihSection.classList.add('active');
-                
-                const contents = document.querySelectorAll('.vih-content-box');
-                contents.forEach(box => box.classList.remove('active'));
-                document.getElementById('tab-bienvenida').classList.add('active');
-
-                const buttons = document.querySelectorAll('.vih-tab-btn');
-                buttons.forEach(btn => btn.classList.remove('active'));
-
-                scrollToSection('todo-sobre-vih');
-            }
-        }
-
-        function showVihTab(tabName) {
-            const vihSection = document.getElementById('todo-sobre-vih');
-            if (vihSection) {
-                vihSection.classList.add('active');
-                openTab(tabName);
-                scrollToSection('todo-sobre-vih');
-            }
-        }
-
-        function openTab(tabName) {
-            const contents = document.querySelectorAll('.vih-content-box');
-            contents.forEach(box => box.classList.remove('active'));
-
-            const buttons = document.querySelectorAll('.vih-tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            const targetBox = document.getElementById(tabName);
-            if (targetBox) {
-                targetBox.classList.add('active');
-            }
-
-            buttons.forEach(btn => {
-                if (btn.getAttribute('data-target') === tabName) {
-                    btn.classList.add('active');
-                }
-            });
-        }
-
-        function drag(ev) {
-            ev.dataTransfer.setData("text", ev.target.getAttribute('data-target'));
-        }
-
-        function allowDrop(ev) {
-            ev.preventDefault();
-            document.getElementById('dropzone').classList.add('drag-over');
-        }
-
-        function removeDropStyle(ev) {
-            document.getElementById('dropzone').classList.remove('drag-over');
-        }
-
-        function drop(ev) {
-            ev.preventDefault();
-            document.getElementById('dropzone').classList.remove('drag-over');
-            const targetTab = ev.dataTransfer.getData("text");
-            if (targetTab) {
-                openTab(targetTab);
-            }
-        }
-
-        const carousel = document.getElementById('reelsCarousel');
-        const wrapper = document.getElementById('carouselWrapper');
-
-        function scrollCarousel(direction) {
-            const scrollAmount = 230;
-            carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-        }
-
-        let autoScroll = setInterval(() => {
-            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                carousel.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                carousel.scrollBy({ left: 230, behavior: 'smooth' });
-            }
-        }, 3000);
-
-        wrapper.addEventListener('mouseenter', () => {
-            clearInterval(autoScroll);
-        });
-
-        wrapper.addEventListener('mouseleave', () => {
-            autoScroll = setInterval(() => {
-                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    carousel.scrollBy({ left: 230, behavior: 'smooth' });
-                }
-            }, 3000);
-        });
-    </script>
-
-</body>
-</html>
-
