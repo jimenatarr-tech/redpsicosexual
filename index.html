@@ -602,7 +602,7 @@
             margin-bottom: 15px;
         }
 
-        /* --- BOTONES DE MÉTODOS --- */
+        /* --- BOTONES DE MÉTODOS Y SUBMENÚS --- */
         .metodos-subtabs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1312,7 +1312,6 @@
                 box-sizing: border-box;
             }
 
-            /* Cuadrados de Salud Sexual más chicos y organizados en 2x2 para celular */
             .salud-cards-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
@@ -1886,7 +1885,6 @@ Complemento mi formación académica con una Diplomatura en TDAH en Fundación F
                         <p class="extra-content"><strong>¿Es gratis?:</strong> Sí, provisto de forma gratuita en hospitales y centros de salud.</p>
                         <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
                     </div>
-
                 </div>
 
                 <!-- SECCIÓN CONSENTIMIENTO Y VÍNCULOS (NUBECITAS) -->
@@ -1910,10 +1908,84 @@ Complemento mi formación académica con una Diplomatura en TDAH en Fundación F
                     </div>
                 </div>
 
+                <!-- SECCIÓN ITS (NUEVA ESTRUCTURA CON SUBMENÚS Y BOTONES) -->
                 <div id="salud-its" class="salud-content-display">
                     <h4>ITS (Infecciones de Transmisión Sexual)</h4>
-                    <p>Las ITS se transmiten de una persona a otra durante una relación sexual. Pueden ser producto de más de treinta tipos de virus, bacterias y parásitos. Las más frecuentes son: la sífilis, la gonorrea, la clamidia, el Virus del Papiloma Humano (VPH), las hepatitis B y C, el VIH. Afectan a todas las personas: varones, mujeres de cualquier edad y orientación sexual.<p/>
-                    <button class="ver-mas-btn" onclick="toggleVerMasBloque(this)">Ver más</button>
+                    <p>Las ITS son infecciones que se transmiten principalmente a través de las relaciones sexuales sin protección. Muchas son asintomáticas, por lo que el testeo periódico es clave para un diagnóstico y tratamiento oportuno.</p>
+
+                    <p style="margin-top: 25px; font-weight: 600; color: #ffffff;">Explorá las categorías y conocé los detalles de cada infección:</p>
+
+                    <!-- Botones Principales de Categorías ITS -->
+                    <div class="metodos-subtabs-grid">
+                        <button class="metodo-sub-btn" onclick="toggleSubMenu('menu-its-bacterianas', this)">Infecciones Bacterianas</button>
+                        <button class="metodo-sub-btn" onclick="toggleSubMenu('menu-its-virales', this)">Infecciones Virales</button>
+                    </div>
+
+                    <!-- SUBMENÚ: Bacterianas -->
+                    <div id="menu-its-bacterianas" class="sub-menu-container">
+                        <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 600; color: #ffffff;">Seleccioná la infección:</p>
+                        <div class="sub-menu-grid">
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-sifilis', this)">Sífilis</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-gonorrea', this)">Gonorrea</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-clamidia', this)">Clamidia</button>
+                        </div>
+                    </div>
+
+                    <!-- SUBMENÚ: Virales -->
+                    <div id="menu-its-virales" class="sub-menu-container">
+                        <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 600; color: #ffffff;">Seleccioná la infección:</p>
+                        <div class="sub-menu-grid">
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-hpv', this)">HPV (Virus del Papiloma Humano)</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-herpes', this)">Herpes genital</button>
+                            <button class="sub-menu-btn" onclick="showMetodoDetalle('det-hepatitis', this)">Hepatitis B y C</button>
+                        </div>
+                    </div>
+
+                    <!-- CAJAS DE DETALLE DE ITS -->
+                    <div id="det-sifilis" class="metodo-detalle-box">
+                        <h5>Sífilis</h5>
+                        <p><strong>¿Qué es?</strong> Es una infección bacteriana causada por la bacteria <em>Treponema pallidum</em>.</p>
+                        <p><strong>Síntomas comunes:</strong> Puede iniciar con una llaga indolora (chancro) en los genitales, ano o boca. Si no se trata, puede provocar sarpullido en el cuerpo. Muchas veces pasa desapercibida.</p>
+                        <p class="extra-content"><strong>Tratamiento:</strong> Se cura de forma muy sencilla con antibióticos (como la penicilina inyectable).</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
+                    </div>
+
+                    <div id="det-gonorrea" class="metodo-detalle-box">
+                        <h5>Gonorrea</h5>
+                        <p><strong>¿Qué es?</strong> Es una infección bacteriana que afecta las mucosas de los genitales, el recto y la garganta.</p>
+                        <p><strong>Síntomas comunes:</strong> Secreción inusual o dolor al orinar. Al igual que otras ITS, puede no presentar síntomas claros.</p>
+                        <p class="extra-content"><strong>Tratamiento:</strong> Se diagnostica mediante análisis y se cura por completo con antibióticos específicos indicados por un profesional.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
+                    </div>
+
+                    <div id="det-clamidia" class="metodo-detalle-box">
+                        <h5>Clamidia</h5>
+                        <p><strong>¿Qué es?</strong> Una infección bacteriana muy común que se transmite a través de relaciones sexuales vaginales, anales u orales sin protección.</p>
+                        <p><strong>Síntomas comunes:</strong> A menudo es llamada "la infección silenciosa" porque rara vez da síntomas evidentes en etapas tempranas.</p>
+                        <p class="extra-content"><strong>Tratamiento:</strong> Es sumamente fácil de tratar y curar con antibióticos.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
+                    </div>
+
+                    <div id="det-hpv" class="metodo-detalle-box">
+                        <h5>HPV (Virus del Papiloma Humano)</h5>
+                        <p><strong>¿Qué es?</strong> Es un grupo de más de 200 virus relacionados. Algunos tipos pueden causar verrugas genitales y otros tipos de alto riesgo pueden derivar en lesiones celulares.</p>
+                        <p><strong>Prevención clave:</strong> Contamos con la **vacuna contra el HPV** dentro del Calendario Nacional y los controles periódicos (como el Papanicolaou o test de HPV).</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
+                    </div>
+
+                    <div id="det-herpes" class="metodo-detalle-box">
+                        <h5>Herpes genital</h5>
+                        <p><strong>¿Qué es?</strong> Una infección viral que provoca la aparición de pequeñas ampollas o úlceras dolorosas en la zona genital o anal.</p>
+                        <p><strong>Tratamiento:</strong> Si bien el virus permanece en el cuerpo, los medicamentos antivirales ayudan a controlar los brotes y reducir los síntomas de manera muy efectiva.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
+                    </div>
+
+                    <div id="det-hepatitis" class="metodo-detalle-box">
+                        <h5>Hepatitis B y C</h5>
+                        <p><strong>¿Qué es?</strong> Infecciones virales que afectan directamente al hígado. La Hepatitis B se transmite por vía sexual y sanguínea, mientras que la C principalmente por contacto con sangre.</p>
+                        <p><strong>Prevención:</strong> Existe una vacuna segura y gratuita contra la Hepatitis B dentro del calendario nacional.</p>
+                        <button class="ver-mas-btn" onclick="toggleVerMasDetalle(this)">Ver más</button>
+                    </div>
                 </div>
 
                 <div id="salud-esi" class="salud-content-display">
@@ -2025,7 +2097,6 @@ Complemento mi formación académica con una Diplomatura en TDAH en Fundación F
                             <p>Cuando una persona con VIH toma su medicación antirretroviral de forma correcta y logra mantener una <strong>carga viral indetectable</strong> en sangre durante al menos 6 meses, <strong>no transmite el virus</strong> por vía sexual a sus parejas.</p>
                         </div>
 
-                        <!-- SECCIÓN PREVENCIÓN COMBINADA (PRÉP Y PEP) LIMPIA -->
                         <div id="tab-prep" class="vih-content-box">
                             <h4>Prevención combinada</h4>
                             <p>Cuando hablamos de cuidarnos, el preservativo es una herramienta fundamental, pero no es la única. La <strong>prevención combinada</strong> integra un conjunto de programas y opciones diseñadas para satisfacer las necesidades de cada persona y comunidad, basándose en la evidencia científica y los derechos desde una perspectiva de salud pública.</p>
@@ -2144,7 +2215,7 @@ Complemento mi formación académica con una Diplomatura en TDAH en Fundación F
                         <span class="footer-badge">ESI & Vínculos</span>
                     </div>
 
-                    <!-- Botón de Instagram visible solo en celular (subido aquí arriba) -->
+                    <!-- Botón de Instagram visible solo en celular -->
                     <div class="footer-insta-mobile">
                         <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
                             <span class="footer-contact-icon">✉️</span>
@@ -2168,7 +2239,7 @@ Complemento mi formación académica con una Diplomatura en TDAH en Fundación F
                     </ul>
                 </div>
 
-                <!-- Columna 3: Contacto (Visible solo en PC, oculta en celular) -->
+                <!-- Columna 3: Contacto (Visible solo en PC) -->
                 <div class="footer-col footer-contact-col-pc">
                     <h4>Contacto</h4>
                     <a href="https://instagram.com/red.psicosexual" target="_blank" class="footer-contact-item">
@@ -2478,4 +2549,3 @@ Complemento mi formación académica con una Diplomatura en TDAH en Fundación F
 
 </body>
 </html>
-
